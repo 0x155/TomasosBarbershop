@@ -28,10 +28,18 @@
 				$('.datepicker').datepicker({
 					todayBtn:"linked",
 					autoclose:true,
-					todayHighlight:true
+					todayHighlight:true,
+					daysOfWeekDisabled:'0'
 				});
 
-				$('#calendar').fullCalendar({
+				//Pre-fill Date with today's date
+				var today = new Date();
+				var day = today.getDate();
+				var month = today.getMonth() + 1; //Jan = 0
+				var year = today.getFullYear();
+				$('.datepicker').datepicker('update', month+"/"+day+"/"+year);
+
+				$('.calendar').fullCalendar({
 					defaultView:'agendaDay',
 					contentHeight:700,
 					slotDuration:'00:15:00',
@@ -45,6 +53,24 @@
 						left:'prev',
 						center: 'title',
 						right:'today next'
+					}
+
+				});
+
+				$('.calendar2').fullCalendar({
+					defaultView:'agendaDay',
+					contentHeight:700,
+					slotDuration:'00:15:00',
+					minTime:"09:00:00",
+					maxTime:"19:30:00",
+
+					/*arranges buttons on top*/
+					/*CSVs appear adjacent,
+					items seperated by space appear with a gap */
+					header: {
+						left:'',
+						center: '',
+						right:''
 					}
 				});
 
@@ -71,7 +97,7 @@
 								<h4>Date:</h4>
 								<!-- http://eternicode.github.io/bootstrap-datepicker/?#sandbox -->
 								<!-- pre-fill the Date field with today's date -->
-								<input type="text" class="date_field datepicker form-control" placeholder="10/26/2014">
+								<input type="text" class="date_field datepicker form-control" id="current_date">
 							</li>
 
 							<li>
@@ -105,13 +131,17 @@
 					</form>
 				</div>
 
-				<div class="col-md-4 date-view">
+				<div class="col-md-3">
 					<!-- http://fullcalendar.io/docs/usage/ -->
-					<div id='calendar'>
-						
-					</div>
+					<div class='calendar'></div>
+				</div>
+				<div class="col-md-3">
+					<!-- http://fullcalendar.io/docs/usage/ -->
+					<div class='calendar2'></div>
+				</div>
 
-
+				
+					
 				</div>
 			</div>
 

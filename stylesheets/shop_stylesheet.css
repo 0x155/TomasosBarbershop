@@ -33,18 +33,7 @@ body {
 }
 
 /*------Date view on right side ----*/
-.date-view > .previous {
-  float:left;
-}
 
-.date-view .next {
-  float:right;
-}
-
-
-.previous, .next {
-  text-align: center;
-}
 
 /*-------------------------------*/
 
@@ -106,6 +95,19 @@ body {
 
 .make_appt_btn:hover {
   background-color: #0444B3;
+}
+
+.calendar2 {
+  margin-top: 1.2em;
+
+}
+
+.calendar {
+
+}
+
+.calendar .fc-toolbar {
+  width:700px;
 }
 
 /*
