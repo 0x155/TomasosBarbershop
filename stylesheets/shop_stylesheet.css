@@ -1,0 +1,127 @@
+body {
+	font-family: proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 24px;
+}
+
+.scheduler_header {
+	border-bottom-style: solid;
+	padding-bottom: 10em;
+}
+
+.scheduler_header button:hover {
+  background-color: #1c5bc9;
+}
+
+.offset {
+  border:1px solid white;
+}
+
+.next_arrow, .previous_arrow {
+  margin-top: 1em;
+}
+
+.fields ul {
+  list-style-type: none;
+}
+
+.fields {
+  /*border:1px solid black;*/
+}
+
+.fields .field_labels > li {
+  margin-bottom: 2em;
+}
+
+/*------Date view on right side ----*/
+.date-view > .previous {
+  float:left;
+}
+
+.date-view .next {
+  float:right;
+}
+
+
+.previous, .next {
+  text-align: center;
+}
+
+/*-------------------------------*/
+
+.field_labels .cust_name_label {
+  font-size: 16px;
+}
+
+.fields .field_labels > .date_field {
+  width: 300px;
+}
+
+.field_labels .cust_name_field {
+  max-width: 400px;
+}
+
+.field_labels .cust_name_field {
+  max-width: 400px;
+}
+
+.cust_name_field {
+  max-width: 300px;
+}
+
+.date_field {
+  max-width: 150px;
+}
+
+
+.employee_field {
+  max-width: 200px;
+}
+
+.service_field {
+  max-width: 200px;
+}
+
+.make_appt_btn {
+  margin-left: 3em;
+}
+
+.field_labels .employee-dropdown, .service-dropdown {
+  max-width: 200px;
+}
+
+.make_appt_btn {
+  font-size: 16px;
+  line-height: 1.33;
+  border-radius: 4px;
+  width:200px;
+  height:30px;
+  color:white;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  background-color:#397ef5;
+  border: 1px solid transparent;
+  margin-top:1em;
+}
+
+.make_appt_btn:hover {
+  background-color: #0444B3;
+}
+
+/*
+.fields button {
+  padding:16px, 26px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 4px;
+  width:155px;
+  height:57px;
+  color:white;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  background-color:#397ef5;
+  border: 1px solid transparent;
+  margin-top:1em;
+}
+*/

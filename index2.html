@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Tomaso's Barbershop</title>
+		<link rel="stylesheet" type="text/css" href="stylesheets\shop_stylesheet.css">
+		<link rel="stylesheet" type="text/css" href="stylesheets\cb_bootstrap.css">
+
+		<!--JQuery UI Date Picker -->
+	    <link rel="stylesheet" href="jquery/jquery-ui.css">
+	    <script src="jquery/jquery-1.11.1.js"></script>
+	    <script src="jquery/jquery-ui.js"></script>
+
+	    <!-- full-calendar 
+	    <link rel="stylesheet" href="lib/fullcalendar-2.1.1/fullcalendar.css">
+	    <script type="text/javascript" src="lib/fullcalendar-2.1.1/lib/jquery.min.js"></script>
+	    <script type="text/javascript" src="lib/fullcalendar-2.1.1/lib/moment.min.js"></script>
+	    <script type="text/javascript" src="lib/fullcalendar-2.1.1/fullcalendar.js"></script>
+		-->
+		<!-- This script is for the DatePicker at the top of the screen -->
+	    <script>
+	    /*
+	    	$(document).ready(function(){
+	    		$('#calendar').fullCalendar({
+	    			
+	    		})
+	    	});*/
+
+
+
+
+	    	$(function() {
+			    $( "#datepicker" ).datepicker({
+			      altField: "#alternate",
+			      altFormat: "DD",
+			      showOn: "button",
+			      buttonImage: "images/calendar_icon.png",
+			      buttonImageOnly: true
+			    });
+			});
+	    </script>
+
+	</head>
+
+	<body>
+		<header class="scheduler_header grid">
+
+			<div class="row top_row">
+
+				<!-- Previous button and label -->
+				<div class="previous_arrow one-col">
+					<a href="#"><img src="images\prev_button.jpg"></a>
+				</div>
+				<div class="prev_label one-col">
+					<h4>Previous</h4>
+				</div>
+
+				<!--<div class="one-col offset"></div>-->
+
+				<!--Date-->
+				<div class="date three-col">
+					<h4>Date:<input type="text" id="datepicker" value="10/7/2014"></h4>
+				</div>
+
+				<!-- Day -->
+				<div class="two-col">
+					<h4>Day:<input type="text" id="alternate" value="Tuesday" readonly></h4>
+				</div>	
+
+				<div class="one-col">
+					<button type="button">Make Appointment</button>
+				</div>	
+
+				<!--Next label and button -->
+				<div class="next one-col">
+					<h4 class="next_label">Next</h4>
+				</div>
+				<div class="next_arrow one-col">
+					<a href="#"><img src="images\next_button.jpg"></a>
+				</div>
+
+			</div>
+		</header>
+
+		<section id="calendar">
+
+		</section>
+
+
+
+		<!--
+			<ul class="top_items">
+				<li class="prev_button"><a href="#"><img src="images\prev_button.jpg"></a></li>
+				<li class="prev">Previous</li>
+
+				<!--Fill Date and Day with today's Date and Day 
+				<li class="date">Date:<input type="text" id="datepicker" value="10/7/2014"></li>
+				<li class="day">Day:<input type="text" id="alternate" value="Tuesday" readonly></li>
+
+				<li class="next_button"><a href="#"><img src="images\next_button.jpg"></a></li>
+				<li class="next">Next</li>
+			</ul>
+			<button type="button">Make Appointment</button>
+			-->
+		</header>
+
+	</body>
+</html>

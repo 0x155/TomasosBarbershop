@@ -1,0 +1,101 @@
+/*
+This is a custom implementation of Bootstrap's grid system
+*/
+*, *:before, *:after {
+  box-sizing:border-box;
+}
+
+.grid {
+  width:100%;
+}
+
+/*includes all classes that contain "-col" in the name */
+.grid, .row, [class*="-col"] {
+  padding:0;
+  margin:0;
+}
+
+.grid:after, .row:after {
+  content:"";
+  display:table;
+  clear:both;
+}
+
+/* spacing between rows */
+.row {
+  margin-bottom:1em;
+}
+
+/* the last row does not need a bottom margin */
+/* no spacing needed on bottom of last row */
+.row:last-child{
+  margin-bottom:0;
+}
+
+/* sets up the columns. each gutter is 1.5%, the last one with no gutter */
+[class*="-col"] {
+  float:left;
+  margin-right:1.5%;
+}
+
+[class*="-col"]:last-child {
+  margin-right:0;
+}
+
+/*set width of each column to span */
+.one-col {
+  width:6.958%;
+}
+
+.two-col {
+  width:15.41%;
+}
+
+.three-col {
+  width:23.87%;
+}
+
+.four-col {
+  width:32.33%;
+}
+
+.five-col {
+  width:40.79%;
+}
+
+.six-col {
+  width:49.25%;
+}
+
+.seven-col {
+  width:57.70%;
+}
+
+.eight-col {
+  width:66.16%;
+}
+
+.nine-col {
+  width:74.62%;
+}
+
+.ten-col {
+  width:83.08%;
+}
+
+.eleven-col {
+  width:91.54%;
+}
+
+.twelve-col {
+  width:100%;
+}
+
+/*
+[class*="-col"] {
+  border-width:1px;
+  border-style:solid;
+  border-color:black;
+
+}
+*/

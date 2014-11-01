@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Tomaso's Barbershop</title>
+
+		<link rel="stylesheet" type="text/css" href="stylesheets\shop_stylesheet.css"/>
+		<link rel="stylesheet" type="text/css" href="lib\bootstrap\css\bootstrap.min.css"/>
+		<!-- full calendar 2.1.1 -->
+		<!-- http://fullcalendar.io/ -->
+		<link rel="stylesheet" type="text/css" href="lib\fullcalendar-2.1.1\fullcalendar.css" />
+
+		<!-- bootstrap version is 3.2 -->
+		<script type="text/javascript" src="jquery\jquery-2.1.1.js"></script>
+		<script type="text/javascript" src="lib\bootstrap\js\bootstrap.js"></script>
+		<!-- fullCalendar -->
+		<script type="text/javascript" src="lib\fullcalendar-2.1.1\lib\jquery.min.js"></script>
+		<script type="text/javascript" src="lib\fullcalendar-2.1.1\lib\moment.min.js"></script>
+		<script type="text/javascript" src="lib\fullcalendar-2.1.1\fullcalendar.js"></script>
+
+		<!-- Bootstrap datepicker -->
+		<!-- http://bootstrap-datepicker.readthedocs.org/en/release/ -->
+		<script type="text/javascript" src="lib\bootstrap\datepicker\js\bootstrap-datepicker.js"></script>
+		<link rel="stylesheet" type="text/css" href="lib\bootstrap\datepicker\css\datepicker.css"/>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.datepicker').datepicker({
+					todayBtn:"linked",
+					autoclose:true,
+					todayHighlight:true
+				});
+
+				$('#calendar').fullCalendar({
+					defaultView:'agendaDay',
+					contentHeight:700,
+					slotDuration:'00:15:00',
+					minTime:"09:00:00",
+					maxTime:"19:30:00",
+
+					/*arranges buttons on top*/
+					/*CSVs appear adjacent,
+					items seperated by space appear with a gap */
+					header: {
+						left:'prev',
+						center: 'title',
+						right:'today next'
+					}
+				});
+
+			});
+		</script>
+
+	</head>
+
+	<body>
+		
+		<div class="grid">
+			<!-- http://getbootstrap.com/css/#grid-options -->
+			<div class="row">
+				<div class="col-md-4 fields">
+					<!--<form name="appointment_form" method="post" action="process.php">-->
+					<form name="appointment_form">
+						<ul class="field_labels">
+							<li>
+							<label for="customer_name" class="cust_name_label"><h4>Customer Name:</h4></label>
+								<input type="text" placeholder="Customer Name" class="cust_name_field form-control">
+							</li>
+
+							<li>
+								<h4>Date:</h4>
+								<!-- http://eternicode.github.io/bootstrap-datepicker/?#sandbox -->
+								<!-- pre-fill the Date field with today's date -->
+								<input type="text" class="date_field datepicker form-control" placeholder="10/26/2014">
+							</li>
+
+							<li>
+								<h4>Employee:</h4>
+								<select class="employee-dropdown form-control">
+									<option>Kieron</option>
+									<option>Tiara</option>
+									<option>Doug</option>
+									<option>Melvin</option>
+								</select>
+							</li>
+
+							<li>
+								<h4>Type of Service:</h4>
+								<select class="service-dropdown form-control">
+										<option>Haircut</option>
+										<option>Beard Trim</option>
+										<option>Shave</option>
+										<option>Color</option>
+										<option>Eyebrow Wax</option>
+								</select>
+							</li>
+
+							<li>
+								<h4>Notes:</h4>
+								<textarea class="notes_area form-control" rows="5" cols="10"></textarea>
+							</li>
+						</ul>
+
+						<button type="button" class="make_appt_btn">Make Appointment</button>
+					</form>
+				</div>
+
+				<div class="col-md-4 date-view">
+					<!-- http://fullcalendar.io/docs/usage/ -->
+					<div id='calendar'>
+						
+					</div>
+
+
+				</div>
+			</div>
+
+		</div>
+
+	</body>
+
+</html>
