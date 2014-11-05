@@ -46,14 +46,6 @@ body {
 }
 
 .field_labels .cust_name_field {
-  max-width: 400px;
-}
-
-.field_labels .cust_name_field {
-  max-width: 400px;
-}
-
-.cust_name_field {
   max-width: 300px;
 }
 
@@ -108,6 +100,14 @@ body {
 
 .calendar .fc-toolbar {
   width:700px;
+}
+
+.field_labels .not-customer-name {
+  
+}
+
+.move-down {
+  margin-top: 200px;
 }
 
 /*
