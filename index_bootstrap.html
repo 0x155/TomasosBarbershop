@@ -23,67 +23,8 @@
 		<script type="text/javascript" src="lib\bootstrap\datepicker\js\bootstrap-datepicker.js"></script>
 		<link rel="stylesheet" type="text/css" href="lib\bootstrap\datepicker\css\datepicker.css"/>
 
-
-		<script type="text/javascript">
-			$(document).ready(function(){
-
-				$('.cust-search-button').click(function() {
-					$('.not-customer-name').toggleClass('move-down');
-				});
-
-
-
-				$('.datepicker').datepicker({
-					todayBtn:"linked",
-					autoclose:true,
-					todayHighlight:true,
-					daysOfWeekDisabled:'0'
-				});
-
-				//Pre-fill Date with today's date
-				var today = new Date();
-				var day = today.getDate();
-				var month = today.getMonth() + 1; //Jan = 0
-				var year = today.getFullYear();
-				$('.datepicker').datepicker('update', month+"/"+day+"/"+year);
-
-				$('.calendar').fullCalendar({
-					defaultView:'agendaDay',
-					contentHeight:700,
-					slotDuration:'00:15:00',
-					minTime:"09:00:00",
-					maxTime:"19:30:00",
-
-					/*arranges buttons on top*/
-					/*CSVs appear adjacent,
-					items seperated by space appear with a gap */
-					header: {
-						left:'prev',
-						center: 'title',
-						right:'today next'
-					}
-
-				});
-
-				$('.calendar2').fullCalendar({
-					defaultView:'agendaDay',
-					contentHeight:700,
-					slotDuration:'00:15:00',
-					minTime:"09:00:00",
-					maxTime:"19:30:00",
-
-					/*arranges buttons on top*/
-					/*CSVs appear adjacent,
-					items seperated by space appear with a gap */
-					header: {
-						left:'',
-						center: '',
-						right:''
-					}
-				});
-
-			});
-		</script>
+		<!-- Javascript/JQuery written by CB -->
+		<script type="text/javascript" src="lib\application.js"></script>
 
 	</head>
 
@@ -97,18 +38,18 @@
 					<form name="appointment_form">
 						<ul class="field_labels">
 							<li>
-									<!-- for attribute will be used when sending to server -->
-							<label for="customer_name" class="cust_name_label"><h4>Customer Name:</h4></label>
-								<input type="text" placeholder="Customer Name" class="cust_name_field form-control">
-
-								<button type="button" class="cust-search-button">Search</button>
+								<!-- for attribute will be used when sending to server -->
+								<label for="customer_name" class="cust_name_label"><h4>Customer Name:</h4></label>
+								<ul class="cust-fields">
+									<li><input type="text" placeholder="Customer Name" class="cust_name_field form-control"></li>
+									<li><button type="button" class="cust-search-button">Search</button></li>
+								</ul>
 							</li>
 
 							<div class="not-customer-name">
 								<li>
 									<h4>Date:</h4>
 									<!-- http://eternicode.github.io/bootstrap-datepicker/?#sandbox -->
-									<!-- pre-fill the Date field with today's date -->
 									<input type="text" class="date_field datepicker form-control" id="current_date">
 								</li>
 
@@ -143,26 +84,22 @@
 								</li>
 							</div>
 						</ul>
-
-							
-						
-
-
-
 					</form>
 				</div>
 
-					<div class="col-md-3">
+					<div class="col-md-7">
 						<!-- http://fullcalendar.io/docs/usage/ -->
 						<div class='calendar'></div>
+						<!-- fc-axis, fc-day, and fc-time are the classes with the properies for the columns 
+						fc-minor class is for odd times (:15, :30, :45)
+						fc-widget-content is area of calendar the user will click to schedule appointments (the row for the time slot)
+						-->
 					</div>
 					<!--
 					<div class="col-md-3">
-						 http://fullcalendar.io/docs/usage/ 
-						<div class='calendar2'></div>-->
-				
-					
-				</div>
+						<div class='calendar2'></div>
+					</div>
+					-->
 			</div>
 
 		</div>
