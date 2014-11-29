@@ -45,8 +45,8 @@ body {
   width: 300px;
 }
 
-.field_labels .cust_name_field {
-  max-width: 300px;
+.field_labels #cust_name_field {
+  width: 300px;
 }
 
 .date_field {
@@ -130,7 +130,6 @@ body {
 
 .field_labels .cust-fields li {
   display: inline-block;
-  
 }
 
 .field_labels .cust-fields .cust-search-button {
@@ -141,13 +140,31 @@ body {
   border-color: transparent;
 }
 
-.field_labels .cust-fields .cust_name_field {
+.field_labels .cust-fields #cust_name_field {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
 
+.customer-history {
+  display: none;
+  margin-top: -1em;
+}
 
+.customer-history #date-head {
+  padding-right: 4.5em;
+}
 
+.customer-history #emp-head {
+  padding-right: 2em;
+}
+
+.customer-history #service-head {
+  padding-right: 5em;
+}
+
+#cust-history-close {
+  cursor: pointer;
+}
 
 
 /*
