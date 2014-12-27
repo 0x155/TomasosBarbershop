@@ -51,11 +51,9 @@
 							</li>
 
 							<!-- Customer Data Table -->
-							<!-- This will be hidden at first, then displayed based on user action -->
+							<!-- This will be hidden at first, then display recent visits by the entered customer, and contact info -->
 							<li class="customer-history">
 								<p id="customer-history-label"></p>
-
-								<!--This table will show recent visits by the entered customer, and contact info -->
 								<table class="customer-history-table">
 									<tr>
 										<th id="date-head">Date</th>
@@ -79,10 +77,21 @@
 										<td>Beard Trim</td>
 									</tr>
 								</table>
-
 								<!-- Display customers phone # and email -->
 								<h5><b>Phone #:</b> 631-433-4415</h5>
 								<h5><b>Email:</b> christian.bonacore@gmail.com</h5>
+								<h5><a href="#">Edit</a></h5>
+							</li>
+							
+							<!--This will be displayed if no customers are returned from search.
+							This will prompt the user if they want to add a new customer -->
+							<li id="no-customer-returned">
+								<p>This search returned no customers. Would you like to add a new customer?</p>
+
+								<div class="btn-group" role="group">
+									<button type="button" class="btn_default_cb no-cust-btn" id="no-cust-btn-yes">Yes</button>
+									<button type="button" class=" btn_default_cb no-cust-btn" id="no-cust-btn-no">No</button>
+								</div>
 							</li>
 
 							<li>
@@ -127,7 +136,7 @@
 
 							<li>
 								<!-- The Make Appointment button will be used to submit info-->
-								<input type="submit" class="make_appt_btn" value="Make Appointment">
+								<input type="submit" class="btn_default_cb make_appt_btn" value="Make Appointment">
 							</li>
 						</ul>
 					</form>

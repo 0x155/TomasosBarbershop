@@ -64,15 +64,12 @@ body {
   max-width: 200px;
 }
 
-.make_appt_btn {
-  margin-left: 3em;
-}
-
 .field_labels #employee-dropdown, #service-dropdown {
   max-width: 200px;
 }
 
-.make_appt_btn {
+/* This style will be applied to all buttons */
+.btn_default_cb {
   font-size: 16px;
   line-height: 1.33;
   border-radius: 4px;
@@ -87,8 +84,16 @@ body {
   margin-top:1em;
 }
 
-.make_appt_btn:hover {
+.btn_default_cb:hover {
   background-color: #0444B3;
+}
+
+.make_appt_btn {
+  margin-left: 3em;
+}
+
+.no-cust-btn {
+  max-width: 100px;
 }
 
 .calendar2 {
@@ -147,10 +152,17 @@ body {
   border-bottom-right-radius: 0px;
 }
 
+/* These items will be initially hidden, 
+then displayed based on search results */
 .customer-history {
   display: none;
   margin-top: -1em;
 }
+
+#no-customer-returned {
+  display: none;
+}
+/*---------------*/
 
 .customer-history #date-head {
   padding-right: 4.5em;
@@ -170,6 +182,10 @@ body {
 
 #appt-timepicker {
   max-width: 150px;
+}
+
+#no-customer-returned {
+
 }
 
 
