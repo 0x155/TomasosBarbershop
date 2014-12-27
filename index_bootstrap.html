@@ -23,6 +23,11 @@
 		<script type="text/javascript" src="lib\bootstrap\datepicker\js\bootstrap-datepicker.js"></script>
 		<link rel="stylesheet" type="text/css" href="lib\bootstrap\datepicker\css\datepicker.css"/>
 
+		<!-- Bootstrap timepicker -->
+		<!-- https://github.com/jdewit/bootstrap-timepicker -->
+		<link rel="stylesheet" type="text/css" href="lib\bootstrap-timepicker\css\bootstrap-timepicker.min.css" />
+		<script type="text/javascript" src="lib\bootstrap-timepicker\js\bootstrap-timepicker.min.js"></script>
+
 		<!-- Javascript/JQuery written by CB -->
 		<script type="text/javascript" src="lib\application.js"></script>
 	</head>
@@ -32,18 +37,21 @@
 			<!-- http://getbootstrap.com/css/#grid-options -->
 			<div class="row">
 				<div class="col-md-4 fields">
-					<!--<form name="appointment_form" method="post" action="process.php">-->
-					<form name="appointment_form">
+					<!-- action attribute tells the web browser where to send the data when form is submitted. Can be an absolute or relative URL-->
+					<!-- method attribute tells browser how to send the data (GET/POST) -->
+					<form name="appointment_form" method="get" action="">
 						<ul class="field_labels">
 							<li>
 								<!-- for attribute will be used when sending to server -->
-								<!--<label for="customer_name" class="cust_name_label"><h4>Customer Name:</h4></label>-->
-								<label class="cust_name_label"><h4>Customer Name:</h4></label>
+								<label id="cust_name_label" for="customer_name"><h4>Customer Name:</h4></label>
 								<ul class="cust-fields">
-									<li><input type="text" placeholder="Customer Name" class="form-control" id="cust_name_field"></li>
+									<li><input type="text" name="customer_name" placeholder="Customer Name" class="form-control" id="customer_name"></li>
 									<li><button type="button" class="cust-search-button">Search</button></li>
 								</ul>
 							</li>
+
+							<!-- Customer Data Table -->
+							<!-- This will be hidden at first, then displayed based on user action -->
 							<li class="customer-history">
 								<p id="customer-history-label"></p>
 
@@ -75,17 +83,22 @@
 								<!-- Display customers phone # and email -->
 								<h5><b>Phone #:</b> 631-433-4415</h5>
 								<h5><b>Email:</b> christian.bonacore@gmail.com</h5>
-
 							</li>
+
 							<li>
-								<h4>Date:</h4>
+								<label for="date"><h4>Date:</h4></label>
 								<!-- http://eternicode.github.io/bootstrap-datepicker/?#sandbox -->
-								<input type="text" class="date_field datepicker form-control" id="current_date">
+								<input type="text" name="date" class="date_field datepicker form-control" id="date">
 							</li>
 
 							<li>
-								<h4>Employee:</h4>
-								<select class="employee-dropdown form-control">
+								<label for="start-time"><h4>Time</h4></label>
+								<input type="text" class="form-control" id="appt-timepicker">
+							</li>
+
+							<li>
+								<label for="employee-dropdown"><h4>Employee:</h4></label>
+								<select name="employee" id="employee-dropdown" class="form-control">
 									<option>Kieron</option>
 									<option>Tiara</option>
 									<option>Doug</option>
@@ -94,19 +107,22 @@
 							</li>
 
 							<li>
-								<h4>Type of Service:</h4>
-								<select class="service-dropdown form-control">
+								<label for="service-dropdown"><h4>Type of Service:</h4></label>
+								<select name="service" id="service-dropdown" class="form-control">
 									<option>Haircut</option>
 									<option>Beard Trim</option>
 									<option>Shave</option>
 									<option>Color</option>
 									<option>Eyebrow Wax</option>
+									<option>Unavailable</option>
 								</select>
 							</li>
 
 							<li>
-								<h4>Notes:</h4>
-								<textarea class="notes_area form-control" rows="5" cols="10"></textarea>
+								<!-- The for attribute of the label tag matches the id of what it is labelling -->
+								<!-- name attribute is the name of the data field -->
+								<label for="notes_area"><h4>Notes:</h4></label>
+								<textarea name="notes" id="notes_area" class="form-control" rows="5" cols="10"></textarea>
 							</li>
 
 							<li>

@@ -37,7 +37,7 @@ body {
 
 /*-------------------------------*/
 
-.field_labels .cust_name_label {
+.field_labels #cust_name_label {
   font-size: 16px;
 }
 
@@ -45,8 +45,10 @@ body {
   width: 300px;
 }
 
-.field_labels #cust_name_field {
+.field_labels #customer_name {
   width: 300px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 .date_field {
@@ -66,7 +68,7 @@ body {
   margin-left: 3em;
 }
 
-.field_labels .employee-dropdown, .service-dropdown {
+.field_labels #employee-dropdown, #service-dropdown {
   max-width: 200px;
 }
 
@@ -164,6 +166,10 @@ body {
 
 #cust-history-close {
   cursor: pointer;
+}
+
+#appt-timepicker {
+  max-width: 150px;
 }
 
 
