@@ -87,6 +87,7 @@
 							This will prompt the user if they want to add a new customer -->
 							<li id="no-customer-returned">
 								<p>This search returned no customers. Would you like to add a new customer?</p>
+								<p>Should user add customer, then make appointment, or make appt before getting customer info?</p>
 
 								<div class="btn-group" role="group">
 									<button type="button" class="btn_default_cb no-cust-btn" id="no-cust-btn-yes">Yes</button>
@@ -118,12 +119,13 @@
 							<li>
 								<label for="service-dropdown"><h4>Type of Service:</h4></label>
 								<select name="service" id="service-dropdown" class="form-control">
-									<option>Haircut</option>
+									<!-- Make the font color of these options the color of the agenda item on the calendar -->
+									<option id="haircut-option">Haircut</option>
 									<option>Beard Trim</option>
 									<option>Shave</option>
-									<option>Color</option>
+									<option id="color-option">Color</option>
 									<option>Eyebrow Wax</option>
-									<option>Unavailable</option>
+									<option id="unavailable-option">Unavailable</option>
 								</select>
 							</li>
 
@@ -136,7 +138,8 @@
 
 							<li>
 								<!-- The Make Appointment button will be used to submit info-->
-								<input type="submit" class="btn_default_cb make_appt_btn" value="Make Appointment">
+								<!--<input type="submit" class="btn_default_cb make_appt_btn" value="Make Appointment">-->
+								<button class="btn_default_cb make_appt_btn">Make Appointment</button>
 							</li>
 						</ul>
 					</form>

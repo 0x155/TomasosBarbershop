@@ -1,0 +1,12 @@
+COLUMNS IN CALENDAR VIEW FOR EACH EMPLOYEE
+
+Editing and Deleting events once scheduled
+Flow when adding a new customer (continue to make appointment, then add customer, or make appointment and then add customer)
+Texting/Emailing a customer when appointment is scheduled
+On dropdown for type of service, have what color that service will be on calendar (either font color or little box)
+Editing customer info
+Confirmation screen once appointment is confirmed and scheduled
+
+PERSONALIZE DATA
+CUSTOMER INFO, LAST VISITS, HOW OFTEN THEY COME IN, ETC.
+How will families be classified? Mrs. Jones -> 3 sons. Flag in database entry (Parent? boolean)

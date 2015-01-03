@@ -188,6 +188,21 @@ then displayed based on search results */
 
 }
 
+/* Set font color of items in the service dropdown.
+These colors will match the color that will appear on the calendar for appointments
+of these services */
+#haircut-option {
+  color:#3A87AD;
+}
+
+#unavailable-option {
+  color:#F45245;
+}
+
+#color-option {
+  color:#F58839;
+}
+
 
 /*
 .fields button {
