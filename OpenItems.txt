@@ -1,12 +1,14 @@
 COLUMNS IN CALENDAR VIEW FOR EACH EMPLOYEE
 
-Editing and Deleting events once scheduled
+When user selects Unavailable, have them select what time employee will be unavailable, also give check box for "All Day"
 Flow when adding a new customer (continue to make appointment, then add customer, or make appointment and then add customer)
-Texting/Emailing a customer when appointment is scheduled
-On dropdown for type of service, have what color that service will be on calendar (either font color or little box)
+Hover over an item on the calendar and it will bring up more info about that appointment (customer name, phone#, email)
+Editing and Deleting events once scheduled
 Editing customer info
 Confirmation screen once appointment is confirmed and scheduled
+Texting/Emailing a customer when appointment is scheduled
 
 PERSONALIZE DATA
 CUSTOMER INFO, LAST VISITS, HOW OFTEN THEY COME IN, ETC.
+CUSTOMER PROFILE
 How will families be classified? Mrs. Jones -> 3 sons. Flag in database entry (Parent? boolean)

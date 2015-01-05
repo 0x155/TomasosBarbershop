@@ -195,14 +195,25 @@ of these services */
   color:#3A87AD;
 }
 
-#unavailable-option {
-  color:#F45245;
+#beard-trim-option {
+  color:#368C23;
+}
+
+#shave-option {
+  color:#FF887C;
 }
 
 #color-option {
   color:#F58839;
 }
 
+#eyebrow-wax-option {
+  color:#7107A5;
+}
+
+#unavailable-option {
+  color:#F45245;
+}
 
 /*
 .fields button {
