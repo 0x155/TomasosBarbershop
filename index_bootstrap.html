@@ -39,9 +39,9 @@
 				<div class="col-md-4 fields">
 					<!-- action attribute tells the web browser where to send the data when form is submitted. Can be an absolute or relative URL-->
 					<!-- method attribute tells browser how to send the data (GET/POST) -->
-					<form name="appointment_form" method="get" action="">
+					<form name="appointment_form" method="get" action="" role="form">
 						<ul class="field_labels">
-							<li>
+							<li class="form-group">
 								<!-- for attribute will be used when sending to server -->
 								<label id="cust_name_label" for="customer_name"><h4>Customer Name:</h4></label>
 								<ul class="cust-fields">
@@ -95,18 +95,18 @@
 								</div>
 							</li>
 
-							<li>
+							<li class="form-group">
 								<label for="date"><h4>Date:</h4></label>
 								<!-- http://eternicode.github.io/bootstrap-datepicker/?#sandbox -->
 								<input type="text" name="date" class="date_field datepicker form-control" id="date">
 							</li>
 
-							<li>
-								<label for="start-time"><h4>Time</h4></label>
-								<input type="text" class="form-control" id="appt-timepicker">
+							<li class="form-group">
+								<label for="start-time"><h4>Time:</h4></label>
+								<input type="text" class="form-control appt-timepicker" id="start-time">
 							</li>
 
-							<li>
+							<li class="form-group">
 								<label for="employee-dropdown"><h4>Employee:</h4></label>
 								<select name="employee" id="employee-dropdown" class="form-control">
 									<option>Kieron</option>
@@ -116,7 +116,7 @@
 								</select>
 							</li>
 
-							<li>
+							<li class="form-group">
 								<label for="service-dropdown"><h4>Type of Service:</h4></label>
 								<select name="service" id="service-dropdown" class="form-control">
 									<!-- Make the font color of these options the color of the agenda item on the calendar -->
@@ -129,7 +129,25 @@
 								</select>
 							</li>
 
-							<li>
+							<!-- Only display this when the user selects "Unavailable" from Type of Service -->
+							<!-- This will allow them to choose the start/end time the employee is unavailable,
+							or be able to select that the employee is unavailable for the whole day -->
+							<li id="unavailable-service">
+								<label><input type="checkbox" id="unavailble-all-day">All Day</label>
+								<!--<input type="checkbox">All Day <br><br>-->
+
+								<div class="controls form-inline" id="unavailable-start-fields">
+									<label class="control-label" for="unavailable-start-time">Start Time:</label>
+									<input type="text" class="appt-timepicker" id="unavailable-start-time">
+								</div>
+
+								<div class="controls form-inline" id="unavailable-end-fields">
+									<label class="control-label" for="unavailable-end-time">End Time:</label>
+									<input type="text" class="appt-timepicker" id="unavailable-end-time">
+								</div>
+							</li>
+
+							<li class="form-group">
 								<!-- The for attribute of the label tag matches the id of what it is labelling -->
 								<!-- name attribute is the name of the data field -->
 								<label for="notes_area"><h4>Notes:</h4></label>
@@ -138,8 +156,8 @@
 
 							<li>
 								<!-- The Make Appointment button will be used to submit info-->
-								<!--<input type="submit" class="btn_default_cb make_appt_btn" value="Make Appointment">-->
-								<button class="btn_default_cb make_appt_btn">Make Appointment</button>
+								<input type="submit" class="btn_default_cb make_appt_btn" value="Make Appointment">
+								<!--<button class="btn_default_cb make_appt_btn">Make Appointment</button>-->
 							</li>
 						</ul>
 					</form>

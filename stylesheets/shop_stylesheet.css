@@ -180,7 +180,7 @@ then displayed based on search results */
   cursor: pointer;
 }
 
-#appt-timepicker {
+.appt-timepicker {
   max-width: 150px;
 }
 
@@ -213,6 +213,24 @@ of these services */
 
 #unavailable-option {
   color:#F45245;
+}
+
+/* Only display unavailable-service when the user
+selects Unavailable from Services drop down */
+#unavailable-service {
+  display: none;
+}
+
+.unavailable-time p, input {
+  display:inline;
+}
+
+#unavailable-start-fields {
+  padding-bottom: 1em;
+}
+
+#unavailable-end-fields label{
+
 }
 
 /*

@@ -1,11 +1,26 @@
 COLUMNS IN CALENDAR VIEW FOR EACH EMPLOYEE
 
 When user selects Unavailable, have them select what time employee will be unavailable, also give check box for "All Day"
+	Also, disable the Time value earlier in the form. That value will not be needed since user will be setting start/end time
+	
 Flow when adding a new customer (continue to make appointment, then add customer, or make appointment and then add customer)
+
+Return an error if the time entered is not within business hours
+Note hours are different for different days of the week (M-R, F, Sat)
+
+Do not allow duplicate appointments to be made. If an employee has an appointment at a certain time, do not allow user to make another
+appointment at all during that time (no overlap)
+
 Hover over an item on the calendar and it will bring up more info about that appointment (customer name, phone#, email)
+
 Editing and Deleting events once scheduled
+
 Editing customer info
+
+Spining logo next to Make Appointment button while appointment is being added
+
 Confirmation screen once appointment is confirmed and scheduled
+
 Texting/Emailing a customer when appointment is scheduled
 
 PERSONALIZE DATA
