@@ -8,15 +8,22 @@
 		<link rel="stylesheet" type="text/css" href="lib\bootstrap\css\bootstrap.min.css"/>
 		<!-- full calendar 2.1.1 -->
 		<!-- http://fullcalendar.io/ -->
-		<link rel="stylesheet" type="text/css" href="lib\fullcalendar-2.1.1\fullcalendar.css" />
+		<!--<link rel="stylesheet" type="text/css" href="lib\fullcalendar-2.1.1\fullcalendar.css" />-->
 
 		<!-- bootstrap version is 3.2 -->
 		<script type="text/javascript" src="jquery\jquery-2.1.1.js"></script>
 		<script type="text/javascript" src="lib\bootstrap\js\bootstrap.js"></script>
+
 		<!-- fullCalendar -->
-		<script type="text/javascript" src="lib\fullcalendar-2.1.1\lib\jquery.min.js"></script>
+		<!--<script type="text/javascript" src="lib\fullcalendar-2.1.1\lib\jquery.min.js"></script>
 		<script type="text/javascript" src="lib\fullcalendar-2.1.1\lib\moment.min.js"></script>
-		<script type="text/javascript" src="lib\fullcalendar-2.1.1\fullcalendar_copy.js"></script>
+		<script type="text/javascript" src="lib\fullcalendar-2.1.1\fullcalendar_copy.js"></script> -->
+
+		<!-- dhtmlx Scheduler -->
+		<script type="text/javascript" src="lib\dhtmlxScheduler_v4.2.0\codebase\dhtmlxscheduler.js"></script>
+		<script type="text/javascript" src="lib\dhtmlxScheduler_v4.2.0\codebase\ext\dhtmlxscheduler_units.js"></script>
+		<link rel="stylesheet" href="lib\dhtmlxScheduler_v4.2.0\codebase\dhtmlxscheduler.css" type="text/css" />
+		<link rel="stylesheet" href="stylesheets\stylesheet_dhtmlx.css" type="text/css" />
 
 		<!-- Bootstrap datepicker -->
 		<!-- http://bootstrap-datepicker.readthedocs.org/en/release/ -->
@@ -29,7 +36,7 @@
 		<script type="text/javascript" src="lib\bootstrap-timepicker\js\bootstrap-timepicker.min.js"></script>
 
 		<!-- Javascript/JQuery written by CB -->
-		<script type="text/javascript" src="lib\application.js"></script>
+		<script type="text/javascript" src="lib\application_dhtmlx.js"></script>
 	</head>
 
 	<body>
@@ -163,19 +170,28 @@
 					</form>
 				</div>
 
-					<div class="col-md-7">
-						<!-- http://fullcalendar.io/docs/usage/ -->
-						<div class='calendar'></div>
-						<!-- fc-axis, fc-day, and fc-time are the classes with the properies for the columns 
-						fc-minor class is for odd times (:15, :30, :45)
-						fc-widget-content is area of calendar the user will click to schedule appointments (the row for the time slot)
-						-->
-					</div>
-					<!--
-					<div class="col-md-3">
-						<div class='calendar2'></div>
-					</div>
+				<div class="col-md-7">
+					<!-- dhtmlx Scheduler verion 4.2-->
+					<!-- This is the main calendar used  to schedule appointments -->
+					<!-- http://docs.dhtmlx.com/scheduler/ -->
+					<div id="scheduler_here" class="dhx_cal_container">
+				    <div class="dhx_cal_navline">
+				        <div class="dhx_cal_prev_button">&nbsp;</div>
+				        <div class="dhx_cal_next_button">&nbsp;</div>
+				        <div class="dhx_cal_today_button"></div>
+				        <div class="dhx_cal_date"></div>
+				    </div>
+				    <div class="dhx_cal_header"></div>
+				    <div class="dhx_cal_data"></div>       
+				</div>
+
+					<!-- http://fullcalendar.io/docs/usage/ -->
+					<!--<div class='calendar'></div>-->
+					<!-- fc-axis, fc-day, and fc-time are the classes with the properies for the columns 
+					fc-minor class is for odd times (:15, :30, :45)
+					fc-widget-content is area of calendar the user will click to schedule appointments (the row for the time slot)
 					-->
+				</div>
 			</div>
 
 		</div>

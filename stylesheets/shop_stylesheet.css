@@ -96,18 +96,9 @@ body {
   max-width: 100px;
 }
 
-.calendar2 {
-  margin-top: 1.2em;
-
-}
-
 /* These are all the rows in the day view */
 .fc-slats tr {
   /*background-color: red;*/
-}
-
-.calendar .fc-toolbar {
-  /*width:700px;*/
 }
 
 .field_labels li {
@@ -231,6 +222,23 @@ selects Unavailable from Services drop down */
 
 #unavailable-end-fields label{
 
+}
+
+/* DHTMLX Scheduler */
+#scheduler_here {
+  /*not sure if I like hard-coding the height of the calendar */
+  height:900px; 
+  padding:10px;
+}
+
+.dhx_cal_header .dhx_scale_bar {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.dhx_scale_holder .dhx_scale_hour {
+  border-left: 1px solid #CECECE;
+  height: 200px;
 }
 
 /*
