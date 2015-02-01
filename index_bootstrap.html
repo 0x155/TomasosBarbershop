@@ -53,7 +53,7 @@
 								<label id="cust_name_label" for="customer_name"><h4>Customer Name:</h4></label>
 								<ul class="cust-fields">
 									<li><input type="text" name="customer_name" placeholder="Customer Name" class="form-control" id="customer_name"></li>
-									<li><button type="button" class="cust-search-button">Search</button></li>
+									<li><button type="button" id="cust-search-button">Search</button></li>
 								</ul>
 							</li>
 
@@ -94,7 +94,6 @@
 							This will prompt the user if they want to add a new customer -->
 							<li id="no-customer-returned">
 								<p>This search returned no customers. Would you like to add a new customer?</p>
-								<p>Should user add customer, then make appointment, or make appt before getting customer info?</p>
 
 								<div class="btn-group" role="group">
 									<button type="button" class="btn_default_cb no-cust-btn" id="no-cust-btn-yes">Yes</button>
@@ -120,6 +119,7 @@
 									<option>Tiara</option>
 									<option>Doug</option>
 									<option>Melvin</option>
+									<option>Jackie</option>
 								</select>
 							</li>
 
@@ -140,8 +140,7 @@
 							<!-- This will allow them to choose the start/end time the employee is unavailable,
 							or be able to select that the employee is unavailable for the whole day -->
 							<li id="unavailable-service">
-								<label><input type="checkbox" id="unavailble-all-day">All Day</label>
-								<!--<input type="checkbox">All Day <br><br>-->
+								<label><input type="checkbox" id="unavailable-all-day">All Day</label>
 
 								<div class="controls form-inline" id="unavailable-start-fields">
 									<label class="control-label" for="unavailable-start-time">Start Time:</label>

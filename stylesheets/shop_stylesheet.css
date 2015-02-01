@@ -130,7 +130,7 @@ body {
   display: inline-block;
 }
 
-.field_labels .cust-fields .cust-search-button {
+.field_labels .cust-fields #cust-search-button {
   margin-left: -0.3em;
   height: 34px;
   border-top-right-radius: 4px;
