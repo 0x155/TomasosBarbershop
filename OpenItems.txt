@@ -1,3 +1,23 @@
+		case "Haircut":
+			return "#3A87AD";
+		case "Beard Trim":
+			return "#368C23";
+		case "Shave":
+			return "#FF887C";
+		case "Color":
+			return "#F58839";
+		case "Eyebrow Wax":
+			return "#C353E8";
+		case "Unavailable":
+			return "#F45245";
+		default:
+			return "#3A87AD";
+
+
+
+
+
+
 AGENDA FOR NEXT MEETING
 --Preload events already on calendar for that day before meeting
 Demo scheduling appointments
@@ -9,12 +29,18 @@ Unavailable for multiple days? (employee goes on vacation)
 Which appointments are most common?
 
 
+CANNOT SEE MAKE APPOINTMENT BUTTON WHEN MAKING SOMEONE UNAVAILABLE WHEN USING LAPTOP
+
 OUTSTANDING ITEMS
 DATABASE
 
 Limit user actions when clicking on an event in the calendar
 
 Reseting fields once appointment is scheduled
+
+Hover effect on "Today" button
+Add customer name in event box in calendar
+Calendar date picker on main screen (instead of using back/forward arrows)
 
 Error if the time entered is not within business hours for that day
 	Note hours are different for different days of the week (M-R, F, Sat)
