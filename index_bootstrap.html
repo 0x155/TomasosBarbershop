@@ -43,7 +43,7 @@
 		<div class="grid">
 			<!-- http://getbootstrap.com/css/#grid-options -->
 			<div class="row">
-				<div class="col-md-4 fields">
+				<div class="col-md-4 fields" id="field-column">
 					<!-- action attribute tells the web browser where to send the data when form is submitted. Can be an absolute or relative URL-->
 					<!-- method attribute tells browser how to send the data (GET/POST) -->
 					<form name="appointment_form" method="get" action="" role="form">
@@ -169,20 +169,20 @@
 					</form>
 				</div>
 
-				<div class="col-md-7">
+				<div class="col-md-7" id="calender-column">
 					<!-- dhtmlx Scheduler verion 4.2-->
 					<!-- This is the main calendar used  to schedule appointments -->
 					<!-- http://docs.dhtmlx.com/scheduler/ -->
 					<div id="scheduler_here" class="dhx_cal_container">
-				    <div class="dhx_cal_navline">
-				        <div class="dhx_cal_prev_button">&nbsp;</div>
-				        <div class="dhx_cal_next_button">&nbsp;</div>
-				        <div class="dhx_cal_today_button"></div>
-				        <div class="dhx_cal_date"></div>
-				    </div>
-				    <div class="dhx_cal_header"></div>
-				    <div class="dhx_cal_data"></div>       
-				</div>
+					    <div class="dhx_cal_navline">
+					        <div class="dhx_cal_prev_button">&nbsp;</div>
+					        <div class="dhx_cal_next_button">&nbsp;</div>
+					        <div class="dhx_cal_today_button"></div>
+					        <div class="dhx_cal_date"></div>
+					    </div>
+					    <div class="dhx_cal_header"></div>
+					    <div class="dhx_cal_data"></div>       
+					</div>
 
 					<!-- http://fullcalendar.io/docs/usage/ -->
 					<!--<div class='calendar'></div>-->

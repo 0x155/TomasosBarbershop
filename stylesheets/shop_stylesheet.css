@@ -1,3 +1,7 @@
+html, body {
+  height: 100%;
+}
+
 body {
 	font-family: proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 24px;
@@ -223,12 +227,18 @@ selects Unavailable from Services drop down */
 #unavailable-end-fields label{
 
 }
+/* These elements are the paretns of the field-column div
+we are setting the width of these in order to be able to set a height
+percentage for field-column */
+html, body, .grid, .row, #calender-column {
+  height: 100%;
+}
 
 /* DHTMLX Scheduler */
 #scheduler_here {
-  /*not sure if I like hard-coding the height of the calendar */
-  height:900px; 
-  padding:10px;
+  height:95%; 
+  border-bottom:1px solid #CECECE;
+  width:100%;
 }
 
 .dhx_cal_header .dhx_scale_bar {
@@ -238,6 +248,17 @@ selects Unavailable from Services drop down */
 
 .dhx_scale_holder .dhx_scale_hour {
   border-left: 1px solid #CECECE;
+}
+
+#field-column {
+  height:99%;
+  overflow:auto;
+}
+
+.dhx_cal_today_button:hover, 
+.dhx_cal_prev_button:hover,
+.dhx_cal_next_button:hover {
+  background-color:#EFEFEF;
 }
 
 /*

@@ -1,35 +1,27 @@
-		case "Haircut":
-			return "#3A87AD";
-		case "Beard Trim":
-			return "#368C23";
-		case "Shave":
-			return "#FF887C";
-		case "Color":
-			return "#F58839";
-		case "Eyebrow Wax":
-			return "#C353E8";
-		case "Unavailable":
-			return "#F45245";
-		default:
-			return "#3A87AD";
-
-
-
-
-
-
 AGENDA FOR NEXT MEETING
---Preload events already on calendar for that day before meeting
 Demo scheduling appointments
 Demo Unavailable feature
 
 QUESTIONS  FOR NEXT MEETING
 Flow when adding a new customer (continue to make appointment, then add customer, or make appointment and then add customer)
-Unavailable for multiple days? (employee goes on vacation)
+-Bring up fields and only make name and phone required, fill in other stuff later (phone, email, etc.)
+name
+phone
+address
+email
+birthday
+
 Which appointments are most common?
+
+TOUCH SCREEN
+
+Straightening - 30mins
+Color - 15mins
+Shave - 30mins
 
 
 CANNOT SEE MAKE APPOINTMENT BUTTON WHEN MAKING SOMEONE UNAVAILABLE WHEN USING LAPTOP
+--Add min height?
 
 OUTSTANDING ITEMS
 DATABASE
@@ -38,7 +30,6 @@ Limit user actions when clicking on an event in the calendar
 
 Reseting fields once appointment is scheduled
 
-Hover effect on "Today" button
 Add customer name in event box in calendar
 Calendar date picker on main screen (instead of using back/forward arrows)
 
