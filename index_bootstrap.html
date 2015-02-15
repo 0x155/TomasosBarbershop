@@ -14,11 +14,6 @@
 		<script type="text/javascript" src="jquery\jquery-2.1.1.js"></script>
 		<script type="text/javascript" src="lib\bootstrap\js\bootstrap.js"></script>
 
-		<!-- fullCalendar -->
-		<!--<script type="text/javascript" src="lib\fullcalendar-2.1.1\lib\jquery.min.js"></script>
-		<script type="text/javascript" src="lib\fullcalendar-2.1.1\lib\moment.min.js"></script>
-		<script type="text/javascript" src="lib\fullcalendar-2.1.1\fullcalendar_copy.js"></script> -->
-
 		<!-- dhtmlx Scheduler -->
 		<script type="text/javascript" src="lib\dhtmlxScheduler_v4.2.0\codebase\dhtmlxscheduler.js"></script>
 		<script type="text/javascript" src="lib\dhtmlxScheduler_v4.2.0\codebase\ext\dhtmlxscheduler_units.js"></script>
@@ -183,16 +178,59 @@
 					    <div class="dhx_cal_header"></div>
 					    <div class="dhx_cal_data"></div>       
 					</div>
-
-					<!-- http://fullcalendar.io/docs/usage/ -->
-					<!--<div class='calendar'></div>-->
-					<!-- fc-axis, fc-day, and fc-time are the classes with the properies for the columns 
-					fc-minor class is for odd times (:15, :30, :45)
-					fc-widget-content is area of calendar the user will click to schedule appointments (the row for the time slot)
-					-->
 				</div>
 			</div>
+		</div>
 
+		<div id="modal_wrapper">
+			<div id="modal_new_customer">
+				<h3 id="add_new_cust_title">Add New Customer</h3><br/>
+
+				<!--action tells the browser where to send the form data when the form is submitted -->
+				<form id="new_customer_form" action="" method="post">
+					<table>
+						<tbody id="new_customer_table">
+							<tr>
+								<!-- the for attribute must match the id attribute -->
+								<td><label for="new_cust_name">*Name:</label></td>
+								<td id="new_cust_name_field"><input type="text" id="new_cust_name" placeholder="Customer Name" class="form-control"></td>
+							</tr>
+							<tr>
+								<td><label for="new_cust_cell_phone">*Cell Phone:</label></td>
+								<td><input type="text" id="new_cust_cell_phone"  placeholder="Cell Phone" class="form-control"></td>
+							</tr>
+							<tr>
+								<td><label for="new_cust_home_phone">Home Phone:  </label></td>
+								<td><input type="text" id="new_cust_home_phone"  placeholder="Home Phone" class="form-control"></td>
+							</tr>							
+							<tr>
+								<td><label for="new_cust_address">Address:</label></td>
+								<td><input type="text" id="new_cust_address"  placeholder="Address" class="form-control"></td>
+							</tr>							
+							<tr>
+								<!--prefill "@" ?-->
+								<td><label for="new_cust_email">Email:</label></td>
+								<td><input type="text" id="new_cust_email" placeholder="Email" class="form-control"></td>
+							</tr>
+							<tr>
+								<!-- use datepicker for Birthday -->
+								<td><label for="new_cust_birthday">Birthday:</label></td>
+								<td><input type="text" id="new_cust_birthday" placeholder="Birthday" class="form-control"></td>
+							</tr>
+							<tr>
+								<td><label for="new_cust_notes">Notes:</label></td>
+								<td><textarea name="notes" id="new_cust_notes" class="form-control" rows="3" cols="10"></textarea></td>
+							</tr>							
+						</tbody>
+					</table>
+
+					<br/>
+
+					<p>* indicates a required field</p><br/>
+
+					<input type="submit" class="btn_default_cb" value="Add Customer">
+				</form>
+			</div>
 		</div>
 
 	</body>
