@@ -1,0 +1,15 @@
+THESE NOTES ARE FOR THE CUSTOMER DATA ASPECT OF THE APPLICATION
+
+PERSONALIZE DATA
+CUSTOMER INFO, LAST VISITS, HOW OFTEN THEY COME IN, ETC.
+CUSTOMER PROFILE
+How will families be classified? Mrs. Jones -> 3 sons. Flag in database entry (Parent? boolean)
+
+Customer Searching
+-Ask Kieron and Tiara what knd of data they want on their customers
+Search for customers who have received services (ex. search for all customers who have had coloring appointments in the last 6 months)
+	When you receive a new coloring product, you can send emails to those customers who receive coloring
+
+Search for a customer's information by name (Look up John's phone number)
+
+Back to school, valentines day

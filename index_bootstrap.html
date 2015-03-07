@@ -89,9 +89,8 @@
 							This will prompt the user if they want to add a new customer -->
 							<li id="no-customer-returned">
 								<p>This search returned no customers. Would you like to add a new customer?</p>
-
 								<div class="btn-group" role="group">
-									<button type="button" class="btn_default_cb no-cust-btn" id="no-cust-btn-yes">Yes</button>
+									<button type="button" class="btn_default_cb no-cust-btn" id="no-cust-btn-yes" onclick="toggleAddNewCustomerWindow()">Yes</button>
 									<button type="button" class=" btn_default_cb no-cust-btn" id="no-cust-btn-no">No</button>
 								</div>
 							</li>
@@ -184,8 +183,10 @@
 
 		<div id="modal_wrapper">
 			<div id="modal_new_customer">
-				<h3 id="add_new_cust_title">Add New Customer</h3><br/>
-
+				<div class="new_cust_header">
+					<h3 id="new_cust_title">Add New Customer</h3><br/>
+					<p id="new_cust_close"><a href="#" onclick="toggleAddNewCustomerWindow()">close</a></p>
+				</div>
 				<!--action tells the browser where to send the form data when the form is submitted -->
 				<form id="new_customer_form" action="" method="post">
 					<table>
@@ -193,33 +194,38 @@
 							<tr>
 								<!-- the for attribute must match the id attribute -->
 								<td><label for="new_cust_name">*Name:</label></td>
-								<td id="new_cust_name_field"><input type="text" id="new_cust_name" placeholder="Customer Name" class="form-control"></td>
+								<td><input type="text" autofocus id="new_cust_name" placeholder="Customer Name" class="form-control"></td>
 							</tr>
 							<tr>
 								<td><label for="new_cust_cell_phone">*Cell Phone:</label></td>
 								<td><input type="text" id="new_cust_cell_phone"  placeholder="Cell Phone" class="form-control"></td>
-							</tr>
-							<tr>
-								<td><label for="new_cust_home_phone">Home Phone:  </label></td>
+								<td><label for="new_cust_home_phone" id="new_cust_home_phone_label">Home Phone:  </label></td>
 								<td><input type="text" id="new_cust_home_phone"  placeholder="Home Phone" class="form-control"></td>
-							</tr>							
+							</tr>					
 							<tr>
-								<td><label for="new_cust_address">Address:</label></td>
+								<!--prefill email with "@" ?-->
+								<td><label for="new_cust_email">Email:</label></td>
+								<td><input type="text" id="new_cust_email" placeholder="Email" class="form-control"></td>
+								<td><label for="new_cust_address" id="new_cust_address_label">Home Address:</label></td>
 								<td><input type="text" id="new_cust_address"  placeholder="Address" class="form-control"></td>
 							</tr>							
 							<tr>
-								<!--prefill "@" ?-->
-								<td><label for="new_cust_email">Email:</label></td>
-								<td><input type="text" id="new_cust_email" placeholder="Email" class="form-control"></td>
-							</tr>
-							<tr>
 								<!-- use datepicker for Birthday -->
 								<td><label for="new_cust_birthday">Birthday:</label></td>
-								<td><input type="text" id="new_cust_birthday" placeholder="Birthday" class="form-control"></td>
+								<td><input type="text" id="new_cust_birthday" placeholder="Birthday" class="form-control datepicker"></td>
 							</tr>
 							<tr>
 								<td><label for="new_cust_notes">Notes:</label></td>
 								<td><textarea name="notes" id="new_cust_notes" class="form-control" rows="3" cols="10"></textarea></td>
+								<td id="text_email_notify" colspan="2">
+									<div id="new_cust_notification">
+										<p id="notification_question">Would this customer like to be notified by</p>
+										<div id="notification_options">
+											<input type="checkbox" id="allow_text_check" name="allowText" value="true">Text<br>
+											<input type="checkbox" id="allow_email_check" name="allowEmail" value="true">Email
+										</div>
+									</div>
+								</td>
 							</tr>							
 						</tbody>
 					</table>
@@ -228,7 +234,8 @@
 
 					<p>* indicates a required field</p><br/>
 
-					<input type="submit" class="btn_default_cb" value="Add Customer">
+					<input type="submit" class="btn_default_cb" value="Add Customer" onclick="addCustomer()">
+					<button type="button" class="btn_default_cb" onclick="clearAddNewCustomerFields()">Clear Fields</button>
 				</form>
 			</div>
 		</div>

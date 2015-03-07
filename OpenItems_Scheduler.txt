@@ -1,0 +1,67 @@
+AGENDA FOR NEXT MEETING
+Demo add new customer screen
+Provide customer data searching suggestions, ask if they want additional searches
+
+QUESTIONS  FOR NEXT MEETING
+Recurring appointments? Every 2 weeks?
+Do you ever call clients to confirm appointments?
+
+THESE NOTES ARE ONLY FOR THE APPOINTMENT SCHEDULING ASPECT OF THE APPLICATION
+
+
+
+Which appointments are most common?
+
+TOUCH SCREEN
+
+Straightening - 30mins
+Color - 15mins
+Shave - 30mins
+
+
+RESOLVED OPEN ITEMS
+CANNOT SEE MAKE APPOINTMENT BUTTON WHEN MAKING SOMEONE UNAVAILABLE WHEN USING LAPTOP
+--Added scroll bars when window overflowed - overflow:auto on column
+
+OUTSTANDING ITEMS (in order of priority)
+DATABASE - MYSQL/PHP
+
+Flow when adding a new customer (continue to make appointment, then add customer, or make appointment and then add customer)
+-Bring up fields and only make name and phone required, fill in other stuff later (phone, email, etc.)
+name
+phone
+address
+email
+birthday (do not include year in birthday)
+
+Confirmation screen once appointment is confirmed and scheduled
+->Bring up modal window, prompt user to close window or view appointment on calendar (go to that date), also display appointment info
+
+Calendar date picker on main screen (instead of using back/forward arrows)
+
+Unavailable - do not include customer name
+
+Limit user actions when clicking on an event in the calendar
+
+Allow user to make multiple, sequential appointments (haircut, then beard trim for example)
+
+Reseting fields once appointment is scheduled
+
+Error if the time entered is not within business hours for that day
+	Note hours are different for different days of the week (M-R, F, Sat)
+	Calendar will not show event but make sure user knows the appointment was not scheduled
+Error when the start time is greater than the end time
+Error when certain fields are blank
+
+Do not allow conflicting appointments to be made. If an employee has an appointment at a certain time, do not allow user to make another
+appointment at all during that time (no overlap)
+
+Hover over an item on the calendar and it will bring up more info about that appointment (customer name, phone#, email)
+
+Editing and Deleting appointments once scheduled
+
+Spining logo next to Make Appointment button while appointment is being added
+
+Texting/Emailing a customer when appointment is scheduled
+"This is Tomaso's Barbershop reminding you of you 10:00am color appointment with Tiara. Please call if you need to cancel or reschedule"
+-Check if customer wants to be reminded via text and/or email

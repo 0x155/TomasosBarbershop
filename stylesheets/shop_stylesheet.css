@@ -275,7 +275,7 @@ html, body, .grid, .row, #calender-column {
 }
 
 #modal_new_customer {
-  width: 600px;
+  width: 650px;
   margin: 100px auto;
   background-color: #fff;
   border-radius: 10px;
@@ -283,30 +283,78 @@ html, body, .grid, .row, #calender-column {
   text-align:left;
 }
 
+.new_cust_header {
+  /*border:1px solid blue;*/
+}
+
+.new_cust_header #new_cust_title {
+  float:left;
+}
+
+.new_cust_header #new_cust_close {
+  float:right;
+}
+
+#new_customer_form {
+  margin-top: 65px;
+}
+
 #new_customer_table tr > td{
   padding-bottom: 1em;
 }
 
-#new_cust_name_field {
-  width: 250px;
+#new_cust_name {
+  width:200px;
 }
 
 #new_cust_cell_phone,
 #new_cust_home_phone {
-  width: 150px;
+  width:150px;
 }
 
-#new_cust_address {
-  /*max-width: 400px;*/
-}
-
-#new_cust_email {
-  /*max-width: 400px;*/
+#new_cust_email { 
+  width:200px; 
 }
 
 #new_cust_birthday {
-  max-width: 120px;
+  width:100px; 
 }
+
+#new_cust_address {
+  width: 230px; 
+}
+
+#new_cust_address_label {
+  padding-left: 1em;
+  width:130px;
+}
+
+#new_cust_home_phone_label {
+  padding-left: 1em;
+}
+
+#text_email_notify {
+  padding-left: 1em;
+}
+
+#new_cust_notification > p, #notification_options {
+  display: inline-block;
+}
+
+#notification_question {
+  /*this will set the position of the element 22 pixels
+  up from its normal position */
+  position: relative;
+  top:-22px;
+  padding-right: 0.75em;
+}
+
+#clearNewCustFieldsButton {
+  width:150px;
+}
+
+
+
 
 
 /*------------------------------*/

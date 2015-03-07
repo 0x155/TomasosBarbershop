@@ -1,0 +1,56 @@
+http://blog.teamtreehouse.com/calculate-hourly-freelance-rates-web-design-development-work
+http://skillcrush.com/2014/03/11/how-to-charge-rates-web-design-freelance/
+
+
+Base Salary = $30,000
+Assoc. Cost - taxes, insurance, etc. (30% of salary) = $9,000
+Total = $40,000
+
+2,080 working hours per year
+176 non-working hours (7 US holidays, 2 weeks vacation, 5 sick days)
+1,904 billable hours per year
+
+Estimate 25% of those hours is spent not-working -> 1,428 hours per year
+-Billable hours are generally between 1,000 and 1,500
+
+$40,000 / 1,428 = $28/hour
+-cost to cover salary and associated costs
+
+Overhead
+Estimate $35,000 (includes office space, rent, utilites, phones, etc.)
+Server Costs:
+	GoDaddy
+	$34.99 per month for a dedicated, managed server with 3GB of RAM = $419.88 per year
+	this includes patching, backup, cPanel (server management dashboard, control panel), security, monitoring
+	-Fully-managed is $150 more per month
+	https://www.godaddy.com/pro/managed-vps-config?plan=pro_vps_linux_t3_12month&planaddons=pro_vps_managed
+	
+	SiteGround
+	Cloud server is $45 per month = $540 per year
+	Their support is known to assist in some non-web server related questions
+	https://www.siteground.com/cloud-hosting.htm
+
+Hosting (assumption) = $40/month = $480/year
+Insurance - $1,000 (laptop breaks, stolen)
+Thinkful - $300 per month (assume 3 months) = $900
+Health insurance (assumption) = $100/month
+Car Payment - $300/month
+Food - $120/month
+
+Skillcrush says the total cost of living expenses, and overhead is divided by billable hours to determine minimum hourly rate to stay afloat
+
+
+Need to determine the percentage overhead is of salary
+$52,000 / $35,000 = 67%
+$36/hour x .67 = $60/hour (this hourly rate includes overheads)
+-This amount does not account for profits, this covers basic costs
+
+Profit:
+-Typically add no less than 10%
+-Example uses 20%
+
+$60 x .20 = 12
+60 + 12 = $72/hour (in order to make 20% profit)
+
+
+Skillcrush article claims the low-end hourly rate is $40
