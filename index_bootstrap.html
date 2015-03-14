@@ -98,7 +98,7 @@
 							<li class="form-group">
 								<label for="date"><h4>Date:</h4></label>
 								<!-- http://eternicode.github.io/bootstrap-datepicker/?#sandbox -->
-								<input type="text" name="date" class="date_field datepicker form-control" id="date">
+								<input type="text" name="date" class="date_field form-control" id="date">
 							</li>
 
 							<li class="form-group">
@@ -188,31 +188,30 @@
 					<p id="new_cust_close"><a href="#" onclick="toggleAddNewCustomerWindow()">close</a></p>
 				</div>
 				<!--action tells the browser where to send the form data when the form is submitted -->
-				<form id="new_customer_form" action="" method="post">
+				<form id="new_customer_form" action="" method="post" onsubmit="return addNewCustomer()">
 					<table>
 						<tbody id="new_customer_table">
 							<tr>
 								<!-- the for attribute must match the id attribute -->
-								<td><label for="new_cust_name">*Name:</label></td>
-								<td><input type="text" autofocus id="new_cust_name" placeholder="Customer Name" class="form-control"></td>
+								<td><label for="new_cust_name" id="new_cust_name_label">*Name:</label></td>
+								<td><input type="text" id="new_cust_name" placeholder="Customer Name" class="form-control"></td>
 							</tr>
 							<tr>
-								<td><label for="new_cust_cell_phone">*Cell Phone:</label></td>
+								<td><label for="new_cust_cell_phone" id="new_cust_cell_label">*Cell Phone:</label></td>
 								<td><input type="text" id="new_cust_cell_phone"  placeholder="Cell Phone" class="form-control"></td>
-								<td><label for="new_cust_home_phone" id="new_cust_home_phone_label">Home Phone:  </label></td>
+								<td><label for="new_cust_home_phone" id="new_cust_home_phone_label">Home Phone:</label></td>
 								<td><input type="text" id="new_cust_home_phone"  placeholder="Home Phone" class="form-control"></td>
 							</tr>					
 							<tr>
 								<!--prefill email with "@" ?-->
-								<td><label for="new_cust_email">Email:</label></td>
+								<td><label for="new_cust_email" id="new_cust_email_label">Email:</label></td>
 								<td><input type="text" id="new_cust_email" placeholder="Email" class="form-control"></td>
 								<td><label for="new_cust_address" id="new_cust_address_label">Home Address:</label></td>
 								<td><input type="text" id="new_cust_address"  placeholder="Address" class="form-control"></td>
 							</tr>							
 							<tr>
-								<!-- use datepicker for Birthday -->
 								<td><label for="new_cust_birthday">Birthday:</label></td>
-								<td><input type="text" id="new_cust_birthday" placeholder="Birthday" class="form-control datepicker"></td>
+								<td><input type="text" id="new_cust_birthday" placeholder="Birthday" class="form-control"></td>
 							</tr>
 							<tr>
 								<td><label for="new_cust_notes">Notes:</label></td>
@@ -230,12 +229,20 @@
 						</tbody>
 					</table>
 
-					<br/>
+					<!--<br/>-->
 
-					<p>* indicates a required field</p><br/>
+					<p>* indicates a required field</p>
 
-					<input type="submit" class="btn_default_cb" value="Add Customer" onclick="addCustomer()">
-					<button type="button" class="btn_default_cb" onclick="clearAddNewCustomerFields()">Clear Fields</button>
+					<div id="make_appt_new_cust_question">
+						<p>Make appointment with this new customer?</p>
+						<input type="checkbox" id="make_appt_new_cust">Yes
+					</div>
+
+					<p id="reqrd_fields_msg" class="fields_missing_msg">Please enter all required fields</p>
+					<p id="invalid_email_msg" class="fields_missing_msg">Email address entered is invalid</p>
+
+					<input type="submit" class="btn_default_cb" value="Add Customer">
+					<button type="button" class="btn_default_cb" onclick="clearAddNewCustomerFields()" id="clearNewCustFieldsButton">Clear Fields</button>
 				</form>
 			</div>
 		</div>

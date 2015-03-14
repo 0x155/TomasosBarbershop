@@ -27,12 +27,15 @@ OUTSTANDING ITEMS (in order of priority)
 DATABASE - MYSQL/PHP
 
 Flow when adding a new customer (continue to make appointment, then add customer, or make appointment and then add customer)
--Bring up fields and only make name and phone required, fill in other stuff later (phone, email, etc.)
+-Bring up fields and only make name and cell phone required, fill in other stuff later (home phone, email, etc.)
 name
 phone
 address
 email
 birthday (do not include year in birthday)
+-Give user the option to fill new customers name in Customer Name field on main screen when done
+
+Modal window displaying multiple search results when searching for a customer
 
 Confirmation screen once appointment is confirmed and scheduled
 ->Bring up modal window, prompt user to close window or view appointment on calendar (go to that date), also display appointment info
@@ -46,6 +49,16 @@ Limit user actions when clicking on an event in the calendar
 Allow user to make multiple, sequential appointments (haircut, then beard trim for example)
 
 Reseting fields once appointment is scheduled
+
+Customers with children:
+When adding a customer with children, add a question "Does this customer have children?" -> Yes -> How many? -> Enter a name, cell, birthday, and email for each child (the address and home number will be the same)
+When searching for a customer with children, bring up a list of his/her children with a radio button next to each child. 
+When that child is selected, choose date, time, employee, and type of service for each child (display all these fields inline), allow multple appointments to be made at once
+-Make sure user is able to see calendar while this screen is displayed
+-Store seperate database entries for each child. That way you can search for individual child (will eventually come in on his/her own)
+"I'd like to bring my 3 sons in for a haircut, and get one myself" 
+"I'd like to bring my 3 sons in for a haircut, and get coloring done" 
+
 
 Error if the time entered is not within business hours for that day
 	Note hours are different for different days of the week (M-R, F, Sat)

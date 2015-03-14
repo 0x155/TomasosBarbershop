@@ -317,7 +317,7 @@ html, body, .grid, .row, #calender-column {
 }
 
 #new_cust_birthday {
-  width:100px; 
+  width:150px; 
 }
 
 #new_cust_address {
@@ -337,7 +337,8 @@ html, body, .grid, .row, #calender-column {
   padding-left: 1em;
 }
 
-#new_cust_notification > p, #notification_options {
+/*#new_cust_notification > p, #notification_options {*/
+#new_cust_notification > *{
   display: inline-block;
 }
 
@@ -349,12 +350,30 @@ html, body, .grid, .row, #calender-column {
   padding-right: 0.75em;
 }
 
-#clearNewCustFieldsButton {
-  width:150px;
+#make_appt_new_cust_question > * {
+  display: inline-block;
 }
 
+#make_appt_new_cust {
+  padding-left: 0.75em;
+}
 
+#clearNewCustFieldsButton {
+  width:150px;
+  margin-left: 1em;
+}
 
+.emptyField {
+  color:red;
+}
+
+.fields_missing_msg {
+  color:red;
+}
+
+.fields_missing_msg {
+  display: none;
+}
 
 
 /*------------------------------*/
