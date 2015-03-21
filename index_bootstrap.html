@@ -11,6 +11,7 @@
 		<!--<link rel="stylesheet" type="text/css" href="lib\fullcalendar-2.1.1\fullcalendar.css" />-->
 
 		<!-- bootstrap version is 3.2 -->
+		<!-- JQuery version is 2.1 -->
 		<script type="text/javascript" src="jquery\jquery-2.1.1.js"></script>
 		<script type="text/javascript" src="lib\bootstrap\js\bootstrap.js"></script>
 
@@ -181,37 +182,45 @@
 			</div>
 		</div>
 
-		<div id="modal_wrapper">
+		<!--This is the modal wrapper for the Add New Customer window -->
+		<div id="modal_wrapper_new_customer" class="modal_wrapper">
 			<div id="modal_new_customer">
 				<div class="new_cust_header">
 					<h3 id="new_cust_title">Add New Customer</h3><br/>
 					<p id="new_cust_close"><a href="#" onclick="toggleAddNewCustomerWindow()">close</a></p>
 				</div>
 				<!--action tells the browser where to send the form data when the form is submitted -->
-				<form id="new_customer_form" action="" method="post" onsubmit="return addNewCustomer()">
+				<!--TO-DO: Uncomment other line. Not submitting data for demo purposes -->
+				<!--<form id="new_customer_form" action="" method="post" onsubmit="return addNewCustomer()">-->
+				<form id="new_customer_form" action="" method="post">
 					<table>
 						<tbody id="new_customer_table">
 							<tr>
 								<!-- the for attribute must match the id attribute -->
 								<td><label for="new_cust_name" id="new_cust_name_label">*Name:</label></td>
-								<td><input type="text" id="new_cust_name" placeholder="Customer Name" class="form-control"></td>
+								<td><input type="text" id="new_cust_name" placeholder="Customer Name" class="form-control" autofocus></td>
+								<td class="right_col"><label for="new_cust_gender" id="new_cust_gender_label">Gender:</label></td>
+								<td id="new_cust_gender_field">
+									<input type="radio" name="new_cust_gender" value="Male">Male</input>
+									<input type="radio" name="new_cust_gender" value="Female">Female</input>
+								</td>
 							</tr>
 							<tr>
 								<td><label for="new_cust_cell_phone" id="new_cust_cell_label">*Cell Phone:</label></td>
 								<td><input type="text" id="new_cust_cell_phone"  placeholder="Cell Phone" class="form-control"></td>
-								<td><label for="new_cust_home_phone" id="new_cust_home_phone_label">Home Phone:</label></td>
+								<td><label for="new_cust_home_phone" id="new_cust_home_phone_label" class="right_col">Home Phone:</label></td>
 								<td><input type="text" id="new_cust_home_phone"  placeholder="Home Phone" class="form-control"></td>
 							</tr>					
 							<tr>
 								<!--prefill email with "@" ?-->
 								<td><label for="new_cust_email" id="new_cust_email_label">Email:</label></td>
 								<td><input type="text" id="new_cust_email" placeholder="Email" class="form-control"></td>
-								<td><label for="new_cust_address" id="new_cust_address_label">Home Address:</label></td>
+								<td><label for="new_cust_address" id="new_cust_address_label" class="right_col">Home Address:</label></td>
 								<td><input type="text" id="new_cust_address"  placeholder="Address" class="form-control"></td>
 							</tr>							
 							<tr>
 								<td><label for="new_cust_birthday">Birthday:</label></td>
-								<td><input type="text" id="new_cust_birthday" placeholder="Birthday" class="form-control"></td>
+								<td><input type="text" id="new_cust_birthday" placeholder="Birthday" class="form-control new_cust_birthday_field"></td>
 							</tr>
 							<tr>
 								<td><label for="new_cust_notes">Notes:</label></td>
@@ -229,21 +238,120 @@
 						</tbody>
 					</table>
 
-					<!--<br/>-->
+					<div class="new_cust_more_fields">
+						<p>* indicates a required field</p>
 
-					<p>* indicates a required field</p>
+						<div id="make_appt_new_cust_question">
+							<p>Make appointment with this new customer?</p>
+							<input type="checkbox" id="make_appt_new_cust">Yes
+						</div>
 
-					<div id="make_appt_new_cust_question">
-						<p>Make appointment with this new customer?</p>
-						<input type="checkbox" id="make_appt_new_cust">Yes
+						<!--Ask if the new customer has children-->
+						<div id="new_cust_children_question" class="form-group">
+							<p>Does this customer have children?<p>
+							<input type="checkbox" id="new_cust_has_children" name="newCustHasChildren" value="true">Yes
+						</div>
+					
+						<div class="form-inline form-group add_new_cust_child_fields">
+							<label for="new_cust_child_name">*Name:</label>
+							<input type="text" id="new_cust_child_name" placeholder="Name" class="form-control">
+							
+							<label for="new_cust_child_gender">Gender:</label>
+							<input type="radio" name="new_cust_child_gender" value="Male">M
+							<input type="radio" name="new_cust_child_gender" value="Female">F
+
+							<label for="new_cust_child_cell">Cell:</label>
+							<input type="text" id="new_cust_child_cell" placeholder="Cell" class="form-control">
+
+							<label for="new_cust_child_email">Email:</label>
+							<input type="text" id="new_cust_child_email" placeholder="Email" class="form-control">
+
+							<label for="new_cust_child_birthday">Birthday:</label>
+							<input type="text" id="new_cust_child_birthday" placeholder="Birthday" class="form-control new_cust_birthday_field">						
+
+							<!-- user can click plus sign to add another line entry (another child)-->
+							<!--<button type="button" class="btn btn-default" onclick="addNewCustChildLine()">-->
+							<a href="#" onclick="addNewCustChildLine()">
+							<span class="glyphicon glyphicon-plus-sign" style="font-size:1.5em;"></span>
+							</a>
+							<!--</button>-->
+						</div>
 					</div>
-
+					
 					<p id="reqrd_fields_msg" class="fields_missing_msg">Please enter all required fields</p>
 					<p id="invalid_email_msg" class="fields_missing_msg">Email address entered is invalid</p>
 
-					<input type="submit" class="btn_default_cb" value="Add Customer">
+					<!--<input type="submit" class="btn_default_cb" value="Add Customer">-->
+					<button type="button" class="btn_default_cb" onclick="addNewCustomer()" id="addNewCustomerButton">Add Customer</button>
 					<button type="button" class="btn_default_cb" onclick="clearAddNewCustomerFields()" id="clearNewCustFieldsButton">Clear Fields</button>
 				</form>
+			</div>
+		</div>
+
+		<!--This modal wrapper will display the search results for a search
+		which returns multiple customer results (partial match)-->
+		<div id="modal_wrapper_cust_search_results" class="modal_wrapper">
+			<div id="modal_cust_search_results">
+				<div id="cust_search_results_header">
+					<h4>Search Results for</h4><h4 id="cust_search_name"></h4>
+					<p id="cust_search_results_close"><a href="#" onclick="closeCustSearchResults()">close</a></p>
+				</div>
+				<table id="cust_search_results_table">
+					<thead>
+						<tr class="top_row">
+							<th></th>
+							<th>Name</th>
+							<th>Cell #</th>
+							<th>Home #</th>
+							<th>Email</th>
+							<th>Address</th>
+							<th>Birthday</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><input type="radio" name="cust_name" value="John Adams"></td>
+							<td>John Adams</td>
+							<td>631-433-4415</td>
+							<td>631-521-1122</td>
+							<td>jadams@hotmail.com</td>
+							<td>2 Sampson Street, Islip, NY 11777</td>
+							<td>Dec 09</td>
+						</tr>
+						<tr>
+							<td><input type="radio" name="cust_name" value="John Jones"></td>
+							<td>John Jones</td>
+							<td>631-123-7890</td>
+							<td>631-567-7881</td>
+							<td>jonesj@gmail.com</td>
+							<td>55 Kemi Lane, Sayville, NY 11782</td>
+							<td>Sept 08</td>
+						</tr>
+						<tr>
+							<td><input type="radio" name="cust_name" value="John Smith"></td>
+							<td>John Smith</td>
+							<td>631-123-4567</td>
+							<td>631-589-7272</td>
+							<td>jsmith@gmail.com</td>
+							<td>2 Sampson Street, Sayville, NY 11782</td>
+							<td>March 11</td>
+						</tr>
+						<tr>
+							<td><input type="radio" name="cust_name" value="Steve Johnson"></td>
+							<td>Steve Johnson</td>
+							<td>631-903-1514</td>
+							<td>631-589-7272</td>
+							<td>sjohnson@gmail.com</td>
+							<td>222 1st Ave, New York, NY 11101</td>
+							<td>Jan 22</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<button type="button" id="select_cust_results_btn" class="btn_default_cb" onclick="selectCustomer()">Select</button>
+				<button type="button" id="edit_cust_results_btn" class="btn_default_cb">Edit</button>
+				<p id="no_cust_selected_msg" class="fields_missing_msg">Please select a customer</p>
+
 			</div>
 		</div>
 
