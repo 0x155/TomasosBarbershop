@@ -1,30 +1,26 @@
-AGENDA FOR NEXT MEETING
-Demo add new customer screen
-Provide customer data searching suggestions, ask if they want additional searches
+AGENDA FOR NEXT MEETING	
+
 
 QUESTIONS  FOR NEXT MEETING
-Recurring appointments? Every 2 weeks?
-Do you ever call clients to confirm appointments?
+What information do you want to store on Employees? (cell, home number, email?)
+Finalize length of each appointment type
+	Straightening - 30mins
+	Color - 15mins
+	Shave - 30mins
+Ensure I can reference this project on LinkedIn
+
 
 THESE NOTES ARE ONLY FOR THE APPOINTMENT SCHEDULING ASPECT OF THE APPLICATION
 
 
-
-Which appointments are most common?
-
 TOUCH SCREEN
 
-Straightening - 30mins
-Color - 15mins
-Shave - 30mins
+
 
 
 RESOLVED OPEN ITEMS
 CANNOT SEE MAKE APPOINTMENT BUTTON WHEN MAKING SOMEONE UNAVAILABLE WHEN USING LAPTOP
 --Added scroll bars when window overflowed - overflow:auto on column
-
-OUTSTANDING ITEMS (in order of priority)
-DATABASE - MYSQL/PHP
 
 Flow when adding a new customer (continue to make appointment, then add customer, or make appointment and then add customer)
 -Bring up fields and only make name and cell phone required, fill in other stuff later (home phone, email, etc.)
@@ -35,24 +31,42 @@ email
 birthday (do not include year in birthday)
 -Give user the option to fill new customers name in Customer Name field on main screen when done
 
-Modal window displaying multiple search results when searching for a customer
+Unavailable - do not include customer name
+->Set customerName to employeeName if appointment selected is Unavailable
+
+OUTSTANDING ITEMS (in order of priority)
+DATABASE - MYSQL/PHP
+
+Add line for "Is this customer a child of an existing customer?" If yes, show text field to enter parent's name
 
 Confirmation screen once appointment is confirmed and scheduled
-->Bring up modal window, prompt user to close window or view appointment on calendar (go to that date), also display appointment info
+->Bring up modal window with appointment details, prompt user to close window or view appointment on calendar (go to that date), also display appointment info
 
 Calendar date picker on main screen (instead of using back/forward arrows)
 
-Unavailable - do not include customer name
-
 Limit user actions when clicking on an event in the calendar
+Bring up appointment and customer information when viewing info of appointment on calendar
+
+On Search results screen, make each row a div, and if that div is clicked, then select the radio button in that row. Also add hover effect for each row.
+This will allow users on touch screen to just touch the row to select the customer
+
+JQuery v.s JS optimizations
 
 Allow user to make multiple, sequential appointments (haircut, then beard trim for example)
+->Add a checkbox next to Make Appointment button and do not clear customer name if user checks this box
+
+Recurring appointments (Every 1 week, 3 weeks, etc.)
 
 Reseting fields once appointment is scheduled
 
+Noting customer allergies (make note in appointment, and make name on calendar bold so user sees it is different)
+
 Customers with children:
-When adding a customer with children, add a question "Does this customer have children?" -> Yes -> How many? -> Enter a name, cell, birthday, and email for each child (the address and home number will be the same)
-When searching for a customer with children, bring up a list of his/her children with a radio button next to each child. 
+When adding a customer with children, add a question "Does this customer have children?" -> Yes -> How many? -> Enter a sex, name, cell, birthday, and email for each child (the address and home number will be the same)
+	What if adding kid seperately (not along with parent)
+When searching for a customer with children, search will bring up a list of his/her children with a radio button next to each child. 
+Childs name will also display parent name in search result
+When there is an exact match for customer search, display children names or parent name if one exisits in system
 When that child is selected, choose date, time, employee, and type of service for each child (display all these fields inline), allow multple appointments to be made at once
 -Make sure user is able to see calendar while this screen is displayed
 -Store seperate database entries for each child. That way you can search for individual child (will eventually come in on his/her own)
@@ -75,6 +89,7 @@ Editing and Deleting appointments once scheduled
 
 Spining logo next to Make Appointment button while appointment is being added
 
+Tomaso's Barbershop logo somewhere on page?
+
 Texting/Emailing a customer when appointment is scheduled
-"This is Tomaso's Barbershop reminding you of you 10:00am color appointment with Tiara. Please call if you need to cancel or reschedule"
--Check if customer wants to be reminded via text and/or email
+"This is Tomaso's Barbershop reminding you of you 10:00am color appointment with Tiara. Please call 631-589-5555 if you need to cancel or reschedule"

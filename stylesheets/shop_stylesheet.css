@@ -28,10 +28,6 @@ body {
   list-style-type: none;
 }
 
-.fields {
-  /*border:1px solid black;*/
-}
-
 .fields .field_labels > li {
   margin-bottom: 2em;
 }
@@ -40,10 +36,6 @@ body {
 
 
 /*-------------------------------*/
-
-.field_labels #cust_name_label {
-  font-size: 16px;
-}
 
 .fields .field_labels > .date_field {
   width: 300px;
@@ -97,12 +89,8 @@ body {
 }
 
 .no-cust-btn {
-  max-width: 100px;
-}
-
-/* These are all the rows in the day view */
-.fc-slats tr {
-  /*background-color: red;*/
+  max-width: 120px;
+  margin-right: 1.5em;
 }
 
 .field_labels li {
@@ -134,9 +122,15 @@ body {
   display: inline-block;
 }
 
-.field_labels .cust-fields #cust-search-button {
-  margin-left: -0.3em;
-  height: 34px;
+#cust-name-fields {
+  max-width: 350px;
+}
+
+/*.field_labels .cust-fields #cust-search-button {*/
+#cust-search-button {
+  /*margin-left: -0.3em;*/
+  /*height: 34px;*/
+  background-color: #CCCCCC;
   border-top-right-radius: 4px;
   border-bottom-right-radius:4px;
   border-color: transparent;
@@ -367,16 +361,21 @@ set to width: 100% by default */
   padding-right: 0.75em;
 }
 
+/*
 #make_appt_new_cust_question > * {
   display: inline-block;
 }
+*/
 
-#new_cust_children_question > * {
+#new_cust_children_question > *,
+#make_appt_new_cust_question > *,
+#new_cust_parent_question > * {
   display: inline-block;
 }
 
 #new_cust_children_question > p,
-#make_appt_new_cust_question > p{
+#make_appt_new_cust_question > p,
+#new_cust_parent_question > p{
   padding-right: 0.75em;
 }
 
@@ -404,6 +403,14 @@ set to width: 100% by default */
 #clearNewCustFieldsButton {
   width:150px;
   margin-left: 1em;
+}
+
+#cust-parent-input-group {
+  width:250px;
+}
+
+#check_child_parent_button {
+  background-color: #CCCCCC;
 }
 
 .emptyField {

@@ -30,6 +30,7 @@ Server Costs:
 	Their support is known to assist in some non-web server related questions
 	https://www.siteground.com/cloud-hosting.htm
 
+Overhead:
 Hosting (assumption) = $40/month = $480/year
 Insurance - $1,000 (laptop breaks, stolen)
 Thinkful - $300 per month (assume 3 months) = $900
@@ -53,3 +54,19 @@ $60 x .20 = 12
 
 
 Skillcrush article claims the low-end hourly rate is $40
+
+
+PRICES OF OTHER SOFTWARE
+http://www.capterra.com/salon-software/
+
+https://www.vagaro.com/salon-software/pricing
+Vagaro charges $65/mo for 5 service providers (those providing services in the salon, not including front desk)
+
+MindBody online (20-min demo available)
+-one site says it cost $30/mo
+
+Booker
+Basic is $85/mo, Standard is $135/mo
+http://www.booker.com/pricing-service-businesses
+
+

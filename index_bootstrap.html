@@ -47,10 +47,20 @@
 							<li class="form-group">
 								<!-- for attribute will be used when sending to server -->
 								<label id="cust_name_label" for="customer_name"><h4>Customer Name:</h4></label>
+								
+								<div class="input-group input-group-lg" id="cust-name-fields">
+									<input type="text" name="customer_name" placeholder="Customer Name" class="form-control" id="customer_name">
+									<span class="input-group-btn">
+										<button type="button" class="btn btn-default" id="cust-search-button">Search</button>
+									</span>
+								</div>
+								
+								<!--								
 								<ul class="cust-fields">
 									<li><input type="text" name="customer_name" placeholder="Customer Name" class="form-control" id="customer_name"></li>
 									<li><button type="button" id="cust-search-button">Search</button></li>
 								</ul>
+								-->
 							</li>
 
 							<!-- Customer Data Table -->
@@ -64,6 +74,7 @@
 										<th id="service-head">Service</th>
 										<th><a id="cust-history-close">Close</a></th>
 									</tr>
+									<!-- PHP code here to loop through results -->
 									<tr>
 										<td>11/20/2014</td>
 										<td>Kieron</td>
@@ -96,18 +107,19 @@
 								</div>
 							</li>
 
-							<li class="form-group">
+							<li class="form-group input-group-lg">
 								<label for="date"><h4>Date:</h4></label>
-								<!-- http://eternicode.github.io/bootstrap-datepicker/?#sandbox -->
 								<input type="text" name="date" class="date_field form-control" id="date">
+								<!-- http://eternicode.github.io/bootstrap-datepicker/?#sandbox -->
+								
 							</li>
 
-							<li class="form-group">
+							<li class="form-group input-group-lg">
 								<label for="start-time"><h4>Time:</h4></label>
 								<input type="text" class="form-control appt-timepicker" id="start-time">
 							</li>
 
-							<li class="form-group">
+							<li class="form-group input-group-lg">
 								<label for="employee-dropdown"><h4>Employee:</h4></label>
 								<select name="employee" id="employee-dropdown" class="form-control">
 									<option>Kieron</option>
@@ -118,7 +130,7 @@
 								</select>
 							</li>
 
-							<li class="form-group">
+							<li class="form-group input-group-lg">
 								<label for="service-dropdown"><h4>Type of Service:</h4></label>
 								<select name="service" id="service-dropdown" class="form-control">
 									<!-- Make the font color of these options the color of the agenda item on the calendar -->
@@ -191,6 +203,7 @@
 				</div>
 				<!--action tells the browser where to send the form data when the form is submitted -->
 				<!--TO-DO: Uncomment other line. Not submitting data for demo purposes -->
+				<!-- This form is set up as a table -->
 				<!--<form id="new_customer_form" action="" method="post" onsubmit="return addNewCustomer()">-->
 				<form id="new_customer_form" action="" method="post">
 					<table>
@@ -276,6 +289,19 @@
 							</a>
 							<!--</button>-->
 						</div>
+
+						<div id="new_cust_parent_question" class="form-group form-inline">
+							<p>Is this customer a child of a parent?</p>
+							<input type="checkbox" id="new_cust_has_parent" name="newCustHasParent" value="true">Yes
+
+							<!--<div class="input-group" id="cust-parent-input-group">-->
+								<input type="text" class="form-control" id="cust_parent_name" placeholder="Parent's Name">
+								<button type="button" class="btn btn-default" id="check_child_parent_button">Check</button>
+							<!--</div>-->
+						</div>
+
+
+
 					</div>
 					
 					<p id="reqrd_fields_msg" class="fields_missing_msg">Please enter all required fields</p>

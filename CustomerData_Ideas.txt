@@ -13,3 +13,6 @@ Search for customers who have received services (ex. search for all customers wh
 Search for a customer's information by name (Look up John's phone number)
 
 Back to school, valentines day
+
+Provide customer data searching suggestions, ask if they want additional searches
+If a customer is receving multiple services, leave a checkbox next to Make Appointment button to not clear the customer name field
