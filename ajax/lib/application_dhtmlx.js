@@ -127,10 +127,12 @@ $(document).ready(function(){
 		*/
 	});
 
-	/* This closes the window showing customer history and informaton */
+	/* This closes the window showing customer history and informaton 
 	$('#cust-history-close').click(function(){
 		$(".customer-history").hide(300);
 	});
+	*/
+
 
 
 	//Sets up the DatePicker for the appointment
@@ -164,7 +166,8 @@ $(document).ready(function(){
 
 	/* If user selects "Unavailable" from service dropdown,
 	show fields to enter start/end time employee is unavailable, or All-Day checkbox.
-	Also disable the appointment start-time fields and customer name field to not confuse user. */
+	Also disable the appointment start-time fields and customer name field to not confuse user. 
+	Might be able to do this with Javascript, onchange()*/
 	$('select[name=service]').change(function(){
 		var selection = document.getElementById("service-dropdown").value;
 		if(selection === 'Unavailable'){
@@ -207,6 +210,9 @@ $(document).ready(function(){
 		//Get fields that user entered. These will be used to create event in database
 		var customerName = doc.getElementById("customer_name").value;
 		var apptDateIn = doc.getElementById("date").value; //MM/DD/YYYY
+
+		console.log("date in: " + apptDateIn);
+
 		var apptTime = doc.getElementById("start-time").value; //HH:MM AM
 		var apptTitle = doc.getElementById("service-dropdown").value;
 		var employeeName = doc.getElementById("employee-dropdown").value;
@@ -275,8 +281,33 @@ $(document).ready(function(){
 			clearNewCustChildLines();
 		}
 	});
+
+	/*
+	Need to attach the event listener to the document, or other parent element
+	already generated. The cust-history-close link is generated
+	by PHP, so an event listener cannot be attached to it when the document loads.
+	JQuery only sets up the event listeners once. Also, the document element does not 
+	change over the life of this DOM.
+
+	The selector which is assigned the event ($document) is evaluated once when the page loads.
+	The 2nd argument to .on() indicates to trigger the function if the originating element
+	matches this filter. This is evaluated when the event is triggered.
+	http://publicvoidlife.blogspot.com/2014/03/on-on-or-event-delegation-explained.html
+	*/
+	$(document).on('click', '#cust-history-close', function(){
+		$(".customer-history").hide(300);
+	});
+
+	/* If user does not want to add new customer, close no-customer-returned window */
+	//function closeNoCustReturned(){
+	$(document).on('click', '#no-cust-btn-no', function(){
+		$("#no-customer-returned").hide(300);
+	});
+
 	
 });
+
+
 
 /*
 This Javascript function will open or close the Add New Customer modal window,
@@ -298,11 +329,6 @@ function toggleAddNewCustomerWindow(){
 	else{
 		modalWrapperNewCust.style.visibility = "visible";	
 	}
-}
-
-/* If user does not want to add new customer, close no-customer-returned window */
-function closeNoCustReturned(){
-	$("#no-customer-returned").hide(300);
 }
 
 /*
@@ -430,13 +456,13 @@ field on the main screen
 */
 function selectCustomer(){
 	//if the user has chosen a customer, get the value
-	var customerName = $("#cust_search_results_table input:checked").val();
-	if(customerName){
+	var customerNameSelected = $("#cust_search_results_table input:checked").val();
+	if(customerNameSelected){
 		//Close search results window (closeCustSearchResults())
 		closeCustSearchResults();
 
 		//Populate customer name field with selected name
-		document.getElementById("customer_name").value = customerName;
+		document.getElementById("customer_name").value = customerNameSelected;
 	}
 	else{
 		//if no radio button is selected, display message
@@ -486,6 +512,23 @@ function formatTime(timeIn) {
 		}
 	}
 	//console.log("returned time: " + ret);
+	return ret;
+}
+
+/*
+Returns the date in the format accepted by MySQL DATE type (YYYY-MM-DD)
+Format In: MM/DD/YYYY
+Format Out: YYYY-MM-DD
+*/
+function formatDate(dateIn){
+	var firstSlashIndex = dateIn.indexOf("/");
+	var secondSlashIndex = dateIn.indexOf("/", (firstSlashIndex + 1));
+
+	var month = dateIn.substring(0, 2);
+	var day = dateIn.substring((firstSlashIndex + 1), (firstSlashIndex + 3));
+	var year = dateIn.substring((secondSlashIndex + 1), (secondSlashIndex + 5));
+
+	var ret = year + "-" + month + "-" + day;
 	return ret;
 }
 

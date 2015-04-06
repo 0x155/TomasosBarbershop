@@ -169,6 +169,15 @@ then displayed based on search results */
   cursor: pointer;
 }
 
+.customer-history .customer-info {
+  float:left;
+}
+
+.customer-history #cust-history-close {
+  float:right;
+}
+
+
 .appt-timepicker {
   max-width: 150px;
 }
@@ -253,15 +262,18 @@ html, body, .grid, .row, #calender-column {
 
 /*Styles for add new customer modal screen */
 .modal_wrapper {
-  /*TO-DO: document difference between visibility and display*/
-  visibility: hidden;
-  position: absolute; 
+  position: fixed; 
   left: 0px;
   top: 0px;
   width:100%;
   height:100%;
   background-color: rgba(0, 0, 0, 0.5); /* last value is opacity */
   z-index: 1000; 
+}
+
+#modal_wrapper_new_customer {
+  /*TO-DO: document difference between visibility and display*/
+  visibility: hidden;
 }
 
 /* This presents scrollbars when the div overflows */

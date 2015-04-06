@@ -45,34 +45,26 @@
 					<!-- method attribute tells browser how to send the data (GET/POST) -->
 					<ul class="field_labels">
 						<li>
-									<!--Using GET for AJAX example, will change back to POST-->
-							<form name="customer_search_form" method="GET">
-								<label id="cust_name_label" for="customer_name"><h4>Customer Name:</h4></label>
-								<div class="input-group input-group-lg" id="cust-name-fields">
-									<input type="text" name="customer_name" placeholder="Customer Name" class="form-control" id="customer_name">
-									<span class="input-group-btn">
-										<button type="button" class="btn btn-default" name="cust-search-button" id="cust-search-button" onclick="customerSearch()">Search</button>
-									</span>
-								</div>
-							</form>
+							<label id="cust_name_label" for="customer_name"><h4>Customer Name:</h4></label>
+							<div class="input-group input-group-lg" id="cust-name-fields">
+								<input type="text" name="customer_name" placeholder="Customer Name" class="form-control" id="customer_name">
+								<span class="input-group-btn">
+									<button type="button" class="btn btn-default" name="cust-search-button" id="cust-search-button" onclick="customerSearch()">Search</button>
+								</span>
+							</div>
 						</li>
 						
 						<li id="customer_search_results">
 						</li>
 					</ul>
 
-
+					<!-- TO-DO: Might be able to make this one ul -->
 					<form name="appointment_form" method="GET" action="" role="form">
 						<ul class="field_labels">
-							<li class="form-group">
-								<!-- for attribute will be used when sending to server -->
-							</li>
-
 							<li class="form-group input-group-lg">
 								<label for="date"><h4>Date:</h4></label>
 								<input type="text" name="date" class="date_field form-control" id="date">
 								<!-- http://eternicode.github.io/bootstrap-datepicker/?#sandbox -->
-								
 							</li>
 
 							<li class="form-group input-group-lg">
@@ -130,9 +122,12 @@
 
 							<li>
 								<!-- The Make Appointment button will be used to submit info-->
-								<input type="submit" class="btn_default_cb make_appt_btn" value="Make Appointment">
-								<!--<button class="btn_default_cb make_appt_btn">Make Appointment</button>-->
+								<!--<input type="submit" class="btn_default_cb make_appt_btn" value="Make Appointment">-->
+								<button class="btn_default_cb make_appt_btn" onclick="makeAppointment()">Make Appointment</button>
 							</li>
+
+							<li id="make_appt_results"></li>
+
 						</ul>
 					</form>
 				</div>
@@ -276,7 +271,7 @@
 		</div>
 
 		<!--This modal wrapper will display the search results for a search
-		which returns multiple customer results (partial match)-->
+		which returns multiple customer results (partial match)-
 		<div id="modal_wrapper_cust_search_results" class="modal_wrapper">
 			<div id="modal_cust_search_results">
 				<div id="cust_search_results_header">
@@ -338,9 +333,9 @@
 				<button type="button" id="select_cust_results_btn" class="btn_default_cb" onclick="selectCustomer()">Select</button>
 				<button type="button" id="edit_cust_results_btn" class="btn_default_cb">Edit</button>
 				<p id="no_cust_selected_msg" class="fields_missing_msg">Please select a customer</p>
-
 			</div>
 		</div>
+		-->
 
 	</body>
 
