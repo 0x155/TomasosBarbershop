@@ -7,6 +7,7 @@
 		<?php
 			require_once("common.php");
 			require_once("customer_data.php");
+			require_once("Customer.php");
 
 			$connection = connect();
 
@@ -30,25 +31,48 @@
 			echo "<p>" . $notes . "</p>";
 			*/
 
-			//Get id for customer from database
-			$customerID_RS = getCustomerID($customerName);
-			if(count($customerID_RS) == 1){
-				$firstCust = $customerID_RS[0]['ID'];
-				//make sure the ID is either a number or numeric string
-				if(is_numeric($firstCust)){
-					//TO-DO: Find out why this can be set here and referenced
-					//from outside this scope
-					$customerID = $firstCust;
+			$validFields = true;
+			$errorMessage = "";
+
+			//Get id for customer from database,
+			//only if service is not Unavailable,
+			//if it is, then we dont need to check the customer's name since it does not matter
+			if($service !== "Unavailable"){
+				//$customerID_RS = getCustomerID($customerName);
+				$customerID_RS = Customer::getCustomerID($customerName);
+
+				//WHAT IF TWO CUSTOMERS HAVE THE SAME NAME?
+
+				if(count($customerID_RS) >= 1){
+
+					//if more than 1 result is returned, then there are customers with the same name
+
+					$firstCust = $customerID_RS[0]['ID'];
+					//make sure the ID is either a number or numeric string
+					if(is_numeric($firstCust)){
+						//TO-DO: Find out why this can be set here and referenced
+						//from outside this scope
+						$customerID = $firstCust;
+					}
+				}
+				else{
+					$validFields = false;
+					$errorMessage = "<p class=\"make_appt_bad\"><b>The customer entered does not exist</b></p>";
+					//make field red?
 				}
 			}
+			//else (if the service is Unavailable, set $customerID to null
 			else{
-				//echo "<p>No customer returned</p>";	
-				//add red to customerName
+				$customerID = null;
 			}
+
 
 			//get id for employee
 			$employeeID_RS = getEmployeeID($employeeName);
-			if(count($employeeID_RS) == 1){
+
+			//WHAT IF TWO EMPLOYEES HAVE THE SAME NAME?
+
+			if(count($employeeID_RS) >= 1){
 				$firstEmp = $employeeID_RS[0]['ID'];
 				//make sure the ID is either a number or numeric string
 				if(is_numeric($firstEmp)){
@@ -56,26 +80,36 @@
 				}
 			}
 			else{
-				//echo "<p>No employee returned</p>";	
+				$validFields = false;
+				$errorMessage .= "<p class=\"make_appt_bad\"><b>The employee entered does not exist</b></p>";
+				//make field red?
 			}
 
 			//Get service name
 			$serviceName_RS = getServiceName($service);
-			if (count($serviceName_RS) == 1) {
+			if (count($serviceName_RS) >= 1) {
 				$serviceName = $serviceName_RS[0]['Name'];
 			}
 			else{
-				//echo "<p>No service returned</p>";
+				$validFields = false;
+				$errorMessage .= "<p class=\"make_appt_bad\"><b>The service entered is invalid</b></p>";
 			}
 
+			//Insert into Appointment table if all fields are valid
+			if($validFields){
+				//add boolean to make sure insert was successful
+				$success = addAppointment($apptDate, $customerID, $employeeID, $startTime, $endTime, $serviceName, $notes);	
 
-			//echo "<p>Employee ID: " . $employeeID . "</p>";
-			//echo "<p>Customer ID: " . $customerID . "</p>";	
-			//echo "<p>Service Name: " . $serviceName . "</p>";
-			//Insert into Appointment table
-			addAppointment($apptDate, $customerID, $employeeID, $startTime, $endTime, $serviceName, $notes);
-
+				if($success){
+					//bring up modal window with confirmation, display appointment info
+				}
+				else{
+					echo "<p class=\"make_appt_bad\">Insert not successful</p>";
+				}
+			}
+			else{
+				echo $errorMessage;
+			}
 		?>
 	</body>
-
 </html>

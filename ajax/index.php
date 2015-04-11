@@ -18,7 +18,7 @@
 		<script type="text/javascript" src="lib\dhtmlxScheduler_v4.2.0\codebase\dhtmlxscheduler.js"></script>
 		<script type="text/javascript" src="lib\dhtmlxScheduler_v4.2.0\codebase\ext\dhtmlxscheduler_units.js"></script>
 		<link rel="stylesheet" href="lib\dhtmlxScheduler_v4.2.0\codebase\dhtmlxscheduler.css" type="text/css" />
-		<link rel="stylesheet" href="stylesheets\stylesheet_dhtmlx.css" type="text/css" />
+		<!--<link rel="stylesheet" href="stylesheets\stylesheet_dhtmlx.css" type="text/css" />-->
 
 		<!-- Bootstrap datepicker -->
 		<!-- http://bootstrap-datepicker.readthedocs.org/en/release/ -->
@@ -75,7 +75,9 @@
 							<li class="form-group input-group-lg">
 								<label for="employee-dropdown"><h4>Employee:</h4></label>
 								<select name="employee" id="employee-dropdown" class="form-control">
+									<option></option>
 									<option>Kieron</option>
+									<option>NOTANEMPLOYEE</option>
 									<option>Tiara</option>
 									<option>Doug</option>
 									<option>Melvin</option>
@@ -87,6 +89,8 @@
 								<label for="service-dropdown"><h4>Type of Service:</h4></label>
 								<select name="service" id="service-dropdown" class="form-control">
 									<!-- Make the font color of these options the color of the agenda item on the calendar -->
+									<option></option>
+									<option>NOTASERVICE</option>
 									<option id="haircut-option">Haircut</option>
 									<option id="beard-trim-option">Beard Trim</option>
 									<option id="shave-option">Shave</option>
@@ -128,6 +132,11 @@
 
 							<li id="make_appt_results"></li>
 
+							<li>
+								<h4 id="make_appt_reqrd_fields_msg" class="fields_missing_msg">Please enter all required fields</h4>
+							</li>
+							
+
 						</ul>
 					</form>
 				</div>
@@ -140,6 +149,12 @@
 					    <div class="dhx_cal_navline">
 					        <div class="dhx_cal_prev_button">&nbsp;</div>
 					        <div class="dhx_cal_next_button">&nbsp;</div>
+					        <!--
+					        TO-DO: Add calendar icon to allow user to select date to view
+					        <button type="button" class="btn btn-default btn-lg">
+					        	<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+					        </button>
+					        -->
 					        <div class="dhx_cal_today_button"></div>
 					        <div class="dhx_cal_date"></div>
 					    </div>
@@ -210,6 +225,7 @@
 					<div class="new_cust_more_fields">
 						<p>* indicates a required field</p>
 
+						<!--span?-->
 						<div id="make_appt_new_cust_question">
 							<p>Make appointment with this new customer?</p>
 							<input type="checkbox" id="make_appt_new_cust">Yes

@@ -440,6 +440,11 @@ set to width: 100% by default */
   padding:15px;
 }
 
+.cust-search-row:hover,
+.cust-search-selected{
+  background-color: #F4F4F4;
+}
+
 #cust_search_name {
   padding-left: 0.5em;
 }
@@ -455,8 +460,8 @@ set to width: 100% by default */
 }
 
 #cust_search_results_table td{
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
   border-bottom: 1px solid #E3E3E3;
 }
 
@@ -475,6 +480,13 @@ set to width: 100% by default */
 
 #no_cust_selected_msg {
   padding-top: 1em;
+}
+
+.badField{
+  /*Need !important here to apply this rule since the Bootstrap
+  styles would otherwise override it 
+  https://css-tricks.com/when-using-important-is-the-right-choice/*/
+  border:2px solid #FF0000 !important;
 }
 
 

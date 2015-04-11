@@ -3,7 +3,7 @@
 
 	/*
 	This function returns customer information (name, cell number, and email)
-	*/
+	
 	function getCustomerInfo($customerName){
 
 		$connection = connect();
@@ -29,10 +29,11 @@
 
 		disconnect($connection);
 	}
+	*/
 
 	/*
 	This function returns a customer's recent visits
-	*/
+	
 	function getCustomerHistory($customerName){
 		$connection = connect();
 
@@ -58,12 +59,13 @@
 		
 		disconnect($connection);
 	}
+	*/
 
 	/*
 	Returns the ID of the entered customer from the Customer table.
 	The ID is the primary key for the table and is needed when doing tasks such
 	as inserting into the Appointment table.
-	*/
+	
 	function getCustomerID($customerNameIn){
 		$connection = connect();
 
@@ -83,8 +85,9 @@
 		catch(PDOException $e){
 			disconnect($connection);
 			die("Failure in getCustomerID(): " . $e->getMessage());
-		}
+		} 
 	}
+	*/
 
 	/*
 	Returns the ID of the entered employee from the Employee table.
@@ -98,6 +101,8 @@
 		$sql = "SELECT ID " .
 			   "FROM " . TBL_EMPLOYEE . 
 			   " WHERE Name=:employeeName";
+
+			   //WHAT IF TWO EMPLOYEES HAVE THE SAME NAME?
 
 		try {
 			$st = $connection->prepare($sql);
@@ -157,10 +162,10 @@
 			$st->bindValue(":serviceName", $serviceName, PDO::PARAM_STR);
 			$st->bindValue(":notes", $notes, PDO::PARAM_STR);
 
-			$st->execute();
+			//execute() returns true or false if successful/failed
+			$ret = $st->execute();
+			return $ret;
 			
-			//$rs = $st->fetchAll(PDO::FETCH_ASSOC);
-			//return $rs;
 		}
 		catch(PDOException $e){
 			disconnect($connection);

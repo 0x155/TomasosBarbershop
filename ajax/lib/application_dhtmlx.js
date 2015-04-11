@@ -57,14 +57,14 @@ $(document).ready(function(){
 	//Will eventually load data from a database:
 	//http://docs.dhtmlx.com/scheduler/loading_data.html#loadingdatafromadatabase
 	var events = [
-		{start_date:"03/21/2015 10:30", end_date:"03/21/2015 11:00", text:"Haircut -- Joe Smith", color:"#3A87AD", unit_id:"1"},
-		{start_date:"03/21/2015 09:00", end_date:"03/21/2015 09:30", text:"Haircut -- Christian", color:"#3A87AD", unit_id:"1"},
-		{start_date:"03/21/2015 12:00", end_date:"03/21/2015 12:30", text:"Shave -- Dylan", color: "#FF887C", unit_id:"1"},
-	    {start_date:"03/21/2015 09:30", end_date:"03/21/2015 10:00", text:"Color -- Jane Doe", color:"#F58839", unit_id:"2"},
-	    {start_date:"03/21/2015 12:30", end_date:"03/21/2015 12:45", text:"Eyebrow Wax -- Jane Doe", color: "#C353E8", unit_id:"2"},
-	    {start_date:"03/21/2015 11:00", end_date:"03/21/2015 11:15", text:"Beard Trim -- Jonathan", color:"#368C23", unit_id:"2"},
-	    {start_date:"03/21/2015 12:30", end_date:"03/21/2015 13:00", text:"Haircut -- Dylan", color:"#3A87AD", unit_id:"3"},
-	    {start_date:"03/21/2015 09:30", end_date:"03/21/2015 10:00", text:"Color -- Jane Doe", color:"#F58839", unit_id:"5"}
+		{start_date:"04/11/2015 10:30", end_date:"04/11/2015 11:00", text:"Haircut -- Joe Smith", color:"#3A87AD", unit_id:"1"},
+		{start_date:"04/11/2015 09:00", end_date:"04/11/2015 09:30", text:"Haircut -- Christian", color:"#3A87AD", unit_id:"1"},
+		{start_date:"04/11/2015 12:00", end_date:"04/11/2015 12:30", text:"Shave -- Dylan", color: "#FF887C", unit_id:"1"},
+	    {start_date:"04/11/2015 09:30", end_date:"04/11/2015 10:00", text:"Color -- Jane Doe", color:"#F58839", unit_id:"2"},
+	    {start_date:"04/11/2015 12:30", end_date:"04/11/2015 12:45", text:"Eyebrow Wax -- Jane Doe", color: "#C353E8", unit_id:"2"},
+	    {start_date:"04/11/2015 11:00", end_date:"04/11/2015 11:15", text:"Beard Trim -- Jonathan", color:"#368C23", unit_id:"2"},
+	    {start_date:"04/11/2015 12:30", end_date:"04/11/2015 13:00", text:"Haircut -- Dylan", color:"#3A87AD", unit_id:"3"},
+	    {start_date:"04/11/2015 09:30", end_date:"04/11/2015 10:00", text:"Color -- Jane Doe", color:"#F58839", unit_id:"5"}
 	];
 
 	//the parse() method loads data from an inline set (JSON)
@@ -127,14 +127,6 @@ $(document).ready(function(){
 		*/
 	});
 
-	/* This closes the window showing customer history and informaton 
-	$('#cust-history-close').click(function(){
-		$(".customer-history").hide(300);
-	});
-	*/
-
-
-
 	//Sets up the DatePicker for the appointment
 	//The new customer birthday field wil also use DatePicker, but will be
 	//configured differently
@@ -187,7 +179,8 @@ $(document).ready(function(){
 	});
 
 	/* If the user selects Unavailable from service dropdown, then checks the "All Day"
-	check box, then disable the start and end time fields */
+	check box, then disable the start and end time fields 
+	Might be able to do this with Javascript, onchange()*/
 	$("#unavailable-all-day").change(function(){
 		if(document.getElementById("unavailable-all-day").checked){
 			document.getElementById("unavailable-start-time").disabled = true;
@@ -202,17 +195,15 @@ $(document).ready(function(){
 	/* This method will display appointment on calendar when the "Make Appointment" button is
 	clicked. */
 	$('.make_appt_btn').click(function(event){ 
+		
 		//This will prevent the page from reloading when button is clicked
 		event.preventDefault();
-
+		/*
 		var doc = document;
 
 		//Get fields that user entered. These will be used to create event in database
 		var customerName = doc.getElementById("customer_name").value;
 		var apptDateIn = doc.getElementById("date").value; //MM/DD/YYYY
-
-		console.log("date in: " + apptDateIn);
-
 		var apptTime = doc.getElementById("start-time").value; //HH:MM AM
 		var apptTitle = doc.getElementById("service-dropdown").value;
 		var employeeName = doc.getElementById("employee-dropdown").value;
@@ -253,6 +244,7 @@ $(document).ready(function(){
 			endTime = getEndTime(apptTitle, startTime);
 		}
 
+		/*
 		//Add appointment to calendar
 		var appt = [
 			{start_date:apptDateIn + " " + startTime, end_date:apptDateIn + " " + endTime, color:apptColor, text:apptTitle + " -- " + customerName, unit_id:unitID}
@@ -260,6 +252,7 @@ $(document).ready(function(){
 		];
 
 		scheduler.parse(appt,"json");
+		*/
 	});
 
 	/*
@@ -284,7 +277,7 @@ $(document).ready(function(){
 
 	/*
 	Need to attach the event listener to the document, or other parent element
-	already generated. The cust-history-close link is generated
+	already generated. For exmaple, the cust-history-close link is generated
 	by PHP, so an event listener cannot be attached to it when the document loads.
 	JQuery only sets up the event listeners once. Also, the document element does not 
 	change over the life of this DOM.
@@ -299,14 +292,106 @@ $(document).ready(function(){
 	});
 
 	/* If user does not want to add new customer, close no-customer-returned window */
-	//function closeNoCustReturned(){
 	$(document).on('click', '#no-cust-btn-no', function(){
 		$("#no-customer-returned").hide(300);
 	});
 
-	
+	/*If a user clicks on a row returned in the search results window,
+	then select that row's radio button */
+	$(document).on('click', '.cust-search-row', function(){
+		$(this).find("input").prop("checked", true);
+		$(".cust-search-row").removeClass("cust-search-selected");
+		$(this).addClass("cust-search-selected");
+	});
+
+	//If a user double clicks on a row, then select that customer and close window
+	$(document).on('dblclick', '.cust-search-row', function(){
+		selectCustomer();
+	});
+
 });
 
+/*
+Verifies all fields in the entered array are not empty (length != 0).
+If the field is empty, it's text input field has a red border added,
+and the corresponding label is changed to have it's font red. 
+Returns true if all fields are not blank, false otherwise.
+This is mainly used when verifying fields when making an appointment
+*/
+function verifyAppointmentFieldsLength(formObjects){
+	//console.log("Enter verifyAppointmentFields");
+
+	var validFields = true;
+
+	var numObjects = formObjects.length;
+	for(var i = 0; i < numObjects; i++){
+		var siblingLabel = $(formObjects[i]).siblings("label").first();
+		if(formObjects[i].value.length === 0){
+			validFields = false;
+			$(formObjects[i]).addClass("badField"); 
+			siblingLabel.addClass("emptyField"); 
+		}
+		else{
+			$(formObjects[i]).removeClass("badField"); 
+			siblingLabel.removeClass("emptyField"); 
+		}
+	}
+
+	return validFields;
+}
+
+/*
+This function renders the event to the calendar based on the information passed in
+*/
+function renderCalendarAppt(apptDateIn, startTime, endTime, apptColor, apptTitle, customerName, unitID){
+	console.log("enter renderCalendarAppt");
+	var appt = [
+		{start_date:apptDateIn + " " + startTime, end_date:apptDateIn + " " + endTime, color:apptColor, text:apptTitle + " -- " + customerName, unit_id:unitID}
+	];
+
+	scheduler.parse(appt,"json");
+}
+
+function clearAppointmentFields(){
+	console.log("enter clearAppointmentFields");
+
+	var doc = document;
+	var custName = doc.getElementById("customer_name");
+	var employee = doc.getElementById("employee-dropdown");
+	var service = doc.getElementById("service-dropdown");
+	var notes = doc.getElementById("notes_area");
+
+	custName.value = "";
+	employee.selectedIndex = 0;
+
+	//hide unavailable fields if they are shown
+	if(service.value === "Unavailable"){
+		//make customerName enabled
+		doc.getElementById("customer_name").disabled = false;
+
+		//make start-time enabled
+		doc.getElementById("start-time").disabled = false;
+
+		//enable search button
+		doc.getElementById("cust-search-button").disabled = false;
+
+		if(doc.getElementById("unavailable-all-day").checked){
+			doc.getElementById("unavailable-all-day").checked = false;
+			doc.getElementById("unavailable-start-time").disabled = false;
+			doc.getElementById("unavailable-end-time").disabled = false;
+		}
+
+		$("#unavailable-service").hide(300);
+	}
+	service.selectedIndex = 0;
+
+	//hide customer history table
+	$(".customer-history").hide();
+	
+
+	notes.value = "";
+
+}
 
 
 /*
@@ -444,13 +529,11 @@ function closeCustSearchResults(){
 	var custSearchModal = document.getElementById("modal_wrapper_cust_search_results");
 	custSearchModal.style.visibility = "hidden";
 
-	//uncheck all radio buttons
-	$("#cust_search_results_table input").prop("checked", false);
 	$("#no_cust_selected_msg").hide();
 }
 
 /*
-This function will take the customer selected via radio button on the 
+This function will take the name of the customer selected via radio button on the 
 customer search results screen, and populate it in the Customer Name
 field on the main screen
 */
@@ -463,6 +546,8 @@ function selectCustomer(){
 
 		//Populate customer name field with selected name
 		document.getElementById("customer_name").value = customerNameSelected;
+
+		document.getElementById("customer_search_results").value = customerNameSelected;
 	}
 	else{
 		//if no radio button is selected, display message

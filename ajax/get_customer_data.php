@@ -5,33 +5,25 @@
 
 	<body>
 		<?php
-		/*
-		This PHP script will be run when the user is searching for a customer.
-		A query will be run to retireve customer information based on the name enetered by the user. If there is one customer returned,
-		then that customer's information (name, number, email) will be displayed, along with their visit history. 
-		If no results are returned, the user is prompted if they want to add a new user.
-		If multiple results are returned, then a modal window appears with the results, and the user can select which customer to 
-		schedule the appointment with.
-		*/
+			/*
+			This PHP script will be run when the user is searching for a customer.
+			A query will be run to retireve customer information based on the name enetered by the user. If there is one customer returned,
+			then that customer's information (name, number, email) will be displayed, along with their visit history. 
+			If no results are returned, the user is prompted if they want to add a new user.
+			If multiple results are returned, then a modal window appears with the results, and the user can select which customer to 
+			schedule the appointment with.
+			*/
 			require_once("common.php");
-			require_once("customer_data.php");
+			//require_once("customer_data.php");
+			require_once("Customer.php");
 
 			$connection = connect();
 
 			$name = $_POST['name'];
 
-			$sql = "SELECT Name, CellPhoneNumber, HomePhoneNumber, HomeAddress, EmailAddress, Birthday FROM " . TBL_CUSTOMER . 
-					" WHERE Name LIKE :customerName " .
-					 "ORDER BY Name ASC";
-
 			try{
-				$st = $connection->prepare($sql);
-				$customerName = "%$name%";
-				$st->bindValue(":customerName", $customerName, PDO::PARAM_STR);
 
-				$st->execute();
-				
-				$rs = $st->fetchAll(PDO::FETCH_ASSOC);
+				$rs = Customer::getCustomerInfo($name);
 				$numResults = count($rs);
 
 				//If there is one customer match, then show information, and history for that customer
@@ -60,7 +52,8 @@
 							"</script>";
 					
 					//also show customer history
-					$customerHistory = getCustomerHistory($returnedCustomerName);
+					//$customerHistory = getCustomerHistory($returnedCustomerName);
+					$customerHistory = Customer::getCustomerHistory($returnedCustomerName);
 					$numVisits = count($customerHistory);
 
 					//only show this table if the customer has visited before
@@ -77,11 +70,15 @@
 							echo "<tbody>";
 							foreach ($customerHistory as $visit) {
 								echo "<tr>";
+									//TO-DO: change format of date? Currently is YYYY-MM-DD
 									echo "<td>" . $visit['Appt_Date'] . "</td>";
 									echo "<td>" . $visit['EmpName'] . "</td>";
 									echo "<td>" . $visit['ServiceName'] . "</td>";
 								echo "</tr>";
 							}
+								echo "<tr>";
+									echo "<td><a href=\"#\">View All History</a></td>";
+								echo "</tr>";
 							echo "</tbody>";
 						echo "</table>";
 					
@@ -99,7 +96,6 @@
 					echo "</div>";
 				}
 				//If multiple results, show results in modal window
-				//TO-DO: Make each row in this table a div and add a hover effect. Also, if the div is clicked, select the radio button
 				//TO-DO: Allow user to navigate through results if more than 10 are returned
 				else{
 					echo "<div id=\"modal_wrapper_cust_search_results\" class=\"modal_wrapper\">";
@@ -123,7 +119,7 @@
 								echo "</thead>";
 								echo "<tbody>";
 									foreach ($rs as $customer) {
-										echo "<tr>";
+										echo "<tr class=\"cust-search-row\">";
 											echo "<td><input type=\"radio\" name=\"cust_name\" value=\"". $customer['Name'] ."\"></td>";
 											echo "<td>" . $customer['Name'] . "</td>";
 											echo "<td>" . $customer['CellPhoneNumber'] . "</td>";
