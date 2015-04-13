@@ -60,7 +60,8 @@ body {
   max-width: 200px;
 }
 
-.field_labels #employee-dropdown, #service-dropdown {
+/*.field_labels #employee-dropdown, #service-dropdown {*/
+.field-dropdowns{
   max-width: 200px;
 }
 
@@ -182,6 +183,10 @@ then displayed based on search results */
   max-width: 150px;
 }
 
+.one-service-dropdown *{
+  display:inline;
+}
+
 /* Set font color of items in the service dropdown.
 These colors will match the color that will appear on the calendar for appointments
 of these services */
@@ -213,10 +218,6 @@ of these services */
 selects Unavailable from Services drop down */
 #unavailable-service {
   display: none;
-}
-
-.unavailable-time p, input {
-  display:inline;
 }
 
 #unavailable-start-fields {

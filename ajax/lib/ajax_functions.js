@@ -116,6 +116,24 @@ function makeAppointment(){
 		//change format of date
 		var apptDate = formatDate(apptDateIn);
 
+		//if the service-dropdown-area has any new-service-dropdown children,
+		//then get those values and store them in an array (if they are not blank)
+		var services = [apptTitle];
+		var newServiceChildren = $("#service-dropdown-area").children(".new-service-dropdown");
+		if(newServiceChildren.length != 0){
+			newServiceChildren.each(function(){
+				var additionalService = $(this).children("select").val();
+				//only include the service if the field entered is not blank
+				if(additionalService.length != 0){
+					services.push(additionalService);	
+				}
+			});
+		}
+
+		for(var i = 0; i < services.length; i++){
+			console.log("Serivce: " + services[i]);
+		}
+
 		//If user selected Unavailable, get the start/end time from the fields
 		//If the user selected All Day, start time is 9am, end time is 7:30pm
 		if(apptTitle === 'Unavailable') {

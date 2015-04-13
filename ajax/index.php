@@ -72,31 +72,36 @@
 								<input type="text" class="form-control appt-timepicker" id="start-time">
 							</li>
 
+							<!-- GET THE OPTIONS FOR THIS DROPDOWN FROM THE DB SO USER CAN ADD TYPES OF SERVICES -->
+							<li>
+								<label for="service-dropdown"><h4>Type of Service:</h4></label>
+								<div id="service-dropdown-area">
+									<div class="one-service-dropdown form-group input-group-lg form-inline">
+										<select name="service" id="service-dropdown" class="form-control field-dropdowns">
+											<option value=""></option>
+											<option value="Haircut" id="haircut-option">Haircut</option>
+											<option value="Beard Trim" id="beard-trim-option">Beard Trim</option>
+											<option value="Shave" id="shave-option">Shave</option>
+											<option value="Color" id="color-option">Color</option>
+											<option value="Eyebrow Wax" id="eyebrow-wax-option">Eyebrow Wax</option>
+											<option value="Unavailable" id="unavailable-option">Unavailable</option>
+										</select>
+										<!-- user can click plus sign to add another line entry (another service)-->
+										<a href="#" onclick="addNewServiceLine()"><span class="glyphicon glyphicon-plus-sign" style="font-size:2.5em;top:12px;"></span></a>
+									</div>	
+								</div>
+							</li>
+
+							<!-- GET THE OPTIONS FOR THIS DROPDOWN FROM THE DB SO USER CAN ADD EMPLOYEES -->
 							<li class="form-group input-group-lg">
 								<label for="employee-dropdown"><h4>Employee:</h4></label>
-								<select name="employee" id="employee-dropdown" class="form-control">
+								<select name="employee" id="employee-dropdown" class="form-control field-dropdowns">
 									<option></option>
 									<option>Kieron</option>
-									<option>NOTANEMPLOYEE</option>
 									<option>Tiara</option>
 									<option>Doug</option>
 									<option>Melvin</option>
 									<option>Jackie</option>
-								</select>
-							</li>
-
-							<li class="form-group input-group-lg">
-								<label for="service-dropdown"><h4>Type of Service:</h4></label>
-								<select name="service" id="service-dropdown" class="form-control">
-									<!-- Make the font color of these options the color of the agenda item on the calendar -->
-									<option></option>
-									<option>NOTASERVICE</option>
-									<option id="haircut-option">Haircut</option>
-									<option id="beard-trim-option">Beard Trim</option>
-									<option id="shave-option">Shave</option>
-									<option id="color-option">Color</option>
-									<option id="eyebrow-wax-option">Eyebrow Wax</option>
-									<option id="unavailable-option">Unavailable</option>
 								</select>
 							</li>
 
@@ -255,11 +260,9 @@
 							<input type="text" id="new_cust_child_birthday" placeholder="Birthday" class="form-control new_cust_birthday_field">						
 
 							<!-- user can click plus sign to add another line entry (another child)-->
-							<!--<button type="button" class="btn btn-default" onclick="addNewCustChildLine()">-->
 							<a href="#" onclick="addNewCustChildLine()">
 							<span class="glyphicon glyphicon-plus-sign" style="font-size:1.5em;"></span>
 							</a>
-							<!--</button>-->
 						</div>
 
 						<div id="new_cust_parent_question" class="form-group form-inline">
@@ -294,57 +297,6 @@
 					<h4>Search Results for</h4><h4 id="cust_search_name"></h4>
 					<p id="cust_search_results_close"><a href="#" onclick="closeCustSearchResults()">close</a></p>
 				</div>
-				<table id="cust_search_results_table">
-					<thead>
-						<tr class="top_row">
-							<th></th>
-							<th>Name</th>
-							<th>Cell #</th>
-							<th>Home #</th>
-							<th>Email</th>
-							<th>Address</th>
-							<th>Birthday</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td><input type="radio" name="cust_name" value="John Adams"></td>
-							<td>John Adams</td>
-							<td>631-433-4415</td>
-							<td>631-521-1122</td>
-							<td>jadams@hotmail.com</td>
-							<td>2 Sampson Street, Islip, NY 11777</td>
-							<td>Dec 09</td>
-						</tr>
-						<tr>
-							<td><input type="radio" name="cust_name" value="John Jones"></td>
-							<td>John Jones</td>
-							<td>631-123-7890</td>
-							<td>631-567-7881</td>
-							<td>jonesj@gmail.com</td>
-							<td>55 Kemi Lane, Sayville, NY 11782</td>
-							<td>Sept 08</td>
-						</tr>
-						<tr>
-							<td><input type="radio" name="cust_name" value="John Smith"></td>
-							<td>John Smith</td>
-							<td>631-123-4567</td>
-							<td>631-589-7272</td>
-							<td>jsmith@gmail.com</td>
-							<td>2 Sampson Street, Sayville, NY 11782</td>
-							<td>March 11</td>
-						</tr>
-						<tr>
-							<td><input type="radio" name="cust_name" value="Steve Johnson"></td>
-							<td>Steve Johnson</td>
-							<td>631-903-1514</td>
-							<td>631-589-7272</td>
-							<td>sjohnson@gmail.com</td>
-							<td>222 1st Ave, New York, NY 11101</td>
-							<td>Jan 22</td>
-						</tr>
-					</tbody>
-				</table>
 
 				<button type="button" id="select_cust_results_btn" class="btn_default_cb" onclick="selectCustomer()">Select</button>
 				<button type="button" id="edit_cust_results_btn" class="btn_default_cb">Edit</button>
