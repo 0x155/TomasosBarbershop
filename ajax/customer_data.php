@@ -1,128 +1,166 @@
 <?php
 	require_once("common.php");
 
-	/*
-	This function returns customer information (name, cell number, and email)
-	
-	function getCustomerInfo($customerName){
+	//Class storing methods for all methods relating to Services
+	class Service{
+		/* This function runs a query to get the names of all services.
+		This is used to populate the options of the Type of Service dropdown. */
+		public static function getServices(){
+			$connection = connect();
 
-		$connection = connect();
+			$sql = "SELECT Name " .
+				   "FROM " . TBL_SERVICE . 
+				   " ORDER BY Name ASC";
 
-		$sql = "SELECT Name, CellPhoneNumber, HomePhoneNumber, EmailAddress, Birthday FROM " . TBL_CUSTOMER . 
-				" WHERE Name LIKE :customerName " .
-				"ORDER BY Name ASC";
+			try {
+				$st = $connection->query($sql);
+				$rs = $st->fetchAll(PDO::FETCH_ASSOC);
 
-		try{
-			$st = $connection->prepare($sql);
-			$customerName = "%$customerName%";
-			$st->bindValue(":customerName", $customerName, PDO::PARAM_STR);
+				foreach ($rs as $service) {
+					echo "<option>" . $service['Name'] . "</option>";
+				}
 
-			$st->execute();
-			
-			$rs = $st->fetchAll(PDO::FETCH_ASSOC);
-			return $rs;
-		}
-		catch(PDOException $e){
-			disconnect($connection);
-			die("Failure in getCustomerInfo(): " . $e->getMessage());
-		}
+				disconnect($connection);
 
-		disconnect($connection);
-	}
-	*/
+			}
+			catch(PDOException $e){
+				disconnect($connection);
+				die("Failure in getServices(): " . $e->getMessage());
+			}
 
-	/*
-	This function returns a customer's recent visits
-	
-	function getCustomerHistory($customerName){
-		$connection = connect();
-
-					//use an alias for Employee.Name and Service.Name since both columns are the same name
-		$sql = "SELECT A.Appt_Date, E.Name as EmpName, S.Name as ServiceName, A.Notes " .
-				"FROM " . TBL_APPOINTMENT . " AS A, " . TBL_EMPLOYEE . " AS E, " . TBL_SERVICE . " AS S, " . TBL_CUSTOMER . " AS C " .
-				"WHERE A.CustomerID = C.ID AND A.ServiceName = S.Name AND A.EmployeeID = E.ID AND C.Name=:customerName " .
-				"ORDER BY A.Appt_Date DESC";
-
-		try{
-			$st = $connection->prepare($sql);
-			$st->bindValue(":customerName", $customerName, PDO::PARAM_STR);
-
-			$st->execute();
-			
-			$rs = $st->fetchAll(PDO::FETCH_ASSOC);
-			return $rs;
-		}
-		catch(PDOException $e){
-			disconnect($connection);
-			die("Failure in getCustomerHistory(): " . $e->getMessage());
-		}
-		
-		disconnect($connection);
-	}
-	*/
-
-	/*
-	Returns the ID of the entered customer from the Customer table.
-	The ID is the primary key for the table and is needed when doing tasks such
-	as inserting into the Appointment table.
-	
-	function getCustomerID($customerNameIn){
-		$connection = connect();
-
-		$sql = "SELECT ID " .
-			   "FROM " . TBL_CUSTOMER . 
-			   " WHERE Name=:customerName";
-
-		try {
-			$st = $connection->prepare($sql);
-			$st->bindValue(":customerName", $customerNameIn, PDO::PARAM_STR);
-
-			$st->execute();
-			
-			$rs = $st->fetchAll(PDO::FETCH_ASSOC);
-			return $rs;
-		}
-		catch(PDOException $e){
-			disconnect($connection);
-			die("Failure in getCustomerID(): " . $e->getMessage());
-		} 
-	}
-	*/
-
-	/*
-	Returns the ID of the entered employee from the Employee table.
-	The ID is the primary key for the table and is needed when doing tasks such
-	as inserting into the Appointment table.
-	TO-DO: Create Employee class and put this method in that class
-	*/
-	function getEmployeeID($employeeNameIn){
-		$connection = connect();
-
-		$sql = "SELECT ID " .
-			   "FROM " . TBL_EMPLOYEE . 
-			   " WHERE Name=:employeeName";
-
-			   //WHAT IF TWO EMPLOYEES HAVE THE SAME NAME?
-
-		try {
-			$st = $connection->prepare($sql);
-			$st->bindValue(":employeeName", $employeeNameIn, PDO::PARAM_STR);
-
-			$st->execute();
-			
-			$rs = $st->fetchAll(PDO::FETCH_ASSOC);
-			return $rs;
-		}
-		catch(PDOException $e){
-			disconnect($connection);
-			die("Failure in getEmployeeID(): " . $e->getMessage());
 		}
 	}
 
-	/*
+	//Class storing methods for all methods relating to Employees
+	class Employee{
+		public static function getEmployeeNames(){
+			$connection = connect();
+
+			$sql = "SELECT Name " .
+				   "FROM " . TBL_EMPLOYEE;
+
+			try {
+				$st = $connection->query($sql);
+				
+				$rs = $st->fetchAll(PDO::FETCH_ASSOC);
+
+				foreach ($rs as $employee) {
+					echo "<option>" . $employee['Name'] . "</option>";
+				}
+
+				disconnect($connection);
+
+			}
+			catch(PDOException $e){
+				disconnect($connection);
+				die("Failure in getEmployeeNames(): " . $e->getMessage());
+			}
+
+		}
+
+		/*
+		Returns the ID of the entered employee from the Employee table.
+		The ID is the primary key for the table and is needed when doing tasks such
+		as inserting into the Appointment table.
+		*/
+		public static function getEmployeeID($employeeNameIn){
+			$connection = connect();
+
+			$sql = "SELECT ID " .
+				   "FROM " . TBL_EMPLOYEE . 
+				   " WHERE Name=:employeeName";
+
+				   //WHAT IF TWO EMPLOYEES HAVE THE SAME NAME?
+
+			try {
+				$st = $connection->prepare($sql);
+				$st->bindValue(":employeeName", $employeeNameIn, PDO::PARAM_STR);
+
+				$st->execute();
+				
+				$rs = $st->fetchAll(PDO::FETCH_ASSOC);
+				return $rs;
+			}
+			catch(PDOException $e){
+				disconnect($connection);
+				die("Failure in getEmployeeID(): " . $e->getMessage());
+			}
+		}
+	}
+
+	//Class storing methods for all methods relating to Appointments
+	class Appointment
+	{
+		/*
+		Adds an appointment to the database.
+		Uses a transaction to insert into the Appointment table, and also the Appointment_Service table.
+		*/
+		public static function addAppointment($apptDate, $customerID, $employeeID, $startTime, $endTime, $notes, $services){
+			$connection = connect();
+
+			$sql_insert_appointment = "INSERT INTO " . TBL_APPOINTMENT .
+				"(Appt_Date, CustomerID, EmployeeID, StartTime, EndTime, Notes) " . 
+				"VALUES (:apptDate, :customerID, :employeeID, :startTime, :endTime, :notes)";
+
+			$sql_insert_appt_services = "INSERT INTO " . TBL_APPT_SERVICE .
+										"(Appt_ID, Service_Name) " .
+										"VALUES(:apptID, :serviceName)";
+
+			$ret = true;
+
+			/*
+			Using a transaction here since there are multiple Insert statements which need to be run:
+			1. Insert into Appointment table
+			2. Insert into Appointment_Service table for each type of service for the appointment
+			Could be multiple inserts for no. 2, if the appointment has multiple services (ex. Haircut and Beard Trim)
+			The use of a transaction allows for atomicity. If one of the inserts fail, then the rollback undoes the inserts 
+			that were successful. Need to make sure all inserts are run successfully in order
+			to maintain integrity of the data (can't have a record in Appointment and not Appointment_Service).
+			*/
+			$connection->beginTransaction();
+
+			try {
+				//bindParam instead?
+				//INSERT INTO Appointment
+				$st = $connection->prepare($sql_insert_appointment);
+				$st->bindValue(":apptDate", $apptDate, PDO::PARAM_STR);
+				$st->bindValue(":customerID", $customerID, PDO::PARAM_INT);
+				$st->bindValue(":employeeID", $employeeID, PDO::PARAM_INT);
+				$st->bindValue(":startTime", $startTime, PDO::PARAM_STR);
+				$st->bindValue(":endTime", $endTime, PDO::PARAM_STR);
+				$st->bindValue(":notes", $notes, PDO::PARAM_STR);
+				$st->execute();
+
+				$lastAppointmentID = $connection->lastInsertID();
+
+
+				//INSERT INTO Appointment_Service
+				$st = $connection->prepare($sql_insert_appt_services);
+				$numServices = count($services);
+				for($i = 0; $i < $numServices; $i++){
+					//bind value and execute query
+					$st->bindValue(":apptID", $lastAppointmentID, PDO::PARAM_INT);
+					$st->bindValue(":serviceName", $services[$i], PDO::PARAM_STR);
+					$st->execute();
+				}
+
+				$connection->commit();
+
+				return $ret;
+				
+			}
+			catch(PDOException $e){
+				$connection->rollBack();
+				disconnect($connection);
+				die("Failure in addAppointment(): " . $e->getMessage());
+			}			
+		}
+	}
+
+		/*
 	Verifies a service exists in the Service table.
 	TO-DO: Put this in a different class or file.
-	*/
+	
 	function getServiceName($serviceNameIn){
 		$connection = connect();
 
@@ -144,33 +182,6 @@
 			die("Failure in getServiceName(): " . $e->getMessage());
 		}
 	}
-
-	function addAppointment($apptDate, $customerID, $employeeID, $startTime, $endTime, $serviceName, $notes){
-		$connection = connect();
-
-		$sql = "INSERT INTO " . TBL_APPOINTMENT .
-			"(Appt_Date, CustomerID, EmployeeID, StartTime, EndTime, ServiceName, Notes) " . 
-			"VALUES (:apptDate, :customerID, :employeeID, :startTime, :endTime, :serviceName, :notes)";
-
-		try {
-			$st = $connection->prepare($sql);
-			$st->bindValue(":apptDate", $apptDate, PDO::PARAM_STR);
-			$st->bindValue(":customerID", $customerID, PDO::PARAM_INT);
-			$st->bindValue(":employeeID", $employeeID, PDO::PARAM_INT);
-			$st->bindValue(":startTime", $startTime, PDO::PARAM_STR);
-			$st->bindValue(":endTime", $endTime, PDO::PARAM_STR);
-			$st->bindValue(":serviceName", $serviceName, PDO::PARAM_STR);
-			$st->bindValue(":notes", $notes, PDO::PARAM_STR);
-
-			//execute() returns true or false if successful/failed
-			$ret = $st->execute();
-			return $ret;
-			
-		}
-		catch(PDOException $e){
-			disconnect($connection);
-			die("Failure in addAppointment(): " . $e->getMessage());
-		}			
-	}
+	*/
 
 ?>

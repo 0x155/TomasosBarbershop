@@ -57,14 +57,14 @@ $(document).ready(function(){
 	//Will eventually load data from a database:
 	//http://docs.dhtmlx.com/scheduler/loading_data.html#loadingdatafromadatabase
 	var events = [
-		{start_date:"04/11/2015 10:30", end_date:"04/11/2015 11:00", text:"Haircut -- Joe Smith", color:"#3A87AD", unit_id:"1"},
-		{start_date:"04/11/2015 09:00", end_date:"04/11/2015 09:30", text:"Haircut -- Christian", color:"#3A87AD", unit_id:"1"},
-		{start_date:"04/11/2015 12:00", end_date:"04/11/2015 12:30", text:"Shave -- Dylan", color: "#FF887C", unit_id:"1"},
-	    {start_date:"04/11/2015 09:30", end_date:"04/11/2015 10:00", text:"Color -- Jane Doe", color:"#F58839", unit_id:"2"},
-	    {start_date:"04/11/2015 12:30", end_date:"04/11/2015 12:45", text:"Eyebrow Wax -- Jane Doe", color: "#C353E8", unit_id:"2"},
-	    {start_date:"04/11/2015 11:00", end_date:"04/11/2015 11:15", text:"Beard Trim -- Jonathan", color:"#368C23", unit_id:"2"},
-	    {start_date:"04/11/2015 12:30", end_date:"04/11/2015 13:00", text:"Haircut -- Dylan", color:"#3A87AD", unit_id:"3"},
-	    {start_date:"04/11/2015 09:30", end_date:"04/11/2015 10:00", text:"Color -- Jane Doe", color:"#F58839", unit_id:"5"}
+		{start_date:"04/24/2015 10:30", end_date:"04/24/2015 11:00", text:"Haircut -- Joe Smith", color:"#3A87AD", unit_id:"1"},
+		{start_date:"04/24/2015 09:00", end_date:"04/24/2015 09:30", text:"Haircut -- Christian", color:"#3A87AD", unit_id:"1"},
+		{start_date:"04/24/2015 12:00", end_date:"04/24/2015 12:30", text:"Shave -- Dylan", color: "#FF887C", unit_id:"1"},
+	    {start_date:"04/24/2015 09:30", end_date:"04/24/2015 10:00", text:"Color -- Jane Doe", color:"#F58839", unit_id:"2"},
+	    {start_date:"04/24/2015 12:30", end_date:"04/24/2015 12:45", text:"Eyebrow Wax -- Jane Doe", color: "#C353E8", unit_id:"2"},
+	    {start_date:"04/24/2015 11:00", end_date:"04/24/2015 11:15", text:"Beard Trim -- Jonathan", color:"#368C23", unit_id:"2"},
+	    {start_date:"04/24/2015 12:30", end_date:"04/24/2015 13:00", text:"Haircut -- Dylan", color:"#3A87AD", unit_id:"3"},
+	    {start_date:"04/24/2015 09:30", end_date:"04/24/2015 10:00", text:"Color -- Jane Doe", color:"#F58839", unit_id:"5"}
 	];
 
 	//the parse() method loads data from an inline set (JSON)
@@ -134,6 +134,9 @@ $(document).ready(function(){
 		todayBtn:"linked",
 		autoclose:true,
 		todayHighlight:true,
+		//note this option works in IE but not Chrome
+		disableTouchKeyboard:true,
+		keyboardNavigation:false,
 		daysOfWeekDisabled:'0'
 	});
 
@@ -143,7 +146,9 @@ $(document).ready(function(){
 		startView: "year",
 		todayBtn:"linked",
 		autoclose:true,
-		todayHighlight:true
+		todayHighlight:true,
+		keyboardNavigation:false,
+		disableTouchKeyboard:true
 	});
 	//Pre-fill the datepicker with today's date
 	var today = new Date();
@@ -154,7 +159,10 @@ $(document).ready(function(){
 
 
 	//Time Picker
-	$('.appt-timepicker').timepicker();
+	$('.appt-timepicker').timepicker({
+		disableFocus: true,
+		disableMousewheel: true
+	});
 
 	/* If user selects "Unavailable" from service dropdown,
 	show fields to enter start/end time employee is unavailable, or All-Day checkbox.
@@ -195,64 +203,8 @@ $(document).ready(function(){
 	/* This method will display appointment on calendar when the "Make Appointment" button is
 	clicked. */
 	$('.make_appt_btn').click(function(event){ 
-		
 		//This will prevent the page from reloading when button is clicked
 		event.preventDefault();
-		/*
-		var doc = document;
-
-		//Get fields that user entered. These will be used to create event in database
-		var customerName = doc.getElementById("customer_name").value;
-		var apptDateIn = doc.getElementById("date").value; //MM/DD/YYYY
-		var apptTime = doc.getElementById("start-time").value; //HH:MM AM
-		var apptTitle = doc.getElementById("service-dropdown").value;
-		var employeeName = doc.getElementById("employee-dropdown").value;
-
-		var startTime = '';
-		var endTime = '';
-
-		var unitID = getUnitID(employeeName);
-		var apptColor = getApptColor(apptTitle);
-
-		//If user selected Unavailable, get the start/end time from the fields
-		//If the user selected All Day, start time is 9am, end time is 7:30pm
-		if(apptTitle === 'Unavailable') {
-
-			//Set value for customerName to be employeeName so the employee name
-			//appears on the calendar for Unavailable, not the customer name
-			customerName = employeeName;
-
-			if(doc.getElementById("unavailable-all-day").checked){
-				startTime = "09:00";
-				endTime = "19:30";
-			}
-			else {
-				startTime = formatTime(doc.getElementById("unavailable-start-time").value);
-				endTime = formatTime(doc.getElementById("unavailable-end-time").value);
-
-				//Show error if start time is greater than end time
-				//i.e start:12pm end:10am
-			}
-		}
-		//If user did not select "Unavailable", then get start time from time field,
-		//and determine end time based on appointment title
-		else {
-			//startTime comes from what the user enters
-			startTime = formatTime(apptTime);
-			
-			//end time is determined based on appointment
-			endTime = getEndTime(apptTitle, startTime);
-		}
-
-		/*
-		//Add appointment to calendar
-		var appt = [
-			{start_date:apptDateIn + " " + startTime, end_date:apptDateIn + " " + endTime, color:apptColor, text:apptTitle + " -- " + customerName, unit_id:unitID}
-			//{start_date:"01/31/2015 11:00", end_date:"01/31/2015 11:30", text:"Haircut", unit_id:"1"}
-		];
-
-		scheduler.parse(appt,"json");
-		*/
 	});
 
 	/*
@@ -313,10 +265,11 @@ $(document).ready(function(){
 
 /*
 Verifies all fields in the entered array are not empty (length != 0).
-If the field is empty, it's text input field has a red border added,
-and the corresponding label is changed to have it's font red. 
+If the field is empty, it's text input field has a red border added.
 Returns true if all fields are not blank, false otherwise.
-This is mainly used when verifying fields when making an appointment
+This is mainly used when verifying fields when making an appointment.
+EDIT: Removed making the sibling label red font color if a field was empty.
+This did not always work since the text fields do not always have sibling labels.
 */
 function verifyAppointmentFieldsLength(formObjects){
 	//console.log("Enter verifyAppointmentFields");
@@ -325,15 +278,15 @@ function verifyAppointmentFieldsLength(formObjects){
 
 	var numObjects = formObjects.length;
 	for(var i = 0; i < numObjects; i++){
-		var siblingLabel = $(formObjects[i]).siblings("label").first();
+		//var siblingLabel = $(formObjects[i]).siblings("label").first();
 		if(formObjects[i].value.length === 0){
 			validFields = false;
 			$(formObjects[i]).addClass("badField"); 
-			siblingLabel.addClass("emptyField"); 
+			//siblingLabel.addClass("emptyField"); 
 		}
 		else{
 			$(formObjects[i]).removeClass("badField"); 
-			siblingLabel.removeClass("emptyField"); 
+			//siblingLabel.removeClass("emptyField"); 
 		}
 	}
 
@@ -353,15 +306,19 @@ function renderCalendarAppt(apptDateIn, startTime, endTime, apptColor, apptTitle
 }
 
 function clearAppointmentFields(){
-	console.log("enter clearAppointmentFields");
+	//console.log("enter clearAppointmentFields");
 
 	var doc = document;
 	var custName = doc.getElementById("customer_name");
 	var employee = doc.getElementById("employee-dropdown");
+	var apptHours = doc.getElementById("appt-length-hours");
+	var apptMins = doc.getElementById("appt-length-mins");
 	var service = doc.getElementById("service-dropdown");
 	var notes = doc.getElementById("notes_area");
 
 	custName.value = "";
+	apptHours.value = "0";
+	apptMins.value = "30";
 	employee.selectedIndex = 0;
 
 	//hide unavailable fields if they are shown
@@ -388,18 +345,47 @@ function clearAppointmentFields(){
 	//hide customer history table
 	$(".customer-history").hide();
 
+	//remove any additional service dropdowns the user may have added
 	$(".new-service-dropdown").remove();
+
+	//hide the plus sign next to the service dropdown
+	//the plus sign is only displayed once the user makes an initial selection
+	doc.getElementById("new-service-plus").style.display = "none";
 	
 
 	notes.value = "";
 }
 
 /*
+This will check the value of the first service dropdown.
+If the value is not the empty string, and not Unavailable, then
+display the plus sign, allowing the user to add another service.
+Else, hide the plus sign.
+*/
+function checkSelectedService(){
+	var selectedService = document.getElementById("service-dropdown").value;
+	var plusSign = document.getElementById("new-service-plus");
+
+	/*only show the plus sign if selected service is not blank,
+	and is not Unavailable. There is no need to add another service
+	if selected service is Unavailable. */
+	if( (selectedService !== "") && (selectedService !== "Unavailable") ){
+		plusSign.style.display = "inline";
+	}
+	else{
+		plusSign.style.display = "none";
+	}
+}
+
+/*
 This function adds a new dropdown listing the available services.
-This is triggered when the user clicks the plus sign next to the Services
-dropdown. The option values from the dropdown appearing at load time are copied
-into the option values for each subsequent dropdown added. This prevents a SELECT
-query to have to be executed in order to populate the values for each new dropdown.
+Native JS is used to create these DOM elements. Each DOM element added consists of
+a div container, the dropdown, and the plus and minus signs, allowing the user
+to add another service, or remove this one. This function is triggered when the user 
+clicks the plus sign next to the Services dropdown. The option values from the initial 
+dropdown are copied into the option values for each subsequent dropdown added. 
+This prevents a SELECT query to have to be executed in order to populate the values for 
+each new dropdown.
 */
 function addNewServiceLine(){
 	var doc = document;
@@ -410,9 +396,10 @@ function addNewServiceLine(){
 	//div containing the new dropdown
 	var newGroup = doc.createElement("div");
 
-	/*In order to assign a unique ID to each of the new inputs, 
+	/*In order to assign a unique ID attribute to each of the new inputs, 
 	count how many Select children nodes the 
-	service-dropdown-area has, and then add one to that number */
+	service-dropdown-area has, and then add one to that number 
+	TO-DO: not really doing anything with this id, so not sure if it is needed*/
 	var newSelect = doc.createElement("select");
 	var newSelectIDNum = $(area).children().length + 1;
 	var newSelectID = (newSelectIDNum).toString();
@@ -424,11 +411,17 @@ function addNewServiceLine(){
 	$("#service-dropdown > option").each(function(){
 		var optionVal = $(this).val();
 
-		var option = doc.createElement("option");
-		option.text = optionVal;
-		option.value = optionVal;
+		/*Exclude Unavailable for the list of options for 
+		additional services. Unavailable would never be needed as an
+		additional service. */
+		if(optionVal != "Unavailable"){
+			var option = doc.createElement("option");
+			option.text = optionVal;
+			option.value = optionVal;
 
-		newSelect.appendChild(option);
+			newSelect.appendChild(option);
+		}
+
 	});
 	
 	$(newSelect).addClass("form-control");
@@ -441,7 +434,7 @@ function addNewServiceLine(){
 	var plusSign = doc.createElement("span");
 	plusSign.style.fontSize = "2.5em";
 	plusSign.style.top = "12px";
-	plusSign.style.paddingLeft = "4px";
+	plusSign.style.paddingLeft = "15px";
 	$(plusSign).addClass("glyphicon");
 	$(plusSign).addClass("glyphicon-plus-sign");
 	plusSignLink.appendChild(plusSign);
@@ -455,7 +448,7 @@ function addNewServiceLine(){
 	var minusSign = doc.createElement("span");
 	minusSign.style.fontSize = "2.5em";
 	minusSign.style.top = "12px";
-	minusSign.style.paddingLeft = "4px";
+	minusSign.style.paddingLeft = "15px";
 	$(minusSign).addClass("glyphicon");
 	$(minusSign).addClass("glyphicon-minus-sign");
 	minusSignLink.appendChild(minusSign);	
@@ -633,10 +626,91 @@ function selectCustomer(){
 		$("#no_cust_selected_msg").show(300);
 	}
 }
+/*
+TO-DO: Fix the methods used to add/subtract hours and minutes for the appointment.
+The user should be able to set intervals for the minutes, and the default minutes displayed.
+This can be set in text field in the Settings section, or in a JSON object
+When the button is clicked, the interval value set is read, then added/subtract to/from the value
+*/
+/*
+Increases minutes for the appointment by an interval of 15 mins
+*/
+function addApptMinutes(){
+	var minsField = document.getElementById("appt-length-mins");
+	//var minsInterval = document.getElementById("appt-min-interval");
+	//Might be able to set this value in the settings page using JSON
+
+	var minutes = minsField.value;
+	//var interval = minsInterval.value;
+	var minutesNum = parseInt(minutes, 10);
+	//var intervalNum = parseInt(interval, 10);
+
+	//var limit = 60 - intervalNum;
+	minutesNum += 15;
+
+	if(minutesNum >= 60){
+		minutesNum = 0;
+	}
+	minsField.value = minutesNum;
+
+	//the return value determines if the browser's default behavior should occur
+	return false;
+}
+
+/*
+Decreases minutes for the appointment by an interval of 15 mins
+*/
+function subtractApptMinutes(){
+	var minsField = document.getElementById("appt-length-mins");
+	var minutes = minsField.value;
+	var minutesNum = parseInt(minutes, 10);
+	minutesNum -= 15;
+	if(minutesNum < 0){
+		minutesNum = 45;
+	}
+	minsField.value = minutesNum;
+
+	//the return value determines if the browser's default behavior should occur
+	return false;
+}
+
+/*
+Increases hours for the appointment by one
+*/
+function addApptHour(){
+	var hourField = document.getElementById("appt-length-hours");
+	var hours = hourField.value;
+	var hoursNum = parseInt(hours, 10);
+	hoursNum += 1;
+	if(hoursNum > 8){
+		hoursNum = 0;
+	}
+
+	hourField.value = hoursNum;
+
+	return false;
+}
+
+/*
+Decreases hours for the appointment by one
+*/
+function subtractApptHour(){
+	var hourField = document.getElementById("appt-length-hours");
+	var hours = hourField.value;
+	var hoursNum = parseInt(hours, 10);
+	hoursNum -= 1;
+	if(hoursNum < 0){
+		hoursNum = 8;
+	}
+
+	hourField.value = hoursNum;
+
+	return false;
+}
 
 /*
 This will format the appointment time into the form accepted by the calendar
-Input: HH:MM AMPM
+Input: HH:MM AM/PM
 Output: HH:MM
 Note the time returned needs to be in Military time
 This method will call another method to convert to Military time if 
@@ -736,7 +810,8 @@ Eyebrow Wax = 15 mins
 
 startTime needs to be in Military time (i.e 09:00, 14:30) 
 */
-function getEndTime(service, startTime){
+function getEndTime_Orig(service, startTime){
+	//TO-DO: Remove this logic since user is setting length of appointment
 	switch(service) {
 		case "Haircut":
 			return addMilitaryTime(30, startTime);
@@ -752,9 +827,57 @@ function getEndTime(service, startTime){
 }
 
 /*
+New function to compute the end military time of the appointment,
+given the hours and minutes, representing the length of the appointment.
+Input: (1, 30, 10:30)
+Return 12:00
+*/
+function getEndTime(hoursToAdd, minutesToAdd, startTime){
+	var h = startTime.indexOf(':');
+	var hourNum = parseInt(startTime.substring(0, h), 10);
+	var minutesNum = parseInt(startTime.substr(h + 1), 10);
+
+	var hours = '';
+	var mins = '';
+
+	var newHour = hourNum + hoursToAdd;
+	var newMinutes = minutesNum + minutesToAdd;
+
+	if(newMinutes >= 60){
+		var dif = newMinutes - 60;
+		newMinutes = dif;
+		newHour += 1;
+	}
+
+	hours = newHour.toString();
+	mins = newMinutes.toString();
+
+	//if hours or minutes is 1 digit, need to prepend 0
+	//This prevents time such as 10:0 and 9:0
+	if(mins === "0") {
+		mins = "0" + mins;
+	}
+	if(hours.length === 1) {
+		hours = "0" + hours;
+	}
+
+	return hours + ":" + mins;
+}
+
+/*
 This function will return a new military time with length added to it
 */
 function addMilitaryTime(length, startTime) {
+	/*
+	TO-DO:
+	-Time to add modulus 60 will return # of minutes to add
+	-Integer division of time to add and 60 will return # of hours to add.
+	Ex: Add 135 mins to 10:00 (1 hour and 15 mins)
+	135 % 60 = 15 = mins
+	Math.floor(135 / 60) = 2 = hours
+	Add 2 to hours and 15 to minutes
+	Note to change if overflow (10:45 plus 30 mins is 11:30)
+	*/
 	var h = startTime.indexOf(':');
 	var hourNum = parseInt(startTime.substring(0, h), 10);
 	var minutesNum = parseInt(startTime.substr(h + 1), 10);
@@ -775,7 +898,7 @@ function addMilitaryTime(length, startTime) {
 
 	//if hours or minutes is 1 digit, need to prepend 0
 	//This prevents time such as 10:0 and 9:0
-	if(mins === '0') {
+	if(mins === "0") {
 		mins = "0" + mins;
 	}
 	if(hours.length === 1) {

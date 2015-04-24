@@ -69,7 +69,8 @@ function customerSearch(){
 }
 
 /*
-This function will submit an AJAX request to add an appointment to the Appointments
+This function will validate the data submitted by the user, then 
+submit an AJAX request to add an appointment to the Appointments
 table in the database, and then call another function to render the appointment on 
 the calendar.
 */
@@ -80,12 +81,14 @@ function makeAppointment(){
 	var customerNameObj = doc.getElementById("customer_name");
 	var apptDateInObj = doc.getElementById("date"); 
 	var apptTimeObj = doc.getElementById("start-time");
+	var apptHoursObj = doc.getElementById("appt-length-hours");
+	var apptMinsObj = doc.getElementById("appt-length-mins");
 	var apptTitleObj = doc.getElementById("service-dropdown");
 	var employeeNameObj = doc.getElementById("employee-dropdown");
 	var apptNotesObj = doc.getElementById("notes_area");
 
-	//var formObjects = [customerNameObj, apptDateInObj, apptTimeObj, apptTitleObj, employeeNameObj];
-	var formObjects = [apptDateInObj, apptTimeObj, apptTitleObj, employeeNameObj];
+	//not sure yet if we need to check duration
+	var formObjects = [apptDateInObj, apptTimeObj, apptHoursObj, apptMinsObj, apptTitleObj, employeeNameObj];
 
 	//If the appointment title is NOT Unavailable,
 	//then we need to check that the CustomerName is not blank
@@ -97,7 +100,7 @@ function makeAppointment(){
 	var fieldsLength = verifyAppointmentFieldsLength(formObjects);
 	if(fieldsLength){
 
-		//hide make_appt_reqrd_fields_msg
+		//hide make_appt_reqrd_fields_msg if displayed
 		var reqrd_fields_msg = doc.getElementById("make_appt_reqrd_fields_msg");
 		if(reqrd_fields_msg.style.display != "none"){
 			reqrd_fields_msg.style.display = "none";
@@ -106,7 +109,9 @@ function makeAppointment(){
 		var customerName = customerNameObj.value;
 		var apptDateIn = apptDateInObj.value; //MM/DD/YYYY
 		var apptTime = apptTimeObj.value; //HH:MM AM
-		var apptTitle = apptTitleObj.value;
+		var apptTimeHours = apptHoursObj.value;
+		var apptTimeMins = apptMinsObj.value;
+		var apptTitle = apptTitleObj.value;	//Note this will be the value of the first service dropdown
 		var employeeName = employeeNameObj.value;
 		var apptNotes = apptNotesObj.value;
 
@@ -114,28 +119,32 @@ function makeAppointment(){
 		var apptColor = getApptColor(apptTitle);
 
 		//change format of date
+		//Format In: MM/DD/YYYY
+		//Format Out: YYYY-MM-DD
 		var apptDate = formatDate(apptDateIn);
 
 		//if the service-dropdown-area has any new-service-dropdown children,
-		//then get those values and store them in an array (if they are not blank)
-		var services = [apptTitle];
+		//then get those values and append them to a string, with each
+		//service delimited with "|"
+		var services = apptTitle;
+		var apptTileCal = apptTitle;
 		var newServiceChildren = $("#service-dropdown-area").children(".new-service-dropdown");
 		if(newServiceChildren.length != 0){
 			newServiceChildren.each(function(){
 				var additionalService = $(this).children("select").val();
-				//only include the service if the field entered is not blank
+				//only include the additional service if the option selected is not blank
 				if(additionalService.length != 0){
-					services.push(additionalService);	
+					services += "|"+additionalService;
+					apptTileCal += ", "+additionalService;
 				}
 			});
 		}
 
-		for(var i = 0; i < services.length; i++){
-			console.log("Serivce: " + services[i]);
-		}
+		//console.log("Serivces: " + services);
 
 		//If user selected Unavailable, get the start/end time from the fields
 		//If the user selected All Day, start time is 9am, end time is 7:30pm
+		//Note apptTitle stores the value entered in the FIRST service dropdown
 		if(apptTitle === 'Unavailable') {
 
 			//Set value for customerName to be employeeName so the employee name
@@ -151,7 +160,7 @@ function makeAppointment(){
 				startTime = formatTime(doc.getElementById("unavailable-start-time").value);
 				endTime = formatTime(doc.getElementById("unavailable-end-time").value);
 
-				//Show error if start time is greater than end time
+				//TO-DO: Show error if start time is greater than end time
 				//i.e start:12pm end:10am
 				//User is entering start and end time here
 			}
@@ -159,11 +168,13 @@ function makeAppointment(){
 		//If user did not select "Unavailable", then get start time from time field,
 		//and determine end time based on appointment title
 		else {
-			//startTime comes from what the user enters
+			/*Returns time entered to military time:
+			Input: HH:MM AM/PM
+			Output: HH:MM */
 			startTime = formatTime(apptTime);
-			
-			//end time is determined based on appointment
-			endTime = getEndTime(apptTitle, startTime);
+
+
+			endTime = getEndTime(parseInt(apptTimeHours), parseInt(apptTimeMins), startTime);
 		}
 
 		var xmlhttp = createXmlHttpRequestObject();
@@ -173,12 +184,13 @@ function makeAppointment(){
 				resultsDiv.innerHTML = xmlhttp.responseText;
 
 				/*If none of make_appt_results's child DOM elements contains the make_appt_bad class 
-				(which is added to any of the error messages), then fields are okay,
-				then render appointment on calendar.*/
+				(which is added to any of the error messages, if the customer does not exists for example), 
+				then fields are okay, so render appointment on calendar.*/
 				var msgs = $("#make_appt_results").find(".make_appt_bad");
 				if(msgs.length === 0){
 					//date needs to be in the original format (MM/DD/YYYY) when rendering
-					renderCalendarAppt(apptDateIn, startTime, endTime, apptColor, apptTitle, customerName, unitID);
+					//The apptDateIn variable is in this format
+					renderCalendarAppt(apptDateIn, startTime, endTime, apptColor, apptTileCal, customerName, unitID);
 
 					//Clear fields
 					clearAppointmentFields();
@@ -189,8 +201,8 @@ function makeAppointment(){
 		xmlhttp.open("POST", "make_appointment.php", true);
 		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		var params = "date="+apptDate+"&customerName="+customerName+"&startTime="+startTime+
-					"&endTime="+endTime+"&employeeName="+employeeName+"&service="+apptTitle+"&notes="+apptNotes;
-
+					"&endTime="+endTime+"&employeeName="+employeeName+"&services="+services+"&notes="+apptNotes;
+																
 		xmlhttp.send(params);
 		//encodeURIComponent()
 	}

@@ -10,4 +10,5 @@
 	define("TBL_SERVICE", "Service");
 	define("TBL_PARENT", "Parent");
 	define("TBL_CHILD", "Child");
+	define("TBL_APPT_SERVICE", "Appointment_Service");
 ?>

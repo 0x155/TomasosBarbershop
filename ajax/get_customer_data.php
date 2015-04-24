@@ -37,7 +37,7 @@
 							echo "<p><b>Email Address: </b>" . $customer['EmailAddress'] . "</p>";
 						}
 						echo "</div>";
-						echo "<p><a id=\"cust-history-close\">Close[x]</a></p>";
+						//echo "<p><a id=\"cust-history-close\">Close[x]</a></p>";
 
 						/*Need to set the value of the customer_name text field to be
 						the returned name from the search, otherwise the user can make appointment
@@ -65,6 +65,7 @@
 									echo "<th id=\"date-head\">Date</th>";
 									echo "<th id=\"emp-head\">Employee</th>";
 									echo "<th id=\"service-head\">Service</th>";
+									echo "<th><a id=\"cust-history-close\">Close[x]</a></th>";
 								echo "</tr>";
 							echo "</thead>";
 							echo "<tbody>";

@@ -67,41 +67,65 @@
 								<!-- http://eternicode.github.io/bootstrap-datepicker/?#sandbox -->
 							</li>
 
-							<li class="form-group input-group-lg">
-								<label for="start-time"><h4>Time:</h4></label>
-								<input type="text" class="form-control appt-timepicker" id="start-time">
+							<li class="form-group">
+								<table id="time-fields">
+									<tr>
+										<td><label for="start-time"><h4>Time:</h4></label></td>
+										<td><button class="btn btn-default appt-time-arrow-btn" id="hour-up-arrow" onclick="return addApptHour()"><span class="glyphicon glyphicon-chevron-up appt-time-arrow-span"></span></button></td>
+										<td><button class="btn btn-default appt-time-arrow-btn" id="min-up-arrow" onclick="return addApptMinutes()"><span class="glyphicon glyphicon-chevron-up appt-time-arrow-span"></span></button></td>
+									</tr>
+
+									<tr>
+										<td class="input-group-lg time-field">
+											<input type="text" class="form-control appt-timepicker" id="start-time">
+										</td>
+										<td class="input-group-lg hours-min-fields">
+											<input type="text" class="form-control" id="appt-length-hours" value="0" disabled>
+											<p>Hr(s)</p>
+										</td>
+										<td class="input-group-lg hours-min-fields">
+											<input type="text" class="form-control" id="appt-length-mins" value="30" disabled>
+											<p>Mins</p>
+										</td>
+									</tr>
+
+									<tr>
+										<td></td>
+										<td><button class="btn btn-default appt-time-arrow-btn" id="hour-down-arrow" onclick="return subtractApptHour()"><span class="glyphicon glyphicon-chevron-down appt-time-arrow-span"></span></button></td>
+										<td><button class="btn btn-default appt-time-arrow-btn" id="min-down-arrow" onclick="return subtractApptMinutes()"><span class="glyphicon glyphicon-chevron-down appt-time-arrow-span"></span></button></td>
+									</tr>
+								</table>
 							</li>
 
-							<!-- GET THE OPTIONS FOR THIS DROPDOWN FROM THE DB SO USER CAN ADD TYPES OF SERVICES -->
 							<li>
-								<label for="service-dropdown"><h4>Type of Service:</h4></label>
+								<label for="service-dropdown"><h4>Service:</h4></label>
 								<div id="service-dropdown-area">
 									<div class="one-service-dropdown form-group input-group-lg form-inline">
-										<select name="service" id="service-dropdown" class="form-control field-dropdowns">
+										<select name="service" id="service-dropdown" class="form-control field-dropdowns" onchange="checkSelectedService()">
 											<option value=""></option>
-											<option value="Haircut" id="haircut-option">Haircut</option>
-											<option value="Beard Trim" id="beard-trim-option">Beard Trim</option>
-											<option value="Shave" id="shave-option">Shave</option>
-											<option value="Color" id="color-option">Color</option>
-											<option value="Eyebrow Wax" id="eyebrow-wax-option">Eyebrow Wax</option>
-											<option value="Unavailable" id="unavailable-option">Unavailable</option>
+											<!--Get options for service from database -->
+											<?php
+												require_once("customer_data.php");
+												Service::getServices();
+											?>
 										</select>
-										<!-- user can click plus sign to add another line entry (another service)-->
-										<a href="#" onclick="addNewServiceLine()"><span class="glyphicon glyphicon-plus-sign" style="font-size:2.5em;top:12px;"></span></a>
+										<!-- user can click plus sign to add another type of service-->
+										<a href="#" id="new-service-plus" onclick="addNewServiceLine()">
+											<span class="glyphicon glyphicon-plus-sign" style="font-size:2.5em;top:12px;"></span>
+										</a>
 									</div>	
 								</div>
 							</li>
 
-							<!-- GET THE OPTIONS FOR THIS DROPDOWN FROM THE DB SO USER CAN ADD EMPLOYEES -->
 							<li class="form-group input-group-lg">
 								<label for="employee-dropdown"><h4>Employee:</h4></label>
 								<select name="employee" id="employee-dropdown" class="form-control field-dropdowns">
-									<option></option>
-									<option>Kieron</option>
-									<option>Tiara</option>
-									<option>Doug</option>
-									<option>Melvin</option>
-									<option>Jackie</option>
+									<option value=""></option>
+									<!--Get options for employees from database -->
+									<?php
+										require_once("customer_data.php");
+										Employee::getEmployeeNames();
+									?>
 								</select>
 							</li>
 

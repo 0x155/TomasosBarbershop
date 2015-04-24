@@ -20,10 +20,6 @@ body {
   border:1px solid white;
 }
 
-.next_arrow, .previous_arrow {
-  margin-top: 1em;
-}
-
 .fields ul {
   list-style-type: none;
 }
@@ -60,9 +56,16 @@ body {
   max-width: 200px;
 }
 
-/*.field_labels #employee-dropdown, #service-dropdown {*/
 .field-dropdowns{
   max-width: 200px;
+}
+
+.field-dropdowns > option{
+  /*styling the options of a dropdown options have different
+  results in different browsers. IE seems to repsect the change in
+  font size, but not Chrome */
+  /*padding-top:15px;*/
+  font-size: 25px;
 }
 
 /* This style will be applied to all buttons */
@@ -84,9 +87,13 @@ body {
 .btn_default_cb:hover {
   background-color: #0444B3;
 }
+/*------*/
 
 .make_appt_btn {
   margin-left: 3em;
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+  height: 50px;
 }
 
 .no-cust-btn {
@@ -96,31 +103,23 @@ body {
 
 .field_labels li {
   /*border:2px solid blue;*/
-  margin-bottom: 1em;
+  /*margin-bottom: 1em;*/
 }
 
 .move-down {
   margin-top: 200px;
 }
-
+/*
 .employee_col {
   text-align: center;
   font-weight: bold;
   font-size: 16px;
   padding-top: 1em;
 }
+*/
 
 .fc-day-header {
   font-size: 20px;
-}
-
-.field_labels .cust-fields {
-  list-style: none;
-  padding-left: 0em;
-}
-
-.field_labels .cust-fields li {
-  display: inline-block;
 }
 
 #cust-name-fields {
@@ -136,12 +135,12 @@ body {
   border-bottom-right-radius:4px;
   border-color: transparent;
 }
-
+/*
 .field_labels .cust-fields #cust_name_field {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
-
+*/
 /* These items will be initially hidden, 
 then displayed based on search results */
 .customer-history {
@@ -149,43 +148,113 @@ then displayed based on search results */
   margin-top: -1em;
 }
 
-#no-customer-returned {
-  /*display: none;*/
+#no-customer-returned > p {
+  display: block;
 }
-/*---------------*/
 
 .customer-history #date-head {
   padding-right: 4.5em;
 }
 
 .customer-history #emp-head {
-  padding-right: 2em;
+  padding-right: 1.5em;
 }
 
 .customer-history #service-head {
-  padding-right: 5em;
+  padding-right: 3em;
 }
 
 #cust-history-close {
   cursor: pointer;
 }
 
-.customer-history .customer-info {
-  float:left;
+.customer-history .customer-info p {
+  display: block;
 }
 
-.customer-history #cust-history-close {
-  float:right;
+.customer-history-table th {
+  border-bottom:1px solid black;
 }
 
+/*---------------*/
+
+#new-service-plus {
+  display: none;
+  padding-left: 10px;
+}
+
+/*These rules are for the Time portion of the Make Appointment screen.
+They add styling to the start time, hours, and minutes fields*/
+.bootstrap-timepicker-widget table tr td a{
+  height:40px;
+  width:50px;
+  /*border:1px solid #CCCCCC;*/
+}
+
+.bootstrap-timepicker-hour,
+.bootstrap-timepicker-minute,
+.bootstrap-timepicker-meridian {
+  font-size: 18px;
+}
+
+/*NOTE: I made a change to this element in the min.css file
+I changed the margin to 0.75em, and the width to 50px and height to 40px.
+I also changed the icon for the up/down arrows in the min.js file
+I replaced the icon-chevron-up class with the glyphicon glyphicon-chevron-up classes.
+The arrows were not appearing since the icon-chevron-up class did not exist. */
+.bootstrap-timepicker-widget table td input {}
 
 .appt-timepicker {
   max-width: 150px;
 }
 
-.one-service-dropdown *{
-  display:inline;
+#appt-length-hours {
+  width:50px;
+  margin-left: 0.3em;
 }
+
+#appt-length-mins {
+  width:60px;
+}
+
+.appt-time-arrow-btn{
+  border-color: #FFFFFF !important;
+}
+
+.appt-time-arrow-btn:hover{
+  border-color: #CCCCCC !important;
+  background-color: #FFFFFF !important;
+}
+
+.time-field,
+.hours-min-fields{
+  padding-right: 1em;
+}
+
+.appt-time-arrow-span {
+  color:#428BCA;
+  font-size:2.5em;
+}
+
+#hour-down-arrow,
+#min-down-arrow{
+  padding-top: 1em;
+}
+
+#hour-up-arrow,
+#min-up-arrow{
+  padding-bottom: 1em;
+}
+
+#appt-length-hours,
+#appt-length-mins {
+  background-color: #FFFFFF;
+}
+
+.hours-min-fields input, p {
+  display: inline;
+}
+/*--------------*/
 
 /* Set font color of items in the service dropdown.
 These colors will match the color that will appear on the calendar for appointments

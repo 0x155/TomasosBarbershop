@@ -1,6 +1,7 @@
 <?php
 	require_once("common.php");
 
+	//This Customer class contains any methods related to Customers (data, id, history, etc.)
 	class Customer{
 
 		/*
@@ -40,11 +41,11 @@
 
 			$connection = connect();
 
-						//use an alias for Employee.Name and Service.Name since both columns are the same name
-			$sql = "SELECT A.Appt_Date, E.Name as EmpName, S.Name as ServiceName, A.Notes " .
-					"FROM " . TBL_APPOINTMENT . " AS A, " . TBL_EMPLOYEE . " AS E, " . TBL_SERVICE . " AS S, " . TBL_CUSTOMER . " AS C " .
-					"WHERE A.CustomerID = C.ID AND A.ServiceName = S.Name AND A.EmployeeID = E.ID AND C.Name=:customerName " .
-					"ORDER BY A.Appt_Date DESC";
+			$sql = "SELECT A.Appt_Date, E.Name as EmpName, AptSer.Service_Name as ServiceName, A.Notes " .
+					"FROM " . TBL_APPOINTMENT . " AS A, " . TBL_EMPLOYEE . " AS E, " . TBL_APPT_SERVICE . " AS AptSer, " . TBL_CUSTOMER . " AS C " .
+					"WHERE A.CustomerID = C.ID AND A.EmployeeID = E.ID AND A.Appt_ID = AptSer.Appt_ID  AND C.Name=:customerName " .
+					"ORDER BY A.Appt_Date DESC " . 
+					"LIMIT 5";
 
 			try{
 				$st = $connection->prepare($sql);

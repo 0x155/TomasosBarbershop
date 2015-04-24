@@ -17,28 +17,26 @@
 			$startTime = $_POST['startTime'];
 			$endTime = $_POST['endTime'];
 			$employeeName = $_POST['employeeName'];
-			$service = $_POST['service'];
+			$services = $_POST['services'];
 			$notes = $_POST['notes'];
 
-			/*
-			echo "<p>Hi From make_appointment.php</p>";
-			echo "<p>" . $apptDate . "</p>";
-			echo "<p>" . $customerName . "</p>";
-			echo "<p>" . $startTime . "</p>";
-			echo "<p>" . $endTime . "</p>";
-			echo "<p>" . $employeeName . "</p>";
-			echo "<p>" . $service . "</p>";
-			echo "<p>" . $notes . "</p>";
-			*/
+			//explode creates an array of strings delimited by the "|"
+			//"|" is used to seperate the different services for each appointment
+			$servicesArr = explode("|", $services);
+
+			//Sets the FIRST_SERVICE constant to the first element in the
+			//servicesArr array, as long as the length of the array is greater than 0
+			if(count($servicesArr) > 0){
+				define("FIRST_SERVICE", $servicesArr[0]);	
+			}
+			//else?
 
 			$validFields = true;
 			$errorMessage = "";
 
-			//Get id for customer from database,
-			//only if service is not Unavailable,
-			//if it is, then we dont need to check the customer's name since it does not matter
-			if($service !== "Unavailable"){
-				//$customerID_RS = getCustomerID($customerName);
+			//Get id for customer from database, only if service is not Unavailable (haircut, shave, etc.)
+			//if it is Unavailable, then we dont need to check the customer's name since it does not matter
+			if(FIRST_SERVICE !== "Unavailable"){
 				$customerID_RS = Customer::getCustomerID($customerName);
 
 				//WHAT IF TWO CUSTOMERS HAVE THE SAME NAME?
@@ -61,17 +59,15 @@
 					//make field red?
 				}
 			}
-			//else (if the service is Unavailable, set $customerID to null
+			//else if the service is Unavailable, set $customerID to null
 			else{
 				$customerID = null;
 			}
 
 
 			//get id for employee
-			$employeeID_RS = getEmployeeID($employeeName);
-
-			//WHAT IF TWO EMPLOYEES HAVE THE SAME NAME?
-
+			//this is needed for the INSERT INTO Appointment table
+			$employeeID_RS = Employee::getEmployeeID($employeeName);
 			if(count($employeeID_RS) >= 1){
 				$firstEmp = $employeeID_RS[0]['ID'];
 				//make sure the ID is either a number or numeric string
@@ -85,22 +81,13 @@
 				//make field red?
 			}
 
-			//Get service name
-			$serviceName_RS = getServiceName($service);
-			if (count($serviceName_RS) >= 1) {
-				$serviceName = $serviceName_RS[0]['Name'];
-			}
-			else{
-				$validFields = false;
-				$errorMessage .= "<p class=\"make_appt_bad\"><b>The service entered is invalid</b></p>";
-			}
-
 			//Insert into Appointment table if all fields are valid
 			if($validFields){
-				//add boolean to make sure insert was successful
-				$success = addAppointment($apptDate, $customerID, $employeeID, $startTime, $endTime, $serviceName, $notes);	
+
+				$success = Appointment::addAppointment($apptDate, $customerID, $employeeID, $startTime, $endTime, $notes, $servicesArr);	
 
 				if($success){
+					//echo "<p>Successful insert</p>";
 					//bring up modal window with confirmation, display appointment info
 				}
 				else{
