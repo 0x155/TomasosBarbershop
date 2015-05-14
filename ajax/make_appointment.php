@@ -9,6 +9,8 @@
 			require_once("customer_data.php");
 			require_once("Customer.php");
 
+			error_log("Hello from make_appt.php");
+
 			$connection = connect();
 
 			//get arguments from POST
@@ -56,7 +58,6 @@
 				else{
 					$validFields = false;
 					$errorMessage = "<p class=\"make_appt_bad\"><b>The customer entered does not exist</b></p>";
-					//make field red?
 				}
 			}
 			//else if the service is Unavailable, set $customerID to null

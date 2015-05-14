@@ -20,10 +20,6 @@ body {
   border:1px solid white;
 }
 
-.next_arrow, .previous_arrow {
-  margin-top: 1em;
-}
-
 .fields ul {
   list-style-type: none;
 }
@@ -60,8 +56,16 @@ body {
   max-width: 200px;
 }
 
-.field_labels #employee-dropdown, #service-dropdown {
+.field-dropdowns{
   max-width: 200px;
+}
+
+.field-dropdowns > option{
+  /*styling the options of a dropdown options have different
+  results in different browsers. IE seems to repsect the change in
+  font size, but not Chrome */
+  /*padding-top:15px;*/
+  font-size: 25px;
 }
 
 /* This style will be applied to all buttons */
@@ -83,9 +87,13 @@ body {
 .btn_default_cb:hover {
   background-color: #0444B3;
 }
+/*------*/
 
 .make_appt_btn {
   margin-left: 3em;
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+  height: 50px;
 }
 
 .no-cust-btn {
@@ -95,31 +103,23 @@ body {
 
 .field_labels li {
   /*border:2px solid blue;*/
-  margin-bottom: 1em;
+  /*margin-bottom: 1em;*/
 }
 
 .move-down {
   margin-top: 200px;
 }
-
+/*
 .employee_col {
   text-align: center;
   font-weight: bold;
   font-size: 16px;
   padding-top: 1em;
 }
+*/
 
 .fc-day-header {
   font-size: 20px;
-}
-
-.field_labels .cust-fields {
-  list-style: none;
-  padding-left: 0em;
-}
-
-.field_labels .cust-fields li {
-  display: inline-block;
 }
 
 #cust-name-fields {
@@ -135,47 +135,134 @@ body {
   border-bottom-right-radius:4px;
   border-color: transparent;
 }
-
+/*
 .field_labels .cust-fields #cust_name_field {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
-
+*/
 /* These items will be initially hidden, 
 then displayed based on search results */
 .customer-history {
-  display: none;
+  /*display: none;*/
   margin-top: -1em;
 }
 
-#no-customer-returned {
-  display: none;
+#no-customer-returned > p {
+  display: block;
 }
-/*---------------*/
 
 .customer-history #date-head {
   padding-right: 4.5em;
 }
 
 .customer-history #emp-head {
-  padding-right: 2em;
+  padding-right: 1.5em;
 }
 
 .customer-history #service-head {
-  padding-right: 5em;
+  padding-right: 3em;
 }
 
 #cust-history-close {
   cursor: pointer;
 }
 
+.customer-history .customer-info p {
+  display: block;
+}
+
+.customer-history-table th {
+  border-bottom:1px solid black;
+}
+
+/*---------------*/
+
+#date {
+  background-color: #FFFFFF;
+}
+
+#new-service-plus {
+  display: none;
+  padding-left: 10px;
+}
+
+/*These rules are for the Time portion of the Make Appointment screen.
+They add styling to the start time, hours, and minutes fields*/
+.bootstrap-timepicker-widget table tr td a{
+  height:40px;
+  width:50px;
+}
+
+.bootstrap-timepicker-hour,
+.bootstrap-timepicker-minute,
+.bootstrap-timepicker-meridian {
+  font-size: 18px;
+}
+
+/*NOTE: I made a change to this element in the min.css file
+I changed the margin to 0.75em, and the width to 50px and height to 40px.
+I also changed the icon for the up/down arrows in the min.js file
+I replaced the icon-chevron-up class with the glyphicon glyphicon-chevron-up classes.
+The arrows were not appearing since the icon-chevron-up class did not exist. */
+.bootstrap-timepicker-widget table td input {}
+
 .appt-timepicker {
   max-width: 150px;
 }
 
-#no-customer-returned {
-
+#appt-length-hours {
+  width:50px;
+  margin-left: 0.3em;
 }
+
+#appt-length-mins {
+  width:60px;
+}
+
+.appt-time-arrow-btn{
+  border-color: #FFFFFF !important;
+}
+
+.appt-time-arrow-btn:hover{
+  border-color: #CCCCCC !important;
+  background-color: #FFFFFF !important;
+}
+
+.time-field,
+.hours-min-fields{
+  padding-right: 1em;
+}
+
+.appt-time-arrow-span {
+  color:#428BCA;
+  font-size:2.5em;
+}
+
+#hour-down-arrow,
+#min-down-arrow{
+  padding-top: 1em;
+}
+
+#hour-up-arrow,
+#min-up-arrow{
+  padding-bottom: 1em;
+}
+
+#appt-length-hours,
+#appt-length-mins {
+  background-color: #FFFFFF;
+}
+
+.hours-min-fields input, p {
+  display: inline;
+}
+
+#appt-time-error{
+  display: none;
+  color:#FF0000;
+}
+/*--------------*/
 
 /* Set font color of items in the service dropdown.
 These colors will match the color that will appear on the calendar for appointments
@@ -210,17 +297,15 @@ selects Unavailable from Services drop down */
   display: none;
 }
 
-.unavailable-time p, input {
-  display:inline;
-}
-
 #unavailable-start-fields {
   padding-bottom: 1em;
 }
 
-#unavailable-end-fields label{
-
+#unavailable-time-error{
+  display: none;
+  color:#FF0000;
 }
+
 /* These elements are the paretns of the field-column div
 we are setting the width of these in order to be able to set a height
 percentage for field-column */
@@ -257,15 +342,18 @@ html, body, .grid, .row, #calender-column {
 
 /*Styles for add new customer modal screen */
 .modal_wrapper {
-  /*TO-DO: document difference between visibility and display*/
-  visibility: hidden;
-  position: absolute; 
+  position: fixed; 
   left: 0px;
   top: 0px;
   width:100%;
   height:100%;
   background-color: rgba(0, 0, 0, 0.5); /* last value is opacity */
   z-index: 1000; 
+}
+
+#modal_wrapper_new_customer {
+  /*TO-DO: document difference between visibility and display*/
+  visibility: hidden;
 }
 
 /* This presents scrollbars when the div overflows */
@@ -419,17 +507,23 @@ set to width: 100% by default */
 
 .fields_missing_msg {
   display: none;
-  color:red;
+  color:#FF0000;
   font-weight: bold;
 }
 
 /*Styles for the customer search results window */
 #modal_cust_search_results {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 100px auto;
   background-color: #fff;
   border-radius: 10px;
   padding:15px;
+  display:table;
+}
+
+.cust-search-row:hover,
+.cust-search-selected{
+  background-color: #F4F4F4;
 }
 
 #cust_search_name {
@@ -440,16 +534,51 @@ set to width: 100% by default */
   width: 100%;
   /*border-collapse: separate;*/
   border-spacing: 15px;
+  border-top:2px solid #000000;
+}
+
+#cust_search_results_table thead{
+  display: block;
 }
 
 #cust_search_results_table th{
   border-bottom:2px solid black;
 }
 
+#cust_search_results_table .top_row th{
+  /*padding-left: 3em;*/
+}
+
+#cust_search_results_table .cust-name-col{
+  padding-left: 2.0em;
+}
+
+#cust_search_results_table .cust-cell-col{
+  padding-left: 9.0em;
+}
+
+#cust_search_results_table thead th{
+  /*border:1px solid blue;*/
+  /*width:15%;*/
+}
+
 #cust_search_results_table td{
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
   border-bottom: 1px solid #E3E3E3;
+}
+
+#cust_search_results_table td:not(:first-child) {
+  padding-left: 1em;
+}
+
+#cust_search_results_table tbody{
+  display: block;
+  /*setting max-height to 335px here since that is the height of 5 rows
+  of customer search results. Any more than that, then the y-scroll
+  will be displayed */
+  max-height: 335px;
+  overflow-y: auto;
 }
 
 #cust_search_results_header h4 {
@@ -468,6 +597,14 @@ set to width: 100% by default */
 #no_cust_selected_msg {
   padding-top: 1em;
 }
+
+.badField{
+  /*Need !important here to apply this rule since the Bootstrap
+  styles would otherwise override it 
+  https://css-tricks.com/when-using-important-is-the-right-choice/*/
+  border:2px solid #FF0000 !important;
+}
+
 
 /*------------------------------*/
 

@@ -34,7 +34,7 @@
 						foreach ($rs as $customer) {
 							echo "<p><b>Name: </b>" . $customer['Name'] . "</p>";
 							echo "<p><b>Phone: </b>" . $customer['CellPhoneNumber'] . "</p>";
-							echo "<p><b>Email Address: </b>" . $customer['EmailAddress'] . "</p>";
+							echo "<p><b>Email: </b>" . $customer['EmailAddress'] . "</p>";
 						}
 						echo "</div>";
 						//echo "<p><a id=\"cust-history-close\">Close[x]</a></p>";
@@ -52,7 +52,6 @@
 							"</script>";
 					
 					//also show customer history
-					//$customerHistory = getCustomerHistory($returnedCustomerName);
 					$customerHistory = Customer::getCustomerHistory($returnedCustomerName);
 					$numVisits = count($customerHistory);
 
@@ -86,8 +85,8 @@
 					echo "</div>";
 
 				}
-				//No results returned
-				else if ($numResults == 0){
+				//No results returned, or if the name entered is empty
+				else if (($numResults == 0) || (empty($name)) ){
 					echo "<div id=\"no-customer-returned\">";
 						echo "<p>This search returned no customers. Would you like to add a new customer?</p>";
 						echo "<div class=\"btn-group\" role=\"group\">";
@@ -107,18 +106,20 @@
 							echo "</div>";
 
 							echo "<table id=\"cust_search_results_table\">";
+							/*
 								echo "<thead>";
 									echo "<tr class=\"top_row\">";
 										echo "<th></th>";
-										echo "<th>Name</th>";
-										echo "<th>Cell #</th>";
-										echo "<th>Home #</th>";
-										echo "<th>Email</th>";
-										echo "<th>Address</th>";
-										echo "<th>Birthday</th>";
+										echo "<th class=\"cust-name-col\">Name</th>";
+										echo "<th class=\"cust-cell-col\">Cell #</th>";
+										echo "<th class=\"cust-home-col\">Home #</th>";
+										echo "<th class=\"cust-email-col\">Email</th>";
+										echo "<th class=\"cust-addr-col\">Address</th>";
+										echo "<th class=\"cust-bday-col\">Birthday</th>";
 									echo "</tr>";
 								echo "</thead>";
-								echo "<tbody>";
+								*/
+								echo "<tbody>";								
 									foreach ($rs as $customer) {
 										echo "<tr class=\"cust-search-row\">";
 											echo "<td><input type=\"radio\" name=\"cust_name\" value=\"". $customer['Name'] ."\"></td>";

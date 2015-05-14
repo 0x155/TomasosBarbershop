@@ -24,6 +24,15 @@
 				
 				$rs = $st->fetchAll(PDO::FETCH_ASSOC);
 				return $rs;
+				/*
+				if size of $rs is 1, then check if the customer is a parent or child:
+				
+				SELECT Parent_ID FROM Parent where Parent.customerid = customerid
+				-if size of this is 1, then show children
+
+				SELECT Child_ID FROM Children where Children.customerid = customerid
+				-if size of this is 1, then show parent(s)
+				*/
 			}
 			catch(PDOException $e){
 				disconnect($connection);
