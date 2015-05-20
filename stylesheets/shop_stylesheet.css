@@ -96,6 +96,30 @@ body {
   height: 50px;
 }
 
+/* Standard error message */
+.error_msg {
+  display: none;
+  color:#FF0000;
+  font-weight: bold;
+}
+
+.fields_missing_msg {
+  display: none;
+  color:#FF0000;
+  font-weight: bold;
+}
+
+#appt-time-error{
+  display: none;
+  color:#FF0000;
+}
+
+#unavailable-time-error{
+  display: none;
+  color:#FF0000;
+}
+/*----------*/
+
 .no-cust-btn {
   max-width: 120px;
   margin-right: 1.5em;
@@ -109,14 +133,6 @@ body {
 .move-down {
   margin-top: 200px;
 }
-/*
-.employee_col {
-  text-align: center;
-  font-weight: bold;
-  font-size: 16px;
-  padding-top: 1em;
-}
-*/
 
 .fc-day-header {
   font-size: 20px;
@@ -135,12 +151,7 @@ body {
   border-bottom-right-radius:4px;
   border-color: transparent;
 }
-/*
-.field_labels .cust-fields #cust_name_field {
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-}
-*/
+
 /* These items will be initially hidden, 
 then displayed based on search results */
 .customer-history {
@@ -257,39 +268,7 @@ The arrows were not appearing since the icon-chevron-up class did not exist. */
 .hours-min-fields input, p {
   display: inline;
 }
-
-#appt-time-error{
-  display: none;
-  color:#FF0000;
-}
 /*--------------*/
-
-/* Set font color of items in the service dropdown.
-These colors will match the color that will appear on the calendar for appointments
-of these services */
-#haircut-option {
-  color:#3A87AD;
-}
-
-#beard-trim-option {
-  color:#368C23;
-}
-
-#shave-option {
-  color:#FF887C;
-}
-
-#color-option {
-  color:#F58839;
-}
-
-#eyebrow-wax-option {
-  color:#7107A5;
-}
-
-#unavailable-option {
-  color:#F45245;
-}
 
 /* Only display unavailable-service when the user
 selects Unavailable from Services drop down */
@@ -299,11 +278,6 @@ selects Unavailable from Services drop down */
 
 #unavailable-start-fields {
   padding-bottom: 1em;
-}
-
-#unavailable-time-error{
-  display: none;
-  color:#FF0000;
 }
 
 /* These elements are the paretns of the field-column div
@@ -503,12 +477,6 @@ set to width: 100% by default */
 
 .emptyField {
   color:red;
-}
-
-.fields_missing_msg {
-  display: none;
-  color:#FF0000;
-  font-weight: bold;
 }
 
 /*Styles for the customer search results window */

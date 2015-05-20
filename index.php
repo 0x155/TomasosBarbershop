@@ -35,6 +35,7 @@
 		<!-- Javascript/JQuery written by CB -->
 		<script type="text/javascript" src="lib\application_dhtmlx.js"></script>
 		<script type="text/javascript" src="lib\ajax_functions.js"></script>
+		<script type="text/javascript" src="lib\emp_info.js"></script>
 	</head>
 
 	<body>
@@ -99,7 +100,8 @@
 									</tr>
 								</table>
 
-								<p id="appt-time-error"><b>Note: Invalid time entered</b></p>
+								<!--Displayed if hours and mins both equal 0 -->
+								<p id="appt-time-error" class="error_msg">Note: Invalid time entered</p>
 
 							</li>
 
@@ -151,7 +153,7 @@
 									<input type="text" class="appt-timepicker" id="unavailable-end-time">
 								</div>
 
-								<p id="unavailable-time-error"><b>Note: The entered start time is greater than end time</b></p>
+								<p id="unavailable-time-error" class="error_msg">Note: The entered start time is greater than end time</p>
 							</li>
 
 							<li class="form-group" id="notes-fields">
@@ -164,13 +166,16 @@
 							<li>
 								<!-- The Make Appointment button will be used to submit info-->
 								<!--<input type="submit" class="btn_default_cb make_appt_btn" value="Make Appointment">-->
-								<button class="btn_default_cb make_appt_btn" onclick="makeAppointment()">Make Appointment</button>
+								<button class="btn_default_cb make_appt_btn" onclick="makeAppointment_2()">Make Appointment</button>
 							</li>
 
 							<li id="make_appt_results"></li>
 
 							<li>
-								<h4 id="make_appt_reqrd_fields_msg" class="fields_missing_msg">Please enter all required fields</h4>
+								<!--Displayed if any fields are missing/empty-->
+								<!--<h4 id="make_appt_reqrd_fields_msg" class="fields_missing_msg">Please enter all required fields</h4>-->
+								<h4 id="make_appt_reqrd_fields_msg" class="error_msg">Please enter all required fields</h4>
+								<h4 id="make_appt_bad_hrs_msg" class="error_msg">Note: The time entered is beyond business hours</h4>
 							</li>
 							
 
@@ -305,13 +310,12 @@
 							<input type="text" class="form-control" id="cust_parent_name" placeholder="Parent's Name">
 							<button type="button" class="btn btn-default" id="check_child_parent_button">Check</button>
 						</div>
-
-
-
 					</div>
 					
-					<p id="reqrd_fields_msg" class="fields_missing_msg">Please enter all required fields</p>
-					<p id="invalid_email_msg" class="fields_missing_msg">Email address entered is invalid</p>
+					<!--<p id="reqrd_fields_msg" class="fields_missing_msg">Please enter all required fields</p>
+					<p id="invalid_email_msg" class="fields_missing_msg">Email address entered is invalid</p>-->
+					<p id="reqrd_fields_msg" class="error_msg">Please enter all required fields</p>
+					<p id="invalid_email_msg" class="error_msg">Email address entered is invalid</p>
 
 					<!--<input type="submit" class="btn_default_cb" value="Add Customer">-->
 					<button type="button" class="btn_default_cb" onclick="addNewCustomer()" id="addNewCustomerButton">Add Customer</button>

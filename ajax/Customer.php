@@ -76,7 +76,7 @@
 		/*
 		Returns the ID of the entered customer from the Customer table.
 		The ID is the primary key for the table and is needed when doing tasks such
-		as inserting into the Appointment table.
+		as creating an appointment
 		*/
 		function getCustomerID($customerNameIn){
 
@@ -86,12 +86,8 @@
 				   "FROM " . TBL_CUSTOMER . 
 				   " WHERE Name=:customerName";
 
-				   //WHAT IF TWO CUSTOMERS HAVE THE SAME NAME?
-				   /*
-				   Make this query more specific:
-				   select id from customer 
-				   where name=name, id=id
-				   */
+				//WHAT IF TWO CUSTOMERS HAVE THE SAME NAME?
+				//do not allow duplicate names
 
 			try {
 				$st = $connection->prepare($sql);

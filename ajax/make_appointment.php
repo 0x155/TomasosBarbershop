@@ -9,11 +9,11 @@
 			require_once("customer_data.php");
 			require_once("Customer.php");
 
-			error_log("Hello from make_appt.php");
+			//error_log("Hello from make_appointment.php");
 
 			$connection = connect();
 
-			//get arguments from POST
+			//arguments from POST
 			$apptDate = $_POST['date'];
 			$customerName = $_POST['customerName'];
 			$startTime = $_POST['startTime'];
@@ -22,8 +22,8 @@
 			$services = $_POST['services'];
 			$notes = $_POST['notes'];
 
-			//explode creates an array of strings delimited by the "|"
-			//"|" is used to seperate the different services for each appointment
+			//explode creates an array of strings, with elements delimited by the "|"
+			//"|" is used in the $services string in order to seperate the multiple services for each appointment
 			$servicesArr = explode("|", $services);
 
 			//Sets the FIRST_SERVICE constant to the first element in the
@@ -41,16 +41,15 @@
 			if(FIRST_SERVICE !== "Unavailable"){
 				$customerID_RS = Customer::getCustomerID($customerName);
 
-				//WHAT IF TWO CUSTOMERS HAVE THE SAME NAME?
+				//TO-DO: WHAT IF TWO CUSTOMERS HAVE THE SAME NAME?
+				//if more than 1 result is returned, then there are customers with the same name
 
-				if(count($customerID_RS) >= 1){
-
-					//if more than 1 result is returned, then there are customers with the same name
+				if(count($customerID_RS) == 1){
 
 					$firstCust = $customerID_RS[0]['ID'];
 					//make sure the ID is either a number or numeric string
 					if(is_numeric($firstCust)){
-						//TO-DO: Find out why this can be set here and referenced
+						//TO-DO: Find out why $customerID can be set here and referenced
 						//from outside this scope
 						$customerID = $firstCust;
 					}
@@ -69,7 +68,7 @@
 			//get id for employee
 			//this is needed for the INSERT INTO Appointment table
 			$employeeID_RS = Employee::getEmployeeID($employeeName);
-			if(count($employeeID_RS) >= 1){
+			if(count($employeeID_RS) == 1){
 				$firstEmp = $employeeID_RS[0]['ID'];
 				//make sure the ID is either a number or numeric string
 				if(is_numeric($firstEmp)){

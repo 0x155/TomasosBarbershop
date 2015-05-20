@@ -8,7 +8,7 @@
 	require("dhtmlxScheduler_v4.2.0\codebase\connector\scheduler_connector.php");
 	//require("dhtmlxScheduler_v4.2.0\codebase\connector\dataprocessor.php");
 
-	error_log("Hi from load_events.php");
+	//error_log("Hi from load_events.php");
 
 	//TO-DO: See if PDO can be used here, says some contants are not defined
 	$res=mysql_connect("localhost","root","");
@@ -27,7 +27,5 @@
 	$calendar = new SchedulerConnector($res);
 	$calendar->enable_log("log.txt",true); //error logging
 	$calendar->set_options("EmployeeID", $list);
-	$calendar->render_table("Appointment2", "id", "start_date, end_date, text, EmployeeID, CustomerID, Notes");
-
-	
+	$calendar->render_table("Appointment2", "id", "start_date, end_date, text, EmployeeID, CustomerID, Notes, color");
 ?>
