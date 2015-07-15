@@ -5,27 +5,63 @@
 	as well as the appointments from the Appointments table. */
 
 	require("..\\common.php");
+	require_once("..\\config.php");
 	require("dhtmlxScheduler_v4.2.0\codebase\connector\scheduler_connector.php");
-	//require("dhtmlxScheduler_v4.2.0\codebase\connector\dataprocessor.php");
+	require("dhtmlxScheduler_v4.2.0\codebase\connector\db_pdo.php");
 
-	//error_log("Hi from load_events.php");
+	$res = connect();
 
-	//TO-DO: See if PDO can be used here, says some contants are not defined
-	$res=mysql_connect("localhost","root","");
- 	mysql_select_db("tomasosbarbershop_test");
+	$list = new OptionsConnector($res, "PDO");
+	//This query populates the names of the units (employee names), ordered by their unit_id, which is stored
+	//in the database, and is DIFFERENT from the Employee.ID primary key
+	$list->render_complex_sql("SELECT unit_id as value, name as label FROM " . TBL_EMPLOYEE . " WHERE unit_id IS NOT NULL ORDER BY value", 
+									"id", "unit_id(value), name(label)");
 
- 	//$res = connect();
 
- 	//$dbtype = "MySQL";
+	/*
+	The function below is attached to the afterInsert event.
+	When a record is inserted into the Appointment table, this function is triggered.
+	The function will parse the value of the Appointment.title column
+	for the newly inserted row, and get the list of services for the new appointment. It will
+	then insert a record for each service into the Appointment_Service table. This is done in
+	order to normalize the database (1NF).
+	http://docs.dhtmlx.com/connector__php__event_handling.html
+	*/
+	function insertIntoApptService($action){
+		$apptID = $action->get_new_id();
+		$apptText = $action->get_value("text");
 
-	//need ID and Name from Employee table
-	$list = new OptionsConnector($res);
-	$list->render_table("Employee", "id", "id(value), name(label)");
+		//apptText will be in the form "Service1, Service2 --- CustomerName"
+		//the code below parses the string in order to get the list of services
+		$dashIndex = strpos($apptText, " --- ");
+		$servicesList = substr($apptText, 0, $dashIndex);
+		$servicesArr = explode(", ", $servicesList);
+		$numServices = count($servicesArr);
 
-	//error_log("List: " . $list);
+		//note using the global keyword here to reference the $calendar global variable
+		//In PHP, all variables within user-defined functions have local scope,
+		//therefore need to specify that this is the global variable, and not a new local one
+		global $calendar;
+		for($i = 0; $i < $numServices; $i++){
+			//NOTE this does NOT have to be a seperate transaction, since the transaction mode is set to "global"
+			//This forces all actions to be committed as one transaction
+			//When the request is sent, it will include the INSERT INTO Appointment query, as well as the INSERT INTO Appt_Services queries
+			$query = "INSERT INTO ". TBL_APPT_SERVICE. " (Appt_ID, Service_Name) VALUES ($apptID, \"$servicesArr[$i]\")";
+			$calendar->sql->query($query);
+		}
+	}
 
-	$calendar = new SchedulerConnector($res);
-	$calendar->enable_log("log.txt",true); //error logging
-	$calendar->set_options("EmployeeID", $list);
-	$calendar->render_table("Appointment2", "id", "start_date, end_date, text, EmployeeID, CustomerID, Notes, color");
+	$calendar = new SchedulerConnector($res, "PDO");
+	
+	//This allows actions to be commited as one transaction
+	//Seperate transaction for each request
+	//http://docs.dhtmlx.com/connector__php__complex_queries.html#transactions
+	$calendar->sql->set_transaction_mode("global");
+	
+	//Attaches afterInsert event to a function which will insert records into Appointment_Services table
+	$calendar->event->attach("afterInsert", "insertIntoApptService");
+
+	$calendar->enable_log("log.txt",true);
+	$calendar->set_options("Unit_ID", $list);
+	$calendar->render_table("Appointment", "id", "start_date, end_date, text, EmployeeID, CustomerID, Notes, color, Unit_ID");
 ?>

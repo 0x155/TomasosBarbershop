@@ -65,7 +65,7 @@ body {
   results in different browsers. IE seems to repsect the change in
   font size, but not Chrome */
   /*padding-top:15px;*/
-  font-size: 25px;
+  font-size: 22px;
 }
 
 /* This style will be applied to all buttons */
@@ -118,6 +118,11 @@ body {
   display: none;
   color:#FF0000;
 }
+
+.make_appt_bad{
+  color:#FF0000;
+  font-weight: bold;
+}
 /*----------*/
 
 .no-cust-btn {
@@ -142,7 +147,6 @@ body {
   max-width: 350px;
 }
 
-/*.field_labels .cust-fields #cust-search-button {*/
 #cust-search-button {
   /*margin-left: -0.3em;*/
   /*height: 34px;*/
@@ -217,6 +221,11 @@ I also changed the icon for the up/down arrows in the min.js file
 I replaced the icon-chevron-up class with the glyphicon glyphicon-chevron-up classes.
 The arrows were not appearing since the icon-chevron-up class did not exist. */
 .bootstrap-timepicker-widget table td input {}
+
+/* Added this to allow the timepicker to appear when the custom lightbox is open */
+.bootstrap-timepicker-widget.dropdown-menu.open {
+  z-index: 10001;
+}
 
 .appt-timepicker {
   max-width: 150px;
@@ -328,10 +337,7 @@ html, body, .grid, .row, #calender-column {
 #modal_wrapper_new_customer {
   /*TO-DO: document difference between visibility and display*/
   visibility: hidden;
-}
-
-/* This presents scrollbars when the div overflows */
-#modal_wrapper_new_customer {
+  /* This presents scrollbars when the div overflows */
   overflow: auto;
 }
 
@@ -571,6 +577,112 @@ set to width: 100% by default */
   styles would otherwise override it 
   https://css-tricks.com/when-using-important-is-the-right-choice/*/
   border:2px solid #FF0000 !important;
+}
+
+/*----Styling for custom lightbox----------*/
+#modal_wrapper_lightbox{
+  /*display: none;*/
+}
+
+#custom_lightbox{
+  /*NOTE: Changed opacity for the dhx_cal_cover class from 0.1 to 0.5 in the 
+  dhtmlxscheduler.css file*/
+  /*absolute positions an element relative to the first parent
+  that is not positioned static. If none are found, then html is used */
+  position: absolute;
+  margin-top: 0px !important;
+  max-width: 660px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  background-color: #fff;
+  z-index: 10001;
+  display: none;
+  padding:15px;
+  border-radius: 10px;
+}
+
+#lightbox-table tr td {
+  padding-bottom: 1em;
+}
+
+#lightbox-header * {
+  display: inline;
+}
+
+#lightbox-header {
+  border-bottom: 1px solid;
+  margin-bottom: 1em;
+}
+
+#time-row > * {
+  display: inline;
+}
+
+#lightbox-start-time {
+  margin-right: 5em;
+}
+
+#lightbox-date {
+  max-width: 150px;
+  background-color: #FFFFFF;
+}
+
+#lightbox-service-checklist input {
+  display: inline-block;
+  margin-right: 1em;
+  /*padding-right: 1em;*/
+  border:1px solid black;
+}
+
+#lightbox-service-list li {
+  display: inline;
+  padding-right: 2em;
+}
+
+#lightbox-service-list li:hover {
+  cursor: pointer;
+}
+
+/*This class is added to the items in the list of services
+which are selected */
+.lightbox-service-list-selected{
+  font-weight: bold;
+}
+
+#lightbox-emp-list {
+  max-width: 150px;
+}
+
+#lightbox-emp-list > option {
+  font-size: 18px;
+}
+
+#lightbox-notes {
+  max-width: 350px;
+}
+
+#lightbox-buttons button{
+  display: inline;
+  width:150px;
+  margin-right: 2.0em;
+  margin-left: 1.0em;
+}
+
+#lightbox-time-error {
+  /*
+  color:#FF0000;
+  font-weight: bold;
+  */
+}
+/*-----------------------------------------*/
+
+.customMsgBox {
+  top:50px !important;
+}
+
+.selectedService{
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 

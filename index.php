@@ -1,9 +1,16 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>XAMP Folder - Tomaso's Barbershop</title>
+		<!--Setting the viewport below allows the width of the page to be set to the
+		width of the device (whether that be a desktop, tablet, or phone)
+		https://developers.google.com/speed/docs/insights/ConfigureViewport
+		user-scalable=no disables zoom on double-tap. If the user tapped a button twice,
+		similar to a double tap, then it would zoom in. This is now disabled-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<title>Tomaso's Barbershop</title>
 
 		<link rel="stylesheet" type="text/css" href="stylesheets\shop_stylesheet.css"/>
+		<link rel="stylesheet" type="text/css" href="stylesheets\media_queries.css">
 		<link rel="stylesheet" type="text/css" href="lib\bootstrap\css\bootstrap.min.css"/>
 		<!-- full calendar 2.1.1 -->
 		<!-- http://fullcalendar.io/ -->
@@ -18,6 +25,7 @@
 		<script type="text/javascript" src="lib\dhtmlxScheduler_v4.2.0\codebase\dhtmlxscheduler.js"></script>
 		<script type="text/javascript" src="lib\dhtmlxScheduler_v4.2.0\codebase\ext\dhtmlxscheduler_units.js"></script>
 		<script type="text/javascript" src="lib\dhtmlxScheduler_v4.2.0\codebase\ext\dhtmlxscheduler_collision.js"></script>
+		<script type="text/javascript" src="lib\dhtmlxScheduler_v4.2.0\codebase\ext\dhtmlxscheduler_quick_info.js"></script>
 		<!--<script type="text/javascript" src="lib\dhtmlxConnector_php\codebase\connector.js"></script>-->
 		<link rel="stylesheet" href="lib\dhtmlxScheduler_v4.2.0\codebase\dhtmlxscheduler.css" type="text/css" />
 		<!--<link rel="stylesheet" href="stylesheets\stylesheet_dhtmlx.css" type="text/css" />-->
@@ -67,7 +75,7 @@
 						<ul class="field_labels">
 							<li class="form-group input-group-lg">
 								<label for="date"><h4>Date:</h4></label>
-								<input type="text" name="date" class="date_field form-control" id="date" readonly>
+								<input type="text" name="date" class="date_field form-control appt-date-picker" id="date" readonly>
 								<!-- http://eternicode.github.io/bootstrap-datepicker/?#sandbox -->
 							</li>
 
@@ -85,11 +93,11 @@
 										</td>
 										<td class="input-group-lg hours-min-fields">
 											<input type="text" class="form-control" id="appt-length-hours" value="0" disabled>
-											<p>Hr(s)</p>
+											<p class="time_label">H</p>
 										</td>
 										<td class="input-group-lg hours-min-fields">
 											<input type="text" class="form-control" id="appt-length-mins" value="30" disabled>
-											<p>Mins</p>
+											<p class="time_label">M</p>
 										</td>
 									</tr>
 
@@ -113,8 +121,8 @@
 											<option value=""></option>
 											<!--Get options for service from database -->
 											<?php
-												require_once("customer_data.php");
-												Service::getServices();
+												require_once("Scheduler.php");
+												Service::getServices("option");
 											?>
 										</select>
 										<!-- user can click plus sign to add another type of service-->
@@ -131,7 +139,7 @@
 									<option value=""></option>
 									<!--Get options for employees from database -->
 									<?php
-										require_once("customer_data.php");
+										require_once("Scheduler.php");
 										Employee::getEmployeeNames();
 									?>
 								</select>
@@ -153,7 +161,7 @@
 									<input type="text" class="appt-timepicker" id="unavailable-end-time">
 								</div>
 
-								<p id="unavailable-time-error" class="error_msg">Note: The entered start time is greater than end time</p>
+								<p id="unavailable-time-error" class="error_msg">Note: The entered start time is greater than or equal to end time</p>
 							</li>
 
 							<li class="form-group" id="notes-fields">
@@ -166,7 +174,7 @@
 							<li>
 								<!-- The Make Appointment button will be used to submit info-->
 								<!--<input type="submit" class="btn_default_cb make_appt_btn" value="Make Appointment">-->
-								<button class="btn_default_cb make_appt_btn" onclick="makeAppointment_2()">Make Appointment</button>
+								<button class="btn_default_cb make_appt_btn" onclick="makeAppointment()">Make Appointment</button>
 							</li>
 
 							<li id="make_appt_results"></li>
@@ -323,6 +331,77 @@
 				</form>
 			</div>
 		</div>
+
+		<!--<div id="modal_wrapper_lightbox" class="modal_wrapper">-->
+			<div id="custom_lightbox">
+				<div id="lightbox-header">
+					<!--<h4 id="lightbox-title"></h4>&nbsp;&nbsp;<h4 id="lightbox-time"></h4>-->
+					<h4 id="lightbox-title"></h4>
+				</div>
+				<div>
+					<table id="lightbox-table">
+						<tr>
+							<td>Start-Time:</td>
+							<td id="time-row">
+								<!--Put the start-time field, end-time label, and end-time field in the same column for formatting purposes -->
+								<input type="text" id="lightbox-start-time" class="appt-timepicker form-control">
+								End-Time:
+								<input type="text" id="lightbox-end-time" class="appt-timepicker form-control">
+							</td>
+						</tr>
+						<tr>
+							<td>Date:</td>
+							<!--TO-DO: Set default date for the date-picker to be the date of the appt. Default is today's date-->
+							<td><input type="text" class="appt-date-picker form-control" id="lightbox-date" readonly></td>
+						</tr>
+						<tr>
+							<td>Services:</td>
+							<!--Hardcoding the list of services for now, will get list from DB
+							call Service::getServices("li"); -->
+							<td>
+								<ul id="lightbox-service-list">
+								<!--
+									<?php
+										//require_once("Scheduler.php");
+										//Service::getServices("li");
+									?>
+									-->
+									<li>Haircut</li>
+									<li>Beard Trim</li>
+									<li>Shave</li>
+									<li>Color</li><br><br>
+									<li>Eyebrow Wax</li>
+									<li>Unavailable</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td>Employee:</td>
+							<td><select id="lightbox-emp-list" class="form-control"></select></td>
+						</tr>
+						<tr>
+							<td>Notes:</td>
+							<td><textarea id="lightbox-notes" class="form-control" rows="3"></textarea></td>
+						</tr>
+					</table>
+					<div id="lightbox-buttons">
+						<button class="btn_default_cb" id="lightbox-save-btn" onclick="save_form()">Save
+							<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+						</button>
+						<button class="btn_default_cb" id="lightbox-cancel-btn" onclick="close_form()">Cancel</button>
+						<button class="btn_default_cb" id="lightbox-delete-btn" onclick="delete_event()">Delete
+							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+						</button>						
+					</div>
+
+					<div>
+						<br>
+						<h4 id="lightbox-time-error" class="error_msg">Error: Start time is greater than end time!</h4>
+					</div>
+
+				</div>
+			</div>
+		<!--</div>-->
 
 		<!--This modal wrapper will display the search results for a search
 		which returns multiple customer results (partial match)-

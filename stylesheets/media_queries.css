@@ -1,0 +1,16 @@
+/*
+These are the media queries
+*/
+
+@media all and (max-width: 1024px) {
+	.field_labels {
+		padding:1em;
+	}
+/*
+	.time_label {
+		display: none;
+	}
+	*/
+
+	/*decrease padding-left?  for the calendar row*/	
+}
