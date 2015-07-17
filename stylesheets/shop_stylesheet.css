@@ -163,12 +163,30 @@ then displayed based on search results */
   margin-top: -1em;
 }
 
+.edit-cust-info-field {
+  background-color: #FFFFFF !important;
+  border:0 !important;
+}
+
+#edit-cust-info-btn {
+  margin-right:3.0em;
+}
+
+.edit-cust-field-selected {
+  border:1px solid #ccc !important;
+}
+
+.dhtmlx-edit-cust-info-msgbox {
+  left:5px;
+  right:auto;
+}
+
 #no-customer-returned > p {
   display: block;
 }
 
 .customer-history #date-head {
-  padding-right: 4.5em;
+  padding-right: 2.0em;
 }
 
 .customer-history #emp-head {
@@ -189,6 +207,18 @@ then displayed based on search results */
 
 .customer-history-table th {
   border-bottom:1px solid black;
+}
+
+.btn_edit_cust_info {
+  max-width: 100px;
+  height: 33px;
+  margin-top: 0em;
+}
+
+#btn_save_cust_info {
+  display: none;
+  font-size: 14px;
+  width: 75px;
 }
 
 /*---------------*/
@@ -637,6 +667,18 @@ set to width: 100% by default */
 #lightbox-service-list li {
   display: inline;
   padding-right: 2em;
+}
+
+/*
+Inserts a line break (\A is ASCII character for line break)
+after every 4 li elements in the list of services. This prevents
+the elements from being too close together.
+The value for n starts at 0, then contains all positive integers.
+https://css-tricks.com/how-nth-child-works/
+*/
+#lightbox-service-list li:nth-child(4n):after {
+  content: "\A\A";
+  white-space: pre;
 }
 
 #lightbox-service-list li:hover {

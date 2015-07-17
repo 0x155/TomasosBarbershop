@@ -29,12 +29,20 @@
 				if($numResults == 1) {
 					echo "<div class=\"customer-history\">";
 						//show customer info (name, cell, and email)
-						echo "<div class=\"customer-info\">";
+						echo "<div class=\"customer-info form-inline\">";
 						foreach ($rs as $customer) {
-							echo "<p><b>Name: </b>" . $customer['Name'] . "</p>";
-							echo "<p><b>Phone: </b>" . $customer['CellPhoneNumber'] . "</p>";
-							echo "<p><b>Email: </b>" . $customer['EmailAddress'] . "</p>";
+							//echo "<h4 id=\"customer-name-returned\">" . $customer['Name'] . "</h4>";
+							echo "<b>Phone:</b> <input type=\"text\" class=\"edit-cust-info-field form-control\" id=\"edit-cust-info-phone\" value=\"" . $customer['CellPhoneNumber'] . "\" disabled><br>";
+							echo "<b>Email:</b> <input type=\"text\" class=\"edit-cust-info-field form-control\" id=\"edit-cust-info-email\" value=\"" . $customer['EmailAddress'] . "\" disabled><br>";
+
+							//echo "<p><b>Phone: </b>" . $customer['CellPhoneNumber'] . "</p>";
+							//echo "<p><b>Email: </b>" . $customer['EmailAddress'] . "</p>";
 						}
+							echo "<span>";
+								echo "<a id=\"edit-cust-info-btn\" onclick=\"editCustInfo()\"><b>Edit Info</b></a>";
+								//echo "<button type=\"button\" class=\"btn_edit_cust_info btn_default_cb\" onclick=\"editCustInfo()\">Edit Info</button>";
+								echo "<button type=\"button\" class=\"btn_edit_cust_info btn_default_cb\" id=\"btn_save_cust_info\" onclick=\"updateCustomerInfo()\">Save</button><br><br>";
+							echo "</span>";
 						echo "</div>";
 						//echo "<p><a id=\"cust-history-close\">Close[x]</a></p>";
 
@@ -63,7 +71,7 @@
 									echo "<th id=\"date-head\">Date</th>";
 									echo "<th id=\"emp-head\">Employee</th>";
 									echo "<th id=\"service-head\">Service</th>";
-									echo "<th><a id=\"cust-history-close\">Close[x]</a></th>";
+									//echo "<th></th>";
 								echo "</tr>";
 							echo "</thead>";
 							echo "<tbody>";
@@ -76,7 +84,9 @@
 								echo "</tr>";
 							}
 								echo "<tr>";
-									echo "<td><a href=\"#\">View All History</a></td>";
+									echo "<td><a href=\"#\" colspan=\"2\">View All History</a></td>";
+									echo "<td></td>";
+									echo "<td><a id=\"cust-history-close\"><b>Close[x]</b></a></td>";
 								echo "</tr>";
 							echo "</tbody>";
 						echo "</table>";
