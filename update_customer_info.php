@@ -1,6 +1,8 @@
 <?php
 	//This PHP script will updat the contact information for a customer
 	//Just phone and email addr. for right now
+	//This is done when the user updates customer info from the customer search results
+
 	//require_once("config.php");
 	require_once("common.php");
 
@@ -8,11 +10,13 @@
 	$phoneNumber = $_POST['phone'];
 	$emailAddr = $_POST['email'];
 
+	/*
 	error_log("Hi from update customer info");
 	error_log("Phone: " . $phoneNumber);
 	error_log("Email: " . $emailAddr);
 	error_log("Name: " . $customerName);
-
+	*/
+	
 	$connection = connect();
 
 	//Update customer

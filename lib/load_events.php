@@ -1,5 +1,4 @@
 <?php
-
 	/* This PHP script loads data from the database to be displayed by the calendar
 	The data that is retrieved includes the name of each of the units (employees),
 	as well as the appointments from the Appointments table. */
@@ -14,6 +13,7 @@
 	$list = new OptionsConnector($res, "PDO");
 	//This query populates the names of the units (employee names), ordered by their unit_id, which is stored
 	//in the database, and is DIFFERENT from the Employee.ID primary key
+	//TO-DO: find a way to prevent against SQL injection here
 	$list->render_complex_sql("SELECT unit_id as value, name as label FROM " . TBL_EMPLOYEE . " WHERE unit_id IS NOT NULL ORDER BY value", 
 									"id", "unit_id(value), name(label)");
 
@@ -46,6 +46,8 @@
 			//NOTE this does NOT have to be a seperate transaction, since the transaction mode is set to "global"
 			//This forces all actions to be committed as one transaction
 			//When the request is sent, it will include the INSERT INTO Appointment query, as well as the INSERT INTO Appt_Services queries
+
+			//TO-DO: Work on preventing SQL injection here
 			$query = "INSERT INTO ". TBL_APPT_SERVICE. " (Appt_ID, Service_Name) VALUES ($apptID, \"$servicesArr[$i]\")";
 			$calendar->sql->query($query);
 		}

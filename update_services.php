@@ -12,7 +12,7 @@
 	$services = $_POST['newSrvcs'];
 	$servicesArr = explode(",", $services);
 
-	error_log("Hi from update_services, services: " . $services);
+	//error_log("Hi from update_services, services: " . $services);
 
 	$connection = connect();
 
@@ -36,7 +36,7 @@
 		for ($i=0; $i < $numServices; $i++) { 
 			$st->bindValue(":serviceName", $servicesArr[$i], PDO::PARAM_STR);	
 			$st->execute();
-			error_log("Inserted service " . $servicesArr[$i]);
+			//error_log("Inserted service " . $servicesArr[$i]);
 		}
 		
 		$connection->commit();

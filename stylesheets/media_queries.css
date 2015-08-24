@@ -3,14 +3,20 @@ These are the media queries
 */
 
 @media all and (max-width: 1024px) {
+	/*Pushes fields all the way to the left */
 	.field_labels {
 		padding:1em;
 	}
-/*
+
+	/*Removes the H and M labels for Hours and Mins for appt */
 	.time_label {
 		display: none;
 	}
-	*/
 
-	/*decrease padding-left?  for the calendar row*/	
+	/*make the Yes/No buttons smaller when customer search results returns nothing*/	
+}
+
+/* When the device is in portrait mode */
+@media all and (max-width: 768px) {
+	
 }

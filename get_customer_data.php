@@ -31,12 +31,8 @@
 						//show customer info (name, cell, and email)
 						echo "<div class=\"customer-info form-inline\">";
 						foreach ($rs as $customer) {
-							//echo "<h4 id=\"customer-name-returned\">" . $customer['Name'] . "</h4>";
 							echo "<b>Phone:</b> <input type=\"text\" class=\"edit-cust-info-field form-control\" id=\"edit-cust-info-phone\" value=\"" . $customer['CellPhoneNumber'] . "\" disabled><br>";
 							echo "<b>Email:</b> <input type=\"text\" class=\"edit-cust-info-field form-control\" id=\"edit-cust-info-email\" value=\"" . $customer['EmailAddress'] . "\" disabled><br>";
-
-							//echo "<p><b>Phone: </b>" . $customer['CellPhoneNumber'] . "</p>";
-							//echo "<p><b>Email: </b>" . $customer['EmailAddress'] . "</p>";
 						}
 							echo "<span>";
 								echo "<a id=\"edit-cust-info-btn\" onclick=\"editCustInfo()\"><b>Edit Info</b></a>";
@@ -111,23 +107,10 @@
 						echo "<div id=\"modal_cust_search_results\">";
 							echo "<div id=\"cust_search_results_header\">";
 								echo "<h4>Search Results for  " . $name . "</h4>";
-								echo "<p id=\"cust_search_results_close\"><a href=\"#\" onclick=\"closeCustSearchResults()\">close</a></p>";
+								//echo "<p id=\"cust_search_results_close\"><a href=\"#\" onclick=\"closeCustSearchResults()\">close</a></p>";
 							echo "</div>";
 
 							echo "<table id=\"cust_search_results_table\">";
-							/*
-								echo "<thead>";
-									echo "<tr class=\"top_row\">";
-										echo "<th></th>";
-										echo "<th class=\"cust-name-col\">Name</th>";
-										echo "<th class=\"cust-cell-col\">Cell #</th>";
-										echo "<th class=\"cust-home-col\">Home #</th>";
-										echo "<th class=\"cust-email-col\">Email</th>";
-										echo "<th class=\"cust-addr-col\">Address</th>";
-										echo "<th class=\"cust-bday-col\">Birthday</th>";
-									echo "</tr>";
-								echo "</thead>";
-								*/
 								echo "<tbody>";								
 									foreach ($rs as $customer) {
 										echo "<tr class=\"cust-search-row\">";
@@ -143,8 +126,9 @@
 								echo "</tbody>";
 							echo "</table>";
 
-							echo "<button type=\"button\" id=\"select_cust_results_btn\" class=\"btn_default_cb\" onclick=\"selectCustomer()\">Select</button>";
-							echo "<button type=\"button\" id=\"edit_cust_results_btn\" class=\"btn_default_cb\">Edit</button>";
+							echo "<button type=\"button\" id=\"select_cust_results_btn\" class=\"btn_default_cb cust_results_btn\" onclick=\"selectCustomer()\">Select</button>";
+							//echo "<button type=\"button\" id=\"edit_cust_results_btn\" class=\"btn_default_cb cust_results_btn\">Edit</button>";
+							echo "<button type=\"button\" class=\"btn_default_cb cust_results_btn\" onclick=\"closeCustSearchResults()\">Close</button>";
 							echo "<p id=\"no_cust_selected_msg\" class=\"fields_missing_msg\">Please select a customer</p>";
 
 						echo "</div>";

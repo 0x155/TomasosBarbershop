@@ -97,13 +97,7 @@ body {
 }
 
 /* Standard error message */
-.error_msg {
-  display: none;
-  color:#FF0000;
-  font-weight: bold;
-}
-
-.fields_missing_msg {
+.error_msg, .fields_missing_msg {
   display: none;
   color:#FF0000;
   font-weight: bold;
@@ -170,6 +164,10 @@ then displayed based on search results */
 
 #edit-cust-info-btn {
   margin-right:3.0em;
+}
+
+#edit-cust-info-btn:hover {
+  cursor: pointer;
 }
 
 .edit-cust-field-selected {
@@ -593,9 +591,9 @@ set to width: 100% by default */
   float:right;
 }
 
-#select_cust_results_btn, #edit_cust_results_btn {
-  width:100px;
-  margin-left: 1em;  
+.cust_results_btn {
+  width:120px;
+  margin-left: 2.0em;  
 }
 
 #no_cust_selected_msg {

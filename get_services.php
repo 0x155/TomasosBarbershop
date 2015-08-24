@@ -2,6 +2,8 @@
 	/*
 	This PHP script gets the services for a specific appointment.
 	It returns a string with "|" delimiting each service.
+	This data is returned for the lightbox to display the list of services for a 
+	particular appointment.
 	*/
 	require_once("Scheduler.php");
 

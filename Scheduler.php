@@ -18,6 +18,7 @@
 
 		/*
 		This function returns customer information (name, cell number, and email)
+		based on customer name.
 		*/
 		public static function getCustomerInfo($customerName){
 
@@ -115,6 +116,31 @@
 				disconnect($connection);
 				die("Failure in getCustomerID(): " . $e->getMessage());
 			} 
+		}
+
+		/*
+		This function takes in a CustomerID and returns the cellphonenumber
+		for that customer. This is returned to be displayed in the quick info title
+		*/
+		public static function getCustomerCellPhoneNumber($id){
+			$connection = connect();
+			$sql = "SELECT CellPhoneNumber 
+					FROM " . TBL_CUSTOMER .
+					" WHERE ID=:id";
+
+			try {
+				$st = $connection->prepare($sql);
+				$st->bindValue(":id", $id, PDO::PARAM_INT);
+
+				$st->execute();
+				
+				$rs = $st->fetchAll(PDO::FETCH_ASSOC);
+				return $rs;				
+			} 
+			catch (PDOException $e) {
+				disconnect($connection);
+				die("Failure in getCustomerCellPhoneNumber(): " . $e->getMessage());				
+			}
 		}
 	}	
 

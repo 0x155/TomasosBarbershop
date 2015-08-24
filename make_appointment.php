@@ -2,14 +2,10 @@
 <html>
 	<head>
 	</head>
-
+	<!-- MAY NOT NEED THIS SCRIPT -->
 	<body>
 		<?php
 			require_once("common.php");
-
-			//both go away
-			//require_once("customer_data.php");
-			//require_once("Customer.php");
 			require_once("Scheduler.php");
 
 			$connection = connect();
