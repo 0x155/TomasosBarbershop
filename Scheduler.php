@@ -24,7 +24,7 @@
 
 			$connection = connect();
 
-			$sql = "SELECT Name, CellPhoneNumber, HomePhoneNumber, EmailAddress, HomeAddress, Birthday FROM " . TBL_CUSTOMER . 
+			$sql = "SELECT Name, CellPhoneNumber, HomePhoneNumber, EmailAddress, HomeAddress, date_format(Birthday, \"%m/%d/%Y\") as Birthday, Notes FROM " . TBL_CUSTOMER . 
 					" WHERE Name LIKE :customerName " .
 					"ORDER BY Name ASC";
 
@@ -56,23 +56,91 @@
 		}
 
 
+		public static function updateCustomerInfo($customer_name, $cell_phone_number, $email_addr){
+			
+			$connection = connect();
+
+			$sql_update_query = "UPDATE ". TBL_CUSTOMER . " SET EmailAddress=:email, CellPhoneNumber=:phone_number " . 
+								"WHERE Name=:name";
+
+			try{
+				$st = $connection->prepare($sql_update_query);
+				$st->bindValue(":email", $email_addr, PDO::PARAM_STR);		
+				$st->bindValue(":phone_number", $cell_phone_number, PDO::PARAM_STR);
+				$st->bindValue(":name", $customer_name, PDO::PARAM_STR);
+				$st->execute();
+				//rowCount() returns the # of affected rows
+				//In this case, it should return 1
+				return $st->rowCount();
+			}
+			catch(PDOException $e){
+				$connection->rollBack();
+				disconnect($connection);
+				error_log("Failure in updateCustomerInfo(): " . $e->getMessage());		
+			}
+		}
+
 		/*
-		This function returns a customer's recent visits
+		This function adds a new customer to the database
 		*/
-		public static function getCustomerHistory($customerName){
+		public static function addNewCustomer($name, $gender, $cell_phone_number, $home_number, $email_address, $home_address,
+												$birthday, $notes, $allow_text, $allow_email){
 
 			$connection = connect();
 
-			//TO-DO: will need to change this query since using a different schema for appointment table
-			$sql = "SELECT date_format(A.start_date, \"%m/%d\") as Appt_Date, E.Name as EmpName, AptSer.Service_Name as ServiceName, A.Notes " .
-					"FROM " . TBL_APPOINTMENT . " AS A, " . TBL_EMPLOYEE . " AS E, " . TBL_APPT_SERVICE . " AS AptSer, " . TBL_CUSTOMER . " AS C " .
-					"WHERE A.CustomerID = C.ID AND A.EmployeeID = E.ID AND A.ID = AptSer.Appt_ID  AND C.Name=:customerName " .
-					"ORDER BY Appt_Date DESC " . 
-					"LIMIT 5";
+			//check if customer name already exisits
+			$insert_customer_query = "INSERT INTO " . TBL_CUSTOMER . " (Name, Gender, CellPhoneNumber, HomePhoneNumber, EmailAddress, HomeAddress, 
+																		Notes, AllowText, AllowEmail) " . 
+									"VALUES (:name, :gender, :cell_phone_number, :home_number, :email_address, :home_address, :notes, :allow_text, :allow_email)";
 
 			try{
-				$st = $connection->prepare($sql);
+				$st = $connection->prepare($insert_customer_query);
+				$st->bindValue(":name", $name, PDO::PARAM_STR);
+				$st->bindValue(":gender", $gender, PDO::PARAM_STR);
+				$st->bindValue(":cell_phone_number", $cell_phone_number, PDO::PARAM_STR);
+				$st->bindValue(":home_number", $home_number, PDO::PARAM_STR);
+				$st->bindValue(":email_address", $email_address, PDO::PARAM_STR);
+				$st->bindValue(":home_address", $home_address, PDO::PARAM_STR);
+				$st->bindValue(":notes", $notes, PDO::PARAM_STR);
+				$st->bindValue(":allow_text", $allow_text, PDO::PARAM_STR);
+				$st->bindValue(":allow_email", $allow_email, PDO::PARAM_STR);
+
+				$ret = $st->execute();
+				return $ret;
+			}
+			catch(PDOException $e){
+				error_log("Failure in addNewCustomer(): " . $e->getMessage());
+				disconnect($connection);
+				die("Failure in addNewCustomer(): " . $e->getMessage());
+			}
+
+			disconnect($connection);
+		}
+
+		/*
+		This function returns a customer's recent visits.
+		This query queries the Appointment_Services table, which lists the services in each appointment (for 1NF).
+		As a result, each row will be a service and a date; therefore if an appointment has multiple services,
+		there will be a row for each service. This is used to show a quick view of the customer's history.
+		By default, the query returns the first 5 rows of the result. 
+		In SQL, LIMIT x, y
+		Returns y number of rows starting with row number x+1 (the xth row is not shown)
+		*/
+		public static function getQuickCustomerHistory($customerName, $startRow=0, $numRows=5){
+
+			$connection = connect();
+
+			$query = "SELECT date_format(A.start_date, \"%m/%d/%Y\") as Appt_Date, E.Name as EmpName, AptSer.Service_Name as ServiceName, A.Notes " .
+						"FROM " . TBL_APPOINTMENT . " AS A, " . TBL_EMPLOYEE . " AS E, " . TBL_APPT_SERVICE . " AS AptSer, " . TBL_CUSTOMER . " AS C " .
+						"WHERE A.CustomerID = C.ID AND A.EmployeeID = E.ID AND A.ID = AptSer.Appt_ID  AND C.Name=:customerName " .
+						"ORDER BY Appt_Date DESC " .
+						"LIMIT :startRow, :numRows";
+
+			try{
+				$st = $connection->prepare($query);
 				$st->bindValue(":customerName", $customerName, PDO::PARAM_STR);
+				$st->bindValue(":startRow", $startRow, PDO::PARAM_INT);
+				$st->bindValue(":numRows", $numRows, PDO::PARAM_INT);
 
 				$st->execute();
 				
@@ -81,9 +149,60 @@
 			}
 			catch(PDOException $e){
 				disconnect($connection);
-				die("Failure in getCustomerHistory(): " . $e->getMessage());
+				die("Failure in getQuickCustomerHistory(): " . $e->getMessage());
 			}
 			
+			disconnect($connection);
+		}
+
+		/*
+		This function will query the Appointment table to get visits for a customer,
+		given the customerID. This uses a different query than getQuickCustomerHistory.
+		The query in getQuickCustomerHistory queries the Appointment_Services table,
+		so each service for the appointment is a new row. This query queries the Appointment
+		table, and will parse the Appointment.Text column to obtain a comma-seperated
+		list of services for each appointment. This makes it easier to read in the 
+		"View All Customer History" modal
+		*/
+		public static function getFullCustomerHistory($customerName, $startRow=0, $numRows=5){
+
+			$connection = connect();
+
+			$customerID = Customer::getCustomerID($customerName);
+			//error_log("Type of customerID: " . gettype($customerID));
+			//SQL_CALC_FOUND_ROWS gets the total number of rows that would be returned w/out the LIMIT clause
+			$get_history_query = "SELECT SQL_CALC_FOUND_ROWS date_format(A.start_date, \"%m/%d/%Y\") as Appt_Date, E.Name as EmpName, A.Text as Services, A.Notes " .
+								"FROM " . TBL_APPOINTMENT . " AS A, " . TBL_EMPLOYEE . " AS E " . 
+								"WHERE A.CustomerID = " . $customerID . " AND E.ID = A.EmployeeID " . 
+								"ORDER BY Appt_Date DESC " .
+								"LIMIT :startRow, :numRows";
+
+			//retrieves the total # of rows that would have been returned w/out the LIMIT clause
+			$get_rows_query = "SELECT found_rows() as total_rows";
+
+			try{
+				$ret = array();
+
+				//Prepare and run query to get visits
+				$st = $connection->prepare($get_history_query);
+				$st->bindValue(":startRow", $startRow, PDO::PARAM_INT);
+				$st->bindValue(":numRows", $numRows, PDO::PARAM_INT);	
+				$st->execute();
+				$rs = $st->fetchAll(PDO::FETCH_ASSOC);
+				$ret[] = $rs;
+
+				//Run query to return total number of rows
+				//Dont need to prepare since there are no variables to plug in to query
+				$st = $connection->query($get_rows_query);
+				$rows = $st->fetch();
+				$ret[] = $rows['total_rows'];
+
+				return $ret;							
+			}
+			catch(PDOException $e){
+				disconnect($connection);
+				die("Failure in getCustomerHistory(): " . $e->getMessage());				
+			}
 			disconnect($connection);
 		}
 
@@ -91,6 +210,8 @@
 		Returns the ID of the entered customer from the Customer table.
 		The ID is the primary key for the table and is needed when doing tasks such
 		as creating an appointment
+
+		WHY IS THIS NOT STATIC?
 		*/
 		function getCustomerID($customerNameIn){
 
@@ -109,8 +230,8 @@
 
 				$st->execute();
 				
-				$rs = $st->fetchAll(PDO::FETCH_ASSOC);
-				return $rs;
+				$rs = $st->fetch();
+				return $rs['ID'];
 			}
 			catch(PDOException $e){
 				disconnect($connection);
@@ -134,8 +255,9 @@
 
 				$st->execute();
 				
-				$rs = $st->fetchAll(PDO::FETCH_ASSOC);
-				return $rs;				
+				//$rs = $st->fetchAll(PDO::FETCH_ASSOC);
+				$rs = $st->fetch();
+				return $rs['CellPhoneNumber'];				
 			} 
 			catch (PDOException $e) {
 				disconnect($connection);
@@ -147,8 +269,7 @@
 	//Class storing methods for all methods relating to Services
 	class Service{
 		/* This function runs a query to get the names of all services.
-		This is used to populate the options of the Type of Service dropdown. 
-		TO-DO: add a parameter to be the type of HTML element to return (li or option) */
+		This is used to populate the options of the Type of Service dropdown. */
 		public static function getServices($element){
 			$connection = connect();
 
@@ -221,8 +342,9 @@
 
 				$st->execute();
 				
-				$rs = $st->fetchAll(PDO::FETCH_ASSOC);
-				return $rs;
+				//$rs = $st->fetchAll(PDO::FETCH_ASSOC);
+				$rs = $st->fetch();
+				return $rs['ID'];
 			}
 			catch(PDOException $e){
 				disconnect($connection);
@@ -245,8 +367,9 @@
 
 				$st->execute();
 				
-				$rs = $st->fetchAll(PDO::FETCH_ASSOC);
-				return $rs;
+				//use fetch() here since only one row is to be returned
+				$rs = $st->fetch();
+				return $rs['Unit_ID'];
 			}
 			catch(PDOException $e){
 				disconnect($connection);
@@ -269,8 +392,6 @@
 
 			$select_services_query = "SELECT Service_Name FROM " . TBL_APPT_SERVICE . 
 									" WHERE Appt_ID=:appt_ID";
-
-			//error_log("Hi from Appointment:getServices(), query: " . $select_services_query);
 
 			try{
 				$st = $connection->prepare($select_services_query);
@@ -351,6 +472,45 @@
 				disconnect($connection);
 				die("Failure in addAppointment(): " . $e->getMessage());
 			}			
+		}
+	}
+
+	//This class stores functions that are used throughout the app (not specific to Customers, Appointments, etc.)
+	class Util{
+		/*
+		This function is used when getting full customer visit history.
+		It parses the text field of an appointment - "Haircut -- Christian Bonacore"
+		for example, to get the list of services for an appointment.
+		Note the argument to explode is very critical. If for whatever reason the
+		Appointment.Text field changes, the argument will need to change.
+		*/
+		public static function parseService($servicesIn){
+			$parsed = explode(" --- ", $servicesIn);
+			return current($parsed);
+		}
+
+		/*
+		Returns true or false if a number is a valid phone number
+		based on regex, and length of the string
+		*/
+		public static function validatePhoneNumber($number){
+			//Remove dashes, open and closed parentheses, and spaces from the phone number
+			$phone_number_symbols = array("-", "(", ")", " ");
+			$number = str_replace($phone_number_symbols, "", $number);
+			$phone_number_regex = "/[0-9]/";
+			$ret = false;
+
+			//If the $number string is empty, return true
+			if(empty($number)){
+				$ret = true;
+			}
+
+			//Phone number is valid if it contains all digits, and is of either length 7 or 10
+			if( (preg_match($phone_number_regex, $number)) &&  ((strlen($number) == 7) || (strlen($number) == 10))   ){
+				$ret = true;
+			}
+
+			return $ret;
 		}
 	}
 

@@ -14,6 +14,7 @@
 	//This query populates the names of the units (employee names), ordered by their unit_id, which is stored
 	//in the database, and is DIFFERENT from the Employee.ID primary key
 	//TO-DO: find a way to prevent against SQL injection here
+	//might not be needed since there is no input from user is used to generate this query
 	$list->render_complex_sql("SELECT unit_id as value, name as label FROM " . TBL_EMPLOYEE . " WHERE unit_id IS NOT NULL ORDER BY value", 
 									"id", "unit_id(value), name(label)");
 
@@ -63,6 +64,7 @@
 	//Attaches afterInsert event to a function which will insert records into Appointment_Services table
 	$calendar->event->attach("afterInsert", "insertIntoApptService");
 
+	//TO-DO: append today's date to log file name? that way its a new file each day
 	$calendar->enable_log("log.txt",true);
 	$calendar->set_options("Unit_ID", $list);
 	$calendar->render_table("Appointment", "id", "start_date, end_date, text, EmployeeID, CustomerID, Notes, color, Unit_ID");

@@ -6,7 +6,7 @@
 	<body>
 		<?php
 			/*
-			This PHP script will be run when the user is searching for a customer.
+			This PHP script will run when the user is searching for a customer from the main screen.
 			A query will be run to retireve customer information based on the name enetered by the user. If there is one customer returned,
 			then that customer's information (name, number, email) will be displayed, along with their visit history. 
 			If no results are returned, the user is prompted if they want to add a new user.
@@ -30,37 +30,42 @@
 					echo "<div class=\"customer-history\">";
 						//show customer info (name, cell, and email)
 						echo "<div class=\"customer-info form-inline\">";
+
+						//TO-DO: only 1 customer should be returned, just use the first element in rs?
 						foreach ($rs as $customer) {
-							echo "<b>Phone:</b> <input type=\"text\" class=\"edit-cust-info-field form-control\" id=\"edit-cust-info-phone\" value=\"" . $customer['CellPhoneNumber'] . "\" disabled><br>";
-							echo "<b>Email:</b> <input type=\"text\" class=\"edit-cust-info-field form-control\" id=\"edit-cust-info-email\" value=\"" . $customer['EmailAddress'] . "\" disabled><br>";
+							echo "<b>Phone:</b> <input type=\"text\" class=\"edit-cust-info-field form-control\" id=\"edit-cust-info-phone\" value=\"" . htmlspecialchars_decode($customer['CellPhoneNumber']) . "\" disabled><br>";
+							echo "<b>Email:</b> <input type=\"text\" class=\"edit-cust-info-field form-control\" id=\"edit-cust-info-email\" value=\"" . htmlspecialchars_decode($customer['EmailAddress']) . "\" disabled><br>";
 						}
+							echo "<div id=\"cust_edit_info_results\"></div>";
 							echo "<span>";
-								echo "<a id=\"edit-cust-info-btn\" onclick=\"editCustInfo()\"><b>Edit Info</b></a>";
-								//echo "<button type=\"button\" class=\"btn_edit_cust_info btn_default_cb\" onclick=\"editCustInfo()\">Edit Info</button>";
-								echo "<button type=\"button\" class=\"btn_edit_cust_info btn_default_cb\" id=\"btn_save_cust_info\" onclick=\"updateCustomerInfo()\">Save</button><br><br>";
+								echo "<a id=\"edit-cust-info-btn\" onclick=\"toggleEditCustInfoFields()\"><b>Edit Info</b></a>";
+								echo "<button type=\"button\" class=\"btn_edit_cust_info btn_default_cb\" id=\"btn_save_cust_info\" onclick=\"updateCustomerInfo()\">Save</button>";
+								echo "<a id=\"cust-history-close\"><b>Close[x]</b></a>";
 							echo "</span>";
 						echo "</div>";
-						//echo "<p><a id=\"cust-history-close\">Close[x]</a></p>";
 
 						/*Need to set the value of the customer_name text field to be
 						the returned name from the search, otherwise the user can make appointment
 						with partial name that returned one match. 
 						This <scirpt> tag is inserted into the DOM, but is actually executed in the 
 						customerSearch() function after the result is returned. Loading script tags into
-						the DOM does not execute them.
+						the DOM does not execute JS scripts.
 						*/ 
-						$returnedCustomerName = $rs[0]['Name'];
+						//need to reset pointer since the foreach loop used above advances the pointer with each iteration
+						$returnedCustomer = reset($rs);
+						$returnedCustomerName = $returnedCustomer['Name'];
+						error_log("returnedCustomerName: " . $returnedCustomerName);
 						echo "<script>".
-								"document.getElementById(\"customer_name\").value=\"" . $returnedCustomerName . "\";" . 
+								"document.getElementById(\"customer_name\").value=\"" . htmlspecialchars_decode($returnedCustomerName) . "\";" . 
 							"</script>";
 					
 					//also show customer history
-					$customerHistory = Customer::getCustomerHistory($returnedCustomerName);
+					$customerHistory = Customer::getQuickCustomerHistory($returnedCustomerName);
 					$numVisits = count($customerHistory);
 
 					//only show this table if the customer has visited before
-					//could be a new customer with no history
-					//if($numVisits > 0){
+					//could be a new customer with no history, in which case table would be empty
+					if($numVisits > 0){
 						echo "<table class=\"customer-history-table\">";
 							echo "<thead>";
 								echo "<tr>";
@@ -73,20 +78,20 @@
 							echo "<tbody>";
 							foreach ($customerHistory as $visit) {
 								echo "<tr>";
-									//TO-DO: change format of date? Currently is YYYY-MM-DD
 									echo "<td>" . $visit['Appt_Date'] . "</td>";
 									echo "<td>" . $visit['EmpName'] . "</td>";
 									echo "<td>" . $visit['ServiceName'] . "</td>";
 								echo "</tr>";
 							}
+							/*
 								echo "<tr>";
-									echo "<td><a href=\"#\" colspan=\"2\">View All History</a></td>";
-									echo "<td></td>";
-									echo "<td><a id=\"cust-history-close\"><b>Close[x]</b></a></td>";
+									echo "<td><a href=\"#\" colspan=\"2\" onclick=\"viewCustomerHistory()\">View All History</a></td>";
 								echo "</tr>";
+							*/
 							echo "</tbody>";
 						echo "</table>";
-					
+						echo "<a href=\"#\" colspan=\"2\" onclick=\"viewCustomerHistory()\"><b>View All History</b></a>";
+					}
 					echo "</div>";
 
 				}
@@ -95,7 +100,8 @@
 					echo "<div id=\"no-customer-returned\">";
 						echo "<p>This search returned no customers. Would you like to add a new customer?</p>";
 						echo "<div class=\"btn-group\" role=\"group\">";
-							echo "<button type=\"button\" class=\"btn_default_cb no-cust-btn\" id=\"no-cust-btn-yes\" onclick=\"toggleAddNewCustomerWindow()\">Yes</button>";
+							//echo "<button type=\"button\" class=\"btn_default_cb no-cust-btn\" id=\"no-cust-btn-yes\" onclick=\"toggleAddNewCustomerWindow()\">Yes</button>";
+							echo "<button type=\"button\" class=\"btn_default_cb no-cust-btn\" id=\"no-cust-btn-yes\" onclick=\"openNewCustomerWindow()\">Yes</button>";
 							echo "<button type=\"button\" class=\"btn_default_cb no-cust-btn\" id=\"no-cust-btn-no\">No</button>";
 						echo "</div>";
 					echo "</div>";
@@ -126,9 +132,10 @@
 								echo "</tbody>";
 							echo "</table>";
 
-							echo "<button type=\"button\" id=\"select_cust_results_btn\" class=\"btn_default_cb cust_results_btn\" onclick=\"selectCustomer()\">Select</button>";
+							echo "<button type=\"button\" id=\"select_cust_results_btn\" class=\"btn_default_cb modal_btns\" onclick=\"selectCustomer()\">Select</button>";
 							//echo "<button type=\"button\" id=\"edit_cust_results_btn\" class=\"btn_default_cb cust_results_btn\">Edit</button>";
-							echo "<button type=\"button\" class=\"btn_default_cb cust_results_btn\" onclick=\"closeCustSearchResults()\">Close</button>";
+							echo "<button type=\"button\" class=\"btn_default_cb modal_btns\" onclick=\"closeCustSearchResults()\">Close</button>";
+							echo "<button type=\"button\" class=\"btn_default_cb modal_btns\" onclick=\"openNewCustomerWindow()\">Add Customer</button>";
 							echo "<p id=\"no_cust_selected_msg\" class=\"fields_missing_msg\">Please select a customer</p>";
 
 						echo "</div>";

@@ -103,17 +103,13 @@ body {
   font-weight: bold;
 }
 
-#appt-time-error{
-  display: none;
-  color:#FF0000;
-}
-
+#appt-time-error,
 #unavailable-time-error{
   display: none;
   color:#FF0000;
 }
 
-.make_appt_bad{
+.ajax_error{
   color:#FF0000;
   font-weight: bold;
 }
@@ -197,6 +193,7 @@ then displayed based on search results */
 
 #cust-history-close {
   cursor: pointer;
+  padding-left:9.0em;
 }
 
 .customer-history .customer-info p {
@@ -205,6 +202,14 @@ then displayed based on search results */
 
 .customer-history-table th {
   border-bottom:1px solid black;
+}
+
+.customer-history-table {
+  margin-top:1.0em;
+}
+
+.customer-history-table td{
+  padding-right: 1.5em;
 }
 
 .btn_edit_cust_info {
@@ -364,7 +369,11 @@ html, body, .grid, .row, #calender-column {
 
 #modal_wrapper_new_customer {
   /*TO-DO: document difference between visibility and display*/
-  visibility: hidden;
+  /*visibility: hidden;
+  This will not display the element, but it will still take up the
+  space as if the element is there. */
+  display: none;
+  /*display:none completely hides the element and does not take up any space*/
   /* This presents scrollbars when the div overflows */
   overflow: auto;
 }
@@ -424,8 +433,17 @@ set to width: 100% by default */
   width:200px; 
 }
 
-#new_cust_birthday {
-  width:150px; 
+#new_cust_birthday_row * {
+  display: inline-block;
+}
+
+#new_cust_birthday, #new_cust_birthday_year {
+  /*width:97px; */
+  width:48%;
+}
+
+#new_cust_birthday_year{
+  text-align: center;
 }
 
 #new_cust_address {
@@ -453,15 +471,9 @@ set to width: 100% by default */
   /*this will set the position of the element 22 pixels
   up from its normal position */
   position: relative;
-  top:-22px;
+  top:-38px;
   padding-right: 0.75em;
 }
-
-/*
-#make_appt_new_cust_question > * {
-  display: inline-block;
-}
-*/
 
 #new_cust_children_question > *,
 #make_appt_new_cust_question > *,
@@ -507,6 +519,15 @@ set to width: 100% by default */
 
 #check_child_parent_button {
   background-color: #CCCCCC;
+}
+
+#addNewCustomerButton{
+  width: 175px;
+}
+
+#closeNewCustButton{
+  width: 120px;
+  margin-left:2.0em;
 }
 
 .emptyField {
@@ -591,9 +612,13 @@ set to width: 100% by default */
   float:right;
 }
 
-.cust_results_btn {
+.history_button_group button{
+  display: inline;
+}
+
+.modal_btns {
   width:120px;
-  margin-left: 2.0em;  
+  margin-right: 2.0em;  
 }
 
 #no_cust_selected_msg {
@@ -606,12 +631,80 @@ set to width: 100% by default */
   https://css-tricks.com/when-using-important-is-the-right-choice/*/
   border:2px solid #FF0000 !important;
 }
+/*-----------------------------------------*/
 
-/*----Styling for custom lightbox----------*/
-#modal_wrapper_lightbox{
-  /*display: none;*/
+/*-----Styling for customer history modal window-----*/
+#modal_cust_history{
+  max-width: 900px;
+  margin: 100px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  padding:15px;
+  /*height:450px;*/
+  display:table;
 }
 
+#history_cust_info{
+  float:left;
+  width: 33%;
+  /*border:1px solid;*/
+}
+
+#history_cust_info_list{
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+#history_cust_info_list li {
+  padding-bottom: 0.25em;
+}
+
+#cust_history_heading {
+  border-bottom: 2px solid;
+}
+
+#cust_history_heading h3{
+  margin-top:0em;
+}
+
+#history_cust_history{
+  float:right;
+  width:66%;
+}
+
+#cust_history_table td {
+  padding-top: 1.0em;
+  padding-bottom:1.0em;
+  padding-right: 1.0em;
+  border-bottom:1px solid #E3E3E3;
+}
+
+#cust_history_table tbody{
+  display:block;
+  max-height: 500px;
+  overflow: auto;
+}
+
+/*Making both of these columns have a fixed width
+so the table does not shrink in width when the user
+navigates through the history*/
+.history_notes_col{
+  width: 200px;
+}
+
+/*This is the column listing the services.
+171px is the width of Haircut, Beard Trim
+which is the most common service*/
+.history_service_col{
+  width: 171px;
+}
+
+.history_spaced_row{
+  padding-right:2em;
+}
+
+/*----Styling for custom lightbox----------*/
 #custom_lightbox{
   /*NOTE: Changed opacity for the dhx_cal_cover class from 0.1 to 0.5 in the 
   dhtmlxscheduler.css file*/
@@ -706,13 +799,6 @@ which are selected */
   width:150px;
   margin-right: 2.0em;
   margin-left: 1.0em;
-}
-
-#lightbox-time-error {
-  /*
-  color:#FF0000;
-  font-weight: bold;
-  */
 }
 /*-----------------------------------------*/
 

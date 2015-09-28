@@ -51,23 +51,45 @@
 		<div class="grid">
 			<!-- http://getbootstrap.com/css/#grid-options -->
 			<div class="row">
-				<div class="col-md-4 fields" id="field-column">
+				<!--changed order here so calendar would be on top when viewed on mobile
+				http://www.schmalz.io/2014/10/08/Column-Ordering-in-Bootstrap/-->
+				<div class="col-md-8 col-md-push-4" id="calender-column">
+					<!-- dhtmlx Scheduler verion 4.2-->
+					<!-- This is the main calendar used  to schedule appointments -->
+					<!-- http://docs.dhtmlx.com/scheduler/ -->
+					<div id="scheduler_here" class="dhx_cal_container">
+					    <div class="dhx_cal_navline">
+					        <div class="dhx_cal_prev_button">&nbsp;</div>
+					        <div class="dhx_cal_next_button">&nbsp;</div>
+					        <div>
+						        <button type="input" class="btn btn-default btn-lg" id="go-to-date-picker">
+						        	<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+						        </button>
+					        </div>
+					        <div class="dhx_cal_today_button"></div>
+					        <div class="dhx_cal_date"></div>
+					    </div>
+					    <div class="dhx_cal_header"></div>
+					    <div class="dhx_cal_data"></div>       
+					</div>
+				</div>
+
+				<div class="col-md-4 col-md-pull-8 fields" id="field-column">
 					<!-- action attribute tells the web browser where to send the data when form is submitted. Can be an absolute or relative URL-->
 					<!-- method attribute tells browser how to send the data (GET/POST) -->
 					<ul class="field_labels">
 						<li>
 							<label id="cust_name_label" for="customer_name"><h4>Customer Name:</h4></label>
 							<div class="input-group input-group-lg" id="cust-name-fields">
-								<input type="text" name="customer_name" placeholder="Customer Name" class="form-control" id="customer_name">
+								<input type="text" name="customer_name" placeholder="Customer Name" class="form-control" id="customer_name" autofocus>
 								<span class="input-group-btn">
 									<button type="button" class="btn btn-default" name="cust-search-button" id="cust-search-button" onclick="customerSearch()">Search</button>
 								</span>
-								<!--<button id="add_evt_button">Add Event</button>-->
 							</div>
 						</li>
 						
-						<li id="customer_search_results">
-						</li>
+						<li id="customer_search_results"></li>
+						<li id="customer_history"></li>
 					</ul>
 
 					<!-- TO-DO: Might be able to make this one ul -->
@@ -139,6 +161,7 @@
 									<option value=""></option>
 									<!--Get options for employees from database -->
 									<?php
+										//Employees are returned from DB in order of unit id
 										require_once("Scheduler.php");
 										Employee::getEmployeeNames();
 									?>
@@ -181,7 +204,6 @@
 
 							<li>
 								<!--Displayed if any fields are missing/empty-->
-								<!--<h4 id="make_appt_reqrd_fields_msg" class="fields_missing_msg">Please enter all required fields</h4>-->
 								<h4 id="make_appt_reqrd_fields_msg" class="error_msg">Please enter all required fields</h4>
 								<h4 id="make_appt_bad_hrs_msg" class="error_msg">Note: The time entered is beyond business hours</h4>
 							</li>
@@ -191,29 +213,7 @@
 					</form>
 				</div>
 
-				<div class="col-md-7" id="calender-column">
-					<!-- dhtmlx Scheduler verion 4.2-->
-					<!-- This is the main calendar used  to schedule appointments -->
-					<!-- http://docs.dhtmlx.com/scheduler/ -->
-					<div id="scheduler_here" class="dhx_cal_container">
-					    <div class="dhx_cal_navline">
-					        <div class="dhx_cal_prev_button">&nbsp;</div>
-					        <div class="dhx_cal_next_button">&nbsp;</div>
-					        <!--
-					        TO-DO: Add calendar icon to allow user to select date to view
-					        -->
-					        <div>
-						        <button type="input" class="btn btn-default btn-lg" id="go-to-date-picker">
-						        	<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-						        </button>
-					        </div>
-					        <div class="dhx_cal_today_button"></div>
-					        <div class="dhx_cal_date"></div>
-					    </div>
-					    <div class="dhx_cal_header"></div>
-					    <div class="dhx_cal_data"></div>       
-					</div>
-				</div>
+
 			</div>
 		</div>
 
@@ -222,41 +222,44 @@
 			<div id="modal_new_customer">
 				<div class="new_cust_header">
 					<h3 id="new_cust_title">Add New Customer</h3><br/>
-					<p id="new_cust_close"><a href="#" onclick="toggleAddNewCustomerWindow()">close</a></p>
+					<p id="new_cust_close"><a href="#" onclick="closeNewCustomerWindow()">Close[X]</a></p>
 				</div>
 				<!--action tells the browser where to send the form data when the form is submitted -->
-				<!--TO-DO: Uncomment other line. Not submitting data for demo purposes -->
 				<!-- This form is set up as a table -->
-				<!--<form id="new_customer_form" action="" method="post" onsubmit="return addNewCustomer()">-->
-				<form id="new_customer_form" action="" method="post">
+				<!--<form id="new_customer_form" action="add_customer.php" method="post" onsubmit="return addNewCustomer()">-->
+				<form id="new_customer_form" method="post">
 					<table>
 						<tbody id="new_customer_table">
 							<tr>
 								<!-- the for attribute must match the id attribute -->
 								<td><label for="new_cust_name" id="new_cust_name_label">*Name:</label></td>
-								<td><input type="text" id="new_cust_name" placeholder="Customer Name" class="form-control" autofocus></td>
+								<!--NOTE: The required attribute is not supported in Safari-->
+								<td><input type="text" name="new_cust_name" id="new_cust_name" placeholder="Customer Name" class="form-control" required></td>
 								<td class="right_col"><label for="new_cust_gender" id="new_cust_gender_label">Gender:</label></td>
 								<td id="new_cust_gender_field">
-									<input type="radio" name="new_cust_gender" value="Male">Male</input>
-									<input type="radio" name="new_cust_gender" value="Female">Female</input>
+									<label class="radio-inline"><input type="radio" name="new_cust_gender" value="Male">Male</label>
+									<label class="radio-inline"><input type="radio" name="new_cust_gender" value="Female">Female</label>
 								</td>
 							</tr>
 							<tr>
-								<td><label for="new_cust_cell_phone" id="new_cust_cell_label">*Cell Phone:</label></td>
-								<td><input type="text" id="new_cust_cell_phone"  placeholder="Cell Phone" class="form-control"></td>
+								<td><label for="new_cust_cell_phone" id="new_cust_cell_label">Cell Phone:</label></td>
+								<td><input type="tel" id="new_cust_cell_phone"  placeholder="Cell Phone" class="form-control"></td>
 								<td><label for="new_cust_home_phone" id="new_cust_home_phone_label" class="right_col">Home Phone:</label></td>
-								<td><input type="text" id="new_cust_home_phone"  placeholder="Home Phone" class="form-control"></td>
+								<td><input type="tel" id="new_cust_home_phone"  placeholder="Home Phone" class="form-control"></td>
 							</tr>					
 							<tr>
 								<!--prefill email with "@" ?-->
 								<td><label for="new_cust_email" id="new_cust_email_label">Email:</label></td>
-								<td><input type="text" id="new_cust_email" placeholder="Email" class="form-control"></td>
+								<td><input type="email" id="new_cust_email" placeholder="Email" class="form-control"></td>
 								<td><label for="new_cust_address" id="new_cust_address_label" class="right_col">Home Address:</label></td>
 								<td><input type="text" id="new_cust_address"  placeholder="Address" class="form-control"></td>
 							</tr>							
 							<tr>
 								<td><label for="new_cust_birthday">Birthday:</label></td>
-								<td><input type="text" id="new_cust_birthday" placeholder="Birthday" class="form-control new_cust_birthday_field"></td>
+								<td id="new_cust_birthday_row">
+									<input type="text" id="new_cust_birthday" placeholder="Month/Day" class="form-control new_cust_birthday_field">
+									<input type="text" id="new_cust_birthday_year" class="form-control" placeholder="Year"></td>
+								</td>
 							</tr>
 							<tr>
 								<td><label for="new_cust_notes">Notes:</label></td>
@@ -265,25 +268,22 @@
 									<div id="new_cust_notification">
 										<p id="notification_question">Would this customer like to be notified by</p>
 										<div id="notification_options">
-											<input type="checkbox" id="allow_text_check" name="allowText" value="true">Text<br>
+											<input type="checkbox" id="allow_text_check" name="allowText" value="true">Text<br><br>
 											<input type="checkbox" id="allow_email_check" name="allowEmail" value="true">Email
 										</div>
 									</div>
 								</td>
-							</tr>							
+							</tr>
 						</tbody>
 					</table>
 
 					<div class="new_cust_more_fields">
 						<p>* indicates a required field</p>
-
-						<!--span?-->
 						<div id="make_appt_new_cust_question">
 							<p>Make appointment with this new customer?</p>
 							<input type="checkbox" id="make_appt_new_cust">Yes
 						</div>
-
-						<!--Ask if the new customer has children-->
+						<!--Leaving the fields regarding parent-child relationship out for now
 						<div id="new_cust_children_question" class="form-group">
 							<p>Does this customer have children?<p>
 							<input type="checkbox" id="new_cust_has_children" name="newCustHasChildren" value="true">Yes
@@ -306,7 +306,7 @@
 							<label for="new_cust_child_birthday">Birthday:</label>
 							<input type="text" id="new_cust_child_birthday" placeholder="Birthday" class="form-control new_cust_birthday_field">						
 
-							<!-- user can click plus sign to add another line entry (another child)-->
+							user can click plus sign to add another line entry (another child)
 							<a href="#" onclick="addNewCustChildLine()">
 							<span class="glyphicon glyphicon-plus-sign" style="font-size:1.5em;"></span>
 							</a>
@@ -318,16 +318,26 @@
 							<input type="text" class="form-control" id="cust_parent_name" placeholder="Parent's Name">
 							<button type="button" class="btn btn-default" id="check_child_parent_button">Check</button>
 						</div>
+						-->
 					</div>
 					
+
+					<!--<input type="submit" class="btn_default_cb" onclick="return addNewCustomer()" value="Add Customer">-->
+					<button type="button" class="btn_default_cb" onclick="addNewCustomer()" id="addNewCustomerButton">Add Customer</button>
+					<button type="button" class="btn_default_cb" id="clearNewCustFieldsButton" onclick="clearAddNewCustomerFields()">Clear Fields</button>
+					<button type="button" class="btn_default_cb" id="closeNewCustButton" onclick="closeNewCustomerWindow()">Close</button>
+
 					<!--<p id="reqrd_fields_msg" class="fields_missing_msg">Please enter all required fields</p>
 					<p id="invalid_email_msg" class="fields_missing_msg">Email address entered is invalid</p>-->
-					<p id="reqrd_fields_msg" class="error_msg">Please enter all required fields</p>
-					<p id="invalid_email_msg" class="error_msg">Email address entered is invalid</p>
-
-					<!--<input type="submit" class="btn_default_cb" value="Add Customer">-->
-					<button type="button" class="btn_default_cb" onclick="addNewCustomer()" id="addNewCustomerButton">Add Customer</button>
-					<button type="button" class="btn_default_cb" onclick="clearAddNewCustomerFields()" id="clearNewCustFieldsButton">Clear Fields</button>
+					<div>
+						<!--TO-DO: Fix these so they are all block-->
+						<p id="reqrd_fields_msg" class="error_msg new_customer_error_msgs">Please enter all required fields</p>
+						<p id="invalid_email_msg" class="error_msg new_customer_error_msgs">Please enter a valid email address</p>
+						<p id="needs_email_msg" class="error_msg new_customer_error_msgs">Note: The customer needs an email address</p>
+						<p id="needs_cell_msg" class="error_msg new_customer_error_msgs">Note: The customer needs a cell phone number</p>
+					</div>
+					<div id="add_customer_results"></div>
+					<!--Does this need to be a form?-->
 				</form>
 			</div>
 		</div>
@@ -335,7 +345,6 @@
 		<!--<div id="modal_wrapper_lightbox" class="modal_wrapper">-->
 			<div id="custom_lightbox">
 				<div id="lightbox-header">
-					<!--<h4 id="lightbox-title"></h4>&nbsp;&nbsp;<h4 id="lightbox-time"></h4>-->
 					<h4 id="lightbox-title"></h4>
 				</div>
 				<div>
@@ -351,27 +360,17 @@
 						</tr>
 						<tr>
 							<td>Date:</td>
-							<!--TO-DO: Set default date for the date-picker to be the date of the appt. Default is today's date-->
 							<td><input type="text" class="appt-date-picker form-control" id="lightbox-date" readonly></td>
 						</tr>
 						<tr>
 							<td>Services:</td>
-							<!--Hardcoding the list of services for now, will get list from DB
-							call Service::getServices("li"); -->
 							<td>
+								<!--TO-DO: add light grey top and bottom border around this -->
 								<ul id="lightbox-service-list">
-								<!--
 									<?php
-										//require_once("Scheduler.php");
-										//Service::getServices("li");
+										require_once("Scheduler.php");
+										Service::getServices("li");
 									?>
-									-->
-									<li>Haircut</li>
-									<li>Beard Trim</li>
-									<li>Shave</li>
-									<li>Color</li><br><br>
-									<li>Eyebrow Wax</li>
-									<li>Unavailable</li>
 								</ul>
 							</td>
 						</tr>
@@ -395,8 +394,11 @@
 					</div>
 
 					<div>
-						<br>
-						<h4 id="lightbox-time-error" class="error_msg">Error: Start time is greater than end time!</h4>
+						<!--<br>-->
+						<p id="lightbox-conflict-error" class="lightbox_error_msgs error_msg">There is already an appointment scheduled for that time</p>
+						<p id="lightbox-services-error" class="lightbox_error_msgs error_msg">Note: You did not enter any services</p>
+						<p id="lightbox-time-error" class="lightbox_error_msgs error_msg">Note: Entered start time is greater than end time</p>
+						<p id="lightbox-time-past-error" class="lightbox_error_msgs error_msg">Note: Entered start time is beyond business hours</p>
 					</div>
 
 				</div>

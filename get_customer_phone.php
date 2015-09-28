@@ -7,11 +7,9 @@
 
 	$customerID = $_POST['cust_ID'];
 
-	$customerPhone = Customer::getCustomerCellPhoneNumber($customerID);
-	if(count($customerPhone) >= 1){
-		$phoneNumber = $customerPhone[0]['CellPhoneNumber'];
-		//error_log("Length of number: " . strlen($phoneNumber));
-		echo $phoneNumber;
+	$cellPhoneNumber = Customer::getCustomerCellPhoneNumber($customerID);
+	if(strlen($cellPhoneNumber) >= 1){
+		echo $cellPhoneNumber;
 	}
 	//no phone returned, no customer exists
 	else{
