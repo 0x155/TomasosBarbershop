@@ -28,6 +28,8 @@
 		//By default, it returns the first element inserted in the array if the pointer is not changed.
 		//http://php.net/manual/en/function.current.php
 		$custInfo = current($customerInfo);
+		$first_visit_date = Customer::getVistDate("first", (int)$custInfo['ID']);
+		$last_visit_date = Customer::getVistDate("last", (int)$custInfo['ID']);
 		//TO-DO: make sure a result is returned first
 
 		echo "<div id=\"modal_wrapper_cust_history\" class=\"modal_wrapper\">";
@@ -61,7 +63,9 @@
 						echo "<li><h4><b>Notes: </b>" . $custInfo['Notes'] . "</h4></li>";	
 						}
 						//Most recent visit date
+						echo "<li><h4><b>Most recent appt: </b>" . $last_visit_date . "</h4></li>";
 						//First visit date
+						echo "<li><h4><b>First appt: </b>" . $first_visit_date . "</h4></li>";
 						//Most seen stylist
 						/*
 						SELECT COUNT(*) num_visits, name FROM Employee, Appointment WHERE CustomerID=X AND Employee.ID=Appointment.EmployeeID

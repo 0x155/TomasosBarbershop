@@ -7,6 +7,37 @@ body {
 	font-size: 24px;
 }
 
+/*--CSS for the login page ---*/
+#login_page{
+  margin: 50px auto;
+  max-width:250px;
+  border:1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  padding-bottom:10px;
+  padding-left:20px;
+  padding-right:20px;
+  background-color: #F9F9F9;
+}
+
+.login_header{
+  text-align: center;
+}
+
+#username{
+  margin-bottom: 20px;
+}
+
+#login_submit_btn{
+  width:100%;
+}
+
+.login_msgs{
+  text-align: center;
+  margin-top: 1.0em;
+}
+
+/*----------------------------*/
+
 .scheduler_header {
 	border-bottom-style: solid;
 	padding-bottom: 10em;
@@ -26,6 +57,16 @@ body {
 
 .fields .field_labels > li {
   margin-bottom: 2em;
+}
+
+#user-greeting{
+  float:left;
+}
+
+#log-out-link{
+  float:right;
+  position: relative;
+  right: 15px;
 }
 
 /*------Date view on right side ----*/
@@ -435,6 +476,7 @@ set to width: 100% by default */
 
 #new_cust_birthday_row * {
   display: inline-block;
+  background-color: #FFFFFF;
 }
 
 #new_cust_birthday, #new_cust_birthday_year {
@@ -813,21 +855,3 @@ which are selected */
 
 
 /*------------------------------*/
-
-/*
-.fields button {
-  padding:16px, 26px;
-  font-size: 18px;
-  line-height: 1.33;
-  border-radius: 4px;
-  width:155px;
-  height:57px;
-  color:white;
-  cursor: pointer;
-  outline: none;
-  text-align: center;
-  background-color:#397ef5;
-  border: 1px solid transparent;
-  margin-top:1em;
-}
-*/

@@ -11,4 +11,5 @@
 	define("TBL_CHILD", "Child");
 	define("TBL_APPT_SERVICE", "Appointment_Service");
 	define("TBL_APPT_SERVICE_ORIG", "Appointment_Service_Orig");
+	define("TBL_USER", "User");
 ?>

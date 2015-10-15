@@ -24,7 +24,8 @@
 
 			$connection = connect();
 
-			$sql = "SELECT Name, CellPhoneNumber, HomePhoneNumber, EmailAddress, HomeAddress, date_format(Birthday, \"%m/%d/%Y\") as Birthday, Notes FROM " . TBL_CUSTOMER . 
+			$sql = "SELECT ID, Name, CellPhoneNumber, HomePhoneNumber, EmailAddress, HomeAddress, date_format(Birthday, \"%m/%d/%Y\") as Birthday, Notes " .
+					"FROM " . TBL_CUSTOMER . 
 					" WHERE Name LIKE :customerName " .
 					"ORDER BY Name ASC";
 
@@ -88,10 +89,9 @@
 
 			$connection = connect();
 
-			//check if customer name already exisits
 			$insert_customer_query = "INSERT INTO " . TBL_CUSTOMER . " (Name, Gender, CellPhoneNumber, HomePhoneNumber, EmailAddress, HomeAddress, 
-																		Notes, AllowText, AllowEmail) " . 
-									"VALUES (:name, :gender, :cell_phone_number, :home_number, :email_address, :home_address, :notes, :allow_text, :allow_email)";
+																		Birthday, Notes, AllowText, AllowEmail) " . 
+									"VALUES (:name, :gender, :cell_phone_number, :home_number, :email_address, :home_address, :birthday, :notes, :allow_text, :allow_email)";
 
 			try{
 				$st = $connection->prepare($insert_customer_query);
@@ -101,6 +101,16 @@
 				$st->bindValue(":home_number", $home_number, PDO::PARAM_STR);
 				$st->bindValue(":email_address", $email_address, PDO::PARAM_STR);
 				$st->bindValue(":home_address", $home_address, PDO::PARAM_STR);
+				
+				//If birthday is empty string, then 0000-00-00 gets inserted as date.
+				//If birthday is empty, bind it to null
+				if(empty($birthday)){
+					$st->bindValue(":birthday", null, PDO::PARAM_NULL);
+				}
+				else{
+					$st->bindValue(":birthday", $birthday, PDO::PARAM_STR);	
+				}
+				
 				$st->bindValue(":notes", $notes, PDO::PARAM_STR);
 				$st->bindValue(":allow_text", $allow_text, PDO::PARAM_STR);
 				$st->bindValue(":allow_email", $allow_email, PDO::PARAM_STR);
@@ -111,7 +121,7 @@
 			catch(PDOException $e){
 				error_log("Failure in addNewCustomer(): " . $e->getMessage());
 				disconnect($connection);
-				die("Failure in addNewCustomer(): " . $e->getMessage());
+				die("<p class=\"ajax_error\">There was an error inserting the customer</p>");
 			}
 
 			disconnect($connection);
@@ -126,19 +136,19 @@
 		In SQL, LIMIT x, y
 		Returns y number of rows starting with row number x+1 (the xth row is not shown)
 		*/
-		public static function getQuickCustomerHistory($customerName, $startRow=0, $numRows=5){
+		public static function getQuickCustomerHistory($customerID, $startRow=0, $numRows=5){
 
 			$connection = connect();
 
 			$query = "SELECT date_format(A.start_date, \"%m/%d/%Y\") as Appt_Date, E.Name as EmpName, AptSer.Service_Name as ServiceName, A.Notes " .
 						"FROM " . TBL_APPOINTMENT . " AS A, " . TBL_EMPLOYEE . " AS E, " . TBL_APPT_SERVICE . " AS AptSer, " . TBL_CUSTOMER . " AS C " .
-						"WHERE A.CustomerID = C.ID AND A.EmployeeID = E.ID AND A.ID = AptSer.Appt_ID  AND C.Name=:customerName " .
+						"WHERE A.CustomerID = C.ID AND A.EmployeeID = E.ID AND A.ID = AptSer.Appt_ID  AND C.ID=:customer_ID " .
 						"ORDER BY Appt_Date DESC " .
 						"LIMIT :startRow, :numRows";
 
 			try{
 				$st = $connection->prepare($query);
-				$st->bindValue(":customerName", $customerName, PDO::PARAM_STR);
+				$st->bindValue(":customer_ID", $customerID, PDO::PARAM_INT);
 				$st->bindValue(":startRow", $startRow, PDO::PARAM_INT);
 				$st->bindValue(":numRows", $numRows, PDO::PARAM_INT);
 
@@ -205,6 +215,39 @@
 			}
 			disconnect($connection);
 		}
+
+		//Get the first visit date for a customer
+		//Get the last visit date for a customer
+		/*
+		This will return either the most recent, or first visit date for a given
+		customerID. Whether it is first or last depends on the first argument.
+		*/
+		public static function getVistDate($arg, $customer_ID){
+			//If the argument is "first", then return the first visit, so order date in ascending order
+			//Else, return the most recent visit, so order date in descending order
+			$order = ($arg == "first") ? "ASC": "DESC";
+			$connection = connect();
+			$sql = "SELECT date_format(start_date, \"%m/%d/%Y\") visit_date " . 
+					"FROM " . TBL_APPOINTMENT . 
+					" WHERE CustomerID=:customer_id " . 
+					"ORDER BY visit_date " . $order . " LIMIT 1";
+			try{
+				$st = $connection->prepare($sql);
+				$st->bindValue(":customer_id", $customer_ID, PDO::PARAM_INT);
+
+				$st->execute();	
+
+				$rs = $st->fetch();
+				return $rs['visit_date'];
+			}
+			catch(PDOException $e){
+				disconnect($connection);
+				die("Failure in getVistDate(): " . $e->getMessage());				
+			}
+		}
+
+
+		//Get the stylist the customer has seen most often
 
 		/*
 		Returns the ID of the entered customer from the Customer table.
@@ -471,6 +514,54 @@
 				$connection->rollBack();
 				disconnect($connection);
 				die("Failure in addAppointment(): " . $e->getMessage());
+			}			
+		}
+	}
+
+	//This class stores functions related to the User table (login, update, etc)
+	class User{
+		public static function getUserInfo($username){
+			$connection = connect();
+
+			$select_password_query = "SELECT ID, Password FROM " . TBL_USER .
+									" WHERE Username=:username";
+			
+			try{
+				$st = $connection->prepare($select_password_query);
+				$st->bindValue(":username", $username, PDO::PARAM_STR);
+
+				$st->execute();
+				
+				$rs = $st->fetchAll(PDO::FETCH_ASSOC);
+				return $rs;		
+			}
+			catch(PDOException $e){
+				error_log("Failure in getUserInfo(): " . $e->getMessage());
+				disconnect($connection);
+				//not sure if i want this here since it will be displayed to user
+				die("Failure in getUserInfo(): " . $e->getMessage());
+			}			
+		}
+
+		public static function updateUserLastLogin($user_id, $date){
+			$connection = connect();
+
+			$update_login_query = "UPDATE " . TBL_USER .
+									" SET LastLogin=:date ".
+									" WHERE ID=:user_id";
+			
+			try{
+				$st = $connection->prepare($update_login_query);
+				$st->bindValue(":date", $date, PDO::PARAM_STR);
+				$st->bindValue(":user_id", $user_id, PDO::PARAM_INT);
+				$st->execute();
+				return $st->rowCount();
+			}
+			catch(PDOException $e){
+				error_log("Failure in updateUserLastLogin(): " . $e->getMessage());
+				disconnect($connection);
+				//not sure if i want this here since it will be displayed to user
+				die("Failure in updateUserLastLogin(): " . $e->getMessage());
 			}			
 		}
 	}

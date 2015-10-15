@@ -41,11 +41,10 @@
 	/*
 	Validate the following:
 	-Both Cell and Home numbers contain 10 or 7 digits, and no other characters asie from numbers
-	-Email address contains both a @ and dot (.)
-	-Birthday is valid date
+	-Email address
 	-Required fields have length > 0
 	-If AllowText is Yes, check for cell phone number
-	-Same for Email
+	-Same for Email and AllowEmail
 	*/
 
 	//Cell Phone
@@ -72,10 +71,6 @@
 		}
 	}
 
-	//Birthday
-	//TO-DO: Validate birthday, not sure yet how b-day will be handled.
-	//Will have Year as a seperate field on front-end
-
 	//Ensure required fields are not empty
 	//This includes email if the new customer wants email reminders,
 	//and cellphone number if the new customer wants to receive text notifcations
@@ -101,12 +96,12 @@
 	if($valid){
 		$added = Customer::addNewCustomer($customer_name, $gender, $cell_number, $home_number, $email_address, $home_address, 
 									$birthday, $notes, $allow_text, $allow_email);
+		error_log("--After addNewCustomer--");
 
 		if($added){
 			echo "success";
 		}
 		else{
-			//return success
 			$error_msgs .= "<p class=\"ajax_error\">There was an error inserting the customer</p>";
 			echo $error_msgs;
 		}
