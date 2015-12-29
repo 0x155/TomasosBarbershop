@@ -88,6 +88,9 @@ body {
   max-width: 150px;
 }
 
+#date {
+  background-color: #FFFFFF;
+}
 
 .employee_field {
   max-width: 200px;
@@ -190,8 +193,7 @@ body {
 /* These items will be initially hidden, 
 then displayed based on search results */
 .customer-history {
-  /*display: none;*/
-  margin-top: -1em;
+  margin-top: 1.0em;
 }
 
 .edit-cust-info-field {
@@ -232,6 +234,10 @@ then displayed based on search results */
   padding-right: 3em;
 }
 
+#customer-id{
+  display: none;
+}
+
 #cust-history-close {
   cursor: pointer;
   padding-left:9.0em;
@@ -265,11 +271,14 @@ then displayed based on search results */
   width: 75px;
 }
 
-/*---------------*/
-
-#date {
-  background-color: #FFFFFF;
+.editing_fields_area{
+  border:1px solid #428bca;
+  border-radius: 10px;
+  padding:1.0em;
+  background-color:#F5F5F5;
 }
+
+/*---------------*/
 
 #new-service-plus {
   display: none;
@@ -343,6 +352,7 @@ The arrows were not appearing since the icon-chevron-up class did not exist. */
   padding-bottom: 1em;
 }
 
+#start-time,
 #appt-length-hours,
 #appt-length-mins {
   background-color: #FFFFFF;
@@ -361,6 +371,11 @@ selects Unavailable from Services drop down */
 
 #unavailable-start-fields {
   padding-bottom: 1em;
+}
+
+#unavailable-start-time,
+#unavailable-end-time{
+  background-color: #FFFFFF;
 }
 
 /* These elements are the paretns of the field-column div
@@ -784,6 +799,12 @@ which is the most common service*/
 #lightbox-start-time {
   margin-right: 5em;
 }
+
+#lightbox-start-time,
+#lightbox-end-time{
+  background-color: #FFFFFF;
+}
+
 
 #lightbox-date {
   max-width: 150px;

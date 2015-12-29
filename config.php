@@ -1,6 +1,11 @@
 <?php
 	define("DB_DSN", "mysql:dbname=tomasosbarbershop_test");
-	define("DB_USERNAME", "root"); 
+	//define("DB_DSN", "mysql:host=cvps6706735910.hostwindsdns.com;dbname=zadmin_tomasosbarbershopprod");
+
+	//Have ROOT_USER and ROOT_PASSWORD variables set
+
+
+	define("DB_USERNAME", "root"); //$_SESSION['username']
 	define("DB_PASSWORD", "");
 	define("TBL_CUSTOMER", "Customer");	
 	define("TBL_APPOINTMENT", "Appointment");

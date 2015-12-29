@@ -6,13 +6,16 @@
 	require_once("common.php");
 	require_once("Scheduler.php");
 
-	$customer_name = $_POST['customerName'];
+	$customer_ID = $_POST['customerID'];
+	$customer_name = trim($_POST['customerName']);
 	$cell_phone_number = htmlspecialchars($_POST['phone']);
 	$email_addr = htmlspecialchars($_POST['email']);
 	$valid = true;
 	$error_msgs = "";
 	
 	//$connection = connect();
+
+	//error_log("CustomerID: " . $customer_ID . ", CustomerName: " . $customer_name);
 
 	//Validate phone number
 	if( !(Util::validatePhoneNumber($cell_phone_number)) ){
@@ -31,8 +34,19 @@
 		}
 	}
 
+	//TO_DO: Validate customer name is not empty
+	if(empty($customer_name)){
+		$valid = false;
+		$error_msgs .= "<p class=\"ajax_error\">Please enter a name for the customer</p><br>";
+	}
+
 	if($valid){
-		$row_count = Customer::updateCustomerInfo($customer_name, $cell_phone_number, $email_addr);
+
+		//check if customer exists
+		//NEED TO VERIFY THAT THE NAME WAS MODIFIED, OTHERWISE WILL ALWAYS RETURN TRUE
+		Customer::customerNameExists($customer_name);
+
+		$row_count = Customer::updateCustomerInfo($customer_ID, $customer_name, $cell_phone_number, $email_addr);
 		echo $row_count;
 	}
 	else{

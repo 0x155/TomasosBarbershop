@@ -49,41 +49,39 @@
 				*/
 			}
 			catch(PDOException $e){
-				disconnect($connection);
-				die("Failure in getCustomerInfo(): " . $e->getMessage());
+				Util::quit("getCustomerInfo", $e, $connection, true);
 			}
 
 			disconnect($connection);
 		}
 
 
-		public static function updateCustomerInfo($customer_name, $cell_phone_number, $email_addr){
+		public static function updateCustomerInfo($customer_id, $customer_name, $cell_phone_number, $email_addr){
 			
 			$connection = connect();
 
-			$sql_update_query = "UPDATE ". TBL_CUSTOMER . " SET EmailAddress=:email, CellPhoneNumber=:phone_number " . 
-								"WHERE Name=:name";
+			$sql_update_query = "UPDATE ". TBL_CUSTOMER . 
+								" SET Name=:name, EmailAddress=:email, CellPhoneNumber=:phone_number " . 
+								"WHERE ID=:id";
 
 			try{
 				$st = $connection->prepare($sql_update_query);
+				$st->bindValue(":id", $customer_id, PDO::PARAM_INT);	
 				$st->bindValue(":email", $email_addr, PDO::PARAM_STR);		
 				$st->bindValue(":phone_number", $cell_phone_number, PDO::PARAM_STR);
 				$st->bindValue(":name", $customer_name, PDO::PARAM_STR);
 				$st->execute();
 				//rowCount() returns the # of affected rows
-				//In this case, it should return 1
 				return $st->rowCount();
 			}
 			catch(PDOException $e){
-				$connection->rollBack();
-				disconnect($connection);
-				error_log("Failure in updateCustomerInfo(): " . $e->getMessage());		
+				Util::quit("updateCustomerInfo", $e, $connection, true);
 			}
+
+			disconnect($connection);
 		}
 
-		/*
-		This function adds a new customer to the database
-		*/
+		//This function adds a new customer to the database
 		public static function addNewCustomer($name, $gender, $cell_phone_number, $home_number, $email_address, $home_address,
 												$birthday, $notes, $allow_text, $allow_email){
 
@@ -119,9 +117,7 @@
 				return $ret;
 			}
 			catch(PDOException $e){
-				error_log("Failure in addNewCustomer(): " . $e->getMessage());
-				disconnect($connection);
-				die("<p class=\"ajax_error\">There was an error inserting the customer</p>");
+				Util::quit("addNewCustomer", $e, $connection, true);
 			}
 
 			disconnect($connection);
@@ -158,8 +154,7 @@
 				return $rs;
 			}
 			catch(PDOException $e){
-				disconnect($connection);
-				die("Failure in getQuickCustomerHistory(): " . $e->getMessage());
+				Util::quit("getQuickCustomerHistory", $e, $connection, true);
 			}
 			
 			disconnect($connection);
@@ -210,9 +205,9 @@
 				return $ret;							
 			}
 			catch(PDOException $e){
-				disconnect($connection);
-				die("Failure in getCustomerHistory(): " . $e->getMessage());				
+				Util::quit("getFullCustomerHistory", $e, $connection, true);				
 			}
+
 			disconnect($connection);
 		}
 
@@ -241,13 +236,11 @@
 				return $rs['visit_date'];
 			}
 			catch(PDOException $e){
-				disconnect($connection);
-				die("Failure in getVistDate(): " . $e->getMessage());				
+				Util::quit("getVistDate", $e, $connection, true);					
 			}
+
+			disconnect($connection);
 		}
-
-
-		//Get the stylist the customer has seen most often
 
 		/*
 		Returns the ID of the entered customer from the Customer table.
@@ -277,14 +270,16 @@
 				return $rs['ID'];
 			}
 			catch(PDOException $e){
-				disconnect($connection);
-				die("Failure in getCustomerID(): " . $e->getMessage());
+				Util::quit("getCustomerID", $e, $connection, true);
 			} 
+
+			disconnect($connection);
 		}
 
 		/*
 		This function takes in a CustomerID and returns the cellphonenumber
-		for that customer. This is returned to be displayed in the quick info title
+		for that customer. This is returned to be displayed in the title
+		of the lightbox
 		*/
 		public static function getCustomerCellPhoneNumber($id){
 			$connection = connect();
@@ -298,14 +293,45 @@
 
 				$st->execute();
 				
-				//$rs = $st->fetchAll(PDO::FETCH_ASSOC);
 				$rs = $st->fetch();
 				return $rs['CellPhoneNumber'];				
 			} 
 			catch (PDOException $e) {
-				disconnect($connection);
-				die("Failure in getCustomerCellPhoneNumber(): " . $e->getMessage());				
+				//Do not exit here if there was an error - dont want to exit the script 
+				//just bc phone number wasnt available
+				Util::quit("getCustomerCellPhoneNumber", $e, $connection, false);			
 			}
+
+			disconnect($connection);
+		}
+
+		//check if customer exists in database
+		public static function customerNameExists($customerName){
+			$ret = false;
+			$connection = connect();
+
+			$sql = "SELECT COUNT(*) Count FROM " . TBL_CUSTOMER .
+					" WHERE Name=:name";
+
+			try {
+				$st = $connection->prepare($sql);
+				$st->bindValue(":name", $customerName, PDO::PARAM_STR);
+
+				$st->execute();
+				$numIDs = $st->fetch();
+				$numCustomers = $numIDs['Count'];
+				error_log("Result from customerNameExists: " . $numCustomers . ", Type: " . gettype($numCustomers));
+
+				//Return true if 1 result returned, false otherwise
+				if($numCustomers == "1"){
+					$ret = true;
+				}
+				return $ret;
+			} 
+			catch (PDOException $e) {
+				Util::quit("customerNameExists", $e, $connection, false);	
+			}
+			disconnect($connection);
 		}
 	}	
 
@@ -332,10 +358,14 @@
 
 			}
 			catch(PDOException $e){
-				disconnect($connection);
-				die("Failure in getServices(): " . $e->getMessage());
+				//Do not exit here if there was an error - dont want to exit the script 
+				//just bc couldnt get services
+				//Looks worse for the user if the script exits
+				//note this also impacts the lightbox
+				Util::quit("getServices", $e, $connection, false);
 			}
 
+			disconnect($connection);
 		}
 	}
 
@@ -355,14 +385,12 @@
 				foreach ($rs as $employee) {
 					echo "<option>" . $employee['Name'] . "</option>";
 				}
-
-				disconnect($connection);
-
 			}
 			catch(PDOException $e){
-				disconnect($connection);
-				die("Failure in getEmployeeNames(): " . $e->getMessage());
+				Util::quit("getEmployeeNames", $e, $connection, false);
 			}
+
+			disconnect($connection);
 		}
 
 		/*
@@ -385,14 +413,14 @@
 
 				$st->execute();
 				
-				//$rs = $st->fetchAll(PDO::FETCH_ASSOC);
 				$rs = $st->fetch();
 				return $rs['ID'];
 			}
 			catch(PDOException $e){
-				disconnect($connection);
-				die("Failure in getEmployeeID(): " . $e->getMessage());
+				Util::quit("getEmployeeID", $e, $connection, true);
 			}
+
+			disconnect($connection);
 		}
 
 		public static function getEmployeeUnitID($employeeNameIn){
@@ -415,9 +443,10 @@
 				return $rs['Unit_ID'];
 			}
 			catch(PDOException $e){
-				disconnect($connection);
-				die("Failure in getEmployeeUnitID(): " . $e->getMessage());
-			}			
+				Util::quit("getEmployeeUnitID", $e, $connection, true);
+			}	
+
+			disconnect($connection);		
 		}
 	}
 
@@ -446,88 +475,36 @@
 				return $rs;				
 			}
 			catch(PDOException $e){
-				disconnect($connection);
-				die("Failure in getServices(): " . $e->getMessage());
+				Util::quit("getServices", $e, $connection, false);
 			}
-		}
 
-		/*
-		NOTE: THIS MAY NOT BE NEEDED ANYMORE SINCE USING ADDEVENT() FROM DHTMLX API
-		Adds an appointment to the database.
-		Uses a transaction to insert into the Appointment table, and also the Appointment_Service table.
-		*/
-		public static function addAppointment($apptDate, $customerID, $employeeID, $startTime, $endTime, $notes, $services){
-			$connection = connect();
-
-			$sql_insert_appointment = "INSERT INTO " . TBL_APPOINTMENT .
-				"(Appt_Date, CustomerID, EmployeeID, StartTime, EndTime, Notes) " . 
-				"VALUES (:apptDate, :customerID, :employeeID, :startTime, :endTime, :notes)";
-
-			$sql_insert_appt_services = "INSERT INTO " . TBL_APPT_SERVICE .
-										"(Appt_ID, Service_Name) " .
-										"VALUES(:apptID, :serviceName)";
-
-			$ret = true;
-
-			/*
-			Using a transaction here since there are multiple Insert statements which need to be run:
-			1. Insert into Appointment table
-			2. Insert into Appointment_Service table for each type of service for the appointment
-			Could be multiple inserts for no. 2, if the appointment has multiple services (ex. Haircut and Beard Trim)
-			The use of a transaction allows for atomicity. If one of the inserts fail, then the rollback undoes the inserts 
-			that were successful. Need to make sure all inserts are run successfully in order
-			to maintain integrity of the data (can't have a record in Appointment and not Appointment_Service).
-			*/
-			$connection->beginTransaction();
-
-			try {
-				//bindParam instead?
-				//INSERT INTO Appointment
-				$st = $connection->prepare($sql_insert_appointment);
-				$st->bindValue(":apptDate", $apptDate, PDO::PARAM_STR);
-				$st->bindValue(":customerID", $customerID, PDO::PARAM_INT);
-				$st->bindValue(":employeeID", $employeeID, PDO::PARAM_INT);
-				$st->bindValue(":startTime", $startTime, PDO::PARAM_STR);
-				$st->bindValue(":endTime", $endTime, PDO::PARAM_STR);
-				$st->bindValue(":notes", $notes, PDO::PARAM_STR);
-				$st->execute();
-
-				$lastAppointmentID = $connection->lastInsertID();
-
-
-				//INSERT INTO Appointment_Service
-				$st = $connection->prepare($sql_insert_appt_services);
-				$numServices = count($services);
-				for($i = 0; $i < $numServices; $i++){
-					//bind value and execute query
-					$st->bindValue(":apptID", $lastAppointmentID, PDO::PARAM_INT);
-					$st->bindValue(":serviceName", $services[$i], PDO::PARAM_STR);
-					$st->execute();
-				}
-
-				$connection->commit();
-
-				return $ret;
-				
-			}
-			catch(PDOException $e){
-				$connection->rollBack();
-				disconnect($connection);
-				die("Failure in addAppointment(): " . $e->getMessage());
-			}			
+			disconnect($connection);
 		}
 	}
 
 	//This class stores functions related to the User table (login, update, etc)
 	class User{
 		public static function getUserInfo($username){
-			$connection = connect();
+			//$connection = connect();
+			try{
+				$conn = new PDO(DB_DSN, "root", "");
+
+				//This keeps the MySQL connection open for reuse by other parts of the app
+				//false is the default, which opens and closes the connection each time
+				$conn->setAttribute(PDO::ATTR_PERSISTENT, true);
+				//This attribute tells PDO to throw exceptions on database errors, stopping the script if one occurs
+				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);		
+				//PDO::ATTR_EMULATE_PREPARES, false ??			
+			}
+			catch(PDOException $e){
+				Util::quit("connect", $e, $connection, true);
+			}			
 
 			$select_password_query = "SELECT ID, Password FROM " . TBL_USER .
 									" WHERE Username=:username";
 			
 			try{
-				$st = $connection->prepare($select_password_query);
+				$st = $conn->prepare($select_password_query);
 				$st->bindValue(":username", $username, PDO::PARAM_STR);
 
 				$st->execute();
@@ -536,11 +513,10 @@
 				return $rs;		
 			}
 			catch(PDOException $e){
-				error_log("Failure in getUserInfo(): " . $e->getMessage());
-				disconnect($connection);
-				//not sure if i want this here since it will be displayed to user
-				die("Failure in getUserInfo(): " . $e->getMessage());
-			}			
+				Util::quit("getUserInfo", $e, $conn, true);
+			}
+
+			disconnect($conn);			
 		}
 
 		public static function updateUserLastLogin($user_id, $date){
@@ -558,11 +534,10 @@
 				return $st->rowCount();
 			}
 			catch(PDOException $e){
-				error_log("Failure in updateUserLastLogin(): " . $e->getMessage());
-				disconnect($connection);
-				//not sure if i want this here since it will be displayed to user
-				die("Failure in updateUserLastLogin(): " . $e->getMessage());
-			}			
+				Util::quit("updateUserLastLogin", $e, $connection, false);
+			}
+
+			disconnect($connection);			
 		}
 	}
 
@@ -602,6 +577,16 @@
 			}
 
 			return $ret;
+		}
+
+
+		public static function quit($functionName, $exception, $connection, $exit){
+			error_log("Failure in ".$functionName."(): " . $exception->getMessage());
+			disconnect($connection);
+			if($exit){
+				//Calling exit prints the message and then exits the current PHP script
+				exit("<p class=\"ajax_error\">There was an error processing your request</p>");				
+			}
 		}
 	}
 

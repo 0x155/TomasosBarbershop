@@ -35,6 +35,8 @@
 						foreach ($rs as $customer) {
 							echo "<b>Phone:</b> <input type=\"text\" class=\"edit-cust-info-field form-control\" id=\"edit-cust-info-phone\" value=\"" . htmlspecialchars_decode($customer['CellPhoneNumber']) . "\" disabled><br>";
 							echo "<b>Email:</b> <input type=\"text\" class=\"edit-cust-info-field form-control\" id=\"edit-cust-info-email\" value=\"" . htmlspecialchars_decode($customer['EmailAddress']) . "\" disabled><br>";
+							//customerid is written to a div here in order to have it if the user's information is updated
+							echo "<div id=\"customer-id\">".$customer['ID']."</div>";
 						}
 							echo "<div id=\"cust_edit_info_results\"></div>";
 							echo "<span>";

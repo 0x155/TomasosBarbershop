@@ -29,8 +29,6 @@
 
 		$i = $i + 1;
 	}
-		
-	//error_log("Services: " . $ret);
 
 	echo $ret;
 ?>

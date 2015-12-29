@@ -84,7 +84,7 @@
 					<!-- action attribute tells the web browser where to send the data when form is submitted. Can be an absolute or relative URL-->
 					<!-- method attribute tells browser how to send the data (GET/POST) -->
 					<ul class="field_labels">
-						<li>
+						<li id="customer-info-top-fields">
 							<label id="cust_name_label" for="customer_name"><h4>Customer Name:</h4></label>
 							<div class="input-group input-group-lg" id="cust-name-fields">
 								<input type="text" name="customer_name" placeholder="Customer Name" class="form-control" id="customer_name" autofocus>
@@ -92,11 +92,13 @@
 									<button type="button" class="btn btn-default" name="cust-search-button" id="cust-search-button" onclick="customerSearch()">Search</button>
 								</span>
 							</div>
+							<div id="customer_search_results"></div>
+							<li id="customer_history">
 						</li>
 						
-						<li id="customer_search_results"></li>
+						<!--<li id="customer_search_results"></li>-->
 
-						<li id="customer_history"></li>
+						<!--<li id="customer_history"></li>-->
 
 						<li class="form-group input-group-lg">
 							<label for="date"><h4>Date:</h4></label>
@@ -114,7 +116,7 @@
 
 								<tr>
 									<td class="input-group-lg time-field">
-										<input type="text" class="form-control appt-timepicker" id="start-time">
+										<input type="text" class="appt-timepicker form-control" id="start-time" readonly>
 									</td>
 									<td class="input-group-lg hours-min-fields">
 										<input type="text" class="form-control" id="appt-length-hours" value="0" disabled>
@@ -178,12 +180,12 @@
 
 							<div class="controls form-inline" id="unavailable-start-fields">
 								<label class="control-label" for="unavailable-start-time">Start Time:</label>
-								<input type="text" class="appt-timepicker" id="unavailable-start-time">
+								<input type="text" class="appt-timepicker" id="unavailable-start-time" readonly>
 							</div>
 
 							<div class="controls form-inline" id="unavailable-end-fields">
 								<label class="control-label" for="unavailable-end-time">End Time:</label>
-								<input type="text" class="appt-timepicker" id="unavailable-end-time">
+								<input type="text" class="appt-timepicker" id="unavailable-end-time" readonly>
 							</div>
 
 							<p id="unavailable-time-error" class="error_msg">Note: The entered start time is greater than or equal to end time</p>
@@ -352,9 +354,9 @@
 						<td>Start-Time:</td>
 						<td id="time-row">
 							<!--Put the start-time field, end-time label, and end-time field in the same column for formatting purposes -->
-							<input type="text" id="lightbox-start-time" class="appt-timepicker form-control">
+							<input type="text" id="lightbox-start-time" class="appt-timepicker form-control" readonly>
 							End-Time:
-							<input type="text" id="lightbox-end-time" class="appt-timepicker form-control">
+							<input type="text" id="lightbox-end-time" class="appt-timepicker form-control" readonly>
 						</td>
 					</tr>
 					<tr>

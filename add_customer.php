@@ -94,16 +94,24 @@
 
 	//After validation, run method to insert into Customer table
 	if($valid){
-		$added = Customer::addNewCustomer($customer_name, $gender, $cell_number, $home_number, $email_address, $home_address, 
-									$birthday, $notes, $allow_text, $allow_email);
-		error_log("--After addNewCustomer--");
 
-		if($added){
-			echo "success";
+		//Check if customer exists already
+		$customerExists = Customer::customerNameExists($customer_name);
+		if($customerExists){
+			$error_msgs .= "<p class=\"ajax_error\">A customer with that name already exists</p>";
+			echo $error_msgs;
 		}
 		else{
-			$error_msgs .= "<p class=\"ajax_error\">There was an error inserting the customer</p>";
-			echo $error_msgs;
+			$added = Customer::addNewCustomer($customer_name, $gender, $cell_number, $home_number, $email_address, $home_address, 
+										$birthday, $notes, $allow_text, $allow_email);
+
+			if($added){
+				echo "success";
+			}
+			else{
+				$error_msgs .= "<p class=\"ajax_error\">There was an error inserting the customer</p>";
+				echo $error_msgs;
+			}
 		}
 	}
 	else{

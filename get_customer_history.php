@@ -90,12 +90,16 @@
 						echo "</tbody>";
 					echo "</table>";	
 					echo "<div class=\"history_button_group\">";
-						if(($startRow + $numRows) < $total_rows){
-						echo "<button type=\"button\" class=\"btn_default_cb modal_btns\" onclick=\"viewNextHistory(".$startRow.",".$numRows.")\">Next</button>";
-						}
 						//if startRow is 0, then starting at begining, and dont need Prev button
 						if($startRow > 0){
-						echo "<button type=\"button\" class=\"btn_default_cb modal_btns\" onclick=\"viewPrevHistory(".$startRow.",".$numRows.")\">Prev</button>";
+						echo "<button type=\"button\" class=\"btn_default_cb modal_btns\" onclick=\"viewPrevHistory(".$startRow.",".$numRows.")\">".
+								"<span class=\"glyphicon glyphicon-arrow-left\" aria-hidden=\"true\"></span> Prev".
+							"</button>";
+						}					
+						if(($startRow + $numRows) < $total_rows){
+						echo "<button type=\"button\" class=\"btn_default_cb modal_btns\" onclick=\"viewNextHistory(".$startRow.",".$numRows.")\">Next ".
+								"<span class=\"glyphicon glyphicon-arrow-right\" aria-hidden=\"true\"></span>".
+							  "</button>";
 						}
 						echo "<button type=\"button\" class=\"btn_default_cb modal_btns\" onclick=\"closeCustSearchResults()\">Close</button>";
 					echo "</div>";			
