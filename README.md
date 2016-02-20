@@ -1,4 +1,4 @@
-## Barbershop Scheduler Application
+# Barbershop Scheduler Application
 
 Welcome to the Git repository for the Barbershop Scheduler Application.
 
