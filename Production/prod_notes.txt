@@ -1,0 +1,24 @@
+Create Prod database
+	Did dump of test database
+	From C:\xampp\mysql\bin
+	mysqldump -u root --extended-insert=false tomasosbarbershop_test > tomasosbarbershop_test_dump_10_22_2015.sql
+	(note extended-insert=false writes the INSERT INTO query for each record)
+Manage Users on database
+Will need each user to have certain permissions on database:
+GRANT ALL PRIVILEGES ON tomasosbarbershop_prod.Appointment TO 'username'@'servername'
+GRANT READ ON tomasosbarbershop_prod.User TO 'username'@'servername'
+Good read -> https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql
+
+Create users in database for different application users
+Each username/password for the application will be the username/password used for the database
+
+
+Update config file on server
+Do NOT store prod config information on GitHub
+Organize Git - need to use this for version control
+
+Use htaccess file to only allow the range of IPs from within the store to access site
+Find out where log files are written to on server (MySQL general log, PHP error log)
+
+Give demo
+Write manual

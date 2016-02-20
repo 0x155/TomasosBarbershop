@@ -52,20 +52,13 @@ UPDATE Employee SET Unit_ID=3 WHERE ID=3;
 UPDATE Employee SET Unit_ID=4 WHERE ID=4;
 UPDATE Employee SET Unit_ID=5 WHERE ID=5;
 
-UPDATE Employee SET Unit_ID=6 WHERE ID=2;
-UPDATE Employee SET Unit_ID=1 WHERE ID=1;
-UPDATE Employee SET Unit_ID=2 WHERE ID=2;
+UPDATE Employee SET Unit_ID=6 WHERE ID=3;
+UPDATE Employee SET Unit_ID=4 WHERE ID=4;
+UPDATE Employee SET Unit_ID=3 WHERE ID=3;
 
-
-ALTER TABLE Appointment2 ADD COLUMN Unit_ID smallint(10);
-ALTER TABLE Appointment2
-	MODIFY Unit_ID smallint(10) UNSIGNED;
-	
-ALTER TABLE Appointment2 DROP FOREIGN KEY appointment2_ibfk_3;
-ALTER TABLE Appointment2
-	ADD CONSTRAINT
-	FOREIGN KEY (Unit_ID) REFERENCES Employee(Unit_ID)
-	ON UPDATE CASCADE;
+UPDATE Employee SET Unit_ID=10 where id=2;
+UPDATE Employee SET Unit_ID=3 where id=3;
+UPDATE Employee SET Unit_ID=2 where id=2;
 
 
 
@@ -73,24 +66,6 @@ ALTER TABLE Appointment2
 
 
 
-
-
-/*If a customer or employee are deleted, then remove the customer or employee, but keep the record in Appointment.
-The SET NULL constraint will set the customerid or employeeid to NULL in table if that customer or employee are deleted*/
-ALTER TABLE Appointment DROP FOREIGN KEY appointment_ibfk_1;
-ALTER TABLE Appointment
-	ADD CONSTRAINT
-	FOREIGN KEY (CustomerID) REFERENCES Customer(ID)
-	ON DELETE SET NULL;
-	
-ALTER TABLE Appointment DROP FOREIGN KEY appointment_ibfk_4;
-ALTER TABLE Appointment
-	ADD CONSTRAINT
-	FOREIGN KEY (EmployeeID) REFERENCES Employee(ID)
-	ON DELETE SET NULL;
-
-/*NOTE: The Employee.ID column is now used to indicate the unit ID number on the calendar. 
-Ex - Kieron = 1, Tiara = 2, etc. */
 	
 /* This table stores the services done for each appointment. There can be multiple services for one appointment,
 so having this table reduces redundancy in the Appointment table, and normalizes the database (1NF)*/
@@ -98,7 +73,7 @@ CREATE TABLE Appointment_Service (
 	ID INT(25) UNSIGNED NOT NULL AUTO_INCREMENT,
 	Appt_ID INT(25) UNSIGNED,
 	Service_Name VARCHAR(256),
-	FOREIGN KEY (Appt_ID) REFERENCES Appointment(Appt_ID),
+	FOREIGN KEY (Appt_ID) REFERENCES Appointment(ID) ON DELETE CASCADE,
 	FOREIGN KEY (Service_Name) REFERENCES Service(Name),
 	PRIMARY KEY (ID)
 );
@@ -108,6 +83,64 @@ ALTER TABLE Appointment_Service
 	ADD CONSTRAINT
 	FOREIGN KEY (Appt_ID) REFERENCES Appointment(Appt_ID)
 	ON DELETE CASCADE;
+
+/* If an employee is deleted from the system, do not delete the appointments
+for that employee. The customer still came in and received services. 
+Set Appointment.EmployeeID to NULL if an employee is deleted*/
+ALTER TABLE Appointment DROP FOREIGN KEY appointment_ibfk_2;
+ALTER TABLE Appointment
+	ADD CONSTRAINT
+	FOREIGN KEY (EmployeeID) REFERENCES employee(ID)
+	ON DELETE SET NULL;
+	
+ALTER TABLE Appointment DROP FOREIGN KEY appointment_ibfk_3;
+ALTER TABLE Appointment
+	ADD CONSTRAINT
+	FOREIGN KEY (Unit_ID) REFERENCES employee(Unit_ID)
+	ON DELETE SET NULL 
+	ON UPDATE CASCADE;	
+
+/*Same for Employee.
+If an Employee is deleted, do not delete the appointments for that customer.
+The stylist still deserves credit for that appointment. */
+ALTER TABLE Appointment DROP FOREIGN KEY appointment_ibfk_1;
+ALTER TABLE Appointment
+	ADD CONSTRAINT
+	FOREIGN KEY (CustomerID) REFERENCES customer(ID)
+	ON DELETE SET NULL;	
+
+SELECT date_format(A.start_date, "%m/%d/%Y") as Date, A.Text, E.Name, A.Notes
+FROM Appointment as A, Employee as E
+WHERE A.CustomerID=85 AND E.ID = A.EmployeeID
+ORDER BY Date DESC;
+
+/*Get the employee which the customer has seen most often, along with # of visits */
+SELECT COUNT(*) visits, E.name, C.Name
+FROM Appointment A, Employee E, Customer C
+WHERE A.employeeid=E.ID AND A.customerid=C.ID AND customerid=8
+GROUP BY employeeid, customerid
+ORDER BY visits DESC LIMIT 1;
+
+/*Date of most recent visit for a customer */
+SELECT date_format(start_date, "%m/%d/%Y") date
+FROM Appointment
+WHERE customerid=8
+ORDER BY date DESC LIMIT 1;
+
+/*Date of first visit for a customer */
+SELECT date_format(start_date, "%m/%d/%Y") date
+FROM Appointment
+WHERE customerid=8
+ORDER BY date ASC LIMIT 1;
+
+
+CREATE TABLE User(
+	ID INT(25) UNSIGNED NOT NULL AUTO_INCREMENT,
+	Username VARCHAR(256) NOT NULL,
+	Password VARCHAR(256) NOT NULL,
+	LastLogin DATETIME,
+	PRIMARY KEY (ID)
+);
 
 /*
 NOTE:
@@ -143,4 +176,32 @@ mysql>alter table appointment drop foreign key constraint_name;
 
 Then deleted the column:
 mysql>alter table appointment drop column serviceName;
+
+Notes on parentheses in column defintions
+The value has different meanings for ints and varchars
+varchar(5)
+Values in that column cannot be longer than 5 characters long.
+You can insert values into that column that are longer than 5 with not error, but only 5 characters will be stored
+
+int(5)
+5 is the maximum display width of the column
+This is NOT the range of the value. Each integer type (smallint, int, bigint, etc.) has their own numeric range for values
+The value in the parentheses is the MAXIMUM display width.
+If a value in that column is greater than 5 digits long, it can be stored, and will display all digits
+https://blogs.oracle.com/jsmyth/entry/what_does_the_11_mean
+The largest negative value for an int is -2147483648
+Therefore the default display width is 11 (includes the sign)
+This is easily demonstrated using ZEROFILL which pads the values
+
 */
+
+
+
+
+
+
+
+
+
+
+

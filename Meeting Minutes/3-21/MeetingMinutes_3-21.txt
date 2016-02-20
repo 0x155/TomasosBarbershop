@@ -1,0 +1,23 @@
+Meeting Minutes - 3/21/2015
+
+Agenda:
+Demo add new customer, and customer search results screen
+Provide suggestions for customers with children
+Discuss rate
+
+Answered Questions/Action Items
+Do you have recurring appointments? -- YES, every week, every 3 weeks, etc.
+Do you ever call customers to confirm appointments? -- NO
+
+Store customer name as one field for now (not seperate)
+
+Make year optional for birthday
+-Senior citizen discount
+-Need to know how old some kids are for discount (12 and under), kids have been 12 for 10 years
+
+Users should be able to get to site from home
+-A customer may call Kieron at night and ask if he is available tomorrow. user should be able to view availablility and make appointments even if not in the office
+
+Add calendar button on top of page so user can select specific date to view, instead of clicking next arrow
+
+Make fields bigger for touch screen (-lg tag in bootstrap?)

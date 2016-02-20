@@ -1,0 +1,66 @@
+SECURITY
+-use https: in Production
+-move the config and common php files outside of the web server root directory (use htaccess to limit access to these files)
+
+Currently using PHP 5.5.19, MySQL 5.6.21
+
+
+-SALT - string added to a password in order to make a password hash more difficult to crack
+-a salt is added to the password string BEFORE it is hashed
+-a new salt must be generated each time a user creates an account or resets their password
+-do NOT use the same salt in each hash
+A salt is mainly used in the case where two users have the same password.
+In this case, if one password is cracked, the other is as well
+Adding a salt allows the hashes to be different even though the actual password is the same
+Rule of thumb is to create a salt the same length as the hash
+Article suggests generating a salt using a Cryptographically Secure Pseudo-Random Number Generator (CSPRNG)
+
+Note these hash functions are different than in a data structures course
+Those in a data structures course are designed to be fast, not necessarily secure.
+These are cryptographic hash functions (SHA256, SHA512, etc. are cryptographic hash functions)
+
+
+https://alias.io/2010/01/store-passwords-safely-with-php-and-mysql/
+https://en.wikipedia.org/wiki/Salt_%28cryptography%29#Web_application_implementations
+password_hash() creates a password hash and a random salt if one is not provided, this is considered very secure.
+
+$hash = password_hash($enteredPassword, PASSWORD_DEFAULT);
+
+-returns hash to be added to the database
+-generates a salt by default (could provide an option of a salt to be created, but this will be deprecated as of PHP 7.0),
+dont need to store salt seperately then
+PASSWORD_DEFAULT specifies to use the default algorithm. This is currently bcrypt (as of PHP 5.5). 
+It is recommended to use PASSWORD_DEFAULT since if PHP decides to use a stronger hashing algorithm,
+I wont have to change anything.
+http://www.sitepoint.com/hashing-passwords-php-5-5-password-hashing-api/
+https://gist.github.com/nikic/3707231
+
+
+password_verify(password, hash) verifies the password matches the hash
+
+password_hash and crypt() return a string value indicating the algorithm used, the cost, the salt, and the hashed password
+
+http://php.net/manual/en/ref.password.phpe
+http://php.net/manual/en/faq.passwords.php
+Hashing algorithms md5 and sha1 are NOT recommended for password hashing,
+since they have become trivial to "brute-force" crack
+The recommended algorithm is Blowfish,
+which is the default used in PHPs API
+
+User Table
+Username
+Password
+Salt
+
+User creates an account
+-Generate a salt
+-Hash the chosen password plus the salt -> hash(password+salt)
+-Store salt and hashed password in database
+
+User tries to log in
+-Retrieve their salt from DB
+-Hash the entered password plus the salt to see if it matches the hashed password in the database
+-If match, then log in user
+https://crackstation.net/hashing-security.htm#normalhashing
+
+Move DB credentials to the .ini file

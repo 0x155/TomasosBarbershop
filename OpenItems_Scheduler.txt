@@ -1,13 +1,23 @@
 AGENDA FOR NEXT MEETING	
 
+DEMO:
+
+Test Cases:
+
 
 QUESTIONS  FOR NEXT MEETING
+Do you want any more information in the full customer history modal? First visit, most recent visit, most seen stylist
+How many appointments do you make per day? (Want to know this to predict size of DB needed)
+Birthdays - year is optional?
+When do you make the last appointment of the day? Example, if you close at 7:30, would you schedule an appointment to start at 730?
+
+
 What information do you want to store on Employees? (cell, home number, email?)
-Finalize length of each appointment type
-	Straightening - 30mins
-	Color - 15mins
-	Shave - 30mins
-Ensure I can reference this project on LinkedIn
+How many customers do you have? Do you have any information on any current customers (phone, address, email, etc.) THOUSANDS OF CUSTOMERS
+Who will primarily be using this sytem? Do you plan on hiring someone designated to appointment booking? NOT NOW
+	The person using the system will need to know how long each appointment is
+	Someone could be booking an appointment with you and set the length to 30 mins, but you really need 45 mins
+	Can bring up length of each appointment in customer history to give user an idea of how long appointments for that customer usually are
 
 
 THESE NOTES ARE ONLY FOR THE APPOINTMENT SCHEDULING ASPECT OF THE APPLICATION
@@ -16,9 +26,11 @@ THESE NOTES ARE ONLY FOR THE APPOINTMENT SCHEDULING ASPECT OF THE APPLICATION
 TOUCH SCREEN
 
 
-
-
 RESOLVED OPEN ITEMS
+Inserting into Appointment and Appointment_Services as a transaction
+-->in load_events.php, I attached a function to the afterInsert event. This function gets the services for the appointment, and then inserts 
+the records into Appointment_Service. All of these INSERTs are done atomically since the transaction mode is set to global.
+
 CANNOT SEE MAKE APPOINTMENT BUTTON WHEN MAKING SOMEONE UNAVAILABLE WHEN USING LAPTOP
 --Added scroll bars when window overflowed - overflow:auto on column
 
@@ -34,32 +46,142 @@ birthday (do not include year in birthday)
 Unavailable - do not include customer name
 ->Set customerName to employeeName if appointment selected is Unavailable
 
-OUTSTANDING ITEMS (in order of priority)
-DATABASE - MYSQL/PHP
+When searching for a customer name, if one result is returned, then populate the CustomerName field with the full name
+If there is one customer "Chase", which the user searches for, the actual name for that customer is Vinny Chase. Need to make sure the customer name
+entered for the appointment is the name in the database
+-->used exec() JS function to execute javascript which populates field
+
+-Showing many results returned from partial matches (only display 10 or so, or allow user to navigate through results like in PHP book example), or scroll
+	Adding the scroll required the tbody element of the search results table to be changed to display:block, and setting a max-height
+	5/12 - set the div containing the table to display:table. This eliminates any space between the right margin of the table and the right margin of the div
+	Also eliminated the titles of each of the columns (Name, Cell #, Home#, etc.). Since this row had to be set to display:block, it was messy to have
+	each column name spaced independently. Also some customers do not have a home # listed, so that spacing would be empty.
+	Also learned that if you set the max-width for a div element, and the content takes up less than that width, that max-width will still
+	be the width of the div (it won't shrink to be less than the max-width)
+	
+COLLISIONS
+When a collision happens, it is detected, and the onEventCollision event is triggered; however, any subsequent events added after the collision are not added to the database.
+The JS console also shows error that nativeeditor_status is undefined. This value indicates the type of operation (inserted, deleted, updated, etc.)
+9/11
+->To resolve this, I created a global variable collision, initially set to false.
+In the onEventCollision method (if there is a collision), I display a dhtmlx error message, letting the user know there has been a collision, and collision is set to true.
+The onEventCollision method returns false, so the event is actually added to the DB
+In the onEventIDChange method (which converts the generated event id into the ID to be used in the DB), if collision == true, I call scheduler.deleteEvent(id)
+to delete the event from the database, and reset collision = false
+I also only run clearAppointmentFields() if collision is false, this way the user doesnt have to re-enter data if there is a collision
+
+Adding a customer's phone number (sketch on paper). Allow user to add phone number on one screen - DONE
+
+Disable any action when user double-clicks on empty cell
+	-DONE: set scheduler.config.dblclick_create = false;
+Add double-tap functionality to select customer from search results. Double click is working in desktop, but not double-tap on mobile.
+	-DONE: added code in click listener for cust-search-row which checks time in between current click and last click. If less than 600ms, then it is a double tap/click	
+
+Custom lightbox - DONE
+	http://docs.dhtmlx.com/scheduler/custom_details_form.html
+	Provide option to add/remove service - DONE
+	If the employee is changed, change the color of the appointment - DONE
+	NOTE: With the lightbox opened, if the user rotates the mobile device from landscape to portrait, the dimensions are off
+	If the lightbox is opened while the device is in one mode or the other, it opens fine
+	
+Customer Search
+	-Add link to "View All" to see all of a customer's history in modal window - DONE
+	-do not limit history to just 5 results, limit to unique dates. If limit to 5 results, if a customer had 3 services one day, and 3 another, then not all services will be displayed
+
+OUTSTANDING ITEMS
+Better error message if appointment is not added to database successfully
+	--added dhtmlx message in dp onAfterUpdate event if action == "inserted" & (tid == id)
+	This would mean the request was an insert but the event wasnt added to DB since tid == id
+	THIS IS NOT WORKING
+	
+Allow user to change customer's name 
+	Wrote customerID to a hidden div, I think this is okay
+	Removed toggling of the customer name field,
+	Changed updateCustomerInfo PHP method to accept the ID, and changed the query to update name, email, phone where id=ID
+	-Issue with title of appointment
+		The title is just a string assembled with the name of services "---" name of customer
+		If the user changes the customers name in the database, the title wont be updated with the new name
+		This should be okay since the name changes will probably be slight, and the user will still know who is who,
+		Also, ideally there would be few or no appointments made yet for this customer if the user is changing the name for
+		the first time.
+	Add an undo feature here? If the user made changes that produced errors, can revert back to original
+		
+Add right/left arrow to Next/Prev buttons respectively in full customer history
+Transaction for veriying the password, and then updating lastlogin?
+Editing customer info - when user doesnt change anything and clicks Save, a 0 is displayed, since
+that is the result returned.
+
+Focus on phone number text field when user edits customer information
+Faster search for customer name
+Shrink the AllowText, AllowEmail field to be one character in DB (T or F)
+If both start/end time widgets are opened, End Time wont close when lightbox closes
+
+
+ON DELETE CASCADE for CustomerID in Appointment table.
+	--users cant delete customers as of yet so not major 
+
+Tapping on an appointment in calendar brings up quick info, want to hide it when user clicks on same event (toggle)
+Script to purge log files
+
+SECURITY
+-use https: in Production
+-move the config and common php files outside of the web server root directory
+-salt - string added to a password in order to make a password hash more difficult to crack
+https://alias.io/2010/01/store-passwords-safely-with-php-and-mysql/
+https://en.wikipedia.org/wiki/Salt_%28cryptography%29#Web_application_implementations
+password_hash() creates a password hash and a random salt if one is not provided, this is considered very secure.
+
+
+Hardcoded start/end times for Unavailable. Reference the start/end hour setting of the scheduler.
+
+
+	
+Create Production database, and change any paths to point to Production database.
+Migrate over any data in database to Production database
+Change git directory
+Changing favicon
+Writing media queries in CSS in order to change the layout based on the width (768px is iPad)
+
+Customer Search:
+
+-Do they want children/parent(s) displayed? YES
+
+Making Appointment:
+-If an employee is deleted, any appointments a customer had with that employee do not come up in the customer history
+-Error if the time entered is not within business hours for that day
+	Note hours are different for different days of the week (M-R, F, Sat)
+-Do not allow conflicting appointments to be made. If an employee has an appointment at a certain time, do not allow user to make another
+appointment at all during that time (no overlap)
+-Recurring appointments (Every 1 week, 3 weeks, etc.)
+
+
+
+
+
+Disable back navigation?
+With the lightbox open, hitting backspace when highlighting a disabled field brings the browser back one page
 
 Add line for "Is this customer a child of an existing customer?" If yes, show text field to enter parent's name
 
-Confirmation screen once appointment is confirmed and scheduled
-->Bring up modal window with appointment details, prompt user to close window or view appointment on calendar (go to that date), also display appointment info
+Light grey background color on whole screen?
 
-Calendar date picker on main screen (instead of using back/forward arrows)
+Add Indexes and Views to database to increase performance
+-Add index to Customer.Name after I have a lot of records in that table. Want to see the performance difference
+
 
 Limit user actions when clicking on an event in the calendar
 Bring up appointment and customer information when viewing info of appointment on calendar
+Currently disabled drag/drop
 
-On Search results screen, make each row a div, and if that div is clicked, then select the radio button in that row. Also add hover effect for each row.
-This will allow users on touch screen to just touch the row to select the customer
+Disable keyboard from coming up when touching Notes, Date, and CustomerName
+
+If customer wants to be emailed and/or texted, make sure they have an email and cellphone number entered
 
 JQuery v.s JS optimizations
 
-Allow user to make multiple, sequential appointments (haircut, then beard trim for example)
-->Add a checkbox next to Make Appointment button and do not clear customer name if user checks this box
-
-Recurring appointments (Every 1 week, 3 weeks, etc.)
-
-Reseting fields once appointment is scheduled
-
 Noting customer allergies (make note in appointment, and make name on calendar bold so user sees it is different)
+
+
 
 Customers with children:
 When adding a customer with children, add a question "Does this customer have children?" -> Yes -> How many? -> Enter a sex, name, cell, birthday, and email for each child (the address and home number will be the same)
@@ -74,20 +196,9 @@ When that child is selected, choose date, time, employee, and type of service fo
 "I'd like to bring my 3 sons in for a haircut, and get coloring done" 
 
 
-Error if the time entered is not within business hours for that day
-	Note hours are different for different days of the week (M-R, F, Sat)
-	Calendar will not show event but make sure user knows the appointment was not scheduled
-Error when the start time is greater than the end time
-Error when certain fields are blank
 
-Do not allow conflicting appointments to be made. If an employee has an appointment at a certain time, do not allow user to make another
-appointment at all during that time (no overlap)
 
-Hover over an item on the calendar and it will bring up more info about that appointment (customer name, phone#, email)
 
-Editing and Deleting appointments once scheduled
-
-Spining logo next to Make Appointment button while appointment is being added
 
 Tomaso's Barbershop logo somewhere on page?
 

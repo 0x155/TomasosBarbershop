@@ -1,0 +1,48 @@
+Meeting Minutes - 4/11/2015
+
+Agenda:
+Rate
+LinkedIn/resume
+DEMO:
+Fields are bigger
+HAVE KIERON/TIARA USE THE SYSTEM
+	-Make appointment with me
+	-Make appointment but leave fields blank, try a customer that does not exist
+	-Search for bonacore
+Invalid fields on Make Appointment
+Demo search results hover, click, and doube-click. Demo touch screen as well
+Remind Kieron about free trials I did (MindBody)
+
+Action Items:
+-Be able to choose multiple types of services for one appointment
+	Add a plus sign next to drop down for service, and allow user to choose another
+	User is OK with not having them seperate
+
+-Add length drop down next to Time so that the user can select the length of the appointment (make tme in 15 min intervals)
+	Some employees may take different lengths of time for different appointments
+	If the user selects multiple appointments, then they can set the time
+	
+
+-Switch Employee and Type of Service dropdown on main screen
+
+-Color code the employees, not the type of service
+
+-Add birthday to customer history info displayed when searching
+
+-Allow user to be able to add employees to calendar
+
+-Pressing Enter when adding appointment, don't think it added appointment when Enter was pressed
+
+
+Notes:
+
+TOUCH SCREEN
+TOUCH SCREEN
+TOUCH SCREEN
+
+Kieron wants the process of making an appointment to take less than one minute
+
+Parent scenario:
+Mom calls and wants her 3 sons to get haircuts
+User is okay with entering mom's name, selecting haircut (or multiple services), and entering in notes that user will be in with her children
+--display children's names and birthdays when a parent is searched

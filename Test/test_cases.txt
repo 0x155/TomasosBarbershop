@@ -1,0 +1,39 @@
+Make consecutive appointments
+-Log in
+-Make 8 appointments, 
+	2 for at least one stylist
+	at least 2 different dates
+	Try to make one which collides with another
+	Search for customer's name each time
+Create 2 "Unavailable" appointments for employees
+	-1 all-day
+	-1 for specified hours
+
+	
+Editing appointments
+-Open lightbox by double clicking on event
+-Open lightbox by quickinfo
+Change start/end time
+Change date
+-Change one so it collides with another
+Change services
+Change employee
+--Ensure these changes are reflected in customers history
+Update notes
+
+
+Deleting Appointments
+-Delete from quickinfo
+-Delete from lightbox
+--Ensure appointment does not come up in customer's history after deleted
+
+Add a sample employee
+Create appointments for him/here
+Delete employee
+What happens to those appts?
+
+Same for customer
+
+
+
+

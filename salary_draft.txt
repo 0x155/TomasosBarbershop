@@ -18,7 +18,11 @@ $40,000 / 1,428 = $28/hour
 
 Overhead
 Estimate $35,000 (includes office space, rent, utilites, phones, etc.)
+
 Server Costs:
+Most likely will need VPS (Virtual Private Server) over Shared, Dedicated is too much money and more responsibility
+http://www.pcmag.com/article2/0,2817,2424725,00.asp
+
 	GoDaddy
 	$34.99 per month for a dedicated, managed server with 3GB of RAM = $419.88 per year
 	this includes patching, backup, cPanel (server management dashboard, control panel), security, monitoring
@@ -26,9 +30,76 @@ Server Costs:
 	https://www.godaddy.com/pro/managed-vps-config?plan=pro_vps_linux_t3_12month&planaddons=pro_vps_managed
 	
 	SiteGround
-	Cloud server is $45 per month = $540 per year
+	Tutorial - https://www.siteground.com/tutorials/getting_started/
+	Different types of Cloud Hosting:
+	Entry - 2GB RAM, 20GB disk space - $54/mo
+	Business - 2GB RAM 40 GB disk space - $72/mo
 	Their support is known to assist in some non-web server related questions
 	https://www.siteground.com/cloud-hosting.htm
+	Also include cPanel
+	Tutorial - https://www.siteground.com/tutorials/cpanel/
+	
+	1-1
+	24/7 hotline and email support line - free of charge
+	Much cheaper
+	Large virtual server is $9.99/month
+	1-1 App Expert support is included (M-F 8am-6pm)
+	Seems easy to integrate other apps
+	Unlimited databases, 2GB of RAM, 
+	Focus on website building, but I dont really need to take advantage of that since my web site is already developed
+	
+	Hostwinds
+	No charge for adding more space
+	Unlimited monthly data transfers
+	VPS Options:
+		Budget - 25 GB Disk space, 1GB Ram Guaranteed, 100 MBps transfer speed, - $7.50/mo
+		Premium - 50GB disk space 1GB RAM, 100 MBps transfer speed, Unmetered Bandwith - $13.50/mo
+	99.99% uptime guarantee
+	60-day money back guarantee, no free trial
+	Question their support system - mostly ticketing, phone support is 24-7, also live chat
+	Does zPanel come standard? No but can get it for no charge
+	Backups:
+		Budget - Backups are done in 10-day blocks (last 10 days of data). If I need to access those backups, I pay $25
+		Premium - same 10-day blocks, but I pay $10/mo, but no $25 to access those backups.
+	Kyle Kuban - Budget Level 2 - 2GB RAM, 50GB, 200MB/s, with zPanel - $17.50/mo (offered $5 for the first month)
+	http://hostadvice.com/hosting-company/hostwinds-reviews/
+	http://www.whoishostingthis.com/hosting-reviews/hostwinds/
+	
+	http://www.cyberciti.biz/faq/how-do-i-block-an-ip-on-my-linux-server/
+	iptables -I INPUT -s ! {IP ADDRESS} -j DROP
+	is iptables command to block all except IP ADDRESS
+	
+	Root folder is /var/zpanel/hostdata/zpanel/public_html/
+	
+	Can use .htaccess file to limit IPs
+	http://httpd.apache.org/docs/2.0/howto/htaccess.html
+	http://www.htaccess-guide.com/how-to-use-htaccess/
+	order deny,allow
+	deny from all
+	allow from 111.222.333.444
+	--May need to modify the server config file instead (httpd.conf)
+	
+	
+	Questions:
+	What does your SLA list as the up-time?
+	Do you perform regular backups, or do I have to implement my own?
+	Do I need to install MySQL, PHP?
+	Can I restrict the IP addresses which have access to the site?
+	How can I make changes/upload changed files to my server?
+	
+	
+	
+Anything different need to be done for mobile hosting?
+Upload files via an FTP client (FileZilla). FTP login details are under your account
+How can I limit the IP addresses? There is IP ban, but I only want to allow certain ones
+Are backups done automatically? If so, are all files and database backed up?
+I am considering a login screen for my users, can you provide me with something like that, or do I need to create one?
+My app is mostly JS, MySQL, and PHP. are these installed already?
+How can I check/monitor/view performance?
+	Google PageSpeed - but disables static and dynamic caching
+In the cPanel demo, there were a number of different sections (domains, site improvement, wordpress, files, etc.). Do those come standard or do I choose which ones I need?
+
+
 
 Overhead:
 Hosting (assumption) = $40/month = $480/year
@@ -64,6 +135,9 @@ Vagaro charges $65/mo for 5 service providers (those providing services in the s
 
 MindBody online (20-min demo available)
 -one site says it cost $30/mo
+
+Phorest
+
 
 Booker
 Basic is $85/mo, Standard is $135/mo

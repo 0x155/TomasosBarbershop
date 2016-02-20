@@ -16,3 +16,14 @@ Back to school, valentines day
 
 Provide customer data searching suggestions, ask if they want additional searches
 If a customer is receving multiple services, leave a checkbox next to Make Appointment button to not clear the customer name field
+
+
+
+Add a Reports section tab at the top
+-Calculate duration between visits for customers
+-Show customers that have not been in in the last X amount of time
+	--Email/Text them offering them a deal (if you come in, your next visit will be 20% off)
+	-Calculate average duration between visits. This shows your customers who are coming back often
+-Show Parents with children who frequently come in
+
+If a customer comes in for the first time, send them text/email saying thanks for coming in (maybe next visit is 10% off)

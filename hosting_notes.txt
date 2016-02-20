@@ -1,0 +1,98 @@
+Hostwinds
+No charge for adding more space
+Unlimited monthly data transfers
+VPS Options:
+	Budget - 25 GB Disk space, 1GB Ram Guaranteed, 100 MBps transfer speed, - $7.50/mo
+	Premium - 50GB disk space 1GB RAM, 100 MBps transfer speed, Unmetered Bandwith - $13.50/mo
+99.99% uptime guarantee
+60-day money back guarantee, no free trial
+Question their support system - mostly ticketing, phone support is 24-7, also live chat
+Does zPanel come standard? No but can get it for no charge
+Backups:
+	Budget - Backups are done in 10-day blocks (last 10 days of data). If I need to access those backups, I pay $25
+	Premium - same 10-day blocks, but I pay $10/mo, but no $25 to access those backups.
+	
+Kyle Kuban - Budget Level 2 - 2GB RAM (2.5GB burstable), 50GB, 200MB/s, with zPanel - $17.50/mo (offered $5 for the first month)
+--Next payment of 17.50 is due October 23rd
+
+http://hostadvice.com/hosting-company/hostwinds-reviews/
+http://www.whoishostingthis.com/hosting-reviews/hostwinds/
+
+IP ADDRESS OF SERVER:
+23.254.204.46
+
+NAMESERVER NAMES:
+cns44524.hostwindsdns.com 
+cns44525.hostwindsdns.com
+Not this is NOT DNS
+DNS - DOMAIN NAME SYSTEM
+-A massive network of computers which catalogs every domain and IP address on the internet
+DNS attaches a domain name to an IP address, so you can enter a .com address instead of the IP address
+
+A NAMESERVER is a server which has DNS software installed on it.
+Nameservers return IP addresses, and have DNS software installed on them
+DNS software technically can be installed on any web server
+
+http://www.pcnames.com/articles/the-difference-between-dns-and-name-servers
+
+http://www.whoishostingthis.com/blog/2011/03/24/nameservers-important/
+You type “www.example.com” into your browser.
+Your browser uses DNS to look up the nameservers for www.example.com.
+The nameservers ns1.yourhostdomain.com and ns2.yourhostdomain.com are retrieved.
+Your browser uses the nameservers to look up the IP address for www.example.com.
+Your browser gets the response: “22.231.113.64”
+Your browser sends a request to 22.231.113.64, including the specific page you’re trying to reach.
+The web server hosting your website sends the requested page to your browser.
+
+Implement static IP in shop?
+
+order allow,deny
+allow from 192.168.1.123
+deny from all
+
+order allow,deny
+deny from 192.168.1.123
+allow from all
+
+ErrorDocument 403	/error_docs/cb_error_page.html
+#This redirects a 403 error to the custom html page at C:\xampp\htdocs\error_docs
+
+USING FILEZILLA
+Connecting as christian
+-use hostname in email, username and password
+Connection as root
+-use sftp://hostname, root username, password from email
+
+My public IP address:
+24.190.67.29
+
+
+Explanation of "burstable" RAM:
+http://www.webfusion.co.uk/support/answers/VPS/what-is-burstable-ram-and-how-does-this-work-in-practice-2566/
+Basically it is the RAM that can be used during times of "burst" usage. 
+It shouldnt be depended upon for average use
+
+http://www.cyberciti.biz/faq/how-do-i-block-an-ip-on-my-linux-server/
+iptables -I INPUT -s ! {IP ADDRESS} -j DROP
+is iptables command to block all except IP ADDRESS
+
+Root folder is /var/zpanel/hostdata/zpanel/public_html/
+-When connecting to FileZilla as root, use password in email, and sftp://hostname
+
+Can use .htaccess file to limit IPs
+http://httpd.apache.org/docs/2.0/howto/htaccess.html
+http://www.htaccess-guide.com/how-to-use-htaccess/
+order deny,allow
+deny from all
+allow from 111.222.333.444
+--May need to modify the server config file instead (httpd.conf)
+Can place the file in any directory, and it will take effect for that directory, and any sub directories
+
+
+Questions:
+What does your SLA list as the up-time?
+Do you perform regular backups, or do I have to implement my own?
+Do I need to install MySQL, PHP?
+Can I restrict the IP addresses which have access to the site?
+How can I make changes/upload changed files to my server?
+	
