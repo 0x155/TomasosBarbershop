@@ -1,0 +1,2518 @@
+
+
+====================================
+Log started, 03/06/2015 12:39:24
+====================================
+
+DataProcessor object initialized
+1433284764015_start_date => 2015-06-02 12:00:00
+1433284764015_end_date => 2015-06-02 12:30:00
+1433284764015_text => Haircut --- Connor O'Neil
+1433284764015_EmployeeID => 3
+1433284764015_Unit_ID => 3
+1433284764015_CustomerID => 13
+1433284764015_Notes => 
+1433284764015_color => #F58839
+1433284764015_id => 1433284764015
+1433284764015_!nativeeditor_status => inserted
+ids => 1433284764015
+
+Row data [1433284764015]
+start_date => 2015-06-02 12:00:00
+end_date => 2015-06-02 12:30:00
+text => Haircut --- Connor O'Neil
+EmployeeID => 3
+Unit_ID => 3
+CustomerID => 13
+Notes => 
+color => #F58839
+id => 1433284764015
+!nativeeditor_status => inserted
+
+INSERT INTO Appointment2(`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID`) VALUES ('2015-06-02 12:00:00','2015-06-02 12:30:00','Haircut --- Connor O\'Neil','3','13','','#F58839','3')
+
+Edit operation finished
+0 => action:inserted; sid:1433284764015; tid:106;
+
+Done in 0.11057591438293s
+
+
+
+====================================
+Log started, 03/06/2015 12:39:34
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0040550231933594s
+
+
+
+====================================
+Log started, 03/06/2015 12:40:25
+====================================
+
+DataProcessor object initialized
+1433284821272_start_date => 2015-06-02 12:15:00
+1433284821272_end_date => 2015-06-02 12:45:00
+1433284821272_text => Haircut --- Jonathan Bonacore
+1433284821272_EmployeeID => 3
+1433284821272_Unit_ID => 3
+1433284821272_CustomerID => 20
+1433284821272_Notes => 
+1433284821272_color => #F58839
+1433284821272_id => 1433284821272
+1433284821272_!nativeeditor_status => deleted
+ids => 1433284821272
+
+Row data [1433284821272]
+start_date => 2015-06-02 12:15:00
+end_date => 2015-06-02 12:45:00
+text => Haircut --- Jonathan Bonacore
+EmployeeID => 3
+Unit_ID => 3
+CustomerID => 20
+Notes => 
+color => #F58839
+id => 1433284821272
+!nativeeditor_status => deleted
+
+DELETE FROM Appointment2 WHERE `id`='1433284821272'
+
+Edit operation finished
+0 => action:deleted; sid:1433284821272; tid:1433284821272;
+
+Done in 0.0046448707580566s
+
+
+
+====================================
+Log started, 03/06/2015 12:57:26
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0063598155975342s
+
+
+
+====================================
+Log started, 03/06/2015 12:58:02
+====================================
+
+DataProcessor object initialized
+1433285882538_start_date => 2015-06-02 12:30:00
+1433285882538_end_date => 2015-06-02 13:00:00
+1433285882538_text => Haircut --- Dylan Bonacore
+1433285882538_EmployeeID => 3
+1433285882538_Unit_ID => 3
+1433285882538_CustomerID => 8
+1433285882538_Notes => 
+1433285882538_color => #F58839
+1433285882538_id => 1433285882538
+1433285882538_!nativeeditor_status => inserted
+ids => 1433285882538
+
+Row data [1433285882538]
+start_date => 2015-06-02 12:30:00
+end_date => 2015-06-02 13:00:00
+text => Haircut --- Dylan Bonacore
+EmployeeID => 3
+Unit_ID => 3
+CustomerID => 8
+Notes => 
+color => #F58839
+id => 1433285882538
+!nativeeditor_status => inserted
+
+INSERT INTO Appointment2(`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID`) VALUES ('2015-06-02 12:30:00','2015-06-02 13:00:00','Haircut --- Dylan Bonacore','3','8','','#F58839','3')
+
+Edit operation finished
+0 => action:inserted; sid:1433285882538; tid:107;
+
+Done in 0.02318286895752s
+
+
+
+====================================
+Log started, 03/06/2015 12:58:43
+====================================
+
+DataProcessor object initialized
+1433285882539_start_date => 2015-06-02 12:15:00
+1433285882539_end_date => 2015-06-02 12:45:00
+1433285882539_text => Haircut --- Jonathan Bonacore
+1433285882539_EmployeeID => 2
+1433285882539_Unit_ID => 2
+1433285882539_CustomerID => 20
+1433285882539_Notes => 
+1433285882539_color => #FF887C
+1433285882539_id => 1433285882539
+1433285882539_!nativeeditor_status => deleted
+ids => 1433285882539
+
+Row data [1433285882539]
+start_date => 2015-06-02 12:15:00
+end_date => 2015-06-02 12:45:00
+text => Haircut --- Jonathan Bonacore
+EmployeeID => 2
+Unit_ID => 2
+CustomerID => 20
+Notes => 
+color => #FF887C
+id => 1433285882539
+!nativeeditor_status => deleted
+
+DELETE FROM Appointment2 WHERE `id`='1433285882539'
+
+Edit operation finished
+0 => action:deleted; sid:1433285882539; tid:1433285882539;
+
+Done in 0.0062341690063477s
+
+
+
+====================================
+Log started, 03/06/2015 01:00:06
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.006181001663208s
+
+
+
+====================================
+Log started, 03/06/2015 01:12:48
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0082430839538574s
+
+
+
+====================================
+Log started, 03/06/2015 01:14:17
+====================================
+
+DataProcessor object initialized
+1433286854872_start_date => 2015-06-02 12:15:00
+1433286854872_end_date => 2015-06-02 12:45:00
+1433286854872_text => Haircut --- Jonathan Bonacore
+1433286854872_EmployeeID => 2
+1433286854872_Unit_ID => 2
+1433286854872_CustomerID => 20
+1433286854872_Notes => #2 test appt with JB collision
+1433286854872_color => #FF887C
+1433286854872_id => 1433286854872
+1433286854872_!nativeeditor_status => deleted
+ids => 1433286854872
+
+Row data [1433286854872]
+start_date => 2015-06-02 12:15:00
+end_date => 2015-06-02 12:45:00
+text => Haircut --- Jonathan Bonacore
+EmployeeID => 2
+Unit_ID => 2
+CustomerID => 20
+Notes => #2 test appt with JB collision
+color => #FF887C
+id => 1433286854872
+!nativeeditor_status => deleted
+
+DELETE FROM Appointment2 WHERE `id`='1433286854872'
+
+Edit operation finished
+0 => action:deleted; sid:1433286854872; tid:1433286854872;
+
+Done in 0.0022990703582764s
+
+
+
+====================================
+Log started, 03/06/2015 01:18:07
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.003972053527832s
+
+
+
+====================================
+Log started, 03/06/2015 01:31:57
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0068490505218506s
+
+
+
+====================================
+Log started, 03/06/2015 01:32:38
+====================================
+
+DataProcessor object initialized
+1433287955685_start_date => 2015-06-02 12:45:00
+1433287955685_end_date => 2015-06-02 13:15:00
+1433287955685_text => Haircut --- Jonathan Bonacore
+1433287955685_EmployeeID => 3
+1433287955685_Unit_ID => 3
+1433287955685_CustomerID => 20
+1433287955685_Notes => 
+1433287955685_color => #F58839
+1433287955685_id => 1433287955685
+1433287955685_!nativeeditor_status => deleted
+ids => 1433287955685
+
+Row data [1433287955685]
+start_date => 2015-06-02 12:45:00
+end_date => 2015-06-02 13:15:00
+text => Haircut --- Jonathan Bonacore
+EmployeeID => 3
+Unit_ID => 3
+CustomerID => 20
+Notes => 
+color => #F58839
+id => 1433287955685
+!nativeeditor_status => deleted
+
+DELETE FROM Appointment2 WHERE `id`='1433287955685'
+
+Edit operation finished
+0 => action:deleted; sid:1433287955685; tid:1433287955685;
+
+Done in 0.0058629512786865s
+
+
+
+====================================
+Log started, 03/06/2015 01:36:53
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0032870769500732s
+
+
+
+====================================
+Log started, 03/06/2015 01:36:58
+====================================
+
+DataProcessor object initialized
+105_id => 105
+105_start_date => 2015-06-02 12:00:00
+105_end_date => 2015-06-02 12:30:00
+105_text => Color, Eyebrow Wax --- Barbara Jones
+105_EmployeeID => 5
+105_CustomerID => 6
+105_Notes => 
+105_color => #C353E8
+105_Unit_ID => 5
+105_!nativeeditor_status => deleted
+ids => 105
+
+Row data [105]
+id => 105
+start_date => 2015-06-02 12:00:00
+end_date => 2015-06-02 12:30:00
+text => Color, Eyebrow Wax --- Barbara Jones
+EmployeeID => 5
+CustomerID => 6
+Notes => 
+color => #C353E8
+Unit_ID => 5
+!nativeeditor_status => deleted
+
+DELETE FROM Appointment2 WHERE `id`='105'
+
+Edit operation finished
+0 => action:deleted; sid:105; tid:105;
+
+Done in 0.089403867721558s
+
+
+
+====================================
+Log started, 03/06/2015 02:31:25
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.065523147583008s
+
+
+
+====================================
+Log started, 03/06/2015 02:32:15
+====================================
+
+DataProcessor object initialized
+1433291535441_start_date => 2015-06-02 11:30:00
+1433291535441_end_date => 2015-06-02 12:30:00
+1433291535441_text => Color, Eyebrow Wax --- Laura-Jean Bonacore
+1433291535441_EmployeeID => 5
+1433291535441_Unit_ID => 5
+1433291535441_CustomerID => 4
+1433291535441_Notes => 
+1433291535441_color => #C353E8
+1433291535441_id => 1433291535441
+1433291535441_!nativeeditor_status => inserted
+ids => 1433291535441
+
+Row data [1433291535441]
+start_date => 2015-06-02 11:30:00
+end_date => 2015-06-02 12:30:00
+text => Color, Eyebrow Wax --- Laura-Jean Bonacore
+EmployeeID => 5
+Unit_ID => 5
+CustomerID => 4
+Notes => 
+color => #C353E8
+id => 1433291535441
+!nativeeditor_status => inserted
+
+INSERT INTO Appointment2(`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID`) VALUES ('2015-06-02 11:30:00','2015-06-02 12:30:00','Color, Eyebrow Wax --- Laura-Jean Bonacore','5','4','','#C353E8','5')
+
+Edit operation finished
+0 => action:inserted; sid:1433291535441; tid:108;
+
+Done in 0.046627998352051s
+
+
+
+====================================
+Log started, 03/06/2015 02:34:50
+====================================
+
+DataProcessor object initialized
+1433291535442_start_date => 2015-06-02 12:00:00
+1433291535442_end_date => 2015-06-02 12:30:00
+1433291535442_text => Color --- Barbara Jones
+1433291535442_EmployeeID => 5
+1433291535442_Unit_ID => 5
+1433291535442_CustomerID => 6
+1433291535442_Notes => 
+1433291535442_color => #C353E8
+1433291535442_id => 1433291535442
+1433291535442_!nativeeditor_status => deleted
+ids => 1433291535442
+
+Row data [1433291535442]
+start_date => 2015-06-02 12:00:00
+end_date => 2015-06-02 12:30:00
+text => Color --- Barbara Jones
+EmployeeID => 5
+Unit_ID => 5
+CustomerID => 6
+Notes => 
+color => #C353E8
+id => 1433291535442
+!nativeeditor_status => deleted
+
+DELETE FROM Appointment2 WHERE `id`='1433291535442'
+
+Edit operation finished
+0 => action:deleted; sid:1433291535442; tid:1433291535442;
+
+Done in 0.0034849643707275s
+
+
+
+====================================
+Log started, 03/06/2015 02:36:46
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0087339878082275s
+
+
+
+====================================
+Log started, 03/06/2015 02:40:02
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0054240226745605s
+
+
+
+====================================
+Log started, 03/06/2015 02:40:58
+====================================
+
+DataProcessor object initialized
+1433292054069_start_date => 2015-06-02 12:00:00
+1433292054069_end_date => 2015-06-02 12:30:00
+1433292054069_text => Color --- Barbara Jones
+1433292054069_EmployeeID => 5
+1433292054069_Unit_ID => 5
+1433292054069_CustomerID => 6
+1433292054069_Notes => 
+1433292054069_color => #C353E8
+1433292054069_id => 1433292054069
+1433292054069_!nativeeditor_status => deleted
+ids => 1433292054069
+
+Row data [1433292054069]
+start_date => 2015-06-02 12:00:00
+end_date => 2015-06-02 12:30:00
+text => Color --- Barbara Jones
+EmployeeID => 5
+Unit_ID => 5
+CustomerID => 6
+Notes => 
+color => #C353E8
+id => 1433292054069
+!nativeeditor_status => deleted
+
+DELETE FROM Appointment2 WHERE `id`='1433292054069'
+
+Edit operation finished
+0 => action:deleted; sid:1433292054069; tid:1433292054069;
+
+Done in 0.0074560642242432s
+
+
+
+====================================
+Log started, 03/06/2015 03:08:01
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.011381864547729s
+
+
+
+====================================
+Log started, 03/06/2015 03:09:29
+====================================
+
+DataProcessor object initialized
+1433293767082_start_date => 2015-06-02 12:00:00
+1433293767082_end_date => 2015-06-02 12:30:00
+1433293767082_text => Color --- Laura-Jean Bonacore
+1433293767082_EmployeeID => 5
+1433293767082_Unit_ID => 5
+1433293767082_CustomerID => 4
+1433293767082_Notes => 
+1433293767082_color => #C353E8
+1433293767082_id => 1433293767082
+1433293767082_!nativeeditor_status => deleted
+ids => 1433293767082
+
+Row data [1433293767082]
+start_date => 2015-06-02 12:00:00
+end_date => 2015-06-02 12:30:00
+text => Color --- Laura-Jean Bonacore
+EmployeeID => 5
+Unit_ID => 5
+CustomerID => 4
+Notes => 
+color => #C353E8
+id => 1433293767082
+!nativeeditor_status => deleted
+
+DELETE FROM Appointment2 WHERE `id`='1433293767082'
+
+Edit operation finished
+0 => action:deleted; sid:1433293767082; tid:1433293767082;
+
+Done in 0.0070371627807617s
+
+
+
+====================================
+Log started, 03/06/2015 03:27:21
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0034627914428711s
+
+
+
+====================================
+Log started, 03/06/2015 03:27:51
+====================================
+
+DataProcessor object initialized
+1433294869462_start_date => 2015-06-02 12:15:00
+1433294869462_end_date => 2015-06-02 12:45:00
+1433294869462_text => Color --- Barbara Jones
+1433294869462_EmployeeID => 5
+1433294869462_Unit_ID => 5
+1433294869462_CustomerID => 6
+1433294869462_Notes => 
+1433294869462_color => #C353E8
+1433294869462_id => 1433294869462
+1433294869462_!nativeeditor_status => deleted
+ids => 1433294869462
+
+Row data [1433294869462]
+start_date => 2015-06-02 12:15:00
+end_date => 2015-06-02 12:45:00
+text => Color --- Barbara Jones
+EmployeeID => 5
+Unit_ID => 5
+CustomerID => 6
+Notes => 
+color => #C353E8
+id => 1433294869462
+!nativeeditor_status => deleted
+
+DELETE FROM Appointment2 WHERE `id`='1433294869462'
+
+Edit operation finished
+0 => action:deleted; sid:1433294869462; tid:1433294869462;
+
+Done in 0.0036380290985107s
+
+
+
+====================================
+Log started, 03/06/2015 10:21:39
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0081379413604736s
+
+
+
+====================================
+Log started, 03/06/2015 10:29:48
+====================================
+
+DataProcessor object initialized
+1433363384995_start_date => 2015-06-02 12:00:00
+1433363384995_end_date => 2015-06-02 12:30:00
+1433363384995_text => Color --- Barbara Jones
+1433363384995_EmployeeID => 5
+1433363384995_Unit_ID => 5
+1433363384995_CustomerID => 6
+1433363384995_Notes => 
+1433363384995_color => #C353E8
+1433363384995_id => 1433363384995
+1433363384995_!nativeeditor_status => deleted
+ids => 1433363384995
+
+Row data [1433363384995]
+start_date => 2015-06-02 12:00:00
+end_date => 2015-06-02 12:30:00
+text => Color --- Barbara Jones
+EmployeeID => 5
+Unit_ID => 5
+CustomerID => 6
+Notes => 
+color => #C353E8
+id => 1433363384995
+!nativeeditor_status => deleted
+
+DELETE FROM Appointment2 WHERE `id`='1433363384995'
+
+Edit operation finished
+0 => action:deleted; sid:1433363384995; tid:1433363384995;
+
+Done in 0.0027987957000732s
+
+
+
+====================================
+Log started, 03/06/2015 10:31:47
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0031828880310059s
+
+
+
+====================================
+Log started, 03/06/2015 10:31:49
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0047810077667236s
+
+
+
+====================================
+Log started, 03/06/2015 10:32:10
+====================================
+
+DataProcessor object initialized
+1433363528412_start_date => 2015-06-02 12:00:00
+1433363528412_end_date => 2015-06-02 12:30:00
+1433363528412_text => Color --- Barbara Jones
+1433363528412_EmployeeID => 5
+1433363528412_Unit_ID => 5
+1433363528412_CustomerID => 6
+1433363528412_Notes => 
+1433363528412_color => #C353E8
+1433363528412_id => 1433363528412
+1433363528412_!nativeeditor_status => deleted
+ids => 1433363528412
+
+Row data [1433363528412]
+start_date => 2015-06-02 12:00:00
+end_date => 2015-06-02 12:30:00
+text => Color --- Barbara Jones
+EmployeeID => 5
+Unit_ID => 5
+CustomerID => 6
+Notes => 
+color => #C353E8
+id => 1433363528412
+!nativeeditor_status => deleted
+
+DELETE FROM Appointment2 WHERE `id`='1433363528412'
+
+Edit operation finished
+0 => action:deleted; sid:1433363528412; tid:1433363528412;
+
+Done in 0.0035829544067383s
+
+
+
+====================================
+Log started, 03/06/2015 10:33:26
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0063331127166748s
+
+
+
+====================================
+Log started, 03/06/2015 10:34:29
+====================================
+
+DataProcessor object initialized
+1433363617919_start_date => 2015-06-02 12:15:00
+1433363617919_end_date => 2015-06-02 12:45:00
+1433363617919_text => Color --- Barbara Jones
+1433363617919_EmployeeID => 5
+1433363617919_Unit_ID => 5
+1433363617919_CustomerID => 6
+1433363617919_Notes => 
+1433363617919_color => #C353E8
+1433363617919_id => 1433363617919
+1433363617919_!nativeeditor_status => deleted
+ids => 1433363617919
+
+Row data [1433363617919]
+start_date => 2015-06-02 12:15:00
+end_date => 2015-06-02 12:45:00
+text => Color --- Barbara Jones
+EmployeeID => 5
+Unit_ID => 5
+CustomerID => 6
+Notes => 
+color => #C353E8
+id => 1433363617919
+!nativeeditor_status => deleted
+
+DELETE FROM Appointment2 WHERE `id`='1433363617919'
+
+Edit operation finished
+0 => action:deleted; sid:1433363617919; tid:1433363617919;
+
+Done in 0.0032501220703125s
+
+
+
+====================================
+Log started, 03/06/2015 10:34:44
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.005856990814209s
+
+
+
+====================================
+Log started, 03/06/2015 10:35:15
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0037798881530762s
+
+
+
+====================================
+Log started, 03/06/2015 10:36:16
+====================================
+
+DataProcessor object initialized
+1433363774340_start_date => 2015-06-02 12:00:00
+1433363774340_end_date => 2015-06-02 12:30:00
+1433363774340_text => Color --- Barbara Jones
+1433363774340_EmployeeID => 5
+1433363774340_Unit_ID => 5
+1433363774340_CustomerID => 6
+1433363774340_Notes => 
+1433363774340_color => #C353E8
+1433363774340_id => 1433363774340
+1433363774340_!nativeeditor_status => deleted
+ids => 1433363774340
+
+Row data [1433363774340]
+start_date => 2015-06-02 12:00:00
+end_date => 2015-06-02 12:30:00
+text => Color --- Barbara Jones
+EmployeeID => 5
+Unit_ID => 5
+CustomerID => 6
+Notes => 
+color => #C353E8
+id => 1433363774340
+!nativeeditor_status => deleted
+
+DELETE FROM Appointment2 WHERE `id`='1433363774340'
+
+Edit operation finished
+0 => action:deleted; sid:1433363774340; tid:1433363774340;
+
+Done in 0.0058481693267822s
+
+
+
+====================================
+Log started, 03/06/2015 10:36:39
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0032961368560791s
+
+
+
+====================================
+Log started, 03/06/2015 10:37:06
+====================================
+
+DataProcessor object initialized
+1433363824189_start_date => 2015-06-02 12:00:00
+1433363824189_end_date => 2015-06-02 12:30:00
+1433363824189_text => Color --- Barbara Jones
+1433363824189_EmployeeID => 5
+1433363824189_Unit_ID => 5
+1433363824189_CustomerID => 6
+1433363824189_Notes => 
+1433363824189_color => #C353E8
+1433363824189_id => 1433363824189
+1433363824189_!nativeeditor_status => deleted
+ids => 1433363824189
+
+Row data [1433363824189]
+start_date => 2015-06-02 12:00:00
+end_date => 2015-06-02 12:30:00
+text => Color --- Barbara Jones
+EmployeeID => 5
+Unit_ID => 5
+CustomerID => 6
+Notes => 
+color => #C353E8
+id => 1433363824189
+!nativeeditor_status => deleted
+
+DELETE FROM Appointment2 WHERE `id`='1433363824189'
+
+Edit operation finished
+0 => action:deleted; sid:1433363824189; tid:1433363824189;
+
+Done in 0.0023670196533203s
+
+
+
+====================================
+Log started, 03/06/2015 10:37:57
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0032529830932617s
+
+
+
+====================================
+Log started, 03/06/2015 10:46:47
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0049209594726562s
+
+
+
+====================================
+Log started, 03/06/2015 10:47:16
+====================================
+
+DataProcessor object initialized
+1433364436129_start_date => 2015-06-03 11:00:00
+1433364436129_end_date => 2015-06-03 11:45:00
+1433364436129_text => Haircut --- Mike Messina
+1433364436129_EmployeeID => 4
+1433364436129_Unit_ID => 4
+1433364436129_CustomerID => 23
+1433364436129_Notes => 
+1433364436129_color => #368C23
+1433364436129_id => 1433364436129
+1433364436129_!nativeeditor_status => inserted
+ids => 1433364436129
+
+Row data [1433364436129]
+start_date => 2015-06-03 11:00:00
+end_date => 2015-06-03 11:45:00
+text => Haircut --- Mike Messina
+EmployeeID => 4
+Unit_ID => 4
+CustomerID => 23
+Notes => 
+color => #368C23
+id => 1433364436129
+!nativeeditor_status => inserted
+
+INSERT INTO Appointment2(`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID`) VALUES ('2015-06-03 11:00:00','2015-06-03 11:45:00','Haircut --- Mike Messina','4','23','','#368C23','4')
+
+Edit operation finished
+0 => action:inserted; sid:1433364436129; tid:109;
+
+Done in 0.0087201595306396s
+
+
+
+====================================
+Log started, 03/06/2015 10:47:53
+====================================
+
+DataProcessor object initialized
+1433364436130_start_date => 2015-06-03 11:15:00
+1433364436130_end_date => 2015-06-03 11:45:00
+1433364436130_text => Haircut --- Matt Messina
+1433364436130_EmployeeID => 4
+1433364436130_Unit_ID => 4
+1433364436130_CustomerID => 22
+1433364436130_Notes => 
+1433364436130_color => #368C23
+1433364436130_id => 1433364436130
+1433364436130_!nativeeditor_status => deleted
+ids => 1433364436130
+
+Row data [1433364436130]
+start_date => 2015-06-03 11:15:00
+end_date => 2015-06-03 11:45:00
+text => Haircut --- Matt Messina
+EmployeeID => 4
+Unit_ID => 4
+CustomerID => 22
+Notes => 
+color => #368C23
+id => 1433364436130
+!nativeeditor_status => deleted
+
+DELETE FROM Appointment2 WHERE `id`='1433364436130'
+
+Edit operation finished
+0 => action:deleted; sid:1433364436130; tid:1433364436130;
+
+Done in 0.0032470226287842s
+
+
+
+====================================
+Log started, 03/06/2015 10:49:32
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0049810409545898s
+
+
+
+====================================
+Log started, 03/06/2015 10:51:36
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.00506591796875s
+
+
+
+====================================
+Log started, 03/06/2015 10:52:33
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0065538883209229s
+
+
+
+====================================
+Log started, 03/06/2015 10:53:08
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0033650398254395s
+
+
+
+====================================
+Log started, 03/06/2015 10:53:29
+====================================
+
+DataProcessor object initialized
+1433364809290_start_date => 2015-06-03 11:15:00
+1433364809290_end_date => 2015-06-03 11:45:00
+1433364809290_text => Haircut --- Matt Messina
+1433364809290_EmployeeID => 4
+1433364809290_Unit_ID => 4
+1433364809290_CustomerID => 22
+1433364809290_Notes => 
+1433364809290_color => #368C23
+1433364809290_id => 1433364809290
+1433364809290_!nativeeditor_status => deleted
+ids => 1433364809290
+
+Row data [1433364809290]
+start_date => 2015-06-03 11:15:00
+end_date => 2015-06-03 11:45:00
+text => Haircut --- Matt Messina
+EmployeeID => 4
+Unit_ID => 4
+CustomerID => 22
+Notes => 
+color => #368C23
+id => 1433364809290
+!nativeeditor_status => deleted
+
+DELETE FROM Appointment2 WHERE `id`='1433364809290'
+
+Edit operation finished
+0 => action:deleted; sid:1433364809290; tid:1433364809290;
+
+Done in 0.0054309368133545s
+
+
+
+====================================
+Log started, 03/06/2015 10:54:25
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0032558441162109s
+
+
+
+====================================
+Log started, 03/06/2015 11:16:09
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0042591094970703s
+
+
+
+====================================
+Log started, 03/06/2015 11:17:05
+====================================
+
+DataProcessor object initialized
+1433366225394_start_date => 2015-06-03 11:30:00
+1433366225394_end_date => 2015-06-03 12:00:00
+1433366225394_text => Color --- Matt Messina
+1433366225394_EmployeeID => 4
+1433366225394_Unit_ID => 4
+1433366225394_CustomerID => 22
+1433366225394_Notes => 
+1433366225394_color => #368C23
+1433366225394_id => 1433366225394
+1433366225394_!nativeeditor_status => deleted
+ids => 1433366225394
+
+Row data [1433366225394]
+start_date => 2015-06-03 11:30:00
+end_date => 2015-06-03 12:00:00
+text => Color --- Matt Messina
+EmployeeID => 4
+Unit_ID => 4
+CustomerID => 22
+Notes => 
+color => #368C23
+id => 1433366225394
+!nativeeditor_status => deleted
+
+DELETE FROM Appointment2 WHERE `id`='1433366225394'
+
+Edit operation finished
+0 => action:deleted; sid:1433366225394; tid:1433366225394;
+
+Done in 0.0020411014556885s
+
+
+
+====================================
+Log started, 03/06/2015 11:17:45
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.006619930267334s
+
+
+
+====================================
+Log started, 03/06/2015 11:29:20
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0033650398254395s
+
+
+
+====================================
+Log started, 03/06/2015 11:29:27
+====================================
+
+DataProcessor object initialized
+107_id => 107
+107_start_date => 2015-06-02 12:30:00
+107_end_date => 2015-06-02 13:00:00
+107_text => Haircut --- Dylan Bonacore
+107_EmployeeID => 3
+107_CustomerID => 8
+107_Notes => 
+107_color => #F58839
+107_Unit_ID => 3
+107_!nativeeditor_status => deleted
+ids => 107
+
+Row data [107]
+id => 107
+start_date => 2015-06-02 12:30:00
+end_date => 2015-06-02 13:00:00
+text => Haircut --- Dylan Bonacore
+EmployeeID => 3
+CustomerID => 8
+Notes => 
+color => #F58839
+Unit_ID => 3
+!nativeeditor_status => deleted
+
+DELETE FROM Appointment2 WHERE `id`='107'
+
+Edit operation finished
+0 => action:deleted; sid:107; tid:107;
+
+Done in 0.0074098110198975s
+
+
+
+====================================
+Log started, 03/06/2015 11:29:53
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.003629207611084s
+
+
+
+====================================
+Log started, 03/06/2015 11:30:00
+====================================
+
+DataProcessor object initialized
+82_id => 82
+82_start_date => 2015-06-02 11:45:00
+82_end_date => 2015-06-02 12:15:00
+82_text => Haircut --- Mike Jones
+82_EmployeeID => 1
+82_CustomerID => 10
+82_Notes => 
+82_color => #3A87AD
+82_Unit_ID => 1
+82_!nativeeditor_status => deleted
+ids => 82
+
+Row data [82]
+id => 82
+start_date => 2015-06-02 11:45:00
+end_date => 2015-06-02 12:15:00
+text => Haircut --- Mike Jones
+EmployeeID => 1
+CustomerID => 10
+Notes => 
+color => #3A87AD
+Unit_ID => 1
+!nativeeditor_status => deleted
+
+DELETE FROM Appointment2 WHERE `id`='82'
+
+Edit operation finished
+0 => action:deleted; sid:82; tid:82;
+
+Done in 0.0071699619293213s
+
+
+
+====================================
+Log started, 03/06/2015 11:30:17
+====================================
+
+DataProcessor object initialized
+1433367017660_start_date => 2015-06-03 12:30:00
+1433367017660_end_date => 2015-06-03 13:00:00
+1433367017660_text => Haircut --- Mike Jones
+1433367017660_EmployeeID => 1
+1433367017660_Unit_ID => 1
+1433367017660_CustomerID => 10
+1433367017660_Notes => 
+1433367017660_color => #3A87AD
+1433367017660_id => 1433367017660
+1433367017660_!nativeeditor_status => inserted
+ids => 1433367017660
+
+Row data [1433367017660]
+start_date => 2015-06-03 12:30:00
+end_date => 2015-06-03 13:00:00
+text => Haircut --- Mike Jones
+EmployeeID => 1
+Unit_ID => 1
+CustomerID => 10
+Notes => 
+color => #3A87AD
+id => 1433367017660
+!nativeeditor_status => inserted
+
+INSERT INTO Appointment2(`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID`) VALUES ('2015-06-03 12:30:00','2015-06-03 13:00:00','Haircut --- Mike Jones','1','10','','#3A87AD','1')
+
+Edit operation finished
+0 => action:inserted; sid:1433367017660; tid:110;
+
+Done in 0.0082719326019287s
+
+
+
+====================================
+Log started, 03/06/2015 11:30:26
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0033681392669678s
+
+
+
+====================================
+Log started, 03/06/2015 11:31:00
+====================================
+
+DataProcessor object initialized
+1433367060049_start_date => 2015-06-03 13:00:00
+1433367060049_end_date => 2015-06-03 13:30:00
+1433367060049_text => Haircut, Shave --- Joseph Jones
+1433367060049_EmployeeID => 1
+1433367060049_Unit_ID => 1
+1433367060049_CustomerID => 9
+1433367060049_Notes => 
+1433367060049_color => #3A87AD
+1433367060049_id => 1433367060049
+1433367060049_!nativeeditor_status => inserted
+ids => 1433367060049
+
+Row data [1433367060049]
+start_date => 2015-06-03 13:00:00
+end_date => 2015-06-03 13:30:00
+text => Haircut, Shave --- Joseph Jones
+EmployeeID => 1
+Unit_ID => 1
+CustomerID => 9
+Notes => 
+color => #3A87AD
+id => 1433367060049
+!nativeeditor_status => inserted
+
+INSERT INTO Appointment2(`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID`) VALUES ('2015-06-03 13:00:00','2015-06-03 13:30:00','Haircut, Shave --- Joseph Jones','1','9','','#3A87AD','1')
+
+Edit operation finished
+0 => action:inserted; sid:1433367060049; tid:111;
+
+Done in 0.010441780090332s
+
+
+
+====================================
+Log started, 03/06/2015 11:31:29
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0036611557006836s
+
+
+
+====================================
+Log started, 03/06/2015 11:33:07
+====================================
+
+DataProcessor object initialized
+1433367187799_start_date => 2015-06-03 12:45:00
+1433367187799_end_date => 2015-06-03 13:15:00
+1433367187799_text => Haircut --- Barbara Jones
+1433367187799_EmployeeID => 1
+1433367187799_Unit_ID => 1
+1433367187799_CustomerID => 6
+1433367187799_Notes => 
+1433367187799_color => #3A87AD
+1433367187799_id => 1433367187799
+1433367187799_!nativeeditor_status => deleted
+ids => 1433367187799
+
+Row data [1433367187799]
+start_date => 2015-06-03 12:45:00
+end_date => 2015-06-03 13:15:00
+text => Haircut --- Barbara Jones
+EmployeeID => 1
+Unit_ID => 1
+CustomerID => 6
+Notes => 
+color => #3A87AD
+id => 1433367187799
+!nativeeditor_status => deleted
+
+DELETE FROM Appointment2 WHERE `id`='1433367187799'
+
+Edit operation finished
+0 => action:deleted; sid:1433367187799; tid:1433367187799;
+
+Done in 0.0030889511108398s
+
+
+
+====================================
+Log started, 03/06/2015 11:35:08
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0038678646087646s
+
+
+
+====================================
+Log started, 03/06/2015 11:35:12
+====================================
+
+DataProcessor object initialized
+111_id => 111
+111_start_date => 2015-06-03 13:00:00
+111_end_date => 2015-06-03 13:30:00
+111_text => Haircut, Shave --- Joseph Jones
+111_EmployeeID => 1
+111_CustomerID => 9
+111_Notes => 
+111_color => #3A87AD
+111_Unit_ID => 1
+111_!nativeeditor_status => deleted
+ids => 111
+
+Row data [111]
+id => 111
+start_date => 2015-06-03 13:00:00
+end_date => 2015-06-03 13:30:00
+text => Haircut, Shave --- Joseph Jones
+EmployeeID => 1
+CustomerID => 9
+Notes => 
+color => #3A87AD
+Unit_ID => 1
+!nativeeditor_status => deleted
+
+DELETE FROM Appointment2 WHERE `id`='111'
+
+Edit operation finished
+0 => action:deleted; sid:111; tid:111;
+
+Done in 0.011985063552856s
+
+
+
+====================================
+Log started, 03/06/2015 11:36:28
+====================================
+
+DataProcessor object initialized
+1433367388681_start_date => 2015-06-03 13:00:00
+1433367388681_end_date => 2015-06-03 13:30:00
+1433367388681_text => Haircut --- Joseph Jones
+1433367388681_EmployeeID => 1
+1433367388681_Unit_ID => 1
+1433367388681_CustomerID => 9
+1433367388681_Notes => 
+1433367388681_color => #3A87AD
+1433367388681_id => 1433367388681
+1433367388681_!nativeeditor_status => inserted
+ids => 1433367388681
+
+Row data [1433367388681]
+start_date => 2015-06-03 13:00:00
+end_date => 2015-06-03 13:30:00
+text => Haircut --- Joseph Jones
+EmployeeID => 1
+Unit_ID => 1
+CustomerID => 9
+Notes => 
+color => #3A87AD
+id => 1433367388681
+!nativeeditor_status => inserted
+
+INSERT INTO Appointment2(`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID`) VALUES ('2015-06-03 13:00:00','2015-06-03 13:30:00','Haircut --- Joseph Jones','1','9','','#3A87AD','1')
+
+Edit operation finished
+0 => action:inserted; sid:1433367388681; tid:112;
+
+Done in 0.0096540451049805s
+
+
+
+====================================
+Log started, 03/06/2015 11:47:08
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0034830570220947s
+
+
+
+====================================
+Log started, 03/06/2015 11:47:30
+====================================
+
+DataProcessor object initialized
+1433368050057_start_date => 2015-06-03 12:00:00
+1433368050057_end_date => 2015-06-03 12:30:00
+1433368050057_text => Haircut --- Matt Messina
+1433368050057_EmployeeID => 3
+1433368050057_Unit_ID => 3
+1433368050057_CustomerID => 22
+1433368050057_Notes => 
+1433368050057_color => #F58839
+1433368050057_id => 1433368050057
+1433368050057_!nativeeditor_status => inserted
+ids => 1433368050057
+
+Row data [1433368050057]
+start_date => 2015-06-03 12:00:00
+end_date => 2015-06-03 12:30:00
+text => Haircut --- Matt Messina
+EmployeeID => 3
+Unit_ID => 3
+CustomerID => 22
+Notes => 
+color => #F58839
+id => 1433368050057
+!nativeeditor_status => inserted
+
+INSERT INTO Appointment2(`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID`) VALUES ('2015-06-03 12:00:00','2015-06-03 12:30:00','Haircut --- Matt Messina','3','22','','#F58839','3')
+
+Edit operation finished
+0 => action:inserted; sid:1433368050057; tid:113;
+
+Done in 0.0089669227600098s
+
+
+
+====================================
+Log started, 03/06/2015 11:47:34
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0034048557281494s
+
+
+
+====================================
+Log started, 03/06/2015 11:48:35
+====================================
+
+DataProcessor object initialized
+113_id => 113
+113_start_date => 2015-06-03 12:00:00
+113_end_date => 2015-06-03 12:30:00
+113_text => Haircut --- Matt Messina
+113_EmployeeID => 3
+113_CustomerID => 22
+113_Notes => 
+113_color => #F58839
+113_Unit_ID => 3
+113_!nativeeditor_status => deleted
+ids => 113
+
+Row data [113]
+id => 113
+start_date => 2015-06-03 12:00:00
+end_date => 2015-06-03 12:30:00
+text => Haircut --- Matt Messina
+EmployeeID => 3
+CustomerID => 22
+Notes => 
+color => #F58839
+Unit_ID => 3
+!nativeeditor_status => deleted
+
+DELETE FROM Appointment2 WHERE `id`='113'
+
+Edit operation finished
+0 => action:deleted; sid:113; tid:113;
+
+Done in 0.0066030025482178s
+
+
+
+====================================
+Log started, 03/06/2015 11:48:39
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0053410530090332s
+
+
+
+====================================
+Log started, 03/06/2015 11:54:24
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0074710845947266s
+
+
+
+====================================
+Log started, 04/06/2015 12:03:06
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0039122104644775s
+
+
+
+====================================
+Log started, 04/06/2015 12:07:07
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0085911750793457s
+
+
+
+====================================
+Log started, 04/06/2015 12:08:04
+====================================
+
+DataProcessor object initialized
+1433369284966_start_date => 2015-06-04 10:00:00
+1433369284966_end_date => 2015-06-04 10:45:00
+1433369284966_text => Haircut, Color --- Joe Deluca
+1433369284966_EmployeeID => 1
+1433369284966_Unit_ID => 1
+1433369284966_CustomerID => 17
+1433369284966_Notes => Joey D haircut and color
+1433369284966_color => #3A87AD
+1433369284966_id => 1433369284966
+1433369284966_!nativeeditor_status => inserted
+ids => 1433369284966
+
+Row data [1433369284966]
+start_date => 2015-06-04 10:00:00
+end_date => 2015-06-04 10:45:00
+text => Haircut, Color --- Joe Deluca
+EmployeeID => 1
+Unit_ID => 1
+CustomerID => 17
+Notes => Joey D haircut and color
+color => #3A87AD
+id => 1433369284966
+!nativeeditor_status => inserted
+
+INSERT INTO Appointment2(`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID`) VALUES ('2015-06-04 10:00:00','2015-06-04 10:45:00','Haircut, Color --- Joe Deluca','1','17','Joey D haircut and color','#3A87AD','1')
+
+Edit operation finished
+0 => action:inserted; sid:1433369284966; tid:114;
+
+Done in 0.0076160430908203s
+
+
+
+====================================
+Log started, 04/06/2015 12:08:31
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0054881572723389s
+
+
+
+====================================
+Log started, 04/06/2015 12:11:32
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0051560401916504s
+
+
+
+====================================
+Log started, 04/06/2015 12:12:32
+====================================
+
+DataProcessor object initialized
+1433369552529_start_date => 2015-06-05 10:00:00
+1433369552529_end_date => 2015-06-05 11:15:00
+1433369552529_text => Color, Eyebrow Wax --- Jane Doe
+1433369552529_EmployeeID => 2
+1433369552529_Unit_ID => 2
+1433369552529_CustomerID => 21
+1433369552529_Notes => 
+1433369552529_color => #FF887C
+1433369552529_id => 1433369552529
+1433369552529_!nativeeditor_status => inserted
+ids => 1433369552529
+
+Row data [1433369552529]
+start_date => 2015-06-05 10:00:00
+end_date => 2015-06-05 11:15:00
+text => Color, Eyebrow Wax --- Jane Doe
+EmployeeID => 2
+Unit_ID => 2
+CustomerID => 21
+Notes => 
+color => #FF887C
+id => 1433369552529
+!nativeeditor_status => inserted
+
+INSERT INTO Appointment2(`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID`) VALUES ('2015-06-05 10:00:00','2015-06-05 11:15:00','Color, Eyebrow Wax --- Jane Doe','2','21','','#FF887C','2')
+
+Edit operation finished
+0 => action:inserted; sid:1433369552529; tid:115;
+
+Done in 0.0093779563903809s
+
+
+
+====================================
+Log started, 04/06/2015 12:13:24
+====================================
+
+DataProcessor object initialized
+1433369552530_start_date => 2015-06-05 09:30:00
+1433369552530_end_date => 2015-06-05 10:00:00
+1433369552530_text => Haircut, Shave --- Jonathan Bonacore
+1433369552530_EmployeeID => 1
+1433369552530_Unit_ID => 1
+1433369552530_CustomerID => 20
+1433369552530_Notes => 
+1433369552530_color => #3A87AD
+1433369552530_id => 1433369552530
+1433369552530_!nativeeditor_status => inserted
+ids => 1433369552530
+
+Row data [1433369552530]
+start_date => 2015-06-05 09:30:00
+end_date => 2015-06-05 10:00:00
+text => Haircut, Shave --- Jonathan Bonacore
+EmployeeID => 1
+Unit_ID => 1
+CustomerID => 20
+Notes => 
+color => #3A87AD
+id => 1433369552530
+!nativeeditor_status => inserted
+
+INSERT INTO Appointment2(`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID`) VALUES ('2015-06-05 09:30:00','2015-06-05 10:00:00','Haircut, Shave --- Jonathan Bonacore','1','20','','#3A87AD','1')
+
+Edit operation finished
+0 => action:inserted; sid:1433369552530; tid:116;
+
+Done in 0.0062170028686523s
+
+
+
+====================================
+Log started, 04/06/2015 12:13:37
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0072979927062988s
+
+
+
+====================================
+Log started, 04/06/2015 12:15:47
+====================================
+
+DataProcessor object initialized
+1433369747354_start_date => 2015-06-04 10:30:00
+1433369747354_end_date => 2015-06-04 11:00:00
+1433369747354_text => Haircut, Shave --- John Deluca
+1433369747354_EmployeeID => 2
+1433369747354_Unit_ID => 2
+1433369747354_CustomerID => 16
+1433369747354_Notes => 
+1433369747354_color => #FF887C
+1433369747354_id => 1433369747354
+1433369747354_!nativeeditor_status => inserted
+ids => 1433369747354
+
+Row data [1433369747354]
+start_date => 2015-06-04 10:30:00
+end_date => 2015-06-04 11:00:00
+text => Haircut, Shave --- John Deluca
+EmployeeID => 2
+Unit_ID => 2
+CustomerID => 16
+Notes => 
+color => #FF887C
+id => 1433369747354
+!nativeeditor_status => inserted
+
+INSERT INTO Appointment2(`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID`) VALUES ('2015-06-04 10:30:00','2015-06-04 11:00:00','Haircut, Shave --- John Deluca','2','16','','#FF887C','2')
+
+Edit operation finished
+0 => action:inserted; sid:1433369747354; tid:117;
+
+Done in 0.0085179805755615s
+
+
+
+====================================
+Log started, 04/06/2015 12:20:42
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0083720684051514s
+
+
+
+====================================
+Log started, 04/06/2015 12:24:45
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0051658153533936s
+
+
+
+====================================
+Log started, 04/06/2015 12:25:42
+====================================
+
+DataProcessor object initialized
+115_id => 115
+115_start_date => 2015-06-05 10:00:00
+115_end_date => 2015-06-05 11:15:00
+115_text => Color, Eyebrow Wax --- Jane Doe
+115_EmployeeID => 2
+115_CustomerID => 21
+115_Notes => Also coming with daughter
+115_color => #FF887C
+115_Unit_ID => 2
+115_!nativeeditor_status => updated
+ids => 115
+
+Row data [115]
+id => 115
+start_date => 2015-06-05 10:00:00
+end_date => 2015-06-05 11:15:00
+text => Color, Eyebrow Wax --- Jane Doe
+EmployeeID => 2
+CustomerID => 21
+Notes => Also coming with daughter
+color => #FF887C
+Unit_ID => 2
+!nativeeditor_status => updated
+
+UPDATE Appointment2 SET `start_date`='2015-06-05 10:00:00',`end_date`='2015-06-05 11:15:00',`text`='Color, Eyebrow Wax --- Jane Doe',`EmployeeID`='2',`CustomerID`='21',`Notes`='Also coming with daughter',`color`='#FF887C',`Unit_ID`='2' WHERE `id`='115'
+
+Edit operation finished
+0 => action:updated; sid:115; tid:115;
+
+Done in 0.0097460746765137s
+
+
+
+====================================
+Log started, 04/06/2015 01:23:57
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.12238693237305s
+
+
+
+====================================
+Log started, 04/06/2015 01:26:50
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0049750804901123s
+
+
+
+====================================
+Log started, 04/06/2015 01:48:04
+====================================
+
+DataProcessor object initialized
+109_id => 109
+109_start_date => 2015-06-03 11:00:00
+109_end_date => 2015-06-03 11:45:00
+109_text => Haircut --- Mike Messina
+109_EmployeeID => 4
+109_CustomerID => 23
+109_Notes => 
+109_color => #368C23
+109_Unit_ID => 3
+109_!nativeeditor_status => updated
+ids => 109
+
+Row data [109]
+id => 109
+start_date => 2015-06-03 11:00:00
+end_date => 2015-06-03 11:45:00
+text => Haircut --- Mike Messina
+EmployeeID => 4
+CustomerID => 23
+Notes => 
+color => #368C23
+Unit_ID => 3
+!nativeeditor_status => updated
+
+UPDATE Appointment2 SET `start_date`='2015-06-03 11:00:00',`end_date`='2015-06-03 11:45:00',`text`='Haircut --- Mike Messina',`EmployeeID`='4',`CustomerID`='23',`Notes`='',`color`='#368C23',`Unit_ID`='3' WHERE `id`='109'
+
+Edit operation finished
+0 => action:updated; sid:109; tid:109;
+
+Done in 0.0074169635772705s
+
+
+
+====================================
+Log started, 04/06/2015 01:48:57
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0079009532928467s
+
+
+
+====================================
+Log started, 04/06/2015 01:49:07
+====================================
+
+DataProcessor object initialized
+109_id => 109
+109_start_date => 2015-06-03 11:00:00
+109_end_date => 2015-06-03 11:45:00
+109_text => Haircut --- Mike Messina
+109_EmployeeID => 4
+109_CustomerID => 23
+109_Notes => 
+109_color => #368C23
+109_Unit_ID => 4
+109_!nativeeditor_status => updated
+ids => 109
+
+Row data [109]
+id => 109
+start_date => 2015-06-03 11:00:00
+end_date => 2015-06-03 11:45:00
+text => Haircut --- Mike Messina
+EmployeeID => 4
+CustomerID => 23
+Notes => 
+color => #368C23
+Unit_ID => 4
+!nativeeditor_status => updated
+
+UPDATE Appointment2 SET `start_date`='2015-06-03 11:00:00',`end_date`='2015-06-03 11:45:00',`text`='Haircut --- Mike Messina',`EmployeeID`='4',`CustomerID`='23',`Notes`='',`color`='#368C23',`Unit_ID`='4' WHERE `id`='109'
+
+Edit operation finished
+0 => action:updated; sid:109; tid:109;
+
+Done in 0.041163206100464s
+
+
+
+====================================
+Log started, 04/06/2015 02:12:40
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.004971981048584s
+
+
+
+====================================
+Log started, 04/06/2015 03:29:10
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.015922069549561s
+
+
+
+====================================
+Log started, 04/06/2015 03:29:20
+====================================
+
+DataProcessor object initialized
+109_id => 109
+109_start_date => 2015-06-03 11:00:00
+109_end_date => 2015-06-03 11:45:00
+109_text => Haircut --- Mike Messina
+109_EmployeeID => 4
+109_CustomerID => 23
+109_Notes => 
+109_color => #368C23
+109_Unit_ID => 3
+109_!nativeeditor_status => updated
+ids => 109
+
+Row data [109]
+id => 109
+start_date => 2015-06-03 11:00:00
+end_date => 2015-06-03 11:45:00
+text => Haircut --- Mike Messina
+EmployeeID => 4
+CustomerID => 23
+Notes => 
+color => #368C23
+Unit_ID => 3
+!nativeeditor_status => updated
+
+UPDATE Appointment2 SET `start_date`='2015-06-03 11:00:00',`end_date`='2015-06-03 11:45:00',`text`='Haircut --- Mike Messina',`EmployeeID`='4',`CustomerID`='23',`Notes`='',`color`='#368C23',`Unit_ID`='3' WHERE `id`='109'
+
+Edit operation finished
+0 => action:updated; sid:109; tid:109;
+
+Done in 0.015583038330078s
+
+
+
+====================================
+Log started, 04/06/2015 03:29:32
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.013156890869141s
+
+
+
+====================================
+Log started, 04/06/2015 03:29:43
+====================================
+
+DataProcessor object initialized
+109_id => 109
+109_start_date => 2015-06-03 11:00:00
+109_end_date => 2015-06-03 11:45:00
+109_text => Haircut --- Mike Messina
+109_EmployeeID => 4
+109_CustomerID => 23
+109_Notes => 
+109_color => #368C23
+109_Unit_ID => 1
+109_!nativeeditor_status => updated
+ids => 109
+
+Row data [109]
+id => 109
+start_date => 2015-06-03 11:00:00
+end_date => 2015-06-03 11:45:00
+text => Haircut --- Mike Messina
+EmployeeID => 4
+CustomerID => 23
+Notes => 
+color => #368C23
+Unit_ID => 1
+!nativeeditor_status => updated
+
+UPDATE Appointment2 SET `start_date`='2015-06-03 11:00:00',`end_date`='2015-06-03 11:45:00',`text`='Haircut --- Mike Messina',`EmployeeID`='4',`CustomerID`='23',`Notes`='',`color`='#368C23',`Unit_ID`='1' WHERE `id`='109'
+
+Edit operation finished
+0 => action:updated; sid:109; tid:109;
+
+Done in 0.024604082107544s
+
+
+
+====================================
+Log started, 04/06/2015 03:29:49
+====================================
+
+DataProcessor object initialized
+109_id => 109
+109_start_date => 2015-06-03 11:00:00
+109_end_date => 2015-06-03 11:45:00
+109_text => Haircut --- Mike Messina
+109_EmployeeID => 4
+109_CustomerID => 23
+109_Notes => 
+109_color => #368C23
+109_Unit_ID => 4
+109_!nativeeditor_status => updated
+ids => 109
+
+Row data [109]
+id => 109
+start_date => 2015-06-03 11:00:00
+end_date => 2015-06-03 11:45:00
+text => Haircut --- Mike Messina
+EmployeeID => 4
+CustomerID => 23
+Notes => 
+color => #368C23
+Unit_ID => 4
+!nativeeditor_status => updated
+
+UPDATE Appointment2 SET `start_date`='2015-06-03 11:00:00',`end_date`='2015-06-03 11:45:00',`text`='Haircut --- Mike Messina',`EmployeeID`='4',`CustomerID`='23',`Notes`='',`color`='#368C23',`Unit_ID`='4' WHERE `id`='109'
+
+Edit operation finished
+0 => action:updated; sid:109; tid:109;
+
+Done in 0.019933938980103s
+
+
+
+====================================
+Log started, 04/06/2015 03:32:09
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.012945890426636s
+
+
+
+====================================
+Log started, 04/06/2015 03:32:14
+====================================
+
+DataProcessor object initialized
+109_id => 109
+109_start_date => 2015-06-03 11:00:00
+109_end_date => 2015-06-03 11:45:00
+109_text => Haircut --- Mike Messina
+109_EmployeeID => 4
+109_CustomerID => 23
+109_Notes => 
+109_color => #368C23
+109_Unit_ID => 1
+109_!nativeeditor_status => updated
+ids => 109
+
+Row data [109]
+id => 109
+start_date => 2015-06-03 11:00:00
+end_date => 2015-06-03 11:45:00
+text => Haircut --- Mike Messina
+EmployeeID => 4
+CustomerID => 23
+Notes => 
+color => #368C23
+Unit_ID => 1
+!nativeeditor_status => updated
+
+UPDATE Appointment2 SET `start_date`='2015-06-03 11:00:00',`end_date`='2015-06-03 11:45:00',`text`='Haircut --- Mike Messina',`EmployeeID`='4',`CustomerID`='23',`Notes`='',`color`='#368C23',`Unit_ID`='1' WHERE `id`='109'
+
+Edit operation finished
+0 => action:updated; sid:109; tid:109;
+
+Done in 0.085240125656128s
+
+
+
+====================================
+Log started, 04/06/2015 03:32:27
+====================================
+
+DataProcessor object initialized
+109_id => 109
+109_start_date => 2015-06-03 11:00:00
+109_end_date => 2015-06-03 11:45:00
+109_text => Haircut --- Mike Messina
+109_EmployeeID => 4
+109_CustomerID => 23
+109_Notes => 
+109_color => #368C23
+109_Unit_ID => 4
+109_!nativeeditor_status => updated
+ids => 109
+
+Row data [109]
+id => 109
+start_date => 2015-06-03 11:00:00
+end_date => 2015-06-03 11:45:00
+text => Haircut --- Mike Messina
+EmployeeID => 4
+CustomerID => 23
+Notes => 
+color => #368C23
+Unit_ID => 4
+!nativeeditor_status => updated
+
+UPDATE Appointment2 SET `start_date`='2015-06-03 11:00:00',`end_date`='2015-06-03 11:45:00',`text`='Haircut --- Mike Messina',`EmployeeID`='4',`CustomerID`='23',`Notes`='',`color`='#368C23',`Unit_ID`='4' WHERE `id`='109'
+
+Edit operation finished
+0 => action:updated; sid:109; tid:109;
+
+Done in 0.0073521137237549s
+
+
+
+====================================
+Log started, 04/06/2015 03:46:11
+====================================
+
+DataProcessor object initialized
+109_id => 109
+109_start_date => 2015-06-03 11:00:00
+109_end_date => 2015-06-03 11:45:00
+109_text => Haircut --- Mike Messina
+109_EmployeeID => 4
+109_CustomerID => 23
+109_Notes => 
+109_color => #368C23
+109_Unit_ID => 1
+109_!nativeeditor_status => updated
+ids => 109
+
+Row data [109]
+id => 109
+start_date => 2015-06-03 11:00:00
+end_date => 2015-06-03 11:45:00
+text => Haircut --- Mike Messina
+EmployeeID => 4
+CustomerID => 23
+Notes => 
+color => #368C23
+Unit_ID => 1
+!nativeeditor_status => updated
+
+UPDATE Appointment2 SET `start_date`='2015-06-03 11:00:00',`end_date`='2015-06-03 11:45:00',`text`='Haircut --- Mike Messina',`EmployeeID`='4',`CustomerID`='23',`Notes`='',`color`='#368C23',`Unit_ID`='1' WHERE `id`='109'
+
+Edit operation finished
+0 => action:updated; sid:109; tid:109;
+
+Done in 0.1631281375885s
+
+
+
+====================================
+Log started, 04/06/2015 03:54:29
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0095229148864746s
+
+
+
+====================================
+Log started, 04/06/2015 03:54:39
+====================================
+
+DataProcessor object initialized
+109_id => 109
+109_start_date => 2015-06-03 11:00:00
+109_end_date => 2015-06-03 11:45:00
+109_text => Haircut --- Mike Messina
+109_EmployeeID => 2
+109_CustomerID => 23
+109_Notes => 
+109_color => #368C23
+109_Unit_ID => 1
+109_!nativeeditor_status => updated
+ids => 109
+
+Row data [109]
+id => 109
+start_date => 2015-06-03 11:00:00
+end_date => 2015-06-03 11:45:00
+text => Haircut --- Mike Messina
+EmployeeID => 2
+CustomerID => 23
+Notes => 
+color => #368C23
+Unit_ID => 1
+!nativeeditor_status => updated
+
+UPDATE Appointment2 SET `start_date`='2015-06-03 11:00:00',`end_date`='2015-06-03 11:45:00',`text`='Haircut --- Mike Messina',`EmployeeID`='2',`CustomerID`='23',`Notes`='',`color`='#368C23',`Unit_ID`='1' WHERE `id`='109'
+
+Edit operation finished
+0 => action:updated; sid:109; tid:109;
+
+Done in 0.09241509437561s
+
+
+
+====================================
+Log started, 04/06/2015 03:55:05
+====================================
+
+DataProcessor object initialized
+109_id => 109
+109_start_date => 2015-06-03 11:00:00
+109_end_date => 2015-06-03 11:45:00
+109_text => Haircut --- Mike Messina
+109_EmployeeID => 5
+109_CustomerID => 23
+109_Notes => 
+109_color => #368C23
+109_Unit_ID => 1
+109_!nativeeditor_status => updated
+ids => 109
+
+Row data [109]
+id => 109
+start_date => 2015-06-03 11:00:00
+end_date => 2015-06-03 11:45:00
+text => Haircut --- Mike Messina
+EmployeeID => 5
+CustomerID => 23
+Notes => 
+color => #368C23
+Unit_ID => 1
+!nativeeditor_status => updated
+
+UPDATE Appointment2 SET `start_date`='2015-06-03 11:00:00',`end_date`='2015-06-03 11:45:00',`text`='Haircut --- Mike Messina',`EmployeeID`='5',`CustomerID`='23',`Notes`='',`color`='#368C23',`Unit_ID`='1' WHERE `id`='109'
+
+Edit operation finished
+0 => action:updated; sid:109; tid:109;
+
+Done in 0.018928050994873s
+
+
+
+====================================
+Log started, 04/06/2015 03:57:42
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0049810409545898s
+
+
+
+====================================
+Log started, 04/06/2015 03:57:52
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0046589374542236s
+
+
+
+====================================
+Log started, 04/06/2015 03:57:57
+====================================
+
+DataProcessor object initialized
+109_id => 109
+109_start_date => 2015-06-03 11:00:00
+109_end_date => 2015-06-03 11:45:00
+109_text => Haircut --- Mike Messina
+109_EmployeeID => 5
+109_CustomerID => 23
+109_Notes => 
+109_color => #368C23
+109_Unit_ID => 3
+109_!nativeeditor_status => updated
+ids => 109
+
+Row data [109]
+id => 109
+start_date => 2015-06-03 11:00:00
+end_date => 2015-06-03 11:45:00
+text => Haircut --- Mike Messina
+EmployeeID => 5
+CustomerID => 23
+Notes => 
+color => #368C23
+Unit_ID => 3
+!nativeeditor_status => updated
+
+UPDATE Appointment2 SET `start_date`='2015-06-03 11:00:00',`end_date`='2015-06-03 11:45:00',`text`='Haircut --- Mike Messina',`EmployeeID`='5',`CustomerID`='23',`Notes`='',`color`='#368C23',`Unit_ID`='3' WHERE `id`='109'
+
+Edit operation finished
+0 => action:updated; sid:109; tid:109;
+
+Done in 0.014244794845581s
+
+
+
+====================================
+Log started, 04/06/2015 04:12:13
+====================================
+
+DataProcessor object initialized
+109_id => 109
+109_start_date => 2015-06-03 11:00:00
+109_end_date => 2015-06-03 11:45:00
+109_text => Haircut --- Mike Messina
+109_EmployeeID => 5
+109_CustomerID => 23
+109_Notes => 
+109_color => #368C23
+109_Unit_ID => 4
+109_!nativeeditor_status => updated
+ids => 109
+
+Row data [109]
+id => 109
+start_date => 2015-06-03 11:00:00
+end_date => 2015-06-03 11:45:00
+text => Haircut --- Mike Messina
+EmployeeID => 5
+CustomerID => 23
+Notes => 
+color => #368C23
+Unit_ID => 4
+!nativeeditor_status => updated
+
+UPDATE Appointment2 SET `start_date`='2015-06-03 11:00:00',`end_date`='2015-06-03 11:45:00',`text`='Haircut --- Mike Messina',`EmployeeID`='5',`CustomerID`='23',`Notes`='',`color`='#368C23',`Unit_ID`='4' WHERE `id`='109'
+
+Edit operation finished
+0 => action:updated; sid:109; tid:109;
+
+Done in 0.097332000732422s
+
+
+
+====================================
+Log started, 04/06/2015 04:13:24
+====================================
+
+SELECT `id`,`start_date`,`end_date`,`text`,`EmployeeID`,`CustomerID`,`Notes`,`color`,`Unit_ID` FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0072839260101318s
+
+
+
+====================================
+Log started, 04/06/2015 02:53:46
+====================================
+
+SELECT id,start_date,end_date,text,EmployeeID,CustomerID,Notes,color,Unit_ID FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+mysql_query() expects parameter 2 to be resource, object given at C:\xampp\htdocs\TomasosBarbershop\lib\dhtmlxScheduler_v4.2.0\codebase\connector\db_common.php line 1091
+
+mysql_fetch_assoc() expects parameter 1 to be resource, null given at C:\xampp\htdocs\TomasosBarbershop\lib\dhtmlxScheduler_v4.2.0\codebase\connector\db_common.php line 1101
+
+Done in 0.0059781074523926s
+
+
+
+====================================
+Log started, 04/06/2015 02:53:54
+====================================
+
+SELECT id,start_date,end_date,text,EmployeeID,CustomerID,Notes,color,Unit_ID FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+mysql_query() expects parameter 2 to be resource, object given at C:\xampp\htdocs\TomasosBarbershop\lib\dhtmlxScheduler_v4.2.0\codebase\connector\db_common.php line 1091
+
+mysql_fetch_assoc() expects parameter 1 to be resource, null given at C:\xampp\htdocs\TomasosBarbershop\lib\dhtmlxScheduler_v4.2.0\codebase\connector\db_common.php line 1101
+
+Done in 0.0047810077667236s
+
+
+
+====================================
+Log started, 04/06/2015 02:55:28
+====================================
+
+SELECT id,start_date,end_date,text,EmployeeID,CustomerID,Notes,color,Unit_ID FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+mysql_query() expects parameter 2 to be resource, object given at C:\xampp\htdocs\TomasosBarbershop\lib\dhtmlxScheduler_v4.2.0\codebase\connector\db_common.php line 1091
+
+mysql_fetch_assoc() expects parameter 1 to be resource, null given at C:\xampp\htdocs\TomasosBarbershop\lib\dhtmlxScheduler_v4.2.0\codebase\connector\db_common.php line 1101
+
+Done in 0.0063958168029785s
+
+
+
+====================================
+Log started, 04/06/2015 02:57:06
+====================================
+
+SELECT id,start_date,end_date,text,EmployeeID,CustomerID,Notes,color,Unit_ID FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0056359767913818s
+
+
+
+====================================
+Log started, 04/06/2015 03:16:55
+====================================
+
+SELECT id,start_date,end_date,text,EmployeeID,CustomerID,Notes,color,Unit_ID FROM Appointment2
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0052978992462158s
+

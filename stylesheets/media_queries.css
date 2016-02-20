@@ -1,0 +1,75 @@
+/*
+These are the media queries.
+These adjust elements based on the width,
+allowing for responsive design.
+*/
+
+/*Width of landscape mode of an iPad is 1024px*/
+@media all and (max-width: 1024px) {
+	/*Pushes fields all the way to the left */
+	.field_labels {
+		padding:1em;
+	}
+
+	/*Removes the H and M labels for Hours and Mins for appt */
+	.time_label {
+		display: none;
+	}
+
+	input[type=checkbox]{
+		width:16px;
+		height: 15px;
+	}
+
+	input[type=radio]{
+		width:18px;
+		height: 15px;
+	}
+}
+
+/* When the device (iPad) is in portrait mode */
+@media all and (max-width: 768px) {
+	/*---These queries are for the full history modal window--*/
+	#modal_cust_history{
+		width: 75%;
+	}
+	#cust_history_heading{
+		width:100%;
+		text-align: center;
+	}
+
+	#history_cust_history{
+		width:100%;
+		text-align: center;
+	}
+
+	#cust_history_table{
+		margin:0 auto;
+	}
+
+	#history_cust_info{
+		width:100%;
+		border-bottom:1px solid #E3E3E3;
+		padding-bottom: 1.0em;
+	}
+
+	#history_cust_info_list li {
+		display: inline-block;
+		padding-right:1.0em;
+	}
+	/*-----------------------------------------*/
+
+	/*---TO-DO: Lightbox when in portrait mode----*/
+}
+
+/* 414px is the width of iPhone 6 Plus */
+@media all and (max-width: 414px) {
+	/*Remove the date title on the top axis - Tuesday, September 15th*/
+	.dhx_cal_date {
+		display: none;
+	}
+}
+
+/*TO-DO: For iPhone display, have just the calendar display, but add a button on
+the top to hide/show the form fields. Draggin down the form fields (like Android notification screen)
+would be ideal*/

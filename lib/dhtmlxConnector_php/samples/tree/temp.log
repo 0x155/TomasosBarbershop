@@ -1,0 +1,3105 @@
+
+
+====================================
+Log started, 08/09/2009 08:09:21
+====================================
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '0'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '1000'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '1201'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '1203'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '1206'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '1207'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '1208'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '1211'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '1401'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '1403'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '1407'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '1408'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3000'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3001'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3004'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3005'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3006'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3007'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3008'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3009'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3010'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3011'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3101'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3104'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3105'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3107'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3109'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3111'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3301'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3303'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3305'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3307'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3308'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3310'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3311'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3401'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3405'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3407'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3409'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '3410'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '4000'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '4101'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '4102'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '4201'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '4202'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '4206'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '4208'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '4211'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '4301'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '4303'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '4304'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '4305'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '4306'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '4309'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '4310'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '5000'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '5201'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '5203'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '5205'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '5206'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '5207'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '5208'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '5209'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '5211'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '5301'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '5305'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '5308'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '5310'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '5311'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '5401'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '5404'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '5405'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '5406'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '5407'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '5408'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '5409'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '6000'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '6101'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '6102'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '6106'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '6108'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '6111'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '6401'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '6402'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '6403'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '6405'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '6408'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '6409'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '7000'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '7201'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '7203'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '7206'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '7207'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '7211'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '8000'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '8001'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '8003'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '8101'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '8102'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '8104'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '8106'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '8107'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '8110'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '8111'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '8201'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '8202'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '8203'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '8206'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '8208'
+
+SELECT  taskId,taskName FROM tasks WHERE  complete>49 AND parentId = '8211'
+
+Done in 0.539170980453s
+
+
+
+====================================
+Log started, 08/09/2009 08:09:37
+====================================
+
+SELECT  * FROM tasks a LEFT JOIN  tasks b ON a.user_name = b.ItemName WHERE  a.TaskID >=175 AND parentId = '0'
+
+!!!Uncaught Exception
+Code: 0
+Message: MySQL operation failed
+Column 'parentId' in where clause is ambiguous
+
+
+
+====================================
+Log started, 05/10/2009 02:10:52
+====================================
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '0'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1000'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1001'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1002'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1003'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1004'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1005'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1006'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1007'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1008'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1009'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1010'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1011'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1101'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1102'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1103'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1104'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1105'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1106'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1107'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1108'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1109'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1110'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1111'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1201'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1202'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1203'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1204'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1205'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1206'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1207'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1208'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1209'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1210'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1211'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1301'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1302'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1303'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1304'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1305'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1306'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1307'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1308'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1309'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1310'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1311'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1401'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1402'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1403'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1404'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1405'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1406'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1407'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1408'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1409'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1410'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1411'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2000'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2001'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2002'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2003'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2004'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2005'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2006'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2007'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2008'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2009'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2010'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2011'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2101'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2102'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2103'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2104'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2105'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2106'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2107'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2108'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2109'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2110'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2111'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2201'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2202'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2203'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2204'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2205'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2206'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2207'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2208'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2209'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2210'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2211'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2301'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2302'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2303'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2304'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2305'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2306'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2307'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2308'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2309'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2310'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2311'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2401'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2402'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2403'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2404'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2405'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2406'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2407'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2408'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2409'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2410'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2411'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3000'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3001'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3002'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3003'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3004'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3005'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3006'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3007'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3008'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3009'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3010'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3011'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3101'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3102'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3103'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3104'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3105'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3106'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3107'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3108'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3109'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3110'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3111'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3201'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3202'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3203'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3204'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3205'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3206'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3207'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3208'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3209'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3210'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3211'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3301'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3302'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3303'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3304'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3305'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3306'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3307'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3308'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3309'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3310'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3311'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3401'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3402'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3403'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3404'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3405'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3406'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3407'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3408'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3409'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3410'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3411'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4000'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4001'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4002'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4003'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4004'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4005'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4006'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4007'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4008'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4009'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4010'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4011'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4101'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4102'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4103'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4104'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4105'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4106'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4107'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4108'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4109'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4110'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4111'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4201'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4202'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4203'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4204'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4205'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4206'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4207'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4208'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4209'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4210'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4211'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4301'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4302'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4303'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4304'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4305'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4306'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4307'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4308'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4309'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4310'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4311'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4401'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4402'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4403'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4404'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4405'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4406'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4407'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4408'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4409'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4410'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4411'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5000'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5001'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5002'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5003'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5004'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5005'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5006'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5007'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5008'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5009'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5010'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5011'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5101'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5102'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5103'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5104'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5105'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5106'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5107'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5108'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5109'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5110'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5111'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5201'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5202'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5203'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5204'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5205'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5206'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5207'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5208'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5209'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5210'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5211'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5301'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5302'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5303'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5304'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5305'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5306'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5307'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5308'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5309'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5310'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5311'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5401'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5402'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5403'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5404'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5405'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5406'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5407'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5408'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5409'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5410'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5411'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6000'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6001'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6002'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6003'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6004'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6005'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6006'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6007'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6008'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6009'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6010'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6011'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6101'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6102'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6103'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6104'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6105'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6106'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6107'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6108'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6109'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6110'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6111'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6201'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6202'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6203'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6204'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6205'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6206'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6207'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6208'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6209'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6210'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6211'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6301'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6302'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6303'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6304'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6305'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6306'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6307'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6308'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6309'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6310'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6311'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6401'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6402'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6403'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6404'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6405'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6406'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6407'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6408'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6409'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6410'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6411'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7000'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7001'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7002'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7003'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7004'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7005'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7006'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7007'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7008'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7009'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7010'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7011'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7101'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7102'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7103'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7104'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7105'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7106'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7107'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7108'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7109'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7110'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7111'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7201'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7202'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7203'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7204'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7205'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7206'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7207'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7208'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7209'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7210'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7211'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7301'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7302'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7303'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7304'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7305'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7306'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7307'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7308'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7309'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7310'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7311'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7401'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7402'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7403'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7404'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7405'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7406'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7407'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7408'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7409'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7410'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7411'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8000'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8001'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8002'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8003'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8004'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8005'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8006'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8007'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8008'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8009'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8010'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8011'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8101'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8102'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8103'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8104'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8105'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8106'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8107'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8108'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8109'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8110'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8111'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8201'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8202'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8203'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8204'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8205'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8206'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8207'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8208'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8209'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8210'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8211'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8301'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8302'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8303'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8304'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8305'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8306'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8307'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8308'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8309'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8310'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8311'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8401'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8402'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8403'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8404'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8405'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8406'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8407'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8408'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8409'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8410'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8411'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8429'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8431'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8432'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8434'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8435'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8436'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8437'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8438'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8439'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8440'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8441'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8442'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8443'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8444'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8445'
+
+Done in 1.28880310059s
+
+
+
+====================================
+Log started, 05/10/2009 02:10:03
+====================================
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '0'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1000'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1001'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1002'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1003'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1004'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1005'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1006'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1007'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1008'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1009'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1010'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1011'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1101'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1102'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1103'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1104'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1105'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1106'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1107'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1108'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1109'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1110'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1111'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1201'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1202'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1203'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1204'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1205'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1206'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1207'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1208'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1209'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1210'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1211'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1301'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1302'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1303'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1304'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1305'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1306'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1307'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1308'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1309'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1310'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1311'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1401'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1402'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1403'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1404'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1405'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1406'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1407'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1408'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1409'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1410'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1411'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2000'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2001'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2002'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2003'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2004'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2005'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2006'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2007'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2008'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2009'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2010'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2011'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2101'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2102'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2103'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2104'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2105'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2106'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2107'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2108'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2109'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2110'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2111'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2201'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2202'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2203'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2204'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2205'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2206'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2207'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2208'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2209'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2210'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2211'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2301'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2302'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2303'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2304'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2305'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2306'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2307'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2308'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2309'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2310'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2311'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2401'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2402'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2403'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2404'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2405'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2406'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2407'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2408'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2409'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2410'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2411'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3000'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3001'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3002'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3003'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3004'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3005'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3006'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3007'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3008'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3009'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3010'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3011'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3101'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3102'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3103'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3104'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3105'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3106'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3107'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3108'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3109'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3110'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3111'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3201'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3202'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3203'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3204'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3205'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3206'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3207'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3208'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3209'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3210'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3211'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3301'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3302'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3303'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3304'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3305'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3306'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3307'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3308'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3309'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3310'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3311'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3401'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3402'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3403'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3404'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3405'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3406'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3407'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3408'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3409'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3410'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3411'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4000'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4001'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4002'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4003'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4004'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4005'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4006'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4007'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4008'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4009'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4010'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4011'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4101'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4102'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4103'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4104'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4105'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4106'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4107'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4108'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4109'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4110'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4111'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4201'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4202'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4203'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4204'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4205'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4206'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4207'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4208'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4209'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4210'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4211'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4301'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4302'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4303'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4304'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4305'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4306'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4307'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4308'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4309'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4310'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4311'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4401'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4402'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4403'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4404'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4405'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4406'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4407'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4408'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4409'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4410'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4411'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5000'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5001'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5002'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5003'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5004'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5005'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5006'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5007'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5008'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5009'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5010'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5011'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5101'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5102'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5103'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5104'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5105'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5106'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5107'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5108'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5109'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5110'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5111'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5201'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5202'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5203'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5204'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5205'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5206'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5207'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5208'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5209'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5210'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5211'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5301'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5302'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5303'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5304'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5305'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5306'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5307'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5308'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5309'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5310'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5311'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5401'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5402'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5403'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5404'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5405'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5406'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5407'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5408'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5409'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5410'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5411'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6000'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6001'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6002'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6003'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6004'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6005'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6006'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6007'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6008'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6009'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6010'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6011'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6101'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6102'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6103'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6104'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6105'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6106'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6107'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6108'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6109'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6110'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6111'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6201'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6202'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6203'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6204'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6205'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6206'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6207'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6208'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6209'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6210'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6211'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6301'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6302'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6303'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6304'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6305'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6306'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6307'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6308'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6309'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6310'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6311'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6401'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6402'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6403'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6404'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6405'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6406'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6407'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6408'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6409'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6410'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6411'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7000'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7001'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7002'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7003'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7004'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7005'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7006'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7007'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7008'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7009'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7010'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7011'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7101'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7102'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7103'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7104'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7105'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7106'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7107'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7108'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7109'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7110'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7111'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7201'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7202'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7203'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7204'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7205'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7206'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7207'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7208'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7209'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7210'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7211'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7301'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7302'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7303'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7304'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7305'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7306'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7307'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7308'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7309'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7310'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7311'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7401'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7402'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7403'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7404'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7405'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7406'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7407'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7408'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7409'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7410'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7411'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8000'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8001'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8002'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8003'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8004'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8005'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8006'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8007'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8008'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8009'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8010'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8011'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8101'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8102'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8103'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8104'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8105'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8106'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8107'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8108'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8109'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8110'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8111'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8201'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8202'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8203'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8204'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8205'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8206'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8207'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8208'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8209'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8210'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8211'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8301'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8302'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8303'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8304'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8305'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8306'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8307'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8308'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8309'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8310'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8311'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8401'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8402'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8403'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8404'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8405'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8406'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8407'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8408'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8409'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8410'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8411'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8429'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8431'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8432'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8434'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8435'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8436'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8437'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8438'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8439'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8440'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8441'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8442'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8443'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8444'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8445'
+
+Done in 1.24247908592s
+
+
+
+====================================
+Log started, 05/10/2009 02:10:24
+====================================
+
+DataProcessor object initialized
+3001_tr_id => 3001
+3001_tr_pid => 3000
+3001_tr_order => 0
+3001_tr_text => Version 1.14
+3001_!nativeeditor_status => updated
+ids => 3001
+
+Row data [3001]
+tr_id => 3001
+parentId => 3000
+tr_order => 0
+taskName => Version 1.14
+!nativeeditor_status => updated
+
+UPDATE tasks SET taskName='Version 1.14' WHERE taskId='3001' AND (parentId = '0')
+
+Edit operation finished
+0 => action:updated; sid:3001; tid:3001;
+
+Done in 0.00608205795288s
+
+
+
+====================================
+Log started, 05/10/2009 02:10:02
+====================================
+
+DataProcessor object initialized
+3101_tr_id => 3101
+3101_tr_pid => 3000
+3101_tr_order => 1
+3101_tr_text => Version 1.24
+3101_!nativeeditor_status => updated
+ids => 3101
+
+Row data [3101]
+tr_id => 3101
+parentId => 3000
+tr_order => 1
+taskName => Version 1.24
+!nativeeditor_status => updated
+
+UPDATE tasks SET taskName='Version 1.24' WHERE taskId='3101'
+
+Edit operation finished
+0 => action:updated; sid:3101; tid:3101;
+
+Done in 0.0436758995056s
+
+
+
+====================================
+Log started, 05/10/2009 02:10:11
+====================================
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '0'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1000'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1001'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1002'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1003'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1004'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1005'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1006'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1007'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1008'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1009'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1010'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1011'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1101'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1102'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1103'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1104'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1105'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1106'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1107'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1108'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1109'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1110'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1111'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1201'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1202'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1203'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1204'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1205'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1206'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1207'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1208'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1209'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1210'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1211'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1301'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1302'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1303'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1304'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1305'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1306'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1307'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1308'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1309'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1310'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1311'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1401'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1402'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1403'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1404'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1405'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1406'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1407'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1408'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1409'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1410'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '1411'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2000'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2001'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2002'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2003'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2004'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2005'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2006'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2007'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2008'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2009'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2010'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2011'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2101'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2102'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2103'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2104'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2105'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2106'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2107'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2108'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2109'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2110'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2111'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2201'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2202'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2203'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2204'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2205'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2206'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2207'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2208'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2209'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2210'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2211'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2301'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2302'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2303'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2304'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2305'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2306'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2307'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2308'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2309'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2310'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2311'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2401'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2402'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2403'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2404'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2405'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2406'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2407'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2408'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2409'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2410'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '2411'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3000'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3001'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3002'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3003'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3004'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3005'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3006'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3007'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3008'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3009'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3010'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3011'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3101'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3102'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3103'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3104'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3105'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3106'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3107'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3108'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3109'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3110'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3111'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3201'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3202'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3203'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3204'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3205'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3206'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3207'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3208'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3209'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3210'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3211'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3301'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3302'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3303'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3304'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3305'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3306'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3307'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3308'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3309'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3310'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3311'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3401'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3402'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3403'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3404'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3405'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3406'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3407'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3408'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3409'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3410'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '3411'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4000'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4001'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4002'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4003'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4004'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4005'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4006'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4007'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4008'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4009'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4010'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4011'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4101'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4102'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4103'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4104'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4105'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4106'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4107'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4108'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4109'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4110'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4111'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4201'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4202'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4203'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4204'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4205'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4206'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4207'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4208'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4209'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4210'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4211'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4301'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4302'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4303'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4304'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4305'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4306'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4307'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4308'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4309'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4310'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4311'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4401'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4402'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4403'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4404'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4405'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4406'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4407'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4408'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4409'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4410'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '4411'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5000'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5001'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5002'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5003'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5004'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5005'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5006'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5007'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5008'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5009'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5010'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5011'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5101'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5102'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5103'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5104'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5105'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5106'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5107'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5108'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5109'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5110'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5111'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5201'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5202'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5203'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5204'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5205'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5206'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5207'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5208'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5209'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5210'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5211'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5301'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5302'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5303'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5304'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5305'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5306'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5307'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5308'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5309'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5310'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5311'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5401'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5402'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5403'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5404'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5405'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5406'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5407'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5408'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5409'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5410'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '5411'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6000'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6001'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6002'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6003'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6004'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6005'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6006'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6007'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6008'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6009'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6010'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6011'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6101'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6102'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6103'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6104'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6105'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6106'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6107'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6108'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6109'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6110'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6111'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6201'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6202'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6203'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6204'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6205'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6206'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6207'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6208'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6209'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6210'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6211'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6301'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6302'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6303'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6304'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6305'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6306'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6307'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6308'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6309'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6310'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6311'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6401'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6402'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6403'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6404'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6405'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6406'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6407'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6408'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6409'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6410'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '6411'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7000'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7001'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7002'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7003'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7004'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7005'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7006'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7007'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7008'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7009'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7010'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7011'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7101'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7102'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7103'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7104'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7105'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7106'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7107'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7108'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7109'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7110'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7111'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7201'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7202'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7203'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7204'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7205'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7206'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7207'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7208'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7209'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7210'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7211'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7301'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7302'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7303'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7304'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7305'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7306'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7307'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7308'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7309'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7310'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7311'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7401'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7402'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7403'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7404'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7405'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7406'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7407'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7408'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7409'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7410'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '7411'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8000'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8001'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8002'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8003'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8004'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8005'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8006'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8007'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8008'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8009'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8010'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8011'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8101'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8102'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8103'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8104'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8105'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8106'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8107'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8108'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8109'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8110'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8111'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8201'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8202'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8203'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8204'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8205'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8206'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8207'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8208'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8209'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8210'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8211'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8301'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8302'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8303'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8304'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8305'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8306'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8307'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8308'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8309'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8310'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8311'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8401'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8402'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8403'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8404'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8405'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8406'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8407'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8408'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8409'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8410'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8411'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8429'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8431'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8432'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8434'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8435'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8436'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8437'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8438'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8439'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8440'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8441'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8442'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8443'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8444'
+
+SELECT taskId,parentId,taskName FROM tasks WHERE parentId = '8445'
+
+Done in 1.30004286766s
+

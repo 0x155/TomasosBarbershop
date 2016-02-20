@@ -1,0 +1,11 @@
+These are action items for the media queries to be written.
+These media queries are for when the screen resolution changes (i.e when the app is used on a mobile device)
+
+-The padding of the .field_labels ul needs to be set to 1em.
+.field_labels is the ul that contains all the form fields. 
+Setting the padding to 1em decreases the indent of the fields
+
+-The padding of the headers of the customer-history-table need to be shrunk
+Can't see the Close[x] link as is
+
+-Hr(s) and Mins labels - REMOVED
