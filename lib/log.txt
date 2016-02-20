@@ -20904,3 +20904,177 @@ SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL O
 
 Done in 0.0054807662963867s
 
+
+
+====================================
+Log started, 20/02/2016 08:31:06
+====================================
+
+SELECT id,start_date,end_date,text,EmployeeID,CustomerID,Notes,color,Unit_ID FROM Appointment WHERE start_date < '2016-02-22' AND end_date > '2016-02-15'
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0058908462524414s
+
+
+
+====================================
+Log started, 20/02/2016 08:31:11
+====================================
+
+DataProcessor object initialized
+581_id => 581
+581_start_date => 2016-02-20 10:00:00
+581_end_date => 2016-02-20 10:45:00
+581_text => Haircut --- Christian Maldonado
+581_EmployeeID => 2
+581_CustomerID => 267
+581_Notes => Moved to Tiara
+581_color => #FF887C
+581_Unit_ID => 2
+581_!nativeeditor_status => deleted
+ids => 581
+
+BEGIN
+
+Row data [581]
+id => 581
+start_date => 2016-02-20 10:00:00
+end_date => 2016-02-20 10:45:00
+text => Haircut --- Christian Maldonado
+EmployeeID => 2
+CustomerID => 267
+Notes => Moved to Tiara
+color => #FF887C
+Unit_ID => 2
+!nativeeditor_status => deleted
+
+DELETE FROM Appointment WHERE id='581'
+
+COMMIT
+
+Edit operation finished
+0 => action:deleted; sid:581; tid:581;
+
+Done in 0.011609077453613s
+
+
+
+====================================
+Log started, 20/02/2016 08:31:18
+====================================
+
+SELECT id,start_date,end_date,text,EmployeeID,CustomerID,Notes,color,Unit_ID FROM Appointment WHERE start_date < '2015-11-16' AND end_date > '2015-11-09'
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0029909610748291s
+
+
+
+====================================
+Log started, 20/02/2016 08:31:21
+====================================
+
+SELECT id,start_date,end_date,text,EmployeeID,CustomerID,Notes,color,Unit_ID FROM Appointment WHERE start_date < '2016-02-08' AND end_date > '2016-02-01'
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0031461715698242s
+
+
+
+====================================
+Log started, 20/02/2016 08:31:25
+====================================
+
+SELECT id,start_date,end_date,text,EmployeeID,CustomerID,Notes,color,Unit_ID FROM Appointment WHERE start_date < '2015-07-20' AND end_date > '2015-07-13'
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0037639141082764s
+
+
+
+====================================
+Log started, 20/02/2016 08:31:34
+====================================
+
+DataProcessor object initialized
+248_id => 248
+248_start_date => 2016-02-20 09:30:00
+248_end_date => 2016-02-20 10:30:00
+248_text => Color, Haircut, Shave --- John Messina
+248_EmployeeID => 2
+248_CustomerID => 26
+248_Notes => big john haircut, color, and shave
+248_color => #FF887C
+248_Unit_ID => 2
+248_!nativeeditor_status => updated
+ids => 248
+
+BEGIN
+
+Row data [248]
+id => 248
+start_date => 2016-02-20 09:30:00
+end_date => 2016-02-20 10:30:00
+text => Color, Haircut, Shave --- John Messina
+EmployeeID => 2
+CustomerID => 26
+Notes => big john haircut, color, and shave
+color => #FF887C
+Unit_ID => 2
+!nativeeditor_status => updated
+
+UPDATE Appointment SET start_date='2016-02-20 09:30:00',end_date='2016-02-20 10:30:00',text='Color, Haircut, Shave --- John Messina',EmployeeID='2',CustomerID='26',Notes='big john haircut, color, and shave',color='#FF887C',Unit_ID='2' WHERE id='248'
+
+COMMIT
+
+Edit operation finished
+0 => action:updated; sid:248; tid:248;
+
+Done in 0.030941963195801s
+
+
+
+====================================
+Log started, 20/02/2016 08:31:40
+====================================
+
+DataProcessor object initialized
+248_id => 248
+248_start_date => 2016-02-20 09:30:00
+248_end_date => 2016-02-20 10:30:00
+248_text => Color, Haircut, Shave --- John Messina
+248_EmployeeID => 1
+248_CustomerID => 26
+248_Notes => big john haircut, color, and shave
+248_color => #3A87AD
+248_Unit_ID => 1
+248_!nativeeditor_status => updated
+ids => 248
+
+BEGIN
+
+Row data [248]
+id => 248
+start_date => 2016-02-20 09:30:00
+end_date => 2016-02-20 10:30:00
+text => Color, Haircut, Shave --- John Messina
+EmployeeID => 1
+CustomerID => 26
+Notes => big john haircut, color, and shave
+color => #3A87AD
+Unit_ID => 1
+!nativeeditor_status => updated
+
+UPDATE Appointment SET start_date='2016-02-20 09:30:00',end_date='2016-02-20 10:30:00',text='Color, Haircut, Shave --- John Messina',EmployeeID='1',CustomerID='26',Notes='big john haircut, color, and shave',color='#3A87AD',Unit_ID='1' WHERE id='248'
+
+COMMIT
+
+Edit operation finished
+0 => action:updated; sid:248; tid:248;
+
+Done in 0.008983850479126s
+
