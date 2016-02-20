@@ -202,7 +202,10 @@ class DataRequestConfig{
 			name of source table
 	*/
 	public function set_source($value){
+// <<<<<<< HEAD
 		//error_log("Enter set_source. Value: " . $value);
+// =======
+// >>>>>>> e7ee64f4a276904979e06b7627144a8ee92ae819
 		if (is_string($value))
 			$value = trim($value);
 		$this->source = $value;
@@ -1121,8 +1124,11 @@ class MySQLDBDataWrapper extends DBDataWrapper{
 	}
 
 	public function fields_list($table) {
+// <<<<<<< HEAD
 		//$query = "SHOW COLUMNS FROM ".$table;
 		//$result = mysql_query($query);
+// =======
+// >>>>>>> e7ee64f4a276904979e06b7627144a8ee92ae819
 		$result = mysql_query("SHOW COLUMNS FROM `".$table."`");
 		if ($result===false) throw new Exception("MySQL operation failed\n".mysql_error($this->connection));
 

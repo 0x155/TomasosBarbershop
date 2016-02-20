@@ -944,4 +944,3 @@ class DistinctOptionsConnector extends OptionsConnector{
 		return $this->render_set($res);
 	}
 }
-?>

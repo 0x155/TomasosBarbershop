@@ -510,8 +510,12 @@
 .datepicker.datepicker-inline th,
 .datepicker.dropdown-menu td,
 .datepicker.datepicker-inline td {
+<<<<<<< HEAD
   /*padding: 4px 5px;
   NOTE: Change by CB, changed from 4px 5px to 10px 
   to increase space between days on datepicker*/
   padding: 10px;
+=======
+  padding: 4px 5px;
+>>>>>>> e7ee64f4a276904979e06b7627144a8ee92ae819
 }

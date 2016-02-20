@@ -515,4 +515,3 @@ class JSONTreeCommonDataItem extends TreeCommonDataItem{
 		return "";
 	}
 }
-?>
