@@ -17,7 +17,7 @@
 ![alt text](./../screenshots/new_customer_form.JPG)
 
 ### Adding Services to an Appointment
-Notice multiple services can be added for each appointment
+##### Notice multiple services can be added for each appointment
 ---
 ![alt text](./../screenshots/services.JPG)
 
