@@ -21,6 +21,7 @@ a customer, along with the details of all their visits in between.
 
 The database schema can be viewed [here] (./docs/schema.md)
 
+Visit [here](./docs/screenshots.md) for screenshots for the application
 
 This application is currently NOT used in a Production enviornment for any shop.
 

@@ -21078,3 +21078,147 @@ Edit operation finished
 
 Done in 0.008983850479126s
 
+
+
+====================================
+Log started, 22/02/2016 04:17:04
+====================================
+
+SELECT id,start_date,end_date,text,EmployeeID,CustomerID,Notes,color,Unit_ID FROM Appointment WHERE start_date < '2016-02-29' AND end_date > '2016-02-22'
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.020249843597412s
+
+
+
+====================================
+Log started, 22/02/2016 04:17:10
+====================================
+
+SELECT id,start_date,end_date,text,EmployeeID,CustomerID,Notes,color,Unit_ID FROM Appointment WHERE start_date < '2016-09-26' AND end_date > '2016-09-19'
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0030350685119629s
+
+
+
+====================================
+Log started, 22/02/2016 04:17:16
+====================================
+
+SELECT id,start_date,end_date,text,EmployeeID,CustomerID,Notes,color,Unit_ID FROM Appointment WHERE start_date < '2016-02-22' AND end_date > '2016-02-15'
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0030641555786133s
+
+
+
+====================================
+Log started, 22/02/2016 04:17:19
+====================================
+
+SELECT id,start_date,end_date,text,EmployeeID,CustomerID,Notes,color,Unit_ID FROM Appointment WHERE start_date < '2016-02-15' AND end_date > '2016-02-08'
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0054891109466553s
+
+
+
+====================================
+Log started, 22/02/2016 04:17:43
+====================================
+
+SELECT id,start_date,end_date,text,EmployeeID,CustomerID,Notes,color,Unit_ID FROM Appointment WHERE start_date < '2015-09-28' AND end_date > '2015-09-21'
+
+SELECT unit_id as value, name as label FROM Employee WHERE unit_id IS NOT NULL ORDER BY value
+
+Done in 0.0058748722076416s
+
+
+
+====================================
+Log started, 22/02/2016 04:17:57
+====================================
+
+DataProcessor object initialized
+423_id => 423
+423_start_date => 2015-09-24 11:45:00
+423_end_date => 2015-09-24 12:45:00
+423_text => Haircut --- George Costanza
+423_EmployeeID => 3
+423_CustomerID => 143
+423_Notes => asfasfad
+423_color => #F58839
+423_Unit_ID => 3
+423_!nativeeditor_status => updated
+ids => 423
+
+BEGIN
+
+Row data [423]
+id => 423
+start_date => 2015-09-24 11:45:00
+end_date => 2015-09-24 12:45:00
+text => Haircut --- George Costanza
+EmployeeID => 3
+CustomerID => 143
+Notes => asfasfad
+color => #F58839
+Unit_ID => 3
+!nativeeditor_status => updated
+
+UPDATE Appointment SET start_date='2015-09-24 11:45:00',end_date='2015-09-24 12:45:00',text='Haircut --- George Costanza',EmployeeID='3',CustomerID='143',Notes='asfasfad',color='#F58839',Unit_ID='3' WHERE id='423'
+
+COMMIT
+
+Edit operation finished
+0 => action:updated; sid:423; tid:423;
+
+Done in 0.009666919708252s
+
+
+
+====================================
+Log started, 22/02/2016 04:18:00
+====================================
+
+DataProcessor object initialized
+423_id => 423
+423_start_date => 2015-09-24 11:45:00
+423_end_date => 2015-09-24 12:45:00
+423_text => Haircut --- George Costanza
+423_EmployeeID => 3
+423_CustomerID => 143
+423_Notes => asfasfad
+423_color => #F58839
+423_Unit_ID => 3
+423_!nativeeditor_status => deleted
+ids => 423
+
+BEGIN
+
+Row data [423]
+id => 423
+start_date => 2015-09-24 11:45:00
+end_date => 2015-09-24 12:45:00
+text => Haircut --- George Costanza
+EmployeeID => 3
+CustomerID => 143
+Notes => asfasfad
+color => #F58839
+Unit_ID => 3
+!nativeeditor_status => deleted
+
+DELETE FROM Appointment WHERE id='423'
+
+COMMIT
+
+Edit operation finished
+0 => action:deleted; sid:423; tid:423;
+
+Done in 0.0097301006317139s
+
