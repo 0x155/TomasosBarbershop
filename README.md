@@ -14,7 +14,7 @@ a customer, along with the details of all their visits in between.
 * HTML/CSS
 * JavaScript
 * JQuery
-* DHTMLX Scheduler [documentation]
+* DHTMLX Scheduler ([documentation])
 * Bootstrap
 * PHP
 * MySQL
