@@ -2,6 +2,8 @@
 
 Welcome to the Git repository for the Barbershop Scheduler Application.
 
+![alt text](./screenshots/landing.JPG)
+
 ### Intro
 This codebase is for a web-based application which can be used by barbershops
 or hair salons in order to schedule, manage, and view their appointments. It
