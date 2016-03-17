@@ -8,9 +8,9 @@
 			/*
 			This PHP script will run when the user is searching for a customer from the main screen.
 			A query will be run to retireve customer information based on the name enetered by the user. If there is one customer returned,
-			then that customer's information (name, number, email) will be displayed, along with their visit history. 
+			then that customer's information (name, number, email) will be displayed, along with their visit history.
 			If no results are returned, the user is prompted if they want to add a new user.
-			If multiple results are returned, then a modal window appears with the results, and the user can select which customer to 
+			If multiple results are returned, then a modal window appears with the results, and the user can select which customer to
 			schedule the appointment with.
 			*/
 			require_once("common.php");
@@ -48,24 +48,24 @@
 
 						/*Need to set the value of the customer_name text field to be
 						the returned name from the search, otherwise the user can make appointment
-						with partial name that returned one match. 
-						This <scirpt> tag is inserted into the DOM, but is actually executed in the 
+						with partial name that returned one match.
+						This <scirpt> tag is inserted into the DOM, but is actually executed in the
 						customerSearch() function after the result is returned. Loading script tags into
 						the DOM does not execute JS scripts. JS eval method executes the JS.
-						*/ 
+						*/
 						//need to reset pointer since the foreach loop used above advances the pointer with each iteration
 						$returnedCustomer = reset($rs);
 						$returnedCustomerName = $returnedCustomer['Name'];
 						$returnedCustomerID = $returnedCustomer['ID'];
 						//error_log("returnedCustomerID: " . $returnedCustomerID);
 						echo "<script>".
-								"document.getElementById(\"customer_name\").value=\"" . htmlspecialchars_decode($returnedCustomerName) . "\";" . 
+								"document.getElementById(\"customer_name\").value=\"" . htmlspecialchars_decode($returnedCustomerName) . "\";" .
 							"</script>";
-					
+
 					//also show customer visit history
 					$customerHistory = Customer::getQuickCustomerHistory($returnedCustomerID);
 					$first_visit_date = Customer::getVistDate("first", $returnedCustomerID);
-					$last_visit_date = Customer::getVistDate("last", $returnedCustomerID);					
+					$last_visit_date = Customer::getVistDate("last", $returnedCustomerID);
 					$numVisits = count($customerHistory);
 
 					//only show this table if the customer has visited before
@@ -117,7 +117,7 @@
 							echo "</div>";
 
 							echo "<table id=\"cust_search_results_table\">";
-								echo "<tbody>";								
+								echo "<tbody>";
 									foreach ($rs as $customer) {
 										echo "<tr class=\"cust-search-row\">";
 											echo "<td><input type=\"radio\" name=\"cust_name\" value=\"". $customer['Name'] ."\"></td>";

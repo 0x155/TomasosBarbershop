@@ -25,7 +25,7 @@
 			$connection = connect();
 
 			$sql = "SELECT ID, Name, CellPhoneNumber, HomePhoneNumber, EmailAddress, HomeAddress, date_format(Birthday, \"%m/%d/%Y\") as Birthday, Notes " .
-					"FROM " . TBL_CUSTOMER . 
+					"FROM " . TBL_CUSTOMER .
 					" WHERE Name LIKE :customerName " .
 					"ORDER BY Name ASC";
 
@@ -35,12 +35,12 @@
 				$st->bindValue(":customerName", $customerName, PDO::PARAM_STR);
 
 				$st->execute();
-				
+
 				$rs = $st->fetchAll(PDO::FETCH_ASSOC);
 				return $rs;
 				/*
 				if size of $rs is 1, then check if the customer is a parent or child:
-				
+
 				SELECT Parent_ID FROM Parent where Parent.customerid = customerid
 				-if size of this is 1, then show children
 
@@ -57,17 +57,17 @@
 
 
 		public static function updateCustomerInfo($customer_id, $customer_name, $cell_phone_number, $email_addr){
-			
+
 			$connection = connect();
 
-			$sql_update_query = "UPDATE ". TBL_CUSTOMER . 
-								" SET Name=:name, EmailAddress=:email, CellPhoneNumber=:phone_number " . 
+			$sql_update_query = "UPDATE ". TBL_CUSTOMER .
+								" SET Name=:name, EmailAddress=:email, CellPhoneNumber=:phone_number " .
 								"WHERE ID=:id";
 
 			try{
 				$st = $connection->prepare($sql_update_query);
-				$st->bindValue(":id", $customer_id, PDO::PARAM_INT);	
-				$st->bindValue(":email", $email_addr, PDO::PARAM_STR);		
+				$st->bindValue(":id", $customer_id, PDO::PARAM_INT);
+				$st->bindValue(":email", $email_addr, PDO::PARAM_STR);
 				$st->bindValue(":phone_number", $cell_phone_number, PDO::PARAM_STR);
 				$st->bindValue(":name", $customer_name, PDO::PARAM_STR);
 				$st->execute();
@@ -87,8 +87,8 @@
 
 			$connection = connect();
 
-			$insert_customer_query = "INSERT INTO " . TBL_CUSTOMER . " (Name, Gender, CellPhoneNumber, HomePhoneNumber, EmailAddress, HomeAddress, 
-																		Birthday, Notes, AllowText, AllowEmail) " . 
+			$insert_customer_query = "INSERT INTO " . TBL_CUSTOMER . " (Name, Gender, CellPhoneNumber, HomePhoneNumber, EmailAddress, HomeAddress,
+																		Birthday, Notes, AllowText, AllowEmail) " .
 									"VALUES (:name, :gender, :cell_phone_number, :home_number, :email_address, :home_address, :birthday, :notes, :allow_text, :allow_email)";
 
 			try{
@@ -99,16 +99,16 @@
 				$st->bindValue(":home_number", $home_number, PDO::PARAM_STR);
 				$st->bindValue(":email_address", $email_address, PDO::PARAM_STR);
 				$st->bindValue(":home_address", $home_address, PDO::PARAM_STR);
-				
+
 				//If birthday is empty string, then 0000-00-00 gets inserted as date.
 				//If birthday is empty, bind it to null
 				if(empty($birthday)){
 					$st->bindValue(":birthday", null, PDO::PARAM_NULL);
 				}
 				else{
-					$st->bindValue(":birthday", $birthday, PDO::PARAM_STR);	
+					$st->bindValue(":birthday", $birthday, PDO::PARAM_STR);
 				}
-				
+
 				$st->bindValue(":notes", $notes, PDO::PARAM_STR);
 				$st->bindValue(":allow_text", $allow_text, PDO::PARAM_STR);
 				$st->bindValue(":allow_email", $allow_email, PDO::PARAM_STR);
@@ -128,7 +128,7 @@
 		This query queries the Appointment_Services table, which lists the services in each appointment (for 1NF).
 		As a result, each row will be a service and a date; therefore if an appointment has multiple services,
 		there will be a row for each service. This is used to show a quick view of the customer's history.
-		By default, the query returns the first 5 rows of the result. 
+		By default, the query returns the first 5 rows of the result.
 		In SQL, LIMIT x, y
 		Returns y number of rows starting with row number x+1 (the xth row is not shown)
 		*/
@@ -139,7 +139,7 @@
 			$query = "SELECT date_format(A.start_date, \"%m/%d/%Y\") as Appt_Date, E.Name as EmpName, AptSer.Service_Name as ServiceName, A.Notes " .
 						"FROM " . TBL_APPOINTMENT . " AS A, " . TBL_EMPLOYEE . " AS E, " . TBL_APPT_SERVICE . " AS AptSer, " . TBL_CUSTOMER . " AS C " .
 						"WHERE A.CustomerID = C.ID AND A.EmployeeID = E.ID AND A.ID = AptSer.Appt_ID  AND C.ID=:customer_ID " .
-						"ORDER BY Appt_Date DESC " .
+						"ORDER BY A.start_date DESC " .
 						"LIMIT :startRow, :numRows";
 
 			try{
@@ -149,14 +149,14 @@
 				$st->bindValue(":numRows", $numRows, PDO::PARAM_INT);
 
 				$st->execute();
-				
+
 				$rs = $st->fetchAll(PDO::FETCH_ASSOC);
 				return $rs;
 			}
 			catch(PDOException $e){
 				Util::quit("getQuickCustomerHistory", $e, $connection, true);
 			}
-			
+
 			disconnect($connection);
 		}
 
@@ -166,7 +166,7 @@
 		The query in getQuickCustomerHistory queries the Appointment_Services table,
 		so each service for the appointment is a new row. This query queries the Appointment
 		table, and will parse the Appointment.Text column to obtain a comma-seperated
-		list of services for each appointment. This makes it easier to read in the 
+		list of services for each appointment. This makes it easier to read in the
 		"View All Customer History" modal
 		*/
 		public static function getFullCustomerHistory($customerName, $startRow=0, $numRows=5){
@@ -177,9 +177,9 @@
 			//error_log("Type of customerID: " . gettype($customerID));
 			//SQL_CALC_FOUND_ROWS gets the total number of rows that would be returned w/out the LIMIT clause
 			$get_history_query = "SELECT SQL_CALC_FOUND_ROWS date_format(A.start_date, \"%m/%d/%Y\") as Appt_Date, E.Name as EmpName, A.Text as Services, A.Notes " .
-								"FROM " . TBL_APPOINTMENT . " AS A, " . TBL_EMPLOYEE . " AS E " . 
-								"WHERE A.CustomerID = " . $customerID . " AND E.ID = A.EmployeeID " . 
-								"ORDER BY Appt_Date DESC " .
+								"FROM " . TBL_APPOINTMENT . " AS A, " . TBL_EMPLOYEE . " AS E " .
+								"WHERE A.CustomerID = " . $customerID . " AND E.ID = A.EmployeeID " .
+								"ORDER BY A.start_date DESC " .
 								"LIMIT :startRow, :numRows";
 
 			//retrieves the total # of rows that would have been returned w/out the LIMIT clause
@@ -191,7 +191,7 @@
 				//Prepare and run query to get visits
 				$st = $connection->prepare($get_history_query);
 				$st->bindValue(":startRow", $startRow, PDO::PARAM_INT);
-				$st->bindValue(":numRows", $numRows, PDO::PARAM_INT);	
+				$st->bindValue(":numRows", $numRows, PDO::PARAM_INT);
 				$st->execute();
 				$rs = $st->fetchAll(PDO::FETCH_ASSOC);
 				$ret[] = $rs;
@@ -202,10 +202,10 @@
 				$rows = $st->fetch();
 				$ret[] = $rows['total_rows'];
 
-				return $ret;							
+				return $ret;
 			}
 			catch(PDOException $e){
-				Util::quit("getFullCustomerHistory", $e, $connection, true);				
+				Util::quit("getFullCustomerHistory", $e, $connection, true);
 			}
 
 			disconnect($connection);
@@ -222,21 +222,24 @@
 			//Else, return the most recent visit, so order date in descending order
 			$order = ($arg == "first") ? "ASC": "DESC";
 			$connection = connect();
-			$sql = "SELECT date_format(start_date, \"%m/%d/%Y\") visit_date " . 
-					"FROM " . TBL_APPOINTMENT . 
-					" WHERE CustomerID=:customer_id " . 
-					"ORDER BY visit_date " . $order . " LIMIT 1";
+			$sql = "SELECT date_format(start_date, \"%m/%d/%Y\") visit_date " .
+					"FROM " . TBL_APPOINTMENT .
+					" WHERE CustomerID=:customer_id " .
+					"ORDER BY start_date " . $order . " LIMIT 1";
+
+			error_log($sql);
 			try{
 				$st = $connection->prepare($sql);
 				$st->bindValue(":customer_id", $customer_ID, PDO::PARAM_INT);
 
-				$st->execute();	
+				$st->execute();
 
 				$rs = $st->fetch();
+				error_log($arg . " visit: " . $rs['visit_date']);
 				return $rs['visit_date'];
 			}
 			catch(PDOException $e){
-				Util::quit("getVistDate", $e, $connection, true);					
+				Util::quit("getVistDate", $e, $connection, true);
 			}
 
 			disconnect($connection);
@@ -254,7 +257,7 @@
 			$connection = connect();
 
 			$sql = "SELECT ID " .
-				   "FROM " . TBL_CUSTOMER . 
+				   "FROM " . TBL_CUSTOMER .
 				   " WHERE Name=:customerName";
 
 				//WHAT IF TWO CUSTOMERS HAVE THE SAME NAME?
@@ -265,13 +268,13 @@
 				$st->bindValue(":customerName", $customerNameIn, PDO::PARAM_STR);
 
 				$st->execute();
-				
+
 				$rs = $st->fetch();
 				return $rs['ID'];
 			}
 			catch(PDOException $e){
 				Util::quit("getCustomerID", $e, $connection, true);
-			} 
+			}
 
 			disconnect($connection);
 		}
@@ -283,7 +286,7 @@
 		*/
 		public static function getCustomerCellPhoneNumber($id){
 			$connection = connect();
-			$sql = "SELECT CellPhoneNumber 
+			$sql = "SELECT CellPhoneNumber
 					FROM " . TBL_CUSTOMER .
 					" WHERE ID=:id";
 
@@ -292,14 +295,14 @@
 				$st->bindValue(":id", $id, PDO::PARAM_INT);
 
 				$st->execute();
-				
+
 				$rs = $st->fetch();
-				return $rs['CellPhoneNumber'];				
-			} 
+				return $rs['CellPhoneNumber'];
+			}
 			catch (PDOException $e) {
-				//Do not exit here if there was an error - dont want to exit the script 
+				//Do not exit here if there was an error - dont want to exit the script
 				//just bc phone number wasnt available
-				Util::quit("getCustomerCellPhoneNumber", $e, $connection, false);			
+				Util::quit("getCustomerCellPhoneNumber", $e, $connection, false);
 			}
 
 			disconnect($connection);
@@ -320,20 +323,19 @@
 				$st->execute();
 				$numIDs = $st->fetch();
 				$numCustomers = $numIDs['Count'];
-				error_log("Result from customerNameExists: " . $numCustomers . ", Type: " . gettype($numCustomers));
 
 				//Return true if 1 result returned, false otherwise
 				if($numCustomers == "1"){
 					$ret = true;
 				}
 				return $ret;
-			} 
+			}
 			catch (PDOException $e) {
-				Util::quit("customerNameExists", $e, $connection, false);	
+				Util::quit("customerNameExists", $e, $connection, false);
 			}
 			disconnect($connection);
 		}
-	}	
+	}
 
 	//Class storing methods for all methods relating to Services
 	class Service{
@@ -343,7 +345,7 @@
 			$connection = connect();
 
 			$sql = "SELECT Name " .
-				   "FROM " . TBL_SERVICE . 
+				   "FROM " . TBL_SERVICE .
 				   " ORDER BY Name ASC";
 
 			try {
@@ -358,7 +360,7 @@
 
 			}
 			catch(PDOException $e){
-				//Do not exit here if there was an error - dont want to exit the script 
+				//Do not exit here if there was an error - dont want to exit the script
 				//just bc couldnt get services
 				//Looks worse for the user if the script exits
 				//note this also impacts the lightbox
@@ -379,7 +381,7 @@
 
 			try {
 				$st = $connection->query($sql);
-				
+
 				$rs = $st->fetchAll(PDO::FETCH_ASSOC);
 
 				foreach ($rs as $employee) {
@@ -402,7 +404,7 @@
 			$connection = connect();
 
 			$sql = "SELECT ID " .
-				   "FROM " . TBL_EMPLOYEE . 
+				   "FROM " . TBL_EMPLOYEE .
 				   " WHERE Name=:employeeName";
 
 				   //WHAT IF TWO EMPLOYEES HAVE THE SAME NAME?
@@ -412,7 +414,7 @@
 				$st->bindValue(":employeeName", $employeeNameIn, PDO::PARAM_STR);
 
 				$st->execute();
-				
+
 				$rs = $st->fetch();
 				return $rs['ID'];
 			}
@@ -427,7 +429,7 @@
 			$connection = connect();
 
 			$sql = "SELECT Unit_ID " .
-				   "FROM " . TBL_EMPLOYEE . 
+				   "FROM " . TBL_EMPLOYEE .
 				   " WHERE Name=:employeeName";
 
 				   //WHAT IF TWO EMPLOYEES HAVE THE SAME NAME?
@@ -437,16 +439,16 @@
 				$st->bindValue(":employeeName", $employeeNameIn, PDO::PARAM_STR);
 
 				$st->execute();
-				
+
 				//use fetch() here since only one row is to be returned
 				$rs = $st->fetch();
 				return $rs['Unit_ID'];
 			}
 			catch(PDOException $e){
 				Util::quit("getEmployeeUnitID", $e, $connection, true);
-			}	
+			}
 
-			disconnect($connection);		
+			disconnect($connection);
 		}
 	}
 
@@ -455,14 +457,14 @@
 	{
 
 		/*
-		Queries the Appointment_Service table for the list of services for a given 
+		Queries the Appointment_Service table for the list of services for a given
 		Appointment ID
 		*/
 		public static function getServices($apptID){
 
 			$connection = connect();
 
-			$select_services_query = "SELECT Service_Name FROM " . TBL_APPT_SERVICE . 
+			$select_services_query = "SELECT Service_Name FROM " . TBL_APPT_SERVICE .
 									" WHERE Appt_ID=:appt_ID";
 
 			try{
@@ -470,9 +472,9 @@
 				$st->bindValue(":appt_ID", $apptID, PDO::PARAM_INT);
 
 				$st->execute();
-				
+
 				$rs = $st->fetchAll(PDO::FETCH_ASSOC);
-				return $rs;				
+				return $rs;
 			}
 			catch(PDOException $e){
 				Util::quit("getServices", $e, $connection, false);
@@ -493,30 +495,30 @@
 				//false is the default, which opens and closes the connection each time
 				$conn->setAttribute(PDO::ATTR_PERSISTENT, true);
 				//This attribute tells PDO to throw exceptions on database errors, stopping the script if one occurs
-				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);		
-				//PDO::ATTR_EMULATE_PREPARES, false ??			
+				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				//PDO::ATTR_EMULATE_PREPARES, false ??
 			}
 			catch(PDOException $e){
 				Util::quit("connect", $e, $connection, true);
-			}			
+			}
 
 			$select_password_query = "SELECT ID, Password FROM " . TBL_USER .
 									" WHERE Username=:username";
-			
+
 			try{
 				$st = $conn->prepare($select_password_query);
 				$st->bindValue(":username", $username, PDO::PARAM_STR);
 
 				$st->execute();
-				
+
 				$rs = $st->fetchAll(PDO::FETCH_ASSOC);
-				return $rs;		
+				return $rs;
 			}
 			catch(PDOException $e){
 				Util::quit("getUserInfo", $e, $conn, true);
 			}
 
-			disconnect($conn);			
+			disconnect($conn);
 		}
 
 		public static function updateUserLastLogin($user_id, $date){
@@ -525,7 +527,7 @@
 			$update_login_query = "UPDATE " . TBL_USER .
 									" SET LastLogin=:date ".
 									" WHERE ID=:user_id";
-			
+
 			try{
 				$st = $connection->prepare($update_login_query);
 				$st->bindValue(":date", $date, PDO::PARAM_STR);
@@ -537,7 +539,7 @@
 				Util::quit("updateUserLastLogin", $e, $connection, false);
 			}
 
-			disconnect($connection);			
+			disconnect($connection);
 		}
 	}
 
@@ -585,7 +587,7 @@
 			disconnect($connection);
 			if($exit){
 				//Calling exit prints the message and then exits the current PHP script
-				exit("<p class=\"ajax_error\">There was an error processing your request</p>");				
+				exit("<p class=\"ajax_error\">There was an error processing your request</p>");
 			}
 		}
 	}
