@@ -11,8 +11,8 @@
 			//false is the default, which opens and closes the connection each time
 			$conn->setAttribute(PDO::ATTR_PERSISTENT, true);
 			//This attribute tells PDO to throw exceptions on database errors, stopping the script if one occurs
-			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);		
-			//PDO::ATTR_EMULATE_PREPARES, false ??			
+			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			//PDO::ATTR_EMULATE_PREPARES, false ??
 		}
 		catch(PDOException $e){
 			Util::quit("connect", $e, $connection, true);

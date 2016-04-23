@@ -226,8 +226,6 @@
 					"FROM " . TBL_APPOINTMENT .
 					" WHERE CustomerID=:customer_id " .
 					"ORDER BY start_date " . $order . " LIMIT 1";
-
-			error_log($sql);
 			try{
 				$st = $connection->prepare($sql);
 				$st->bindValue(":customer_id", $customer_ID, PDO::PARAM_INT);
@@ -487,9 +485,8 @@
 	//This class stores functions related to the User table (login, update, etc)
 	class User{
 		public static function getUserInfo($username){
-			//$connection = connect();
 			try{
-				$conn = new PDO(DB_DSN, "root", "");
+				$conn = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
 
 				//This keeps the MySQL connection open for reuse by other parts of the app
 				//false is the default, which opens and closes the connection each time
