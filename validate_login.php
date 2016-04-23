@@ -18,6 +18,7 @@
 		date_default_timezone_set('America/New_York');
 		$date = date('Y-m-d H:i:s');
 		$update_dates = User::updateUserLastLogin((int)$user['ID'], $date);
+		echo "valid";
 	}
 	else{
 		echo "<p>Invalid Username and Password</p>";
