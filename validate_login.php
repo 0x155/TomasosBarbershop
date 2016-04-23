@@ -3,7 +3,7 @@
 
 	$user_name = $_POST['username'];
 	$password = $_POST['password'];
-	
+
 	//get hash for the entered username
 	$user_info = User::getUserInfo($user_name);
 	$user = current($user_info);
@@ -18,7 +18,6 @@
 		date_default_timezone_set('America/New_York');
 		$date = date('Y-m-d H:i:s');
 		$update_dates = User::updateUserLastLogin((int)$user['ID'], $date);
-		echo "valid";
 	}
 	else{
 		echo "<p>Invalid Username and Password</p>";

@@ -3,7 +3,7 @@
 <head>
 
 	<title>Tomaso's Barbershop</title>
-	
+
 	<link rel="stylesheet" type="text/css" href="stylesheets\shop_stylesheet.css"/>
 	<link rel="stylesheet" type="text/css" href="stylesheets\media_queries.css">
 	<link rel="stylesheet" type="text/css" href="lib\bootstrap\css\bootstrap.min.css"/>
@@ -11,7 +11,7 @@
 	<!-- bootstrap version is 3.2 -->
 	<!-- JQuery version is 2.1 -->
 	<script type="text/javascript" src="jquery\jquery-2.1.1.js"></script>
-	<script type="text/javascript" src="lib\bootstrap\js\bootstrap.js"></script>	
+	<script type="text/javascript" src="lib\bootstrap\js\bootstrap.js"></script>
 
 	<script type="text/javascript" src="lib\login_page.js"></script>
 	<script type="text/javascript" src="lib\ajax_functions.js"></script>
@@ -24,16 +24,6 @@
 		<input type="password" class="form-control" id="password" placeholder="Password" onkeyup="checkEnter(event)">
 		<button type="button" id="login_submit_btn" class="btn_default_cb" onclick="validateLogIn()">Enter</button>
 		<div id="login_results"></div>
-		
-
-		<!--
-		<form action="register_user.php" method="POST">
-			<input type="text" class="form-control" name="new_username" placeholder="New Username">
-			<input type="text" class="form-control" name="new_password" placeholder="New Password">
-			<button type="submit" id="register_user_btn" class="btn_default_cb">Enter</button>				
-		</form>
-		-->
-
 
 		<p id="login_fields_blank_msg" class="login_msgs error_msg">Please Enter All Fields</p>
 		<p id="login_failed_msg" class="login_msgs error_msg">Login Failed</p>
