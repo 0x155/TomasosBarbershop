@@ -1,20 +1,17 @@
 <?php
-	define("DB_DSN", "mysql:dbname=tomasosbarbershop_test");
-	//define("DB_DSN", "mysql:host=cvps6706735910.hostwindsdns.com;dbname=zadmin_tomasosbarbershopprod");
+	require_once("secrets.php");
 
-	//Have ROOT_USER and ROOT_PASSWORD variables set
-
-
-	define("DB_USERNAME", "root"); //$_SESSION['username']
-	define("DB_PASSWORD", "");
-	define("TBL_CUSTOMER", "Customer");	
-	define("TBL_APPOINTMENT", "Appointment");
-	define("TBL_APPOINTMENT_ORIG", "Appointment_Orig");
-	define("TBL_EMPLOYEE", "Employee");
-	define("TBL_SERVICE", "Service");
-	define("TBL_PARENT", "Parent");
-	define("TBL_CHILD", "Child");
-	define("TBL_APPT_SERVICE", "Appointment_Service");
-	define("TBL_APPT_SERVICE_ORIG", "Appointment_Service_Orig");
-	define("TBL_USER", "User");
+	define("DB_DSN", "mysql:dbname=".$secrets["db_name"]);
+	define("DB_USERNAME", $secrets["db_username"]); //$_SESSION['username']
+	define("DB_PASSWORD", $secrets["db_password"]);
+	define("TBL_CUSTOMER", "customer");
+	define("TBL_APPOINTMENT", "appointment");
+	define("TBL_APPOINTMENT_ORIG", "appointment_orig");
+	define("TBL_EMPLOYEE", "employee");
+	define("TBL_SERVICE", "service");
+	define("TBL_PARENT", "parent");
+	define("TBL_CHILD", "child");
+	define("TBL_APPT_SERVICE", "appointment_service");
+	define("TBL_APPT_SERVICE_ORIG", "appointment_service_orig");
+	define("TBL_USER", "user");
 ?>
