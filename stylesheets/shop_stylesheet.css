@@ -2,9 +2,9 @@ html, body {
   height: 100%;
 }
 
-body {
-	font-family: proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 24px;
+html, body, div {
+  font-family: proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*font-size: 24px;*/
 }
 
 /*--CSS for the login page ---*/
@@ -190,7 +190,7 @@ body {
   border-color: transparent;
 }
 
-/* These items will be initially hidden, 
+/* These items will be initially hidden,
 then displayed based on search results */
 .customer-history {
   margin-top: 1.0em;
@@ -387,7 +387,7 @@ html, body, .grid, .row, #calender-column {
 
 /* DHTMLX Scheduler */
 #scheduler_here {
-  height:95%; 
+  height:95%;
   border-bottom:1px solid #CECECE;
   width:100%;
 }
@@ -406,7 +406,7 @@ html, body, .grid, .row, #calender-column {
   overflow:auto;
 }
 
-.dhx_cal_today_button:hover, 
+.dhx_cal_today_button:hover,
 .dhx_cal_prev_button:hover,
 .dhx_cal_next_button:hover {
   background-color:#EFEFEF;
@@ -414,13 +414,13 @@ html, body, .grid, .row, #calender-column {
 
 /*Styles for add new customer modal screen */
 .modal_wrapper {
-  position: fixed; 
+  position: fixed;
   left: 0px;
   top: 0px;
   width:100%;
   height:100%;
   background-color: rgba(0, 0, 0, 0.5); /* last value is opacity */
-  z-index: 1000; 
+  z-index: 1000;
 }
 
 #modal_wrapper_new_customer {
@@ -436,7 +436,7 @@ html, body, .grid, .row, #calender-column {
 
 #modal_new_customer {
   max-width: 675px;
-  /*50px sets the margin for top/bottom. 
+  /*50px sets the margin for top/bottom.
   The auto is for left/right to center the object
   http://learnlayout.com/margin-auto.html*/
   margin: 50px auto;
@@ -485,8 +485,8 @@ set to width: 100% by default */
   width:150px;
 }
 
-#new_cust_email { 
-  width:200px; 
+#new_cust_email {
+  width:200px;
 }
 
 #new_cust_birthday_row * {
@@ -504,7 +504,7 @@ set to width: 100% by default */
 }
 
 #new_cust_address {
-  width: 230px; 
+  width: 230px;
 }
 
 #new_cust_address_label {
@@ -675,7 +675,7 @@ set to width: 100% by default */
 
 .modal_btns {
   width:120px;
-  margin-right: 2.0em;  
+  margin-right: 2.0em;
 }
 
 #no_cust_selected_msg {
@@ -684,7 +684,7 @@ set to width: 100% by default */
 
 .badField{
   /*Need !important here to apply this rule since the Bootstrap
-  styles would otherwise override it 
+  styles would otherwise override it
   https://css-tricks.com/when-using-important-is-the-right-choice/*/
   border:2px solid #FF0000 !important;
 }
@@ -763,7 +763,7 @@ which is the most common service*/
 
 /*----Styling for custom lightbox----------*/
 #custom_lightbox{
-  /*NOTE: Changed opacity for the dhx_cal_cover class from 0.1 to 0.5 in the 
+  /*NOTE: Changed opacity for the dhx_cal_cover class from 0.1 to 0.5 in the
   dhtmlxscheduler.css file*/
   /*absolute positions an element relative to the first parent
   that is not positioned static. If none are found, then html is used */

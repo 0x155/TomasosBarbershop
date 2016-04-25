@@ -1,21 +1,19 @@
 <?php
-	/* This PHP script loads data from the database to be displayed by the calendar
+	/* This PHP script loads data from the database to be displayed by the calendar.
 	The data that is retrieved includes the name of each of the units (employees),
 	as well as the appointments from the Appointments table. */
 
-	require("..\\common.php");
-	require_once("..\\config.php");
-	require("dhtmlxScheduler_v4.2.0\codebase\connector\scheduler_connector.php");
-	require("dhtmlxScheduler_v4.2.0\codebase\connector\db_pdo.php");
+	require("../common.php");
+	require_once("../config.php");
+	require("dhtmlxScheduler_v4.2.0/codebase/connector/scheduler_connector.php");
+	require("dhtmlxScheduler_v4.2.0/codebase/connector/db_pdo.php");
 
 	$res = connect();
 
 	$list = new OptionsConnector($res, "PDO");
 	//This query populates the names of the units (employee names), ordered by their unit_id, which is stored
 	//in the database, and is DIFFERENT from the Employee.ID primary key
-	//TO-DO: find a way to prevent against SQL injection here
-	//might not be needed since there is no input from user is used to generate this query
-	$list->render_complex_sql("SELECT unit_id as value, name as label FROM " . TBL_EMPLOYEE . " WHERE unit_id IS NOT NULL ORDER BY value", 
+	$list->render_complex_sql("SELECT unit_id as value, name as label FROM " . TBL_EMPLOYEE . " WHERE unit_id IS NOT NULL ORDER BY value",
 									"id", "unit_id(value), name(label)");
 
 
@@ -55,17 +53,16 @@
 	}
 
 	$calendar = new SchedulerConnector($res, "PDO");
-	
+
 	//This allows actions to be commited as one transaction
 	//Seperate transaction for each request
 	//http://docs.dhtmlx.com/connector__php__complex_queries.html#transactions
 	$calendar->sql->set_transaction_mode("global");
-	
+
 	//Attaches afterInsert event to a function which will insert records into Appointment_Services table
 	$calendar->event->attach("afterInsert", "insertIntoApptService");
 
-	//TO-DO: append today's date to log file name? that way its a new file each day
-	$calendar->enable_log("log.txt",true);
+	$calendar->enable_log("../logs/log.txt",true);
 	$calendar->set_options("Unit_ID", $list);
-	$calendar->render_table("Appointment", "id", "start_date, end_date, text, EmployeeID, CustomerID, Notes, color, Unit_ID");
+	$calendar->render_table(TBL_APPOINTMENT, "id", "start_date, end_date, text, EmployeeID, CustomerID, Notes, color, Unit_ID");
 ?>
