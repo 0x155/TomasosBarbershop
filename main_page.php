@@ -46,8 +46,7 @@
 
 	<body>
 		<?php
-		session_start();
-		if( (isset($_SESSION['logged_in'])) && ($_SESSION['logged_in'] == true) ){
+		if(isset($_COOKIE['logged_in']) && $_COOKIE['logged_in'] == "true") {
 		?>
 		<div class="grid">
 			<!-- http://getbootstrap.com/css/#grid-options -->
@@ -56,7 +55,7 @@
 				http://www.schmalz.io/2014/10/08/Column-Ordering-in-Bootstrap/-->
 				<div class="col-md-8 col-md-push-4" id="calender-column">
 					<div id="top_nav_user_info">
-						<p id="user-greeting">Logged in as: <?php echo $_SESSION['username']?></p>
+						<p id="user-greeting">Logged in as: <?php echo $_COOKIE['username']?></p>
 						<button id="log-out-link" class="dhx_cal_today_button" onclick="logOut()">Log Out</button>
 						<div id="log-out-results"></div>
 					</div>
@@ -76,7 +75,7 @@
 					        <div class="dhx_cal_date"></div>
 					    </div>
 					    <div class="dhx_cal_header"></div>
-					    <div class="dhx_cal_data"></div>       
+					    <div class="dhx_cal_data"></div>
 					</div>
 				</div>
 
@@ -95,7 +94,7 @@
 							<div id="customer_search_results"></div>
 							<li id="customer_history">
 						</li>
-						
+
 						<!--<li id="customer_search_results"></li>-->
 
 						<!--<li id="customer_history"></li>-->
@@ -156,7 +155,7 @@
 									<a href="#" id="new-service-plus" onclick="addNewServiceLine()">
 										<span class="glyphicon glyphicon-plus-sign" style="font-size:2.5em;top:12px;"></span>
 									</a>
-								</div>	
+								</div>
 							</div>
 						</li>
 
@@ -247,14 +246,14 @@
 								<td><input type="tel" id="new_cust_cell_phone"  placeholder="Cell Phone" class="form-control"></td>
 								<td><label for="new_cust_home_phone" id="new_cust_home_phone_label" class="right_col">Home Phone:</label></td>
 								<td><input type="tel" id="new_cust_home_phone"  placeholder="Home Phone" class="form-control"></td>
-							</tr>					
+							</tr>
 							<tr>
 								<!--prefill email with "@" ?-->
 								<td><label for="new_cust_email" id="new_cust_email_label">Email:</label></td>
 								<td><input type="email" id="new_cust_email" placeholder="Email" class="form-control"></td>
 								<td><label for="new_cust_address" id="new_cust_address_label" class="right_col">Home Address:</label></td>
 								<td><input type="text" id="new_cust_address"  placeholder="Address" class="form-control"></td>
-							</tr>							
+							</tr>
 							<tr>
 								<td><label for="new_cust_birthday">Birthday:</label></td>
 								<td id="new_cust_birthday_row">
@@ -289,11 +288,11 @@
 							<p>Does this customer have children?<p>
 							<input type="checkbox" id="new_cust_has_children" name="newCustHasChildren" value="true">Yes
 						</div>
-					
+
 						<div class="form-inline form-group add_new_cust_child_fields">
 							<label for="new_cust_child_name">*Name:</label>
 							<input type="text" id="new_cust_child_name" placeholder="Name" class="form-control">
-							
+
 							<label for="new_cust_child_gender">Gender:</label>
 							<input type="radio" name="new_cust_child_gender" value="Male">M
 							<input type="radio" name="new_cust_child_gender" value="Female">F
@@ -305,7 +304,7 @@
 							<input type="text" id="new_cust_child_email" placeholder="Email" class="form-control">
 
 							<label for="new_cust_child_birthday">Birthday:</label>
-							<input type="text" id="new_cust_child_birthday" placeholder="Birthday" class="form-control new_cust_birthday_field">						
+							<input type="text" id="new_cust_child_birthday" placeholder="Birthday" class="form-control new_cust_birthday_field">
 
 							user can click plus sign to add another line entry (another child)
 							<a href="#" onclick="addNewCustChildLine()">
@@ -321,7 +320,7 @@
 						</div>
 						-->
 					</div>
-					
+
 
 					<!--<input type="submit" class="btn_default_cb" onclick="return addNewCustomer()" value="Add Customer">-->
 					<button type="button" class="btn_default_cb" onclick="addNewCustomer()" id="addNewCustomerButton">Add Customer</button>
@@ -391,11 +390,10 @@
 					<button class="btn_default_cb" id="lightbox-cancel-btn" onclick="close_form()">Cancel</button>
 					<button class="btn_default_cb" id="lightbox-delete-btn" onclick="delete_event()">Delete
 						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-					</button>						
+					</button>
 				</div>
 
 				<div>
-					<!--<br>-->
 					<p id="lightbox-conflict-error" class="lightbox_error_msgs error_msg">There is already an appointment scheduled for that time</p>
 					<p id="lightbox-services-error" class="lightbox_error_msgs error_msg">Note: You did not enter any services</p>
 					<p id="lightbox-time-error" class="lightbox_error_msgs error_msg">Note: Entered start time is greater than end time</p>
@@ -409,8 +407,7 @@
 		}
 		else{
 		?>
-			<p>You must log in to the system in order to access this page</p>
-			<!--Redirect to login page?-->
+			<script>window.location.href = "index.html";</script>
 		<?php
 		}
 		?>
