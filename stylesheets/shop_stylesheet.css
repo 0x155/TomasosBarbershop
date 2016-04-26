@@ -865,8 +865,14 @@ which are selected */
 }
 /*-----------------------------------------*/
 
-.customMsgBox {
-  top:50px !important;
+/* These are the stlying rules for the DHTMLX Messages
+which appear when an appointment is deleted or created */
+.dhtmlx-msgWindow,
+.dhtmlx-error {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 220px;
 }
 
 .selectedService{
