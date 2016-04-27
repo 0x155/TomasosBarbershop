@@ -14,7 +14,7 @@
 	require_once("common.php");
 
 	//This Customer class contains any methods related to Customers (data, id, history, etc.)
-	class Customer{
+	class Customer {
 
 		/*
 		This function returns customer information (name, cell number, and email)
@@ -336,7 +336,7 @@
 	}
 
 	//Class storing methods for all methods relating to Services
-	class Service{
+	class Service {
 		/* This function runs a query to get the names of all services.
 		This is used to populate the options of the Type of Service dropdown. */
 		public static function getServices($element){
@@ -370,7 +370,7 @@
 	}
 
 	//Class storing methods for all methods relating to Employees
-	class Employee{
+	class Employee {
 		public static function getEmployeeNames(){
 			$connection = connect();
 
@@ -451,8 +451,7 @@
 	}
 
 	//Class storing methods for all methods relating to Appointments
-	class Appointment
-	{
+	class Appointment {
 
 		/*
 		Queries the Appointment_Service table for the list of services for a given
@@ -483,7 +482,7 @@
 	}
 
 	//This class stores functions related to the User table (login, update, etc)
-	class User{
+	class User {
 		public static function getUserInfo($username){
 			try{
 				$conn = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
@@ -541,7 +540,7 @@
 	}
 
 	//This class stores functions that are used throughout the app (not specific to Customers, Appointments, etc.)
-	class Util{
+	class Util {
 		/*
 		This function is used when getting full customer visit history.
 		It parses the text field of an appointment - "Haircut -- Christian Bonacore"
