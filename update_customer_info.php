@@ -4,7 +4,8 @@
 	//This is done when the user updates customer info from the customer search results
 
 	require_once("common.php");
-	require_once("Scheduler.php");
+	require_once("Util.php");
+	require_once("Customer.php");
 
 	$customer_ID = $_POST['customerID'];
 	$customer_name = trim($_POST['customerName']);
@@ -12,10 +13,6 @@
 	$email_addr = htmlspecialchars($_POST['email']);
 	$valid = true;
 	$error_msgs = "";
-	
-	//$connection = connect();
-
-	//error_log("CustomerID: " . $customer_ID . ", CustomerName: " . $customer_name);
 
 	//Validate phone number
 	if( !(Util::validatePhoneNumber($cell_phone_number)) ){

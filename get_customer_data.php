@@ -14,7 +14,7 @@
 			schedule the appointment with.
 			*/
 			require_once("common.php");
-			require_once("Scheduler.php");
+			require_once("Customer.php");
 
 			$connection = connect();
 

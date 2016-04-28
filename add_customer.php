@@ -1,28 +1,14 @@
 <?php
-	/*
-	This script will add a new customer into the database
-	*/
+
+	//This script will add a new customer into the database
+
 	require_once("common.php");
-	require_once("Scheduler.php");
+	require_once("Util.php");
+	require_once("Customer.php");
 
 	$valid = true;
 	$error_msgs = "";
 
-	/*
-	error_log("---Hi from add_customer.php---");
-	//error_log($_POST['submit']);
-	error_log(htmlspecialchars($_POST['customer_name']));
-	error_log($_POST['gender']);
-	error_log(htmlspecialchars($_POST['cell_number']));
-	error_log(htmlspecialchars($_POST['home_number']));
-	error_log(htmlspecialchars($_POST['email']));
-	error_log(htmlspecialchars($_POST['home_address']));
-	error_log($_POST['birthday']);
-	error_log(htmlspecialchars($_POST['notes']));
-	error_log($_POST['allow_text']);
-	error_log($_POST['allow_email']);
-	error_log("------");
-	*/
 	//Only use htmlspecialchars for fields the user enters with text
 	//This includes name, cell/home number, email, home address, and notes
 	//gender, birthday, and allowtext/email are entered via other controls
@@ -51,13 +37,13 @@
 	//Use method from Util class to validate phone numbers
 	if(!(Util::validatePhoneNumber($cell_number))){
 		$valid = false;
-		$error_msgs .= "<p class=\"ajax_error\">Please enter a valid Cell Phone Number</p><br>";			
+		$error_msgs .= "<p class=\"ajax_error\">Please enter a valid Cell Phone Number</p><br>";
 	}
 
 	//Home Phone
 	if(!(Util::validatePhoneNumber($home_number))){
 		$valid = false;
-		$error_msgs .= "<p class=\"ajax_error\">Please enter a valid Home Phone Number</p><br>";			
+		$error_msgs .= "<p class=\"ajax_error\">Please enter a valid Home Phone Number</p><br>";
 	}
 
 	//Email
@@ -102,7 +88,7 @@
 			echo $error_msgs;
 		}
 		else{
-			$added = Customer::addNewCustomer($customer_name, $gender, $cell_number, $home_number, $email_address, $home_address, 
+			$added = Customer::addNewCustomer($customer_name, $gender, $cell_number, $home_number, $email_address, $home_address,
 										$birthday, $notes, $allow_text, $allow_email);
 
 			if($added){
@@ -115,9 +101,7 @@
 		}
 	}
 	else{
-		//return error messages;
 		echo $error_msgs;
 	}
-	//check if customer name already exisits
 
 ?>

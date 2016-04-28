@@ -1,5 +1,5 @@
 <?php
-	require_once("Scheduler.php");
+	require_once("User.php");
 
 	$user_name = $_POST['username'];
 	$password = $_POST['password'];
@@ -10,6 +10,7 @@
 	$valid = password_verify($password, $user['Password']);
 
 	if($valid){
+		error_log("---logged in---");
 		setcookie('logged_in', "true", 0);
 		setcookie('username', $user_name);
 

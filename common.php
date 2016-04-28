@@ -1,6 +1,6 @@
 <?php
 	require("config.php");
-	require_once("Scheduler.php");
+	require_once("Util.php");
 
 	//connects to database, or fails if connection fails
 	function connect(){
