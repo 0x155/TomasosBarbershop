@@ -28,15 +28,6 @@
 
 				$rs = $st->fetchAll(PDO::FETCH_ASSOC);
 				return $rs;
-				/*
-				if size of $rs is 1, then check if the customer is a parent or child:
-
-				SELECT Parent_ID FROM Parent where Parent.customerid = customerid
-				-if size of this is 1, then show children
-
-				SELECT Child_ID FROM Children where Children.customerid = customerid
-				-if size of this is 1, then show parent(s)
-				*/
 			}
 			catch(PDOException $e){
 				Util::quit("getCustomerInfo", $e, $connection, true);
@@ -46,6 +37,9 @@
 		}
 
 
+    /*
+    Updates customer info. Just Name, Email, CellPhoneNumber for now.
+    */
 		public static function updateCustomerInfo($customer_id, $customer_name, $cell_phone_number, $email_addr){
 
 			$connection = connect();
@@ -200,11 +194,9 @@
 			disconnect($connection);
 		}
 
-		//Get the first visit date for a customer
-		//Get the last visit date for a customer
 		/*
 		This will return either the most recent, or first visit date for a given
-		customerID. Whether it is first or last depends on the first argument.
+		customerID. Whether it is first or last depends on the value of $arg.
 		*/
 		public static function getVistDate($arg, $customer_ID){
 			//If the argument is "first", then return the first visit, so order date in ascending order
@@ -236,8 +228,6 @@
 		Returns the ID of the entered customer from the Customer table.
 		The ID is the primary key for the table and is needed when doing tasks such
 		as creating an appointment
-
-		WHY IS THIS NOT STATIC?
 		*/
 		function getCustomerID($customerNameIn){
 

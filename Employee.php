@@ -38,8 +38,6 @@
            "FROM " . TBL_EMPLOYEE .
            " WHERE Name=:employeeName";
 
-           //WHAT IF TWO EMPLOYEES HAVE THE SAME NAME?
-
       try {
         $st = $connection->prepare($sql);
         $st->bindValue(":employeeName", $employeeNameIn, PDO::PARAM_STR);
@@ -62,8 +60,6 @@
       $sql = "SELECT Unit_ID " .
            "FROM " . TBL_EMPLOYEE .
            " WHERE Name=:employeeName";
-
-           //WHAT IF TWO EMPLOYEES HAVE THE SAME NAME?
 
       try {
         $st = $connection->prepare($sql);
