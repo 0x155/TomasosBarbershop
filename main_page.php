@@ -55,6 +55,9 @@
 				http://www.schmalz.io/2014/10/08/Column-Ordering-in-Bootstrap/-->
 				<div class="col-md-8 col-md-push-4" id="calender-column">
 					<div id="top_nav_user_info">
+						<p>
+							REFACTOR BRANCH
+						</p>
 						<p id="user-greeting">Logged in as: <?php echo $_COOKIE['username']?></p>
 						<button id="log-out-link" class="dhx_cal_today_button" onclick="logOut()">Log Out</button>
 						<div id="log-out-results"></div>
@@ -147,7 +150,7 @@
 										<option value=""></option>
 										<!--Get options for service from database -->
 										<?php
-											require_once("Scheduler.php");
+											require_once("Service.php");
 											Service::getServices("option");
 										?>
 									</select>
@@ -165,7 +168,7 @@
 								<option value=""></option>
 								<?php
 									//Employees are returned from DB in order of unit id
-									require_once("Scheduler.php");
+									require_once("Employee.php");
 									Employee::getEmployeeNames();
 								?>
 							</select>
@@ -368,7 +371,7 @@
 							<!--TO-DO: add light grey top and bottom border around this -->
 							<ul id="lightbox-service-list">
 								<?php
-									require_once("Scheduler.php");
+									require_once("Service.php");
 									Service::getServices("li");
 								?>
 							</ul>
