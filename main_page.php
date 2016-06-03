@@ -55,9 +55,6 @@
 				http://www.schmalz.io/2014/10/08/Column-Ordering-in-Bootstrap/-->
 				<div class="col-md-8 col-md-push-4" id="calender-column">
 					<div id="top_nav_user_info">
-						<p>
-							REFACTOR BRANCH
-						</p>
 						<p id="user-greeting">Logged in as: <?php echo $_COOKIE['username']?></p>
 						<button id="log-out-link" class="dhx_cal_today_button" onclick="logOut()">Log Out</button>
 						<div id="log-out-results"></div>

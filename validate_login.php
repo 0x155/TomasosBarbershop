@@ -10,7 +10,6 @@
 	$valid = password_verify($password, $user['Password']);
 
 	if($valid){
-		error_log("---logged in---");
 		setcookie('logged_in', "true", 0);
 		setcookie('username', $user_name);
 
