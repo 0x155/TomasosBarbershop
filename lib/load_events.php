@@ -4,9 +4,10 @@
 	as well as the appointments from the Appointments table. */
 
 	require("../common.php");
-	require_once("../config.php");
+	// require_once("../config.php");
 	require("dhtmlxScheduler_v4.2.0/codebase/connector/scheduler_connector.php");
 	require("dhtmlxScheduler_v4.2.0/codebase/connector/db_pdo.php");
+	// require("dhtmlxScheduler_v4.2.0/codebase/connector/db_sqlite3.php");
 
 	$res = connect();
 
@@ -53,6 +54,7 @@
 	}
 
 	$calendar = new SchedulerConnector($res, "PDO");
+	// $calendar = new SchedulerConnector($res, "SQLite3");
 
 	//This allows actions to be commited as one transaction
 	//Seperate transaction for each request
