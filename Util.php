@@ -16,7 +16,7 @@
     }
 
     /*
-    This method gets rid of dashes and parentheses in a given phone numer.
+    This method gets rid of dashes, parentheses, and spaces in a given phone numer.
     This is done to the phone number entered by the user when searching
     for a customer by phone number. Phone numbers in the database are stored
     without these symbols.
@@ -43,7 +43,7 @@
       }
 
       //Phone number is valid if it contains all digits, and is of either length 7 or 10
-      if( (preg_match($phone_number_regex, $number)) &&  ((strlen($number) == 7) || (strlen($number) == 10))   ){
+      if( (preg_match($phone_number_regex, $number)) && (strlen($number) == 10) ){
         $ret = true;
       }
 

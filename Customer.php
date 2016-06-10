@@ -44,7 +44,6 @@
 
       // Remove all symbols from the number entered by user
       $number = Util::stripPhoneNumber($number);
-      error_log("Number stripped: " . $number);
 
       $sql = "SELECT ID, Name, CellPhoneNumber, HomePhoneNumber, EmailAddress, HomeAddress, date_format(Birthday, \"%m/%d/%Y\") as Birthday, Notes " .
 					"FROM " . TBL_CUSTOMER .
