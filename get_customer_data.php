@@ -9,6 +9,7 @@
 	*/
 	require_once("common.php");
 	require_once("Customer.php");
+	require_once("Util.php");
 
 	$connection = connect();
 
@@ -36,7 +37,17 @@
 
 				//TO-DO: only 1 customer should be returned, just use the first element in rs?
 				foreach ($rs as $customer) {
-					echo "<b>Phone:</b> <input type=\"text\" class=\"edit-cust-info-field form-control\" id=\"edit-cust-info-phone\" value=\"" . htmlspecialchars_decode($customer['CellPhoneNumber']) . "\" disabled><br>";
+					// If customer has a cell number in database,
+					// add dashes so it is easier for user to read
+					$cellNumber = $customer['CellPhoneNumber'];
+					if (strlen($cellNumber) > 0) {
+						$cellNumber = Util::formatPhoneNumber($cellNumber);
+					}
+
+					echo "<b>Phone:</b>" .
+								"<input type=\"text\" class=\"edit-cust-info-field form-control\" " .
+								"id=\"edit-cust-info-phone\" " .
+								"value=\"" . htmlspecialchars_decode($cellNumber) . "\" disabled><br>";
 					echo "<b>Email:</b> <input type=\"text\" class=\"edit-cust-info-field form-control\" id=\"edit-cust-info-email\" value=\"" . htmlspecialchars_decode($customer['EmailAddress']) . "\" disabled><br>";
 					//customerid is written to a div here in order to have it if the user's information is updated
 					echo "<div id=\"customer-id\">".$customer['ID']."</div>";
@@ -60,7 +71,7 @@
 				$returnedCustomer = reset($rs);
 				$returnedCustomerName = $returnedCustomer['Name'];
 				$returnedCustomerID = $returnedCustomer['ID'];
-				//error_log("returnedCustomerID: " . $returnedCustomerID);
+
 				echo "<script>".
 						"document.getElementById(\"customer_name\").value=\"" . htmlspecialchars_decode($returnedCustomerName) . "\";" .
 					"</script>";
@@ -116,17 +127,27 @@
 				echo "<div id=\"modal_cust_search_results\">";
 					echo "<div id=\"cust_search_results_header\">";
 						echo "<h4>Search Results for  " . $value . "</h4>";
-						//echo "<p id=\"cust_search_results_close\"><a href=\"#\" onclick=\"closeCustSearchResults()\">close</a></p>";
 					echo "</div>";
 
 					echo "<table id=\"cust_search_results_table\">";
 						echo "<tbody>";
 							foreach ($rs as $customer) {
+								// If customer has a cell or home number in database,
+								// add dashes so it is easier for user to read
+								$cellNumber = $customer['CellPhoneNumber'];
+								$homeNumber = $customer['HomePhoneNumber'];
+								if (strlen($cellNumber) > 0) {
+									$cellNumber = Util::formatPhoneNumber($cellNumber);
+								}
+								if (strlen($homeNumber) > 0) {
+									$homeNumber = Util::formatPhoneNumber($homeNumber);
+								}
+
 								echo "<tr class=\"cust-search-row\">";
 									echo "<td><input type=\"radio\" name=\"cust_name\" value=\"". $customer['Name'] ."\"></td>";
 									echo "<td>" . $customer['Name'] . "</td>";
-									echo "<td>" . $customer['CellPhoneNumber'] . "</td>";
-									echo "<td>" . $customer['HomePhoneNumber'] . "</td>";
+									echo "<td>" . $cellNumber . "</td>";
+									echo "<td>" . $homeNumber . "</td>";
 									echo "<td>" . $customer['EmailAddress'] . "</td>";
 									echo "<td>" . $customer['HomeAddress'] . "</td>";
 									echo "<td>" . $customer['Birthday'] . "</td>";
@@ -136,7 +157,6 @@
 					echo "</table>";
 
 					echo "<button type=\"button\" id=\"select_cust_results_btn\" class=\"btn_default_cb modal_btns\" onclick=\"selectCustomer()\">Select</button>";
-					//echo "<button type=\"button\" id=\"edit_cust_results_btn\" class=\"btn_default_cb cust_results_btn\">Edit</button>";
 					echo "<button type=\"button\" class=\"btn_default_cb modal_btns\" onclick=\"closeCustSearchResults()\">Close</button>";
 					echo "<button type=\"button\" class=\"btn_default_cb modal_btns\" onclick=\"openNewCustomerWindow()\">Add Customer</button>";
 					echo "<p id=\"no_cust_selected_msg\" class=\"fields_missing_msg\">Please select a customer</p>";

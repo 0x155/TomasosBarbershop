@@ -50,6 +50,19 @@
       return $ret;
     }
 
+    /*
+    This function takes a phone number (home or cell) from the database,
+    and parses it so the number is displayed with dashes
+    6315893344 => 631-589-3344
+    This makes it easier for the users to read the numbers
+    */
+    public static function formatPhoneNumber($number){
+      $areaCode = substr($number, 0, 3);
+      $next = substr($number, 3, 3);
+      $rest = substr($number, 6);
+      return $areaCode . "-" . $next . "-" . $rest;
+    }
+
 
     public static function quit($functionName, $exception, $connection, $exit){
       error_log("Failure in ".$functionName."(): " . $exception->getMessage());
