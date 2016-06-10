@@ -12,6 +12,8 @@
 
 	$connection = connect();
 
+	// Value is what the user entered in the search bar
+	// Type is the type of search they are doing (phone # or name)
 	$value = $_POST['value'];
 	$type = $_POST['type'];
 
@@ -21,7 +23,7 @@
 			$rs = Customer::getCustomerInfoByCell($value);
 		}
 		elseif ($type === 'name') {
-			$rs = Customer::getCustomerInfo($value);
+			$rs = Customer::getCustomerInfoByName($value);
 		}
 
 		$numResults = count($rs);
@@ -65,8 +67,8 @@
 
 			//also show customer visit history
 			$customerHistory = Customer::getQuickCustomerHistory($returnedCustomerID);
-			$first_visit_date = Customer::getVistDate("first", $returnedCustomerID);
-			$last_visit_date = Customer::getVistDate("last", $returnedCustomerID);
+			$first_visit_date = Customer::getVisitDate("first", $returnedCustomerID);
+			$last_visit_date = Customer::getVisitDate("last", $returnedCustomerID);
 			$numVisits = count($customerHistory);
 
 			//only show this table if the customer has visited before

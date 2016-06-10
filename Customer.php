@@ -10,7 +10,7 @@
 		This function returns customer information (name, cell number, and email)
 		based on customer name.
 		*/
-		public static function getCustomerInfo($customerName){
+		public static function getCustomerInfoByName($customerName){
 
 			$connection = connect();
 
@@ -230,7 +230,7 @@
 		This will return either the most recent, or first visit date for a given
 		customerID. Whether it is first or last depends on the value of $arg.
 		*/
-		public static function getVistDate($arg, $customer_ID){
+		public static function getVisitDate($arg, $customer_ID){
 			//If the argument is "first", then return the first visit, so order date in ascending order
 			//Else, return the most recent visit, so order date in descending order
 			$order = ($arg == "first") ? "ASC": "DESC";

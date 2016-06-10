@@ -95,7 +95,7 @@
 							</div>
 
 							<div class="input-group input-group-lg" id="cust-name-fields">
-								<input type="text" name="customer_name" placeholder="Search..." class="form-control" id="customer_name" autofocus>
+								<input type="text" placeholder="Search..." class="form-control" id="customer_name" autofocus>
 								<span class="input-group-btn">
 									<button type="button" class="btn btn-default" name="cust-search-button" id="cust-search-button" onclick="customerSearch()">Search</button>
 								</span>
