@@ -4,8 +4,8 @@
 	//This is done when the user updates customer info from the customer search results
 
 	require_once("common.php");
-	require_once("Util.php");
 	require_once("Customer.php");
+	require_once("Util.php");
 
 	$customer_ID = $_POST['customerID'];
 	$customer_name = trim($_POST['customerName']);
@@ -18,6 +18,9 @@
 	if( !(Util::validatePhoneNumber($cell_phone_number)) ){
 		$valid = false;
 		$error_msgs .= "<p class=\"ajax_error\">Please enter a valid Cell Phone Number</p><br>";
+	}
+	else {
+		$cell_phone_number = Util::stripPhoneNumber($cell_phone_number);
 	}
 
 	//Validate Email
@@ -40,8 +43,8 @@
 	if($valid){
 
 		//check if customer exists
-		//NEED TO VERIFY THAT THE NAME WAS MODIFIED, OTHERWISE WILL ALWAYS RETURN TRUE
-		Customer::customerNameExists($customer_name);
+		//NEED TO FIRST VERIFY THAT THE NAME WAS MODIFIED, OTHERWISE WILL ALWAYS RETURN TRUE
+		// Customer::customerNameExists($customer_name);
 
 		$row_count = Customer::updateCustomerInfo($customer_ID, $customer_name, $cell_phone_number, $email_addr);
 		echo $row_count;
