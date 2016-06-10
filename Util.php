@@ -1,7 +1,7 @@
 <?php
   //This class stores functions that are used throughout the app (not specific to Customers, Appointments, etc.)
   require_once("common.php");
-  
+
   class Util {
     /*
     This function is used when getting full customer visit history.
@@ -13,6 +13,17 @@
     public static function parseService($servicesIn){
       $parsed = explode(" --- ", $servicesIn);
       return current($parsed);
+    }
+
+    /*
+    This method gets rid of dashes and parentheses in a given phone numer.
+    This is done to the phone number entered by the user when searching
+    for a customer by phone number. Phone numbers in the database are stored
+    without these symbols.
+    */
+    public static function stripPhoneNumber($number){
+      $phone_number_symbols = array("-", "(", ")", " ");
+      return str_replace($phone_number_symbols, "", $number);
     }
 
     /*

@@ -177,6 +177,16 @@ html, body, div {
   font-size: 20px;
 }
 
+.filter {
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid blue;
+}
+
+.active-filter {
+  background: #0444B3;
+}
+
 #cust-name-fields {
   max-width: 350px;
 }

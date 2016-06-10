@@ -36,6 +36,38 @@
 			disconnect($connection);
 		}
 
+    /*
+    Queries for a customer given a cellphonenumber
+    */
+    public static function getCustomerInfoByCell($number) {
+      $connection = connect();
+
+      // Remove all symbols from the number entered by user
+      $number = Util::stripPhoneNumber($number);
+      error_log("Number stripped: " . $number);
+
+      $sql = "SELECT ID, Name, CellPhoneNumber, HomePhoneNumber, EmailAddress, HomeAddress, date_format(Birthday, \"%m/%d/%Y\") as Birthday, Notes " .
+					"FROM " . TBL_CUSTOMER .
+					" WHERE cellphonenumber=:cellphonenumber " .
+					"ORDER BY Name ASC";
+
+      try {
+        $st = $connection->prepare($sql);
+        $st->bindValue(":cellphonenumber", $number, PDO::PARAM_INT); //PARAM_STR?
+        $st->execute();
+
+        $rs = $st->fetchAll(PDO::FETCH_ASSOC);
+        return $rs;
+
+      }
+      catch (PDOException $e) {
+          Util::quit("getCustomerInfoByCell", $e, $connection, true);
+      }
+
+      disconnect($connection);
+
+    }
+
 
     /*
     Updates customer info. Just Name, Email, CellPhoneNumber for now.
@@ -214,7 +246,7 @@
 				$st->execute();
 
 				$rs = $st->fetch();
-				error_log($arg . " visit: " . $rs['visit_date']);
+				// error_log($arg . " visit: " . $rs['visit_date']);
 				return $rs['visit_date'];
 			}
 			catch(PDOException $e){
