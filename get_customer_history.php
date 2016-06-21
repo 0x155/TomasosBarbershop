@@ -20,14 +20,14 @@
 		//getFullCustomerHistory returns an array with 2 elements (the assoc. array of visits, and total_rows returned)
 		//list() assigns variables to these 2 elements
 		list($customerVisitHistory, $total_rows) = Customer::getFullCustomerHistory($customerName, $startRow, $numRows);
-		$customerInfo = Customer::getCustomerInfo($customerName);
+		$customerInfo = Customer::getCustomerInfoByName($customerName);
 
 		//current returns the element in the array which the internal pointer is currently pointed to.
 		//By default, it returns the first element inserted in the array if the pointer is not changed.
 		//http://php.net/manual/en/function.current.php
 		$custInfo = current($customerInfo);
-		$first_visit_date = Customer::getVistDate("first", (int)$custInfo['ID']);
-		$last_visit_date = Customer::getVistDate("last", (int)$custInfo['ID']);
+		$first_visit_date = Customer::getVisitDate("first", (int)$custInfo['ID']);
+		$last_visit_date = Customer::getVisitDate("last", (int)$custInfo['ID']);
 		//TO-DO: make sure a result is returned first
 
 		echo "<div id=\"modal_wrapper_cust_history\" class=\"modal_wrapper\">";
@@ -43,7 +43,7 @@
 						//only display these fields if there is a value for them
 						//dont want to display labels for fields which are blank, takes up space
 						if(strlen($custInfo['CellPhoneNumber']) > 0){
-						echo "<li><h4><b>Cell #: </b> " . $custInfo['CellPhoneNumber'] . "</h4></li>";
+						echo "<li><h4><b>Cell #: </b> " . Util::formatPhoneNumber($custInfo['CellPhoneNumber']) . "</h4></li>";
 						}
 						if(strlen($custInfo['HomePhoneNumber']) > 0){
 						echo "<li><h4><b>Home #: </b>" . $custInfo['HomePhoneNumber'] . "</h4></li>";

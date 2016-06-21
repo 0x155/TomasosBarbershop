@@ -26,7 +26,7 @@
 
 	/*
 	Validate the following:
-	-Both Cell and Home numbers contain 10 or 7 digits, and no other characters asie from numbers
+	-Both Cell and Home numbers contain 10 digits, and no other characters asie from numbers
 	-Email address
 	-Required fields have length > 0
 	-If AllowText is Yes, check for cell phone number
@@ -39,11 +39,17 @@
 		$valid = false;
 		$error_msgs .= "<p class=\"ajax_error\">Please enter a valid Cell Phone Number</p><br>";
 	}
+	else {
+		$cell_number = Util::stripPhoneNumber($cell_number);
+	}
 
 	//Home Phone
 	if(!(Util::validatePhoneNumber($home_number))){
 		$valid = false;
 		$error_msgs .= "<p class=\"ajax_error\">Please enter a valid Home Phone Number</p><br>";
+	}
+	else {
+		$home_number = Util::stripPhoneNumber($home_number);
 	}
 
 	//Email
@@ -88,6 +94,7 @@
 			echo $error_msgs;
 		}
 		else{
+			error_log("??Cell entered: " . $cell_number . ", Home: " . $home_number);
 			$added = Customer::addNewCustomer($customer_name, $gender, $cell_number, $home_number, $email_address, $home_address,
 										$birthday, $notes, $allow_text, $allow_email);
 

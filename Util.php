@@ -1,7 +1,7 @@
 <?php
   //This class stores functions that are used throughout the app (not specific to Customers, Appointments, etc.)
   require_once("common.php");
-  
+
   class Util {
     /*
     This function is used when getting full customer visit history.
@@ -13,6 +13,17 @@
     public static function parseService($servicesIn){
       $parsed = explode(" --- ", $servicesIn);
       return current($parsed);
+    }
+
+    /*
+    This method gets rid of dashes, parentheses, and spaces in a given phone numer.
+    This is done to the phone number entered by the user when searching
+    for a customer by phone number. Phone numbers in the database are stored
+    without these symbols.
+    */
+    public static function stripPhoneNumber($number){
+      $phone_number_symbols = array("-", "(", ")", " ");
+      return str_replace($phone_number_symbols, "", $number);
     }
 
     /*
@@ -32,11 +43,24 @@
       }
 
       //Phone number is valid if it contains all digits, and is of either length 7 or 10
-      if( (preg_match($phone_number_regex, $number)) &&  ((strlen($number) == 7) || (strlen($number) == 10))   ){
+      if( (preg_match($phone_number_regex, $number)) && (strlen($number) == 10) ){
         $ret = true;
       }
 
       return $ret;
+    }
+
+    /*
+    This function takes a phone number (home or cell) from the database,
+    and parses it so the number is displayed with dashes
+    6315893344 => 631-589-3344
+    This makes it easier for the users to read the numbers
+    */
+    public static function formatPhoneNumber($number){
+      $areaCode = substr($number, 0, 3);
+      $next = substr($number, 3, 3);
+      $rest = substr($number, 6);
+      return $areaCode . "-" . $next . "-" . $rest;
     }
 
 
