@@ -249,7 +249,7 @@
 				return $rs['visit_date'];
 			}
 			catch(PDOException $e){
-				Util::quit("getVistDate", $e, $connection, true);
+				Util::quit("getVisitDate", $e, $connection, true);
 			}
 
 			disconnect($connection);

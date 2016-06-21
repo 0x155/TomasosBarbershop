@@ -104,10 +104,6 @@
 							<li id="customer_history">
 						</li>
 
-						<!--<li id="customer_search_results"></li>-->
-
-						<!--<li id="customer_history"></li>-->
-
 						<li class="form-group input-group-lg">
 							<label for="date"><h4>Date:</h4></label>
 							<input type="text" name="date" class="date_field form-control appt-date-picker" id="date" readonly>
