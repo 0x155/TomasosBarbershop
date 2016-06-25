@@ -7,6 +7,12 @@ html, body, div {
   /*font-size: 24px;*/
 }
 
+.group:after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
 /*--CSS for the login page ---*/
 #login_page{
   margin: 50px auto;
@@ -67,6 +73,11 @@ html, body, div {
   float:right;
   position: relative;
   right: 15px;
+}
+
+#settings-button {
+  float: right;
+  margin-right: 20px;
 }
 
 /*------Date view on right side ----*/
@@ -450,6 +461,22 @@ html, body, .grid, .row, #calender-column {
   z-index: 1000;
 }
 
+.modal-window {
+  margin: 50px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  padding:15px;
+}
+
+#modal_wrapper_settings {
+  display: none;
+}
+
+#settings-modal {
+  max-width: 675px;
+  height: 500px
+}
+
 #modal_wrapper_new_customer {
   /*TO-DO: document difference between visibility and display*/
   /*visibility: hidden;
@@ -463,13 +490,6 @@ html, body, .grid, .row, #calender-column {
 
 #modal_new_customer {
   max-width: 675px;
-  /*50px sets the margin for top/bottom.
-  The auto is for left/right to center the object
-  http://learnlayout.com/margin-auto.html*/
-  margin: 50px auto;
-  background-color: #fff;
-  border-radius: 10px;
-  padding:15px;
   text-align:left;
 }
 

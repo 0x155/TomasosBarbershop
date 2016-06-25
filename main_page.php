@@ -54,9 +54,15 @@
 				<!--changed order here so calendar would be on top when viewed on mobile
 				http://www.schmalz.io/2014/10/08/Column-Ordering-in-Bootstrap/-->
 				<div class="col-md-8 col-md-push-4" id="calender-column">
-					<div id="top_nav_user_info">
+					<div id="top_nav_user_info" class="group">
 						<p id="user-greeting">Logged in as: <?php echo $_COOKIE['username']?></p>
 						<button id="log-out-link" class="dhx_cal_today_button" onclick="logOut()">Log Out</button>
+						<button type="button" class="btn btn-default btn-lrg"
+										title="Settings"
+										id="settings-button"
+										onclick="showSettings()">
+							<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+						</button>
 						<div id="log-out-results"></div>
 					</div>
 					<!-- dhtmlx Scheduler verion 4.2-->
@@ -217,14 +223,21 @@
 						</li>
 					</ul>
 				</div>
+			</div>
+		</div>
 
-
+		<div id="modal_wrapper_settings" class="modal_wrapper">
+			<div id="settings-modal" class="modal-window">
+				<h3>Settings</h3>
+				<a href="#" onclick="closeSettings()">Close[X]</a>
+				<ul id="unit-employees"></ul>
+				<ul id="non-unit-employees"></ul>
 			</div>
 		</div>
 
 		<!--This is the modal wrapper for the Add New Customer window -->
 		<div id="modal_wrapper_new_customer" class="modal_wrapper">
-			<div id="modal_new_customer">
+			<div id="modal_new_customer" class="modal-window">
 				<div class="new_cust_header">
 					<h3 id="new_cust_title">Add New Customer</h3><br/>
 					<p id="new_cust_close"><a href="#" onclick="closeNewCustomerWindow()">Close[X]</a></p>

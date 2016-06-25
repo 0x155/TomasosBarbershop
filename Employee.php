@@ -26,6 +26,27 @@
       disconnect($connection);
     }
 
+    // Returns ALL employee names, not just ones with a Unit_ID
+    public static function getAllEmployeeNames() {
+      $connection = connect();
+
+      $sql = "SELECT id, Name, Unit_ID " .
+           "FROM " . TBL_EMPLOYEE;
+
+      try {
+        $st = $connection->query($sql);
+
+        $rs = $st->fetchAll(PDO::FETCH_ASSOC);
+
+        return $rs;
+      }
+      catch(PDOException $e){
+        Util::quit("getEmployeeNames", $e, $connection, false);
+      }
+
+      disconnect($connection);
+    }
+
     /*
     Returns the ID of the entered employee from the Employee table.
     The ID is the primary key for the table and is needed when doing tasks such
