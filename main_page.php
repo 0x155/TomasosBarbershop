@@ -228,10 +228,44 @@
 
 		<div id="modal_wrapper_settings" class="modal_wrapper">
 			<div id="settings-modal" class="modal-window">
-				<h3>Settings</h3>
-				<a href="#" onclick="closeSettings()">Close[X]</a>
-				<ul id="unit-employees"></ul>
-				<ul id="non-unit-employees"></ul>
+				<div class="group">
+					<h3 id="settings-header">Settings</h3>
+					<a id="settings-close" href="#" onclick="closeSettings()">Close[X]</a>
+				</div>
+				<div class="employee-lists group">
+					<div id="non-unit" class="employee-sections">
+						<ul id="non-unit-employees" class="employee-list"></ul>
+					</div>
+					<div id="unit" class="employee-sections">
+						<ul id="unit-employees" class="employee-list"></ul>
+					</div>
+				</div>
+
+				<h4>Add Employee</h4>
+				<form id="new-employee-form">
+					<fieldset class="form-group">
+							<input type="text" class="form-control" id="new-employee-name"
+											name="name" placeholder="Name">
+					</fieldset>
+
+					<fieldset class="form-group">
+							<input type="text" class="form-control" id="new-employee-cell"
+											name="cellphonenumber" placeholder="Cell Number">
+					</fieldset>
+
+					<input type="submit" name="name" value="Add Employee">
+				</form>
+
+				<p>Stuff to add:</p>
+				<ul>
+					<li>Drag and drop to add/remove stylist taking appt</li>
+					<li>Change employee color</li>
+					<li>Add an employee</li>
+					<li>Edit an employee</li>
+					<li>Test employee with really long name</li>
+					<li>Populate list of employees at page load, not when user
+					opens this window</li>
+				</ul>
 			</div>
 		</div>
 

@@ -80,6 +80,71 @@ html, body, div {
   margin-right: 20px;
 }
 
+#settings-header {
+  float:left;
+}
+
+#settings-close {
+  float: right;
+}
+
+.employee-sections {
+  width: 50%;
+}
+
+#unit {
+  float:right;
+}
+
+#non-unit {
+  float:left;
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.employee-list {
+  padding: 0;
+  margin-top: 20px;
+  list-style-type: none;
+}
+
+.employee-list li {
+  display: inline-block;
+  padding:12px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.employee-list li:hover {
+  cursor: pointer;
+}
+
+#non-unit-employees {
+  float:left;
+}
+
+#non-unit-employees li {
+  background: #bbb7b7;
+  color:#000;
+  margin-right: 10px;
+}
+
+#non-unit-employees li:hover {
+  background: #aaa;
+}
+
+#unit-employees {
+  float:right;
+}
+
+#unit-employees li {
+  color: #fff;
+  background: #397ef5;
+  margin-left: 10px;
+}
+
+#unit-employees li:hover {
+  background: #0444B3;
+}
 /*------Date view on right side ----*/
 
 
