@@ -241,31 +241,36 @@
 					</div>
 				</div>
 
-				<h4>Add Employee</h4>
-				<form id="new-employee-form">
-					<fieldset class="form-group">
-							<input type="text" class="form-control" id="new-employee-name"
-											name="name" placeholder="Name">
-					</fieldset>
+				<div id="new-employee-section">
+					<h4>Add Employee</h4>
+					<form id="new-employee-form">
+						<fieldset class="form-group">
+								<input type="text" class="form-control new-emp-field" id="new-employee-name"
+												name="name" placeholder="Name">
+						</fieldset>
 
-					<fieldset class="form-group">
-							<input type="text" class="form-control" id="new-employee-cell"
-											name="cellphonenumber" placeholder="Cell Number">
-					</fieldset>
+						<fieldset class="form-group">
+								<input type="text" class="form-control new-emp-field" id="new-employee-cell"
+												name="cellphonenumber" placeholder="Cell Number">
+						</fieldset>
 
-					<input type="submit" name="name" value="Add Employee">
-				</form>
+						<input type="submit" id="add-employee-btn" class="btn btn-primary" value="Add Employee">
+					</form>
 
-				<p>Stuff to add:</p>
+					<p id="new-employee-error" class="non-hidden-error-msg"></p>
+				</div>
+
+
+				<!-- <p>Stuff to add:</p>
 				<ul>
 					<li>Drag and drop to add/remove stylist taking appt</li>
-					<li>Change employee color</li>
+					<li>Make background of unit employee their color</li>
 					<li>Add an employee</li>
 					<li>Edit an employee</li>
 					<li>Test employee with really long name</li>
 					<li>Populate list of employees at page load, not when user
 					opens this window</li>
-				</ul>
+				</ul> -->
 			</div>
 		</div>
 

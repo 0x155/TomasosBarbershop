@@ -138,12 +138,29 @@ html, body, div {
 
 #unit-employees li {
   color: #fff;
-  background: #397ef5;
+  background-color: #428bca;
+  border-color: #285e8e;
   margin-left: 10px;
 }
 
 #unit-employees li:hover {
   background: #0444B3;
+}
+
+#new-employee-section {
+  margin-top:50px;
+}
+
+.new-emp-field {
+  border-color: #aaa;
+}
+
+#new-employee-name {
+  max-width: 40%;
+}
+
+#new-employee-cell {
+  max-width: 30%;
 }
 /*------Date view on right side ----*/
 
@@ -219,6 +236,11 @@ html, body, div {
 /* Standard error message */
 .error_msg, .fields_missing_msg {
   display: none;
+  color:#FF0000;
+  font-weight: bold;
+}
+
+.non-hidden-error-msg {
   color:#FF0000;
   font-weight: bold;
 }
@@ -539,17 +561,11 @@ html, body, .grid, .row, #calender-column {
 
 #settings-modal {
   max-width: 675px;
-  height: 500px
+  min-height: 500px
 }
 
 #modal_wrapper_new_customer {
-  /*TO-DO: document difference between visibility and display*/
-  /*visibility: hidden;
-  This will not display the element, but it will still take up the
-  space as if the element is there. */
   display: none;
-  /*display:none completely hides the element and does not take up any space*/
-  /* This presents scrollbars when the div overflows */
   overflow: auto;
 }
 

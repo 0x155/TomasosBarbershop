@@ -98,5 +98,45 @@
 
       disconnect($connection);
     }
+
+    // Add Employee to database
+    public static function addEmployee($employee) {
+      $connection = connect();
+
+      $includesCell = false;
+
+      /*
+      INSERT INTO Employees (name, cellphonenumber)
+      VALUES ("Christian", "63144445555")
+      */
+
+      if (array_key_exists('cellphonenumber', $employee)) {
+        $includesCell = true;
+        $fields = "(name, cellphonenumber)";
+        $values = ":name, :cellphonenumber";
+      }
+      else {
+        $fields = "(name)";
+        $values = ":name";
+      }
+
+      try {
+        $sql = "INSERT INTO " . TBL_EMPLOYEE . $fields .
+                " VALUES (" . $values . ")";
+
+        $st = $connection->prepare($sql);
+				$st->bindValue(":name", $employee['name'], PDO::PARAM_STR);
+
+        if ($includesCell) {
+          $st->bindValue(":cellphonenumber", $employee['cellphonenumber'], PDO::PARAM_STR);
+        }
+
+        $ret = $st->execute();
+        return $ret;
+      }
+      catch (PDOException $e) {
+        Util::quit("addEmployee", $e, $connection, true);
+      }
+    }
   }
  ?>

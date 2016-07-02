@@ -69,6 +69,7 @@
       disconnect($connection);
       if($exit){
         //Calling exit prints the message and then exits the current PHP script
+        // TODO does this exit the current script, or the one which calls quit()?
         exit("<p class=\"ajax_error\">There was an error processing your request</p>");
       }
     }
