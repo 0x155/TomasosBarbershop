@@ -265,7 +265,7 @@
 				<ul>
 					<li>Drag and drop to add/remove stylist taking appt</li>
 					<li>Make background of unit employee their color</li>
-					<li>Add an employee</li>
+					<li>Delete an employee</li>
 					<li>Edit an employee</li>
 					<li>Test employee with really long name</li>
 					<li>Populate list of employees at page load, not when user

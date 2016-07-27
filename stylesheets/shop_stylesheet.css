@@ -108,6 +108,7 @@ html, body, div {
 }
 
 .employee-list li {
+  position: relative;
   display: inline-block;
   padding:12px;
   border-radius: 5px;
@@ -145,6 +146,12 @@ html, body, div {
 
 #unit-employees li:hover {
   background: #0444B3;
+}
+
+.delete-employee {
+  position: absolute;
+  color: #000;
+  font-size: 20px;
 }
 
 #new-employee-section {
