@@ -1,0 +1,23 @@
+{
+  "name": "TomasosBarbershop",
+  "version": "1.0.0",
+  "description": "Welcome to the Git repository for the Barbershop Scheduler Application.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cbonaco1/TomasosBarbershop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cbonaco1/TomasosBarbershop/issues"
+  },
+  "homepage": "https://github.com/cbonaco1/TomasosBarbershop#readme"
+}

@@ -38,6 +38,12 @@
 		<link rel="stylesheet" type="text/css" href="lib\bootstrap-timepicker\css\bootstrap-timepicker.min.css" />
 		<script type="text/javascript" src="lib\bootstrap-timepicker\js\bootstrap-timepicker.min.js"></script>
 
+		<!-- Handlebars runtime version 4.0.5 -->
+		<script type="text/javascript" src="lib\handlebars\handlebars.runtime-v4.0.5.js"></script>
+		<!-- Compiled handlebar templates. Command for this is:
+		$ handlebars templates/ > templates/compiledTemplates.js -->
+		<script type="text/javascript" src="templates\compiledTemplates.js"></script>
+
 		<!-- Javascript/JQuery written by CB -->
 		<script type="text/javascript" src="lib\application_dhtmlx.js"></script>
 		<script type="text/javascript" src="lib\ajax_functions.js"></script>
@@ -226,178 +232,8 @@
 			</div>
 		</div>
 
-		<div id="modal_wrapper_settings" class="modal_wrapper">
-			<div id="settings-modal" class="modal-window">
-				<div class="group">
-					<h3 id="settings-header">Settings</h3>
-					<a id="settings-close" href="#" onclick="closeSettings()">Close[X]</a>
-				</div>
-				<div class="employee-lists group">
-					<div id="non-unit" class="employee-sections">
-						<ul id="non-unit-employees" class="employee-list"></ul>
-					</div>
-					<div id="unit" class="employee-sections">
-						<ul id="unit-employees" class="employee-list"></ul>
-					</div>
-				</div>
-
-				<div id="new-employee-section">
-					<h4>Add Employee</h4>
-					<form id="new-employee-form">
-						<fieldset class="form-group">
-								<input type="text" class="form-control new-emp-field" id="new-employee-name"
-												name="name" placeholder="Name">
-						</fieldset>
-
-						<fieldset class="form-group">
-								<input type="text" class="form-control new-emp-field" id="new-employee-cell"
-												name="cellphonenumber" placeholder="Cell Number">
-						</fieldset>
-
-						<input type="submit" id="add-employee-btn" class="btn btn-primary" value="Add Employee">
-					</form>
-
-					<p id="new-employee-error" class="non-hidden-error-msg"></p>
-				</div>
-
-
-				<!-- <p>Stuff to add:</p>
-				<ul>
-					<li>Drag and drop to add/remove stylist taking appt</li>
-					<li>Make background of unit employee their color</li>
-					<li>Delete an employee</li>
-					<li>Edit an employee</li>
-					<li>Test employee with really long name</li>
-					<li>Populate list of employees at page load, not when user
-					opens this window</li>
-				</ul> -->
-			</div>
-		</div>
-
-		<!--This is the modal wrapper for the Add New Customer window -->
-		<div id="modal_wrapper_new_customer" class="modal_wrapper">
-			<div id="modal_new_customer" class="modal-window">
-				<div class="new_cust_header">
-					<h3 id="new_cust_title">Add New Customer</h3><br/>
-					<p id="new_cust_close"><a href="#" onclick="closeNewCustomerWindow()">Close[X]</a></p>
-				</div>
-				<!--action tells the browser where to send the form data when the form is submitted -->
-				<!-- This form is set up as a table -->
-				<!--<form id="new_customer_form" action="add_customer.php" method="post" onsubmit="return addNewCustomer()">-->
-				<form id="new_customer_form" method="post">
-					<table>
-						<tbody id="new_customer_table">
-							<tr>
-								<!-- the for attribute must match the id attribute -->
-								<td><label for="new_cust_name" id="new_cust_name_label">*Name:</label></td>
-								<!--NOTE: The required attribute is not supported in Safari-->
-								<td><input type="text" name="new_cust_name" id="new_cust_name" placeholder="Customer Name" class="form-control" required></td>
-								<td class="right_col"><label for="new_cust_gender" id="new_cust_gender_label">Gender:</label></td>
-								<td id="new_cust_gender_field">
-									<label class="radio-inline"><input type="radio" name="new_cust_gender" value="Male">Male</label>
-									<label class="radio-inline"><input type="radio" name="new_cust_gender" value="Female">Female</label>
-								</td>
-							</tr>
-							<tr>
-								<td><label for="new_cust_cell_phone" id="new_cust_cell_label">Cell Phone:</label></td>
-								<td><input type="tel" id="new_cust_cell_phone"  placeholder="Cell Phone" class="form-control"></td>
-								<td><label for="new_cust_home_phone" id="new_cust_home_phone_label" class="right_col">Home Phone:</label></td>
-								<td><input type="tel" id="new_cust_home_phone"  placeholder="Home Phone" class="form-control"></td>
-							</tr>
-							<tr>
-								<!--prefill email with "@" ?-->
-								<td><label for="new_cust_email" id="new_cust_email_label">Email:</label></td>
-								<td><input type="email" id="new_cust_email" placeholder="Email" class="form-control"></td>
-								<td><label for="new_cust_address" id="new_cust_address_label" class="right_col">Home Address:</label></td>
-								<td><input type="text" id="new_cust_address"  placeholder="Address" class="form-control"></td>
-							</tr>
-							<tr>
-								<td><label for="new_cust_birthday">Birthday:</label></td>
-								<td id="new_cust_birthday_row">
-									<input type="text" id="new_cust_birthday" placeholder="Month/Day" class="form-control new_cust_birthday_field" readonly>
-									<input type="text" id="new_cust_birthday_year" class="form-control" placeholder="Year" readonly></td>
-								</td>
-							</tr>
-							<tr>
-								<td><label for="new_cust_notes">Notes:</label></td>
-								<td><textarea name="notes" id="new_cust_notes" class="form-control" rows="3" cols="10"></textarea></td>
-								<td id="text_email_notify" colspan="2">
-									<div id="new_cust_notification">
-										<p id="notification_question">Would this customer like to be notified by</p>
-										<div id="notification_options">
-											<input type="checkbox" id="allow_text_check" name="allowText" value="true">Text<br><br>
-											<input type="checkbox" id="allow_email_check" name="allowEmail" value="true">Email
-										</div>
-									</div>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-
-					<div class="new_cust_more_fields">
-						<p>* indicates a required field</p>
-						<div id="make_appt_new_cust_question">
-							<p>Make appointment with this new customer?</p>
-							<input type="checkbox" id="make_appt_new_cust">Yes
-						</div>
-						<!--Leaving the fields regarding parent-child relationship out for now
-						<div id="new_cust_children_question" class="form-group">
-							<p>Does this customer have children?<p>
-							<input type="checkbox" id="new_cust_has_children" name="newCustHasChildren" value="true">Yes
-						</div>
-
-						<div class="form-inline form-group add_new_cust_child_fields">
-							<label for="new_cust_child_name">*Name:</label>
-							<input type="text" id="new_cust_child_name" placeholder="Name" class="form-control">
-
-							<label for="new_cust_child_gender">Gender:</label>
-							<input type="radio" name="new_cust_child_gender" value="Male">M
-							<input type="radio" name="new_cust_child_gender" value="Female">F
-
-							<label for="new_cust_child_cell">Cell:</label>
-							<input type="text" id="new_cust_child_cell" placeholder="Cell" class="form-control">
-
-							<label for="new_cust_child_email">Email:</label>
-							<input type="text" id="new_cust_child_email" placeholder="Email" class="form-control">
-
-							<label for="new_cust_child_birthday">Birthday:</label>
-							<input type="text" id="new_cust_child_birthday" placeholder="Birthday" class="form-control new_cust_birthday_field">
-
-							user can click plus sign to add another line entry (another child)
-							<a href="#" onclick="addNewCustChildLine()">
-							<span class="glyphicon glyphicon-plus-sign" style="font-size:1.5em;"></span>
-							</a>
-						</div>
-
-						<div id="new_cust_parent_question" class="form-group form-inline">
-							<p>Is this customer the child of a parent?</p>
-							<input type="checkbox" id="new_cust_has_parent" name="newCustHasParent" value="true">Yes
-							<input type="text" class="form-control" id="cust_parent_name" placeholder="Parent's Name">
-							<button type="button" class="btn btn-default" id="check_child_parent_button">Check</button>
-						</div>
-						-->
-					</div>
-
-
-					<!--<input type="submit" class="btn_default_cb" onclick="return addNewCustomer()" value="Add Customer">-->
-					<button type="button" class="btn_default_cb" onclick="addNewCustomer()" id="addNewCustomerButton">Add Customer</button>
-					<button type="button" class="btn_default_cb" id="clearNewCustFieldsButton" onclick="clearAddNewCustomerFields()">Clear Fields</button>
-					<button type="button" class="btn_default_cb" id="closeNewCustButton" onclick="closeNewCustomerWindow()">Close</button>
-
-					<!--<p id="reqrd_fields_msg" class="fields_missing_msg">Please enter all required fields</p>
-					<p id="invalid_email_msg" class="fields_missing_msg">Email address entered is invalid</p>-->
-					<div>
-						<!--TO-DO: Fix these so they are all block-->
-						<p id="reqrd_fields_msg" class="error_msg new_customer_error_msgs">Please enter all required fields</p>
-						<p id="invalid_email_msg" class="error_msg new_customer_error_msgs">Please enter a valid email address</p>
-						<p id="needs_email_msg" class="error_msg new_customer_error_msgs">Note: The customer needs an email address</p>
-						<p id="needs_cell_msg" class="error_msg new_customer_error_msgs">Note: The customer needs a cell phone number</p>
-					</div>
-					<div id="add_customer_results"></div>
-					<!--Does this need to be a form?-->
-				</form>
-			</div>
-		</div>
+		<div id="settings-modal-container"></div>
+		<div id="new-customer-modal-container"></div>
 
 		<!--Custom Lightbox-->
 		<div id="custom_lightbox">

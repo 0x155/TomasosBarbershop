@@ -1,0 +1,77 @@
+<div id="modal_wrapper_new_customer" class="modal_wrapper">
+  <div id="modal_new_customer" class="modal-window">
+    <div class="new_cust_header">
+      <h3 id="new_cust_title">Add New Customer</h3><br/>
+      <p id="new_cust_close"><a href="#" onclick="closeNewCustomerWindow()">Close[X]</a></p>
+    </div>
+
+    <form id="new_customer_form" method="post">
+      <table>
+        <tbody id="new_customer_table">
+          <tr>
+            <td><label for="new_cust_name" id="new_cust_name_label">*Name:</label></td>
+            <td><input type="text" value="{{name}}" name="new_cust_name" id="new_cust_name" placeholder="Customer Name" class="form-control"></td>
+            <td class="right_col"><label for="new_cust_gender" id="new_cust_gender_label">Gender:</label></td>
+            <td id="new_cust_gender_field">
+              <label class="radio-inline"><input type="radio" name="new_cust_gender" value="Male">Male</label>
+              <label class="radio-inline"><input type="radio" name="new_cust_gender" value="Female">Female</label>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="new_cust_cell_phone" id="new_cust_cell_label">Cell Phone:</label></td>
+            <td><input type="tel" id="new_cust_cell_phone"  placeholder="Cell Phone" class="form-control"></td>
+            <td><label for="new_cust_home_phone" id="new_cust_home_phone_label" class="right_col">Home Phone:</label></td>
+            <td><input type="tel" id="new_cust_home_phone"  placeholder="Home Phone" class="form-control"></td>
+          </tr>
+          <tr>
+            <td><label for="new_cust_email" id="new_cust_email_label">Email:</label></td>
+            <td><input type="email" id="new_cust_email" placeholder="Email" class="form-control"></td>
+            <td><label for="new_cust_address" id="new_cust_address_label" class="right_col">Home Address:</label></td>
+            <td><input type="text" id="new_cust_address"  placeholder="Address" class="form-control"></td>
+          </tr>
+          <tr>
+            <td><label for="new_cust_birthday">Birthday:</label></td>
+            <td id="new_cust_birthday_row">
+              <input type="text" id="new_cust_birthday" placeholder="Month/Day" class="form-control new_cust_birthday_field" readonly>
+              <input type="text" id="new_cust_birthday_year" class="form-control" placeholder="Year" readonly></td>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="new_cust_notes">Notes:</label></td>
+            <td><textarea name="notes" id="new_cust_notes" class="form-control" rows="3" cols="10"></textarea></td>
+            <td id="text_email_notify" colspan="2">
+              <div id="new_cust_notification">
+                <p id="notification_question">Would this customer like to be notified by</p>
+                <div id="notification_options">
+                  <input type="checkbox" id="allow_text_check" name="allowText" value="true">Text<br><br>
+                  <input type="checkbox" id="allow_email_check" name="allowEmail" value="true">Email
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="new_cust_more_fields">
+        <p>* indicates a required field</p>
+        <div id="make_appt_new_cust_question">
+          <p>Make appointment with this new customer?</p>
+          <input type="checkbox" id="make_appt_new_cust">Yes
+        </div>
+      </div>
+
+      <button type="button" class="btn_default_cb" onclick="addNewCustomer()" id="addNewCustomerButton">Add Customer</button>
+      <button type="button" class="btn_default_cb" id="clearNewCustFieldsButton" onclick="clearAddNewCustomerFields()">Clear Fields</button>
+      <button type="button" class="btn_default_cb" id="closeNewCustButton" onclick="closeNewCustomerWindow()">Close</button>
+
+      <div>
+        <!--TO-DO: Fix these so they are all block-->
+        <p id="reqrd_fields_msg" class="error_msg new_customer_error_msgs">Please enter all required fields</p>
+        <p id="invalid_email_msg" class="error_msg new_customer_error_msgs">Please enter a valid email address</p>
+        <p id="needs_email_msg" class="error_msg new_customer_error_msgs">Note: The customer needs an email address</p>
+        <p id="needs_cell_msg" class="error_msg new_customer_error_msgs">Note: The customer needs a cell phone number</p>
+      </div>
+      <div id="add_customer_results"></div>
+    </form>
+  </div>
+</div>

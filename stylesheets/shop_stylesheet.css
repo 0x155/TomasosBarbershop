@@ -563,7 +563,7 @@ html, body, .grid, .row, #calender-column {
 }
 
 #modal_wrapper_settings {
-  display: none;
+  /*display: none;*/
 }
 
 #settings-modal {
@@ -572,7 +572,7 @@ html, body, .grid, .row, #calender-column {
 }
 
 #modal_wrapper_new_customer {
-  display: none;
+  /*display: none;*/
   overflow: auto;
 }
 

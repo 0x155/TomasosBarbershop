@@ -1,0 +1,44 @@
+<div id="modal_wrapper_settings" class="modal_wrapper">
+  <div id="settings-modal" class="modal-window">
+    <div class="group">
+      <h3 id="settings-header">Settings</h3>
+      <a id="settings-close" href="#" onclick="closeSettings()">Close[X]</a>
+    </div>
+
+    <div class="employee-lists group">
+      <div id="non-unit" class="employee-sections">
+        <ul id="non-unit-employees" class="employee-list">
+          {{#each nullUnitEmployees}}
+          <li>{{Name}}</li>
+          {{/each}}
+        </ul>
+      </div>
+      <div id="unit" class="employee-sections">
+        <ul id="unit-employees" class="employee-list">
+          {{#each unitEmployees}}
+          <li>{{Name}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+
+    <div id="new-employee-section">
+      <h4>Add Employee</h4>
+      <form id="new-employee-form" onsubmit="return submitNewEmployee()">
+        <fieldset class="form-group">
+            <input type="text" class="form-control new-emp-field" id="new-employee-name"
+                    name="name" placeholder="Name">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <input type="text" class="form-control new-emp-field" id="new-employee-cell"
+                    name="cellphonenumber" placeholder="Cell Number">
+        </fieldset>
+
+        <input type="submit" id="add-employee-btn" class="btn btn-primary" value="Add Employee">
+      </form>
+
+      <p id="new-employee-error" class="non-hidden-error-msg"></p>
+    </div>
+  </div>
+</div>
