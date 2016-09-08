@@ -9,7 +9,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 		<title>Tomaso's Barbershop</title>
 
-		<link rel="stylesheet" type="text/css" href="stylesheets\shop_stylesheet.css"/>
+		<link rel="stylesheet" type="text/css" href="stylesheets\css\main.css"/>
 		<link rel="stylesheet" type="text/css" href="stylesheets\media_queries.css">
 		<link rel="stylesheet" type="text/css" href="lib\bootstrap\css\bootstrap.min.css"/>
 
@@ -62,7 +62,7 @@
 				<div class="col-md-8 col-md-push-4" id="calender-column">
 					<div id="top_nav_user_info" class="group">
 						<p id="user-greeting">Logged in as: <?php echo $_COOKIE['username']?></p>
-						<button id="log-out-link" class="dhx_cal_today_button" onclick="logOut()">Log Out</button>
+						<button id="log-out-link" class="dhx_cal_today_button btn-default" onclick="logOut()">Log Out</button>
 						<button type="button" class="btn btn-default btn-lrg"
 										title="Settings"
 										id="settings-button"
@@ -96,7 +96,6 @@
 					<!-- method attribute tells browser how to send the data (GET/POST) -->
 					<ul class="field_labels">
 						<li id="customer-info-top-fields">
-
 							<div class="cust-search-filters">
 								<div class="filter active-filter number-filter" id="number">
 									<h4>Phone Number</h4>
@@ -105,7 +104,6 @@
 									<h4>Name</h4>
 								</div>
 							</div>
-
 							<div class="input-group input-group-lg" id="cust-name-fields">
 								<input type="text" placeholder="Search..." class="form-control" id="customer_name" autofocus>
 								<span class="input-group-btn">
@@ -115,22 +113,20 @@
 							<div id="customer_search_results"></div>
 							<li id="customer_history">
 						</li>
-
 						<li class="form-group input-group-lg">
 							<label for="date"><h4>Date:</h4></label>
 							<input type="text" name="date" class="date_field form-control appt-date-picker" id="date" readonly>
 							<!-- http://eternicode.github.io/bootstrap-datepicker/?#sandbox -->
 						</li>
-
 						<li class="form-group">
 							<table id="time-fields">
 								<tr>
 									<td><label for="start-time"><h4>Time:</h4></label></td>
-									<td><button class="btn btn-default appt-time-arrow-btn" id="hour-up-arrow" onclick="return addApptHour()"><span class="glyphicon glyphicon-chevron-up appt-time-arrow-span"></span></button></td>
-									<td><button class="btn btn-default appt-time-arrow-btn" id="min-up-arrow" onclick="return addApptMinutes()"><span class="glyphicon glyphicon-chevron-up appt-time-arrow-span"></span></button></td>
+									<td><button class="btn btn-default appt-time-arrow-btn time-up-arrows" id="hour-up-arrow" onclick="return addApptHour()"><span class="glyphicon glyphicon-chevron-up appt-time-arrow-span"></span></button></td>
+									<td><button class="btn btn-default appt-time-arrow-btn time-up-arrows" id="min-up-arrow" onclick="return addApptMinutes()"><span class="glyphicon glyphicon-chevron-up appt-time-arrow-span"></span></button></td>
 								</tr>
 
-								<tr>
+								<tr id="time-entry-row">
 									<td class="input-group-lg time-field">
 										<input type="text" class="appt-timepicker form-control" id="start-time" readonly>
 									</td>
@@ -146,8 +142,8 @@
 
 								<tr>
 									<td></td>
-									<td><button class="btn btn-default appt-time-arrow-btn" id="hour-down-arrow" onclick="return subtractApptHour()"><span class="glyphicon glyphicon-chevron-down appt-time-arrow-span"></span></button></td>
-									<td><button class="btn btn-default appt-time-arrow-btn" id="min-down-arrow" onclick="return subtractApptMinutes()"><span class="glyphicon glyphicon-chevron-down appt-time-arrow-span"></span></button></td>
+									<td><button class="btn btn-default appt-time-arrow-btn time-down-arrows" id="hour-down-arrow" onclick="return subtractApptHour()"><span class="glyphicon glyphicon-chevron-down appt-time-arrow-span"></span></button></td>
+									<td><button class="btn btn-default appt-time-arrow-btn time-down-arrows" id="min-down-arrow" onclick="return subtractApptMinutes()"><span class="glyphicon glyphicon-chevron-down appt-time-arrow-span"></span></button></td>
 								</tr>
 							</table>
 
@@ -162,7 +158,6 @@
 								<div class="one-service-dropdown form-group input-group-lg form-inline">
 									<select name="service" id="service-dropdown" class="form-control field-dropdowns" onchange="checkSelectedService()">
 										<option value=""></option>
-										<!--Get options for service from database -->
 										<?php
 											require_once("Service.php");
 											Service::getServices("option");

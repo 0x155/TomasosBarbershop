@@ -1,0 +1,549 @@
+/*----Styling for custom lightbox----------*/
+#custom_lightbox {
+  /*NOTE: Changed opacity for the dhx_cal_cover class from 0.1 to 0.5 in the
+  dhtmlxscheduler.css file*/
+  /*absolute positions an element relative to the first parent
+  that is not positioned static. If none are found, then html is used */
+  position: absolute;
+  margin-top: 0px !important;
+  max-width: 660px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  background-color: #fff;
+  z-index: 10001;
+  display: none;
+  padding: 15px;
+  border-radius: 10px;
+  /*This class is added to the items in the list of services
+  which are selected */ }
+  #custom_lightbox #lightbox-header {
+    border-bottom: 1px solid;
+    margin-bottom: 1em; }
+    #custom_lightbox #lightbox-header * {
+      display: inline; }
+  #custom_lightbox #lightbox-table tr td {
+    padding-bottom: 1em; }
+  #custom_lightbox #time-row > * {
+    display: inline; }
+  #custom_lightbox #lightbox-start-time {
+    margin-right: 5em;
+    background-color: #FFFFFF; }
+  #custom_lightbox #lightbox-end-time {
+    background-color: #FFFFFF; }
+  #custom_lightbox #lightbox-date {
+    max-width: 150px;
+    background-color: #FFFFFF; }
+  #custom_lightbox #lightbox-service-checklist input {
+    display: inline-block;
+    margin-right: 1em;
+    border: 1px solid black; }
+  #custom_lightbox #lightbox-service-list li {
+    display: inline;
+    padding-right: 2em;
+    /*
+    Inserts a line break (\A is ASCII character for line break)
+    after every 4 li elements in the list of services. This prevents
+    the elements from being too close together.
+    The value for n starts at 0, then contains all positive integers.
+    https://css-tricks.com/how-nth-child-works/
+    */ }
+    #custom_lightbox #lightbox-service-list li:hover {
+      cursor: pointer; }
+    #custom_lightbox #lightbox-service-list li:nth-child(4n):after {
+      content: "\A\A";
+      white-space: pre; }
+  #custom_lightbox #lightbox-service-list .selectedService {
+    font-weight: bold;
+    text-decoration: underline; }
+  #custom_lightbox #lightbox-emp-list {
+    max-width: 150px; }
+    #custom_lightbox #lightbox-emp-list > option {
+      font-size: 18px; }
+  #custom_lightbox #lightbox-notes {
+    max-width: 350px; }
+  #custom_lightbox #lightbox-buttons button {
+    display: inline;
+    width: 150px;
+    margin-right: 2.0em;
+    margin-left: 1.0em; }
+  #custom_lightbox .lightbox-service-list-selected {
+    font-weight: bold; }
+
+/*# sourceMappingURL=lightbox.css.map */
+#modal_wrapper_new_customer {
+  overflow: auto; }
+  #modal_wrapper_new_customer #modal_new_customer {
+    max-width: 675px;
+    text-align: left; }
+  #modal_wrapper_new_customer .new_cust_header #new_cust_title {
+    float: left; }
+  #modal_wrapper_new_customer .new_cust_header #new_cust_close {
+    float: right; }
+  #modal_wrapper_new_customer #new_customer_form {
+    margin-top: 65px;
+    /* Note: input and select fields in Bootstrap are
+    set to width: 100% by default */ }
+    #modal_wrapper_new_customer #new_customer_form #new_customer_table tr > td {
+      padding-bottom: 1em; }
+    #modal_wrapper_new_customer #new_customer_form #new_cust_name {
+      width: 200px; }
+    #modal_wrapper_new_customer #new_customer_form #new_cust_gender_field input {
+      display: inline-block;
+      padding-right: 2em; }
+    #modal_wrapper_new_customer #new_customer_form #new_cust_cell_phone,
+    #modal_wrapper_new_customer #new_customer_form #new_cust_home_phone {
+      width: 150px; }
+    #modal_wrapper_new_customer #new_customer_form #new_cust_email {
+      width: 200px; }
+    #modal_wrapper_new_customer #new_customer_form #new_cust_birthday_row * {
+      display: inline-block;
+      background-color: #FFFFFF; }
+    #modal_wrapper_new_customer #new_customer_form #new_cust_birthday, #modal_wrapper_new_customer #new_customer_form #new_cust_birthday_year {
+      width: 48%; }
+    #modal_wrapper_new_customer #new_customer_form #new_cust_birthday_year {
+      text-align: center; }
+    #modal_wrapper_new_customer #new_customer_form #new_cust_address {
+      width: 230px; }
+    #modal_wrapper_new_customer #new_customer_form #new_cust_address_label {
+      padding-left: 1em; }
+    #modal_wrapper_new_customer #new_customer_form #new_cust_home_phone_label {
+      padding-left: 1em; }
+    #modal_wrapper_new_customer #new_customer_form #text_email_notify {
+      padding-left: 1em; }
+    #modal_wrapper_new_customer #new_customer_form #new_cust_notification > * {
+      display: inline-block; }
+    #modal_wrapper_new_customer #new_customer_form #notification_question {
+      /*this will set the position of the element 22 pixels
+      up from its normal position */
+      position: relative;
+      top: -38px;
+      padding-right: 0.75em; }
+    #modal_wrapper_new_customer #new_customer_form button {
+      width: 175px;
+      margin-right: 20px; }
+    #modal_wrapper_new_customer #new_customer_form #make_appt_new_cust_question * {
+      display: inline-block; }
+    #modal_wrapper_new_customer #new_customer_form #make_appt_new_cust_question p {
+      padding-right: 0.75em; }
+  #modal_wrapper_new_customer .right_col {
+    padding-right: 1em;
+    width: 150px;
+    text-align: right; }
+
+#settings-modal {
+  max-width: 675px;
+  min-height: 500px; }
+  #settings-modal #settings-header {
+    float: left; }
+  #settings-modal #settings-close {
+    float: right; }
+  #settings-modal .employee-sections {
+    width: 50%; }
+  #settings-modal #unit {
+    float: right; }
+  #settings-modal #non-unit {
+    float: left;
+    border-right: 1px solid rgba(0, 0, 0, 0.3); }
+  #settings-modal .employee-list {
+    padding: 0;
+    margin-top: 20px;
+    list-style-type: none; }
+    #settings-modal .employee-list li {
+      position: relative;
+      display: inline-block;
+      padding: 12px;
+      border-radius: 5px;
+      margin-bottom: 10px; }
+      #settings-modal .employee-list li:hover {
+        cursor: pointer; }
+  #settings-modal #non-unit-employees {
+    float: left; }
+    #settings-modal #non-unit-employees li {
+      background: #bbb7b7;
+      color: #000;
+      margin-right: 10px; }
+      #settings-modal #non-unit-employees li:hover {
+        background: #aaa; }
+  #settings-modal #unit-employees {
+    float: right; }
+    #settings-modal #unit-employees li {
+      color: #fff;
+      background-color: #428bca;
+      border-color: #285e8e;
+      margin-left: 10px; }
+      #settings-modal #unit-employees li:hover {
+        background: #0444B3; }
+  #settings-modal #new-employee-section {
+    margin-top: 50px; }
+    #settings-modal #new-employee-section .new-emp-field {
+      border-color: #aaa; }
+    #settings-modal #new-employee-section #new-employee-name {
+      max-width: 40%; }
+    #settings-modal #new-employee-section #new-employee-cell {
+      max-width: 30%; }
+
+html, body {
+  height: 100%; }
+
+html, body, div {
+  font-family: proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.group:after {
+  clear: both;
+  content: "";
+  display: block; }
+
+/* This style will be applied to all buttons */
+.btn_default_cb {
+  font-size: 16px;
+  line-height: 1.33;
+  border-radius: 4px;
+  width: 200px;
+  height: 30px;
+  color: #FFF;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  background-color: #397Ef5;
+  border: 1px solid transparent;
+  margin-top: 1em; }
+  .btn_default_cb:hover {
+    background-color: #0444B3; }
+
+#login_page {
+  margin: 50px auto;
+  max-width: 250px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #F9F9F9; }
+  #login_page .login_header {
+    text-align: center; }
+  #login_page #username {
+    margin-bottom: 20px; }
+  #login_page #login_submit_btn {
+    width: 100%; }
+  #login_page .login_msgs {
+    text-align: center;
+    margin-top: 1.0em; }
+
+#calender-column {
+  height: 100%;
+  /* DHTMLX Scheduler */ }
+  #calender-column #user-greeting {
+    float: left; }
+  #calender-column #log-out-link {
+    float: right;
+    position: relative;
+    right: 15px; }
+  #calender-column #settings-button {
+    float: right;
+    margin-right: 20px; }
+  #calender-column #scheduler_here {
+    height: 95%;
+    border-bottom: 1px solid #CECECE;
+    width: 100%; }
+    #calender-column #scheduler_here .dhx_cal_today_button:hover,
+    #calender-column #scheduler_here .dhx_cal_prev_button:hover,
+    #calender-column #scheduler_here .dhx_cal_next_button:hover {
+      background-color: #E6E6E6;
+      border-color: #ADADAD;
+      color: #333; }
+    #calender-column #scheduler_here .dhx_cal_header .dhx_scale_bar {
+      font-size: 16px;
+      font-weight: bold; }
+    #calender-column #scheduler_here .dhx_scale_holder .dhx_scale_hour {
+      border-left: 1px solid #CECECE; }
+
+#field-column {
+  height: 100%;
+  overflow: auto;
+  /* Only display unavailable-service when the user
+  selects Unavailable from Services drop down */ }
+  #field-column ul {
+    list-style-type: none; }
+  #field-column .field_labels li {
+    margin-bottom: 2em; }
+  #field-column .cust-search-filters {
+    margin-top: 8px; }
+  #field-column .filter {
+    display: inline-block;
+    cursor: pointer;
+    color: #555;
+    border-top: 2px solid #CCC;
+    border-left: 2px solid #CCC;
+    border-right: 2px solid #CCC;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px; }
+  #field-column .active-filter {
+    background: #397Ef5;
+    border-color: #397Ef5;
+    color: #FFF; }
+  #field-column .editing_fields_area {
+    border: 1px solid #428bca;
+    border-radius: 10px;
+    padding: 1.0em;
+    background-color: #F5F5F5; }
+  #field-column #cust-name-fields {
+    max-width: 350px; }
+    #field-column #cust-name-fields #customer_name {
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px; }
+    #field-column #cust-name-fields #cust-search-button {
+      background-color: #CCCCCC;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border-color: transparent; }
+  #field-column #date {
+    background-color: #FFF;
+    max-width: 150px; }
+  #field-column #time-fields .appt-time-arrow-btn {
+    border-color: #FFF; }
+    #field-column #time-fields .appt-time-arrow-btn:hover {
+      border-color: #CCCCCC;
+      background-color: #FFF; }
+    #field-column #time-fields .appt-time-arrow-btn:focus {
+      background-color: #FFF;
+      border-color: #FFF; }
+  #field-column #time-fields .time-up-arrows {
+    padding-bottom: 1em; }
+  #field-column #time-fields #time-entry-row td {
+    padding-right: 1em; }
+    #field-column #time-fields #time-entry-row td input {
+      background-color: #FFF; }
+  #field-column #time-fields #time-entry-row #appt-length-hours {
+    width: 50px; }
+  #field-column #time-fields #time-entry-row #appt-length-mins {
+    width: 60px; }
+  #field-column #time-fields .time-down-arrows {
+    padding-top: 1em; }
+  #field-column #time-fields .appt-time-arrow-span {
+    color: #397Ef5;
+    font-size: 2.5em; }
+  #field-column .field-dropdowns {
+    max-width: 200px; }
+    #field-column .field-dropdowns option {
+      /*styling the options of a dropdown options have different
+      results in different browsers. IE seems to repsect the change in
+      font size, but not Chrome */
+      /*padding-top:15px;*/
+      font-size: 22px; }
+  #field-column #new-service-plus {
+    display: none;
+    padding-left: 10px; }
+  #field-column #unavailable-service {
+    display: none; }
+    #field-column #unavailable-service #unavailable-start-fields {
+      padding-bottom: 1em; }
+  #field-column .make_appt_btn {
+    margin-left: 3em;
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
+    height: 50px; }
+
+#customer_search_results {
+  /* These items will be initially hidden,
+  then displayed based on search results */ }
+  #customer_search_results #no-customer-returned p {
+    margin-top: 10px; }
+  #customer_search_results #no-customer-returned .no-cust-btn {
+    max-width: 120px;
+    margin-right: 1.5em; }
+  #customer_search_results .customer-history {
+    margin-top: 1.0em; }
+    #customer_search_results .customer-history .customer-info .edit-cust-info-field {
+      background-color: #FFF;
+      border: 0; }
+    #customer_search_results .customer-history .customer-info #edit-cust-info-btn {
+      margin-right: 3.0em; }
+      #customer_search_results .customer-history .customer-info #edit-cust-info-btn:hover {
+        cursor: pointer; }
+    #customer_search_results .customer-history .customer-info #customer-id {
+      display: none; }
+    #customer_search_results .customer-history .customer-info #cust-history-close {
+      cursor: pointer;
+      padding-left: 9.0em; }
+    #customer_search_results .customer-history .customer-info .btn_edit_cust_info {
+      max-width: 100px;
+      height: 33px;
+      margin-top: 0em; }
+    #customer_search_results .customer-history .customer-info #btn_save_cust_info {
+      display: none;
+      font-size: 14px;
+      width: 75px; }
+  #customer_search_results .customer-history-table {
+    margin-top: 1.0em; }
+    #customer_search_results .customer-history-table th {
+      border-bottom: 1px solid black; }
+    #customer_search_results .customer-history-table td {
+      padding-right: 1.5em; }
+    #customer_search_results .customer-history-table #date-head {
+      padding-right: 2.0em; }
+    #customer_search_results .customer-history-table #emp-head {
+      padding-right: 1.5em; }
+    #customer_search_results .customer-history-table #service-head {
+      padding-right: 3em; }
+  #customer_search_results #modal_cust_search_results {
+    max-width: 1200px;
+    margin: 100px auto;
+    background-color: #FFF;
+    border-radius: 10px;
+    padding: 15px;
+    display: table; }
+    #customer_search_results #modal_cust_search_results #cust_search_results_table {
+      width: 100%;
+      border-spacing: 15px;
+      border-top: 2px solid #000; }
+      #customer_search_results #modal_cust_search_results #cust_search_results_table tbody {
+        display: block;
+        /*setting max-height to 335px here since that is the height of 5 rows
+        of customer search results. Any more than that, then the y-scroll
+        will be displayed */
+        max-height: 335px;
+        overflow-y: auto; }
+      #customer_search_results #modal_cust_search_results #cust_search_results_table td {
+        padding-top: 1.5em;
+        padding-bottom: 1.5em;
+        border-bottom: 1px solid #E3E3E3; }
+        #customer_search_results #modal_cust_search_results #cust_search_results_table td:not(:first-child) {
+          padding-left: 1em; }
+      #customer_search_results #modal_cust_search_results #cust_search_results_table .cust-search-row:hover,
+      #customer_search_results #modal_cust_search_results #cust_search_results_table .cust-search-selected {
+        background-color: #F4F4F4; }
+    #customer_search_results #modal_cust_search_results button {
+      width: 120px;
+      margin-right: 2.0em; }
+    #customer_search_results #modal_cust_search_results #no_cust_selected_msg {
+      padding-top: 1em; }
+
+/*-----Styling for customer history modal window-----*/
+#customer_history #modal_cust_history {
+  max-width: 900px;
+  margin: 100px auto;
+  background-color: #FFF;
+  border-radius: 10px;
+  padding: 15px;
+  display: table; }
+  #customer_history #modal_cust_history #cust_history_heading {
+    border-bottom: 2px solid; }
+    #customer_history #modal_cust_history #cust_history_heading h3 {
+      margin-top: 0em; }
+  #customer_history #modal_cust_history #history_cust_info {
+    float: left;
+    width: 33%; }
+    #customer_history #modal_cust_history #history_cust_info #history_cust_info_list {
+      list-style-type: none;
+      padding: 0px;
+      margin: 0px; }
+      #customer_history #modal_cust_history #history_cust_info #history_cust_info_list li {
+        padding-bottom: 0.25em; }
+  #customer_history #modal_cust_history #history_cust_history {
+    float: right;
+    width: 66%; }
+    #customer_history #modal_cust_history #history_cust_history #cust_history_table {
+      /*Making both of these columns have a fixed width
+      so the table does not shrink in width when the user
+      navigates through the history*/
+      /*This is the column listing the services.
+      171px is the width of Haircut, Beard Trim
+      which is the most common service*/ }
+      #customer_history #modal_cust_history #history_cust_history #cust_history_table tbody {
+        display: block;
+        max-height: 500px;
+        overflow: auto; }
+      #customer_history #modal_cust_history #history_cust_history #cust_history_table td {
+        padding-top: 1.0em;
+        padding-bottom: 1.0em;
+        padding-right: 1.0em;
+        border-bottom: 1px solid #E3E3E3; }
+      #customer_history #modal_cust_history #history_cust_history #cust_history_table .history_notes_col {
+        width: 200px; }
+      #customer_history #modal_cust_history #history_cust_history #cust_history_table .history_service_col {
+        width: 171px; }
+    #customer_history #modal_cust_history #history_cust_history .history_button_group button {
+      width: 120px;
+      margin-right: 2.0em; }
+
+/* Standard error message */
+.error_msg, .fields_missing_msg {
+  display: none;
+  color: #FF0000;
+  font-weight: bold; }
+
+.non-hidden-error-msg,
+.ajax_error {
+  color: #FF0000;
+  font-weight: bold; }
+
+.emptyField {
+  color: red; }
+
+.badField {
+  /*Need !important here to apply this rule since the Bootstrap
+  styles would otherwise override it
+  https://css-tricks.com/when-using-important-is-the-right-choice/*/
+  border: 2px solid #FF0000 !important; }
+
+/*--------------------*/
+.move-down {
+  margin-top: 200px; }
+
+.fc-day-header {
+  font-size: 20px; }
+
+.dhtmlx-edit-cust-info-msgbox {
+  left: 5px;
+  right: auto; }
+
+.bootstrap-timepicker-widget {
+  /* Added this to allow the timepicker to appear when the custom lightbox is open */ }
+  .bootstrap-timepicker-widget table tr td {
+    /*NOTE: I made a change to this element in the min.css file
+    I changed the margin to 0.75em, and the width to 50px and height to 40px.
+    I also changed the icon for the up/down arrows in the min.js file
+    I replaced the icon-chevron-up class with the glyphicon glyphicon-chevron-up classes.
+    The arrows were not appearing since the icon-chevron-up class did not exist. */ }
+    .bootstrap-timepicker-widget table tr td a {
+      height: 40px;
+      width: 50px; }
+  .bootstrap-timepicker-widget .bootstrap-timepicker-hour,
+  .bootstrap-timepicker-widget .bootstrap-timepicker-minute,
+  .bootstrap-timepicker-widget .bootstrap-timepicker-meridian {
+    font-size: 18px; }
+  .bootstrap-timepicker-widget.dropdown-menu.open {
+    z-index: 10001; }
+
+.appt-timepicker {
+  max-width: 150px; }
+
+/*Styles for add new customer modal screen */
+.modal_wrapper {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* last value is opacity */
+  z-index: 1000; }
+  .modal_wrapper .modal-window {
+    margin: 50px auto;
+    background-color: #FFF;
+    border-radius: 10px;
+    padding: 15px; }
+
+/* These are the stlying rules for the DHTMLX Messages
+which appear when an appointment is deleted or created */
+.dhtmlx-msgWindow,
+.dhtmlx-error {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 220px; }
+
+/*# sourceMappingURL=main.css.map */

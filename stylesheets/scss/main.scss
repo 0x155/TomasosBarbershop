@@ -1,0 +1,506 @@
+@import "lightbox";
+@import "newCustomerForm";
+@import "settingsModal";
+
+$standardBlue: #397Ef5;
+$standardBlueHover: #0444B3;
+$lightGreyTableBorder: #E3E3E3;
+$white: #FFF;
+$pageFontFamily: proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$errorRedFont: #FF0000;
+
+html, body {
+  height: 100%;
+}
+
+html, body, div {
+  font-family: $pageFontFamily;
+}
+
+.group:after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+/* This style will be applied to all buttons */
+.btn_default_cb {
+  font-size: 16px;
+  line-height: 1.33;
+  border-radius: 4px;
+  width: 200px;
+  height: 30px;
+  color: $white;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  background-color: $standardBlue;
+  border: 1px solid transparent;
+  margin-top:1em;
+  &:hover {
+    background-color: $standardBlueHover;
+  }
+}
+
+#login_page {
+  margin: 50px auto;
+  max-width:250px;
+  border:1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  padding-bottom:10px;
+  padding-left:20px;
+  padding-right:20px;
+  background-color: #F9F9F9;
+  .login_header{
+    text-align: center;
+  }
+  #username{
+    margin-bottom: 20px;
+  }
+  #login_submit_btn{
+    width:100%;
+  }
+  .login_msgs{
+    text-align: center;
+    margin-top: 1.0em;
+  }
+}
+
+#calender-column {
+  height: 100%;
+  #user-greeting {
+    float:left;
+  }
+  #log-out-link{
+    float:right;
+    position: relative;
+    right: 15px;
+  }
+  #settings-button {
+    float: right;
+    margin-right: 20px;
+  }
+  /* DHTMLX Scheduler */
+  #scheduler_here {
+    height:95%;
+    border-bottom:1px solid #CECECE;
+    width:100%;
+    // These classes come out of the box with the scheduler,
+    // so cannot nest these under one class
+    .dhx_cal_today_button:hover,
+    .dhx_cal_prev_button:hover,
+    .dhx_cal_next_button:hover {
+      // These are the background and border color
+      // for Bootstraps btn-default class
+      background-color:#E6E6E6;
+      border-color: #ADADAD;
+      color: #333;
+    }
+    .dhx_cal_header {
+      .dhx_scale_bar {
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+    .dhx_scale_holder {
+      .dhx_scale_hour {
+        border-left: 1px solid #CECECE;
+      }
+    }
+  }
+}
+
+#field-column {
+  height:100%;
+  overflow:auto;
+  ul {
+    list-style-type: none;
+  }
+  .field_labels {
+    li {
+      margin-bottom: 2em;
+    }
+  }
+  .cust-search-filters {
+    margin-top: 8px;
+  }
+  .filter {
+    display: inline-block;
+    cursor: pointer;
+    color: #555;
+    border-top: 2px solid #CCC;
+    border-left: 2px solid #CCC;
+    border-right: 2px solid #CCC;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .active-filter {
+    background: $standardBlue;
+    border-color: $standardBlue;
+    color: $white;
+  }
+  .editing_fields_area {
+    border:1px solid #428bca;
+    border-radius: 10px;
+    padding:1.0em;
+    background-color:#F5F5F5;
+  }
+  #cust-name-fields {
+    max-width: 350px;
+    #customer_name {
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+    }
+    #cust-search-button {
+      background-color: #CCCCCC;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius:4px;
+      border-color: transparent;
+    }
+  }
+  #date {
+    background-color: $white;
+    max-width: 150px;
+  }
+  #time-fields {
+    .appt-time-arrow-btn {
+      border-color: $white;
+      &:hover {
+        border-color: #CCCCCC;
+        background-color: $white;
+      }
+      // TODO - eliminate blue border
+      // around these buttons after theyre clicked
+      &:focus {
+        background-color: $white;
+        border-color: $white;
+      }
+    }
+    .time-up-arrows {
+      padding-bottom: 1em;
+    }
+    #time-entry-row {
+      td {
+        padding-right: 1em;
+        input {
+          background-color: $white;
+        }
+      }
+      #appt-length-hours {
+        width:50px;
+      }
+      #appt-length-mins {
+        width:60px;
+      }
+    }
+    .time-down-arrows {
+      padding-top: 1em;
+    }
+    .appt-time-arrow-span {
+      color:$standardBlue;
+      font-size:2.5em;
+    }
+  }
+  .field-dropdowns {
+    max-width: 200px;
+    option {
+      /*styling the options of a dropdown options have different
+      results in different browsers. IE seems to repsect the change in
+      font size, but not Chrome */
+      /*padding-top:15px;*/
+      font-size: 22px;
+    }
+  }
+  #new-service-plus {
+    display: none;
+    padding-left: 10px;
+  }
+  /* Only display unavailable-service when the user
+  selects Unavailable from Services drop down */
+  #unavailable-service {
+    display: none;
+    #unavailable-start-fields {
+      padding-bottom: 1em;
+    }
+  }
+  .make_appt_btn {
+    margin-left: 3em;
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
+    height: 50px;
+  }
+}
+
+#customer_search_results {
+  /* These items will be initially hidden,
+  then displayed based on search results */
+  #no-customer-returned {
+    p {
+      margin-top: 10px;
+    }
+    .no-cust-btn {
+      max-width: 120px;
+      margin-right: 1.5em;
+    }
+  }
+  .customer-history {
+    margin-top: 1.0em;
+    .customer-info {
+      .edit-cust-info-field {
+        background-color: $white;
+        border: 0;
+      }
+      #edit-cust-info-btn {
+        margin-right:3.0em;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      #customer-id {
+        display: none;
+      }
+      #cust-history-close {
+        cursor: pointer;
+        padding-left:9.0em;
+      }
+      .btn_edit_cust_info {
+        max-width: 100px;
+        height: 33px;
+        margin-top: 0em;
+      }
+      #btn_save_cust_info {
+        display: none;
+        font-size: 14px;
+        width: 75px;
+      }
+    }
+  }
+
+  .customer-history-table {
+    margin-top:1.0em;
+    th {
+      border-bottom:1px solid black;
+    }
+    td {
+      padding-right: 1.5em;
+    }
+    #date-head {
+      padding-right: 2.0em;
+    }
+    #emp-head {
+      padding-right: 1.5em;
+    }
+    #service-head {
+      padding-right: 3em;
+    }
+  }
+  // Styling for customer search results
+  // When more than one customer is returned
+  #modal_cust_search_results {
+    max-width: 1200px;
+    margin: 100px auto;
+    background-color: $white;
+    border-radius: 10px;
+    padding:15px;
+    display:table;
+    #cust_search_results_table {
+      width: 100%;
+      border-spacing: 15px;
+      border-top:2px solid #000;
+      tbody {
+        display: block;
+        /*setting max-height to 335px here since that is the height of 5 rows
+        of customer search results. Any more than that, then the y-scroll
+        will be displayed */
+        max-height: 335px;
+        overflow-y: auto;
+      }
+      td {
+        padding-top: 1.5em;
+        padding-bottom: 1.5em;
+        border-bottom: 1px solid $lightGreyTableBorder;
+        &:not(:first-child) {
+          padding-left: 1em;
+        }
+      }
+      .cust-search-row:hover,
+      .cust-search-selected{
+        background-color: #F4F4F4;
+      }
+    }
+    button {
+      width:120px;
+      margin-right: 2.0em;
+    }
+    #no_cust_selected_msg {
+      padding-top: 1em;
+    }
+  }
+}
+
+/*-----Styling for customer history modal window-----*/
+#customer_history {
+  #modal_cust_history {
+    max-width: 900px;
+    margin: 100px auto;
+    background-color: $white;
+    border-radius: 10px;
+    padding: 15px;
+    display: table;
+    #cust_history_heading {
+      border-bottom: 2px solid;
+      h3 {
+        margin-top:0em;
+      }
+    }
+    #history_cust_info {
+      float:left;
+      width: 33%;
+      #history_cust_info_list {
+        list-style-type: none;
+        padding: 0px;
+        margin: 0px;
+        li {
+            padding-bottom: 0.25em;
+        }
+      }
+    }
+    #history_cust_history {
+      float:right;
+      width:66%;
+      #cust_history_table {
+        tbody {
+          display:block;
+          max-height: 500px;
+          overflow: auto;
+        }
+        td {
+          padding-top: 1.0em;
+          padding-bottom:1.0em;
+          padding-right: 1.0em;
+          border-bottom:1px solid $lightGreyTableBorder;
+        }
+        /*Making both of these columns have a fixed width
+        so the table does not shrink in width when the user
+        navigates through the history*/
+        .history_notes_col{
+          width: 200px;
+        }
+
+        /*This is the column listing the services.
+        171px is the width of Haircut, Beard Trim
+        which is the most common service*/
+        .history_service_col{
+          width: 171px;
+        }
+      }
+      .history_button_group {
+        button {
+          width:120px;
+          margin-right: 2.0em;
+        }
+      }
+    }
+  }
+}
+
+
+/* Standard error message */
+.error_msg, .fields_missing_msg {
+  display: none;
+  color:$errorRedFont;
+  font-weight: bold;
+}
+
+.non-hidden-error-msg,
+.ajax_error {
+  color:$errorRedFont;
+  font-weight: bold;
+}
+
+.emptyField {
+  color:red;
+}
+
+.badField {
+  /*Need !important here to apply this rule since the Bootstrap
+  styles would otherwise override it
+  https://css-tricks.com/when-using-important-is-the-right-choice/*/
+  border:2px solid $errorRedFont !important;
+}
+/*--------------------*/
+
+
+.move-down {
+  margin-top: 200px;
+}
+
+.fc-day-header {
+  font-size: 20px;
+}
+
+.dhtmlx-edit-cust-info-msgbox {
+  left:5px;
+  right:auto;
+}
+
+
+.bootstrap-timepicker-widget {
+  table tr td {
+    a {
+      height:40px;
+      width:50px;
+    }
+    // TODO - add icons to this
+    /*NOTE: I made a change to this element in the min.css file
+    I changed the margin to 0.75em, and the width to 50px and height to 40px.
+    I also changed the icon for the up/down arrows in the min.js file
+    I replaced the icon-chevron-up class with the glyphicon glyphicon-chevron-up classes.
+    The arrows were not appearing since the icon-chevron-up class did not exist. */
+  }
+  .bootstrap-timepicker-hour,
+  .bootstrap-timepicker-minute,
+  .bootstrap-timepicker-meridian {
+    font-size: 18px;
+  }
+  /* Added this to allow the timepicker to appear when the custom lightbox is open */
+  &.dropdown-menu.open {
+    z-index: 10001;
+  }
+}
+
+.appt-timepicker {
+  max-width: 150px;
+}
+
+
+
+/*Styles for add new customer modal screen */
+.modal_wrapper {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width:100%;
+  height:100%;
+  background-color: rgba(0, 0, 0, 0.5); /* last value is opacity */
+  z-index: 1000;
+  .modal-window {
+    margin: 50px auto;
+    background-color: $white;
+    border-radius: 10px;
+    padding:15px;
+  }
+}
+
+/* These are the stlying rules for the DHTMLX Messages
+which appear when an appointment is deleted or created */
+.dhtmlx-msgWindow,
+.dhtmlx-error {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 220px;
+}

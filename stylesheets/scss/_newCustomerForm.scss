@@ -1,0 +1,94 @@
+// Styles for the Add New Customer modal
+#modal_wrapper_new_customer {
+  overflow: auto;
+  #modal_new_customer {
+    max-width: 675px;
+    text-align:left;
+  }
+  .new_cust_header {
+    #new_cust_title {
+      float: left;
+    }
+    #new_cust_close {
+      float: right;
+    }
+  }
+
+  #new_customer_form {
+    margin-top: 65px;
+    #new_customer_table tr > td {
+      padding-bottom: 1em;
+    }
+    #new_cust_name {
+      width:200px;
+    }
+    #new_cust_gender_field {
+      input {
+        display: inline-block;
+        padding-right: 2em;
+      }
+    }
+    /* Note: input and select fields in Bootstrap are
+    set to width: 100% by default */
+    #new_cust_cell_phone,
+    #new_cust_home_phone {
+      width:150px;
+    }
+    #new_cust_email {
+      width:200px;
+    }
+    #new_cust_birthday_row * {
+      display: inline-block;
+      background-color: #FFFFFF;
+    }
+    #new_cust_birthday, #new_cust_birthday_year {
+      width:48%;
+    }
+    #new_cust_birthday_year {
+      text-align: center;
+    }
+    #new_cust_address {
+      width: 230px;
+    }
+
+    #new_cust_address_label {
+      padding-left: 1em;
+    }
+
+    #new_cust_home_phone_label {
+      padding-left: 1em;
+    }
+
+    #text_email_notify {
+      padding-left: 1em;
+    }
+    #new_cust_notification > *{
+      display: inline-block;
+    }
+    #notification_question {
+      /*this will set the position of the element 22 pixels
+      up from its normal position */
+      position: relative;
+      top:-38px;
+      padding-right: 0.75em;
+    }
+    button {
+      width: 175px;
+      margin-right: 20px;
+    }
+    #make_appt_new_cust_question {
+      * {
+        display: inline-block;
+      }
+      p {
+        padding-right: 0.75em;
+      }
+    }
+  }
+
+  .right_col {
+    padding-right: 1em;
+    width:150px;
+    text-align: right;
+  }
+}

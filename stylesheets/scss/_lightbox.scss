@@ -1,0 +1,98 @@
+/*----Styling for custom lightbox----------*/
+#custom_lightbox {
+  /*NOTE: Changed opacity for the dhx_cal_cover class from 0.1 to 0.5 in the
+  dhtmlxscheduler.css file*/
+  /*absolute positions an element relative to the first parent
+  that is not positioned static. If none are found, then html is used */
+  position: absolute;
+  margin-top: 0px !important;
+  max-width: 660px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  background-color: #fff;
+  z-index: 10001;
+  display: none;
+  padding:15px;
+  border-radius: 10px;
+  #lightbox-header {
+    border-bottom: 1px solid;
+    margin-bottom: 1em;
+    * {
+      display: inline;
+    }
+  }
+  #lightbox-table {
+    tr {
+      td {
+        padding-bottom: 1em;
+      }
+    }
+  }
+  #time-row > * {
+    display: inline;
+  }
+  #lightbox-start-time {
+    margin-right: 5em;
+    background-color: #FFFFFF;
+  }
+  #lightbox-end-time {
+    background-color: #FFFFFF;
+  }
+  #lightbox-date {
+    max-width: 150px;
+    background-color: #FFFFFF;
+  }
+  #lightbox-service-checklist input {
+    display: inline-block;
+    margin-right: 1em;
+    border:1px solid black;
+  }
+  #lightbox-service-list {
+    li {
+      display: inline;
+      padding-right: 2em;
+      &:hover {
+        cursor: pointer;
+      }
+
+      /*
+      Inserts a line break (\A is ASCII character for line break)
+      after every 4 li elements in the list of services. This prevents
+      the elements from being too close together.
+      The value for n starts at 0, then contains all positive integers.
+      https://css-tricks.com/how-nth-child-works/
+      */
+      &:nth-child(4n):after {
+        content: "\A\A";
+        white-space: pre;
+      }
+    }
+    .selectedService{
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+  #lightbox-emp-list {
+    max-width: 150px;
+    > option {
+      font-size: 18px;
+    }
+  }
+  #lightbox-notes {
+    max-width: 350px;
+  }
+  #lightbox-buttons button {
+    display: inline;
+    width:150px;
+    margin-right: 2.0em;
+    margin-left: 1.0em;
+  }
+
+  /*This class is added to the items in the list of services
+  which are selected */
+  .lightbox-service-list-selected {
+    font-weight: bold;
+  }
+}
+
+/*# sourceMappingURL=lightbox.css.map */

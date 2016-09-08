@@ -1,0 +1,82 @@
+// Styles for the Settings Modal
+// This is the modal where users can add employees,
+// and change the order of unit employees
+#settings-modal {
+  max-width: 675px;
+  min-height: 500px;
+
+  #settings-header {
+    float:left;
+  }
+  #settings-close {
+    float: right;
+  }
+  .employee-sections {
+    width: 50%;
+  }
+  #unit {
+    float:right;
+  }
+  #non-unit {
+    float:left;
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+  }
+  .employee-list {
+    padding: 0;
+    margin-top: 20px;
+    list-style-type: none;
+    li {
+      position: relative;
+      display: inline-block;
+      padding:12px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  #non-unit-employees {
+    float:left;
+    li {
+      background: #bbb7b7;
+      color:#000;
+      margin-right: 10px;
+      &:hover {
+        background: #aaa;
+      }
+    }
+  }
+  #unit-employees {
+    float:right;
+    li {
+      color: #fff;
+      background-color: #428bca;
+      border-color: #285e8e;
+      margin-left: 10px;
+      &:hover {
+        background: #0444B3;
+      }
+    }
+  }
+
+  #new-employee-section {
+    margin-top:50px;
+    .new-emp-field {
+      border-color: #aaa;
+    }
+    #new-employee-name {
+      max-width: 40%;
+    }
+
+    #new-employee-cell {
+      max-width: 30%;
+    }
+  }
+
+  // .delete-employee {
+  //   position: absolute;
+  //   color: #000;
+  //   font-size: 20px;
+  // }
+}

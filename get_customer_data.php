@@ -104,8 +104,8 @@
 					echo "</tbody>";
 				echo "</table>";
 				echo "<br>";
-				echo "<p><b>Most Recent Visit: </b>" . $last_visit_date ."</p><br>";
-				echo "<p><b>First Visit: </b>" . $first_visit_date ."</p><br>";
+				echo "<p><b>Most Recent Visit: </b>" . $last_visit_date ."</p>";
+				echo "<p><b>First Visit: </b>" . $first_visit_date ."</p>";
 				echo "<a href=\"#\" colspan=\"2\" onclick=\"viewCustomerHistory()\"><b>View All History</b></a>";
 			}
 			echo "</div>";
@@ -156,9 +156,9 @@
 						echo "</tbody>";
 					echo "</table>";
 
-					echo "<button type=\"button\" id=\"select_cust_results_btn\" class=\"btn_default_cb modal_btns\" onclick=\"selectCustomer()\">Select</button>";
-					echo "<button type=\"button\" class=\"btn_default_cb modal_btns\" onclick=\"closeCustSearchResults()\">Close</button>";
-					echo "<button type=\"button\" class=\"btn_default_cb modal_btns\" onclick=\"openNewCustomerWindow()\">Add Customer</button>";
+					echo "<button type=\"button\" id=\"select_cust_results_btn\" class=\"btn_default_cb\" onclick=\"selectCustomer()\">Select</button>";
+					echo "<button type=\"button\" class=\"btn_default_cb\" onclick=\"closeCustSearchResults()\">Close</button>";
+					echo "<button type=\"button\" class=\"btn_default_cb\" onclick=\"openNewCustomerWindow()\">Add Customer</button>";
 					echo "<p id=\"no_cust_selected_msg\" class=\"fields_missing_msg\">Please select a customer</p>";
 
 				echo "</div>";
