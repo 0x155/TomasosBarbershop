@@ -19,5 +19,14 @@
   "bugs": {
     "url": "https://github.com/cbonaco1/TomasosBarbershop/issues"
   },
-  "homepage": "https://github.com/cbonaco1/TomasosBarbershop#readme"
+  "homepage": "https://github.com/cbonaco1/TomasosBarbershop#readme",
+  "dependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "webpack": "^1.13.2"
+  }
 }

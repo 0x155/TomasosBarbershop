@@ -2,3 +2,8 @@ secrets.php
 ./intro_samples
 uname.exe.stackdump
 /logs/
+/stylesheets/.sass-cache/**
+/node_modules/**
+bundle.js
+bundle.js.map
+/lib/refactorNotes.js

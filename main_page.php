@@ -19,6 +19,7 @@
 		<script type="text/javascript" src="lib\bootstrap\js\bootstrap.js"></script>
 
 		<!-- dhtmlx Scheduler -->
+		<!-- Combine these scheduler files into one, and include that -->
 		<script type="text/javascript" src="lib\dhtmlxScheduler_v4.2.0\codebase\dhtmlxscheduler.js"></script>
 		<script type="text/javascript" src="lib\dhtmlxScheduler_v4.2.0\codebase\ext\dhtmlxscheduler_units.js"></script>
 		<script type="text/javascript" src="lib\dhtmlxScheduler_v4.2.0\codebase\ext\dhtmlxscheduler_collision.js"></script>
@@ -94,6 +95,7 @@
 				<div class="col-md-4 col-md-pull-8 fields" id="field-column">
 					<!-- action attribute tells the web browser where to send the data when form is submitted. Can be an absolute or relative URL-->
 					<!-- method attribute tells browser how to send the data (GET/POST) -->
+					<div id="fields-component"></div>
 					<ul class="field_labels">
 						<li id="customer-info-top-fields">
 							<div class="cust-search-filters">
@@ -299,6 +301,8 @@
 		<?php
 		}
 		?>
+
+		<script src="bundle.js"></script>
 	</body>
 
 </html>
