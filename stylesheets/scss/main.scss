@@ -328,7 +328,12 @@ html, body, div {
       }
       .cust-search-row:hover,
       .cust-search-selected{
-        background-color: #F4F4F4;
+        // background-color: #F4F4F4;
+        background-color: #ceb9b9;
+        // NOTE this is temporary change
+      }
+      .cust-search-row:hover {
+          cursor: pointer;
       }
     }
     button {

@@ -95,26 +95,8 @@
 				<div class="col-md-4 col-md-pull-8 fields" id="field-column">
 					<!-- action attribute tells the web browser where to send the data when form is submitted. Can be an absolute or relative URL-->
 					<!-- method attribute tells browser how to send the data (GET/POST) -->
-					<div id="fields-component"></div>
 					<ul class="field_labels">
-						<li id="customer-info-top-fields">
-							<div class="cust-search-filters">
-								<div class="filter active-filter number-filter" id="number">
-									<h4>Phone Number</h4>
-								</div>
-								<div class="filter name-filter" id="name">
-									<h4>Name</h4>
-								</div>
-							</div>
-							<div class="input-group input-group-lg" id="cust-name-fields">
-								<input type="text" placeholder="Search..." class="form-control" id="customer_name" autofocus>
-								<span class="input-group-btn">
-									<button type="button" class="btn btn-default" name="cust-search-button" id="cust-search-button" onclick="customerSearch()">Search</button>
-								</span>
-							</div>
-							<div id="customer_search_results"></div>
-							<li id="customer_history">
-						</li>
+						<li id="customer-search-component"></li>
 						<li class="form-group input-group-lg">
 							<label for="date"><h4>Date:</h4></label>
 							<input type="text" name="date" class="date_field form-control appt-date-picker" id="date" readonly>

@@ -414,7 +414,9 @@ html, body, div {
           padding-left: 1em; }
       #customer_search_results #modal_cust_search_results #cust_search_results_table .cust-search-row:hover,
       #customer_search_results #modal_cust_search_results #cust_search_results_table .cust-search-selected {
-        background-color: #F4F4F4; }
+        background-color: #ceb9b9; }
+      #customer_search_results #modal_cust_search_results #cust_search_results_table .cust-search-row:hover {
+        cursor: pointer; }
     #customer_search_results #modal_cust_search_results button {
       width: 120px;
       margin-right: 2.0em; }
