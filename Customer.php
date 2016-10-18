@@ -11,7 +11,6 @@
 		based on customer name.
 		*/
 		public static function getCustomerInfoByName($customerName){
-
 			$connection = connect();
 
 			$sql = "SELECT ID, Name, CellPhoneNumber, HomePhoneNumber, EmailAddress, HomeAddress, date_format(Birthday, \"%m/%d/%Y\") as Birthday, Notes " .

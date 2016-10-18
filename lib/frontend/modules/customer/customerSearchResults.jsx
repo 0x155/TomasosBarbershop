@@ -14,6 +14,7 @@ var CustomerProfile = require('./customerProfile');
 var CustomerSearchResultsWindow = require('./customerSearchResultsWindow');
 
 var CustomerSearchResults = React.createClass({
+
     render: function() {
         var results = this.props.results,
             content;

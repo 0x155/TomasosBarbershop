@@ -50,15 +50,14 @@ var CustomerSearch = React.createClass({
         var state = this.state,
             content = state.content,
             newContent = content,
-            filter = state.filter,
-            results;
+            filter = state.filter;
 
         // If length of content is 0, then user didnt enter anything
         // dont do search, return same as no results
         if (content.length === 0) {
-            results = {
-                type: "none"
-            }
+            this.setState({
+                results: { type: "none" }
+            });
         }
         else {
             // TODO - Disable Search button until search returns
@@ -72,21 +71,22 @@ var CustomerSearch = React.createClass({
             3.) Multiple results returned -> Show modal window of results
             4.) Match -> Show customer profile
             */
-            results = AjaxUtil.customerSearch(content, filter);
+            AjaxUtil.customerSearch(content, filter, function(res){
+                // If results came back with a customer,
+                // set state.content to the name so the text box will
+                // populate with the returned customer name
+                // Christian Bona ==> Christian Bonacore
+                if (res.customer) {
+                    newContent = res.customer.name;
+                }
+
+                this.setState({
+                    results: res,
+                    content: newContent
+                });
+            }.bind(this));
         }
 
-        // If results came back with a customer,
-        // set state.content to the name so the text box will
-        // populate with the returned customer name
-        // Christian Bona ==> Christian Bonacore
-        if (results.customer) {
-            newContent = results.customer.name;
-        }
-
-        this.setState({
-            results: results,
-            content: newContent
-        });
 
     },
 

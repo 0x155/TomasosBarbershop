@@ -40,14 +40,14 @@ var CustomerSearchResultsWindow = React.createClass({
             // for each element in the array, returning a new array
             customers = props.results.map(function(customer) {
                 var selected = false;
-                if ((state.selectedCustomer) && (customer.id === state.selectedCustomer.id)) {
+                if ((state.selectedCustomer) && (customer.ID === state.selectedCustomer.ID)) {
                     selected = true;
                 }
                 return <CustomerSearchResultItem
                             customer={customer}
                             selected={selected}
                             selectCustomer={this.selectCustomer}
-                            key={customer.id} />
+                            key={customer.ID} />
             }.bind(this));
         }
 

@@ -19,16 +19,14 @@ var CustomerSearchResultItem = React.createClass({
             classes += " cust-search-selected";
         }
 
-        // TODO - selecting one customer, then selecting another
-        // keeps the selected class for the first one clicked
         // TODO - on Select Customer - choose that customer
 
         return (
             <tr className={classes} onClick={this.props.selectCustomer.bind(null, customer)}>
                 <td><input type="radio" name="customer-name" checked={this.props.selected} /></td>
-                <td>{customer.name}</td>
-                <td>{customer.cellPhoneNumber}</td>
-                <td>{customer.emailAddress}</td>
+                <td>{customer.Name}</td>
+                <td>{customer.CellPhoneNumber}</td>
+                <td>{customer.EmailAddress}</td>
             </tr>
         );
     }
