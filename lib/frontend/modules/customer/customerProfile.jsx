@@ -1,4 +1,5 @@
 var React = require('react');
+var Util = require('../util');
 
 var CustomerProfile = React.createClass({
 
@@ -7,7 +8,7 @@ var CustomerProfile = React.createClass({
     getInitialState: function() {
         return ({
             editMode: false
-        })
+        });
     },
 
     // Toggle between edit/non-edit mode
@@ -18,7 +19,6 @@ var CustomerProfile = React.createClass({
         });
     },
 
-    // TODO - populate CustomerName field with customer name
     render: function() {
         var customer = this.props.customer,
             disabled,
@@ -39,14 +39,14 @@ var CustomerProfile = React.createClass({
                         <b>Phone:</b>
                         <input type="text" className="edit-cust-info-field form-control"
                                 id="edit-cust-info-phone"
-                                value={customer.cellPhoneNumber}
+                                value={Util.formatPhoneNumber(customer.CellPhoneNumber)}
                                 disabled={disabled} />
                     </div>
                     <div className="form-group">
                         <b>Email:</b>
                         <input type="text" className="edit-cust-info-field form-control"
                                 id="edit-cust-info-email"
-                                value={customer.emailAddress}
+                                value={customer.EmailAddress}
                                 disabled={disabled} />
                     </div>
                     <input type="hidden" id="customer-id" value={customer.id} />

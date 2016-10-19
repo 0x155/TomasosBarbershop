@@ -18,7 +18,7 @@ var CustomerSearchResultsWindow = React.createClass({
     },
 
     selectAndCloseWindow: function() {
-        this.props.populateNameAndCloseWindow(this.state.selectedCustomer.name);
+        this.props.populateNameAndCloseWindow(this.state.selectedCustomer.Name);
     },
 
     closeWindow: function() {

@@ -26,7 +26,7 @@ var CustomerSearchResults = React.createClass({
         else if (results.type === "one") {
             content = <CustomerProfile
                         closeResults={this.props.closeResults}
-                        customer={results.customer} />
+                        customer={results.customer[0]} />
         }
         else if (results.type === "many") {
             content = <CustomerSearchResultsWindow

@@ -77,7 +77,7 @@ var CustomerSearch = React.createClass({
                 // populate with the returned customer name
                 // Christian Bona ==> Christian Bonacore
                 if (res.customer) {
-                    newContent = res.customer.name;
+                    newContent = res.customer[0].Name;
                 }
 
                 this.setState({

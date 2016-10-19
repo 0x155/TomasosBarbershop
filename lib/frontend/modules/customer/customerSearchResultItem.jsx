@@ -1,4 +1,5 @@
 var React = require('react');
+var Util = require('../util');
 
 var CustomerSearchResultItem = React.createClass({
 
@@ -19,13 +20,14 @@ var CustomerSearchResultItem = React.createClass({
             classes += " cust-search-selected";
         }
 
-        // TODO - on Select Customer - choose that customer
 
+
+        // TODO - format CellPhoneNumber
         return (
             <tr className={classes} onClick={this.props.selectCustomer.bind(null, customer)}>
                 <td><input type="radio" name="customer-name" checked={this.props.selected} /></td>
                 <td>{customer.Name}</td>
-                <td>{customer.CellPhoneNumber}</td>
+                <td>{Util.formatPhoneNumber(customer.CellPhoneNumber)}</td>
                 <td>{customer.EmailAddress}</td>
             </tr>
         );
