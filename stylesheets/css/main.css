@@ -283,11 +283,6 @@ html, body, div {
     background: #397Ef5;
     border-color: #397Ef5;
     color: #FFF; }
-  #field-column .editing_fields_area {
-    border: 1px solid #428bca;
-    border-radius: 10px;
-    padding: 1.0em;
-    background-color: #F5F5F5; }
   #field-column #cust-name-fields {
     max-width: 350px; }
     #field-column #cust-name-fields #customer_name {
@@ -354,28 +349,28 @@ html, body, div {
   #customer_search_results #no-customer-returned .no-cust-btn {
     max-width: 120px;
     margin-right: 1.5em; }
+  #customer_search_results .editing_fields_area {
+    border: 1px solid #428bca;
+    border-radius: 10px;
+    background-color: #CCC; }
+    #customer_search_results .editing_fields_area .edit-cust-info-field {
+      border: 1px solid #9E9E9E; }
   #customer_search_results .customer-history {
-    margin-top: 1.0em; }
+    padding: 10px 0; }
     #customer_search_results .customer-history .customer-info .edit-cust-info-field {
       background-color: #FFF;
       border: 0; }
     #customer_search_results .customer-history .customer-info #edit-cust-info-btn {
       margin-right: 3.0em; }
-      #customer_search_results .customer-history .customer-info #edit-cust-info-btn:hover {
-        cursor: pointer; }
     #customer_search_results .customer-history .customer-info #customer-id {
       display: none; }
-    #customer_search_results .customer-history .customer-info #cust-history-close {
-      cursor: pointer;
-      padding-left: 9.0em; }
+    #customer_search_results .customer-history .customer-info #edit-cust-info-email {
+      margin-left: 5px;
+      padding-left: 10px; }
     #customer_search_results .customer-history .customer-info .btn_edit_cust_info {
       max-width: 100px;
       height: 33px;
-      margin-top: 0em; }
-    #customer_search_results .customer-history .customer-info #btn_save_cust_info {
-      display: none;
-      font-size: 14px;
-      width: 75px; }
+      margin-top: 10px; }
   #customer_search_results .customer-history-table {
     margin-top: 1.0em; }
     #customer_search_results .customer-history-table th {
@@ -422,6 +417,8 @@ html, body, div {
       margin-right: 2.0em; }
     #customer_search_results #modal_cust_search_results #no_cust_selected_msg {
       padding-top: 1em; }
+  #customer_search_results .ajax_error {
+    margin-top: 10px; }
 
 /*-----Styling for customer history modal window-----*/
 #customer_history #modal_cust_history {

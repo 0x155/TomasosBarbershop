@@ -12,12 +12,12 @@
 	$cell_phone_number = htmlspecialchars($_POST['phone']);
 	$email_addr = htmlspecialchars($_POST['email']);
 	$valid = true;
-	$error_msgs = "";
+	$error_msgs = array();
 
 	//Validate phone number
 	if( !(Util::validatePhoneNumber($cell_phone_number)) ){
 		$valid = false;
-		$error_msgs .= "<p class=\"ajax_error\">Please enter a valid Cell Phone Number</p><br>";
+		array_push($error_msgs, "Please enter a valid Cell Phone Number");
 	}
 	else {
 		$cell_phone_number = Util::stripPhoneNumber($cell_phone_number);
@@ -30,14 +30,13 @@
 	if(!empty($email_addr)){
 		if(!filter_var($email_addr, FILTER_VALIDATE_EMAIL)){
 			$valid = false;
-			$error_msgs .= "<p class=\"ajax_error\">Please enter a valid Email Address</p><br>";
+			array_push($error_msgs, "Please enter a valid Email Address");
 		}
 	}
 
-	//TO_DO: Validate customer name is not empty
 	if(empty($customer_name)){
 		$valid = false;
-		$error_msgs .= "<p class=\"ajax_error\">Please enter a name for the customer</p><br>";
+		array_push($error_msgs, "Please enter a name for the customer");
 	}
 
 	if($valid){
@@ -50,6 +49,6 @@
 		echo $row_count;
 	}
 	else{
-		echo $error_msgs;
+		echo json_encode($error_msgs);
 	}
 ?>

@@ -141,12 +141,6 @@ html, body, div {
     border-color: $standardBlue;
     color: $white;
   }
-  .editing_fields_area {
-    border:1px solid #428bca;
-    border-radius: 10px;
-    padding:1.0em;
-    background-color:#F5F5F5;
-  }
   #cust-name-fields {
     max-width: 350px;
     #customer_name {
@@ -246,8 +240,16 @@ html, body, div {
       margin-right: 1.5em;
     }
   }
+  .editing_fields_area {
+    border:1px solid #428bca;
+    border-radius: 10px;
+    background-color:#CCC;
+    .edit-cust-info-field {
+        border: 1px solid #9E9E9E;
+    }
+  }
   .customer-history {
-    margin-top: 1.0em;
+    padding: 10px 0;
     .customer-info {
       .edit-cust-info-field {
         background-color: $white;
@@ -255,26 +257,21 @@ html, body, div {
       }
       #edit-cust-info-btn {
         margin-right:3.0em;
-        &:hover {
-          cursor: pointer;
-        }
       }
       #customer-id {
         display: none;
       }
+      #edit-cust-info-email {
+          margin-left: 5px;
+          padding-left: 10px;
+      }
       #cust-history-close {
-        cursor: pointer;
-        padding-left:9.0em;
+        // padding-left:9.0em;
       }
       .btn_edit_cust_info {
         max-width: 100px;
         height: 33px;
-        margin-top: 0em;
-      }
-      #btn_save_cust_info {
-        display: none;
-        font-size: 14px;
-        width: 75px;
+        margin-top: 10px;
       }
     }
   }
@@ -343,6 +340,9 @@ html, body, div {
     #no_cust_selected_msg {
       padding-top: 1em;
     }
+  }
+  .ajax_error {
+      margin-top: 10px;
   }
 }
 

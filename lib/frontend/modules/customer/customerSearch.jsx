@@ -114,8 +114,6 @@ var CustomerSearch = React.createClass({
     render: function() {
         var state = this.state,
             activeFilter = state.filter,
-            // nameClasses = "filter number-filter",
-            // numberClasses = "filter name-filter";
             nameClasses = "filter",
             numberClasses = "filter",
             results,
