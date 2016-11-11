@@ -1,6 +1,7 @@
 var React = require('react');
 var Util = require('../util');
 var AjaxUtil = require('../ajax_util');
+var CustomerVisitHistory = require('./visitHistory/customerVisitHistory');
 
 var CustomerProfile = React.createClass({
 
@@ -70,7 +71,6 @@ var CustomerProfile = React.createClass({
             phoneNumberValidation = Util.validatePhoneNumber(phoneNumber),
             emailAddressValidation = Util.validateEmailAddress(emailAddress);
 
-        //TODO - on Cancel, need to hide error messages
         // Validate info the user entered
         if (phoneNumberValidation.valid && emailAddressValidation.valid) {
             AjaxUtil.updateCustomerInfo({
@@ -116,9 +116,10 @@ var CustomerProfile = React.createClass({
             disabled,
             saveButton,
             closeButton,
-            outterClasses = "customer-history",
+            outterClasses = "customer-info form-inline",
             editButtonText = "Edit Info",
-            errorMessages;
+            errorMessages,
+            visitHistory;
 
         if (!this.state.editMode) {
             disabled = "true";
@@ -141,12 +142,18 @@ var CustomerProfile = React.createClass({
             });
         }
 
-        // TODO - updating data in database
+        if (customer.visitHistory && customer.visitHistory.length) {
+            visitHistory = <CustomerVisitHistory
+                                visits={customer.visitHistory}
+                                firstVisit={customer.firstVisit}
+                                />;
+        }
+
         // TODO - Disable customer name field when in edit mode
-        // TODO - Display visit history
+        // TODO - Give user option to see full history
         return(
-            <div className={outterClasses}>
-                <div className="customer-info form-inline">
+            <div className="customer-history">
+                <div className={outterClasses}>
                     <div className="form-group">
                         <b>Phone:</b>
                         <input type="text" className="edit-cust-info-field form-control"
@@ -175,6 +182,9 @@ var CustomerProfile = React.createClass({
                     <div>
                         { errorMessages }
                     </div>
+                </div>
+                <div>
+                    { visitHistory }
                 </div>
             </div>
         );

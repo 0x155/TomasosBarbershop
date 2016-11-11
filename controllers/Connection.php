@@ -1,5 +1,5 @@
 <?php
-	require("../config.php");
+	require_once("../config.php");
 	require_once("Util.php");
 
 		// TODO might want to make this a class

@@ -350,6 +350,7 @@ html, body, div {
     max-width: 120px;
     margin-right: 1.5em; }
   #customer_search_results .editing_fields_area {
+    padding: 5px;
     border: 1px solid #428bca;
     border-radius: 10px;
     background-color: #CCC; }

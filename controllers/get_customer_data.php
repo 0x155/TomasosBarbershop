@@ -16,5 +16,15 @@
         $rs = Customer::getCustomerInfoByName($content);
     }
 
+    // If one customer is returned, include their visit history as well
+    // Also include their first visit date
+    if (count($rs) === 1) {
+        $returnedCustomer = $rs[0];
+        $visitHistory = Customer::getQuickCustomerHistory($returnedCustomer["ID"]);
+        $firstVisit = Customer::getVisitDate("first", $returnedCustomer["ID"]);
+        $rs[0]["visitHistory"] = $visitHistory;
+        $rs[0]["firstVisit"] = $firstVisit;
+    }
+
     echo json_encode($rs);
 ?>

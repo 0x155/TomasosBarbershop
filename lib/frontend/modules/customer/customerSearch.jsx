@@ -63,7 +63,6 @@ var CustomerSearch = React.createClass({
             // TODO - Disable Search button until search returns
             // Set this.state.results here, based on search results
 
-            // Could have results be an object with type and content
             /*
             Result possibilities are the following:
             1.) User enters no text -> Return no customer found
@@ -76,7 +75,7 @@ var CustomerSearch = React.createClass({
                 // set state.content to the name so the text box will
                 // populate with the returned customer name
                 // Christian Bona ==> Christian Bonacore
-                if (res.customer) {
+                if (res.type === "one") {
                     newContent = res.customer[0].Name;
                 }
 
@@ -86,8 +85,6 @@ var CustomerSearch = React.createClass({
                 });
             }.bind(this));
         }
-
-
     },
 
     // This is passed to CustomerSearchResults component,
