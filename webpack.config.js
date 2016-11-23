@@ -16,11 +16,22 @@ module.exports = {
               query: {
                 presets: ['es2015', 'react']
               }
+          },
+          {
+              test: /\.handlebars$/,
+              loader: "handlebars-loader",
+              query: {
+                  helperDirs: [ path.join(__dirname, 'templates', 'helpers') ]
+              }
           }
       ]
   },
   devtool: "source-map",
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx', '.handlebars'],
+    alias: {
+        handlebars: path.join(__dirname, 'lib', 'handlebars', 'handlebars.runtime-v4.0.5.js'),
+        templates: path.join(__dirname, 'templates')
+    }
   }
 }

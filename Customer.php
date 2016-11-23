@@ -183,11 +183,10 @@
 		list of services for each appointment. This makes it easier to read in the
 		"View All Customer History" modal
 		*/
-		public static function getFullCustomerHistory($customerName, $startRow=0, $numRows=5){
+		public static function getFullCustomerHistory($customerID, $startRow=0, $numRows=5){
 
 			$connection = connect();
 
-			$customerID = Customer::getCustomerID($customerName);
 			//SQL_CALC_FOUND_ROWS gets the total number of rows that would be returned w/out the LIMIT clause
 			$get_history_query = "SELECT SQL_CALC_FOUND_ROWS date_format(A.start_date, \"%m/%d/%Y\") as Appt_Date, E.Name as EmpName, A.Text as Services, A.Notes " .
 								"FROM " . TBL_APPOINTMENT . " AS A, " . TBL_EMPLOYEE . " AS E " .

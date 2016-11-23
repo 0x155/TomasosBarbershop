@@ -146,11 +146,10 @@ var CustomerProfile = React.createClass({
             visitHistory = <CustomerVisitHistory
                                 visits={customer.visitHistory}
                                 firstVisit={customer.firstVisit}
-                                />;
+                                customer={this.props.customer} />;
         }
 
         // TODO - Disable customer name field when in edit mode
-        // TODO - Give user option to see full history
         return(
             <div className="customer-history">
                 <div className={outterClasses}>

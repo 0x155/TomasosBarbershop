@@ -1,0 +1,66 @@
+<div id="modal_wrapper_cust_history" class="modal_wrapper">
+    <div id="modal_cust_history">
+        <div id="cust_history_heading">
+            <h3>History for {{customer.Name}}</h3>
+        </div>
+        <div id="history_cust_info">
+            <ul id="history_cust_info_list">
+                {{#if customer.CellPhoneNumber}}
+                    <li>
+                        <h4><b>Cell #: </b>{{formatPhoneNumber customer.CellPhoneNumber}}</h4>
+                    </li>
+                {{/if}}
+                {{#if customer.HomePhoneNumber}}
+                    <li>
+                        <h4><b>Home #: </b>{{ formatPhoneNumber customer.HomePhoneNumber}}</h4>
+                    </li>
+                {{/if}}
+                {{#if customer.EmailAddress}}
+                    <li>
+                        <h4><b>Email: </b>{{customer.EmailAddress}}</h4>
+                    </li>
+                {{/if}}
+                {{#if customer.HomeAddress}}
+                    <li>
+                        <h4><b>Address: </b>{{customer.HomeAddress}}</h4>
+                    </li>
+                {{/if}}
+                {{#if customer.Birthday}}
+                    <li>
+                        <h4><b>Birthday: </b>{{customer.Birthday}}</h4>
+                    </li>
+                {{/if}}
+                {{#if customer.Notes}}
+                    <li>
+                        <h4><b>Notes: </b>{{customer.Notes}}</h4>
+                    </li>
+                {{/if}}
+                <li>
+                    <h4><b>First appt: </b>{{customer.firstVisit}}</h4>
+                    <h4><b>Days since last appt: </b></h4>
+                </li>
+            </ul>
+        </div>
+        <div id="history_cust_history">
+            <table id="cust_history_table">
+                <tbody>
+                    {{#visitHistory}}
+                        <tr>
+                            <td>{{Appt_Date}}</td>
+                            <td class="history_service_col">{{Services}}</td>
+                            <td>{{EmpName}}</td>
+                            <td class="history_notes_col">{{Notes}}</td>
+                        </tr>
+                    {{/visitHistory}}
+                </tbody>
+            </table>
+            <div class="history_button_group">
+                <button type="button" class="btn_default_cb modal_btns">
+                    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Prev
+                </button>
+                <button type="button"
+                        class="btn_default_cb modal_btns close_button">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

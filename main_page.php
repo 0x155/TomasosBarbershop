@@ -97,6 +97,7 @@
 					<!-- method attribute tells browser how to send the data (GET/POST) -->
 					<ul class="field_labels">
 						<li id="customer-search-component"></li>
+						<div id="customer_history"></div>
 						<li class="form-group input-group-lg">
 							<label for="date"><h4>Date:</h4></label>
 							<input type="text" name="date" class="date_field form-control appt-date-picker" id="date" readonly>
