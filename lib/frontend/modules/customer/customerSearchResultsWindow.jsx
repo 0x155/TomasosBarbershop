@@ -1,5 +1,6 @@
 var React = require('react');
 var CustomerSearchResultItem = require('./customerSearchResultItem');
+var AddNewCustomerTemplate = require('templates/addNewCustomerForm');
 
 var CustomerSearchResultsWindow = React.createClass({
     getInitialState: function() {
@@ -21,13 +22,26 @@ var CustomerSearchResultsWindow = React.createClass({
         this.props.populateNameAndCloseWindow(this.state.selectedCustomer.Name);
     },
 
-    closeWindow: function() {
-        // this should call this.props.closeWindow
-        // which is passed in from the parent
-    },
-
     openNewCustomerWindow: function() {
-        console.log("--Open new customer window from results");
+        var name,
+            cellPhoneNumber,
+            filter = this.props.filter;
+
+        this.props.closeResults();
+
+        if (filter === "name") {
+            name = this.props.search;
+        }
+        else if (filter === "number") {
+            cellPhoneNumber = this.props.search;
+        }
+
+        var content = AddNewCustomerTemplate({
+            name: name,
+            cellPhoneNumber: cellPhoneNumber
+        });
+
+        document.getElementById("new-customer-modal-container").innerHTML = content;
     },
 
     render: function() {

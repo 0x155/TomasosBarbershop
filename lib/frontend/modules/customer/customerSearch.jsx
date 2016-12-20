@@ -131,7 +131,8 @@ var CustomerSearch = React.createClass({
                         results={state.results}
                         closeResults={this.closeResults}
                         populateNameAndCloseWindow={this.populateNameAndCloseWindow}
-                        search={state.content} />
+                        search={state.content}
+                        filter={state.filter} />
         }
 
         // NOTE this.searchField is set in the ref callback,

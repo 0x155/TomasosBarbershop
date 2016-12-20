@@ -4,6 +4,7 @@
 
 $standardBlue: #397Ef5;
 $standardBlueHover: #0444B3;
+$standardBlueDisabled: #639afb;
 $lightGreyTableBorder: #E3E3E3;
 $white: #FFF;
 $pageFontFamily: proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -39,6 +40,9 @@ html, body, div {
   margin-top:1em;
   &:hover {
     background-color: $standardBlueHover;
+  }
+  &:disabled {
+      background-color: $standardBlueDisabled;
   }
 }
 

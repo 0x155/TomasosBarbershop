@@ -21,7 +21,10 @@ var CustomerSearchResults = React.createClass({
 
         // this.props.results will be the results
         if (results.type === "none") {
-            content = <NoCustomerResults closeResults={this.props.closeResults} />
+            content = <NoCustomerResults
+                        closeResults={this.props.closeResults}
+                        search={this.props.search}
+                        filter={this.props.filter} />
         }
         else if (results.type === "one") {
             content = <CustomerProfile
@@ -33,7 +36,8 @@ var CustomerSearchResults = React.createClass({
                         closeResults={this.props.closeResults}
                         populateNameAndCloseWindow={this.props.populateNameAndCloseWindow}
                         results={results.customers}
-                        search={this.props.search} />
+                        search={this.props.search}
+                        filter={this.props.filter} />
         }
 
         // Check value of this.props.results

@@ -1,14 +1,30 @@
 var React = require('react');
+var AddNewCustomerTemplate = require('templates/addNewCustomerForm');
 
 var NoCustomerSearchResults = React.createClass({
 
     openNewCustomerWindow: function() {
-        console.log("--open customer window");
+        var name,
+            cellPhoneNumber,
+            filter = this.props.filter;
+
+        this.props.closeResults();
+
+        if (filter === "name") {
+            name = this.props.search;
+        }
+        else if (filter === "number") {
+            cellPhoneNumber = this.props.search;
+        }
+
+        var content = AddNewCustomerTemplate({
+            name: name,
+            cellPhoneNumber: cellPhoneNumber
+        });
+
+        document.getElementById("new-customer-modal-container").innerHTML = content;
     },
 
-    // TODO - need to tell this component where to render
-    // When Yes butotn is clicked, open the addNewCustomer form
-    // When No button is clicked, this component should close
     render: function() {
         return (
             <div id="no-customer-returned">

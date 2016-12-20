@@ -2,7 +2,7 @@
   <div id="modal_new_customer" class="modal-window">
     <div class="new_cust_header">
       <h3 id="new_cust_title">Add New Customer</h3><br/>
-      <p id="new_cust_close"><a href="#" onclick="closeNewCustomerWindow()">Close[X]</a></p>
+      <p id="new_cust_close"><a href="#" class="close-customer-window">Close[X]</a></p>
     </div>
 
     <form id="new_customer_form" method="post">
@@ -19,7 +19,7 @@
           </tr>
           <tr>
             <td><label for="new_cust_cell_phone" id="new_cust_cell_label">Cell Phone:</label></td>
-            <td><input type="tel" id="new_cust_cell_phone"  placeholder="Cell Phone" class="form-control"></td>
+            <td><input type="tel" value="{{cellPhoneNumber}}" id="new_cust_cell_phone"  placeholder="Cell Phone" class="form-control"></td>
             <td><label for="new_cust_home_phone" id="new_cust_home_phone_label" class="right_col">Home Phone:</label></td>
             <td><input type="tel" id="new_cust_home_phone"  placeholder="Home Phone" class="form-control"></td>
           </tr>
@@ -60,9 +60,9 @@
         </div>
       </div>
 
-      <button type="button" class="btn_default_cb" onclick="addNewCustomer()" id="addNewCustomerButton">Add Customer</button>
-      <button type="button" class="btn_default_cb" id="clearNewCustFieldsButton" onclick="clearAddNewCustomerFields()">Clear Fields</button>
-      <button type="button" class="btn_default_cb" id="closeNewCustButton" onclick="closeNewCustomerWindow()">Close</button>
+      <button type="button" class="btn_default_cb" id="addNewCustomerButton">Add Customer</button>
+      <button type="button" class="btn_default_cb" id="clearNewCustFieldsButton">Clear Fields</button>
+      <button type="button" class="btn_default_cb close-customer-window" id="closeNewCustButton">Close</button>
 
       <div>
         <!--TO-DO: Fix these so they are all block-->
