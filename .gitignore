@@ -2,3 +2,4 @@ secrets.php
 ./intro_samples
 uname.exe.stackdump
 /logs/
+/node_modules/**
