@@ -5,16 +5,14 @@ allowing for responsive design.
 */
 
 /*Width of landscape mode of an iPad is 1024px*/
+//1106
 @media all and (max-width: 1024px) {
-	/*Pushes fields all the way to the left */
-	.field_labels {
-		padding:1em;
-	}
-
-	/*Removes the H and M labels for Hours and Mins for appt */
-	.time_label {
-		display: none;
-	}
+    #field-column {
+        /*Pushes fields all the way to the left */
+        .field_labels {
+            padding: 14px 0px 0px 14px;
+        }
+    }
 
 	input[type=checkbox]{
 		width:16px;
@@ -25,6 +23,35 @@ allowing for responsive design.
 		width:18px;
 		height: 15px;
 	}
+}
+
+@media all and (max-width: 1106px) {
+    // Shrink the width of the start-time/hours/mins fields
+    // This break point is when the elements start to not fit
+    // all on same line
+    #field-column {
+        #time-fields {
+            #start-time-col {
+                width: 140px;
+            }
+            .hours-min-col {
+                width: 50px;
+                &#hours {
+                    input {
+                        padding-left: 20px
+                    }
+                }
+                &#mins {
+                    input {
+                        padding-left: 13px;
+                    }
+                }
+                button {
+                    margin-left: -5px;
+                }
+            }
+        }
+    }
 }
 
 /* When the device (iPad) is in portrait mode */
