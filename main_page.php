@@ -10,7 +10,6 @@
 		<title>Tomaso's Barbershop</title>
 
 		<link rel="stylesheet" type="text/css" href="stylesheets\css\main.css"/>
-		<link rel="stylesheet" type="text/css" href="stylesheets\media_queries.css">
 		<link rel="stylesheet" type="text/css" href="lib\bootstrap\css\bootstrap.min.css"/>
 
 		<!-- bootstrap version is 3.2 -->
@@ -119,37 +118,26 @@
 							<!-- http://eternicode.github.io/bootstrap-datepicker/?#sandbox -->
 						</li>
 						<li class="form-group">
-							<table id="time-fields">
-								<tr>
-									<td><label for="start-time"><h4>Time:</h4></label></td>
-									<td><button class="btn btn-default appt-time-arrow-btn time-up-arrows" id="hour-up-arrow" onclick="return addApptHour()"><span class="glyphicon glyphicon-chevron-up appt-time-arrow-span"></span></button></td>
-									<td><button class="btn btn-default appt-time-arrow-btn time-up-arrows" id="min-up-arrow" onclick="return addApptMinutes()"><span class="glyphicon glyphicon-chevron-up appt-time-arrow-span"></span></button></td>
-								</tr>
-
-								<tr id="time-entry-row">
-									<td class="input-group-lg time-field">
-										<input type="text" class="appt-timepicker form-control" id="start-time" readonly>
-									</td>
-									<td class="input-group-lg hours-min-fields">
-										<input type="text" class="form-control" id="appt-length-hours" value="0" disabled>
-										<p class="time_label">H</p>
-									</td>
-									<td class="input-group-lg hours-min-fields">
-										<input type="text" class="form-control" id="appt-length-mins" value="30" disabled>
-										<p class="time_label">M</p>
-									</td>
-								</tr>
-
-								<tr>
-									<td></td>
-									<td><button class="btn btn-default appt-time-arrow-btn time-down-arrows" id="hour-down-arrow" onclick="return subtractApptHour()"><span class="glyphicon glyphicon-chevron-down appt-time-arrow-span"></span></button></td>
-									<td><button class="btn btn-default appt-time-arrow-btn time-down-arrows" id="min-down-arrow" onclick="return subtractApptMinutes()"><span class="glyphicon glyphicon-chevron-down appt-time-arrow-span"></span></button></td>
-								</tr>
-							</table>
-
+							<div id="time-fields" class="group">
+								<div class="appt-column input-group-lg" id="start-time-col">
+									<label for="start-time"><h4>Time:</h4></label>
+									<input type="text" class="appt-timepicker form-control" id="start-time" readonly>
+								</div>
+								<div class="appt-column input-group-lg hours-min-col" id="hours">
+									<button class="btn btn-default appt-time-arrow-btn time-up-arrows" id="hour-up-arrow" onclick="return addApptHour()"><span class="glyphicon glyphicon-chevron-up appt-time-arrow-span"></span></button>
+									<input type="text" class="form-control" id="appt-length-hours" value="0" disabled>
+									<p class="time_label">H</p>
+									<button class="btn btn-default appt-time-arrow-btn time-down-arrows" id="hour-down-arrow" onclick="return subtractApptHour()"><span class="glyphicon glyphicon-chevron-down appt-time-arrow-span"></span></button>
+								</div>
+								<div class="appt-column input-group-lg hours-min-col" id="mins">
+									<button class="btn btn-default appt-time-arrow-btn time-up-arrows" id="min-up-arrow" onclick="return addApptMinutes()"><span class="glyphicon glyphicon-chevron-up appt-time-arrow-span"></span></button>
+									<input type="text" class="form-control" id="appt-length-mins" value="30" disabled>
+									<p class="time_label">M</p>
+									<button class="btn btn-default appt-time-arrow-btn time-down-arrows" id="min-down-arrow" onclick="return subtractApptMinutes()"><span class="glyphicon glyphicon-chevron-down appt-time-arrow-span"></span></button>
+								</div>
+							</div>
 							<!--Displayed if hours and mins both equal 0 -->
 							<p id="appt-time-error" class="error_msg">Note: Invalid time entered</p>
-
 						</li>
 
 						<li>

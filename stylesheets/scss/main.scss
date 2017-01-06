@@ -113,10 +113,9 @@ html, body, div {
 #field-column {
   height:100%;
   overflow:auto;
-  ul {
-    list-style-type: none;
-  }
   .field_labels {
+    list-style-type: none;
+    padding-left: 20px;
     li {
       margin-bottom: 2em;
     }
@@ -167,34 +166,51 @@ html, body, div {
   }
   #time-fields {
     .appt-time-arrow-btn {
-      border-color: $white;
-      &:hover {
-        border-color: #CCCCCC;
-        background-color: $white;
-      }
-      // TODO - eliminate blue border
-      // around these buttons after theyre clicked
-      &:focus {
-        background-color: $white;
-        border-color: $white;
-      }
-    }
+          border-color: $white;
+          &:hover {
+              background-color: $white;
+          }
+          &:focus {
+              background-color: $white;
+              outline: none;
+          }
+          &:active {
+              box-shadow: none;
+              background-color: $white;
+          }
+     }
     .time-up-arrows {
-      padding-bottom: 1em;
+        padding-bottom: 1em;
     }
-    #time-entry-row {
-      td {
-        padding-right: 1em;
+    .appt-column {
+        float: left;
         input {
           background-color: $white;
         }
-      }
-      #appt-length-hours {
-        width:50px;
-      }
-      #appt-length-mins {
-        width:60px;
-      }
+    }
+    #start-time-col {
+        width: 150px;
+        margin-top: 13px;
+        margin-right: 18px;
+    }
+    .hours-min-col {
+        width: 60px;
+        text-align: center;
+        &#hours {
+            margin-right: 18px;
+            input {
+                padding-left: 26px;
+            }
+        }
+        &#mins {
+            input {
+                padding-left: 19px;
+            }
+        }
+        .time_label {
+            margin-top: 10px;
+            margin-bottom: 0px;
+        }
     }
     .time-down-arrows {
       padding-top: 1em;
@@ -504,3 +520,5 @@ which appear when an appointment is deleted or created */
   top: 0px;
   width: 220px;
 }
+
+@import "mediaQueries";
