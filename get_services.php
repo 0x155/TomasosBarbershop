@@ -7,7 +7,7 @@
 	*/
 	require_once("Appointment.php");
 
-	$apptID = $_POST['apptID'];
+	$apptID = $_GET['apptID'];
 
 	$services = Appointment::getServices($apptID);
 	$numServices = count($services);

@@ -19,6 +19,6 @@
 		echo "valid";
 	}
 	else{
-		echo "<p>Invalid Username and Password</p>";
+		echo "invalid";
 	}
 ?>

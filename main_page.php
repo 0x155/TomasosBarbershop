@@ -106,7 +106,7 @@
 							<div class="input-group input-group-lg" id="cust-name-fields">
 								<input type="text" placeholder="Search..." class="form-control" id="customer_name" autofocus>
 								<span class="input-group-btn">
-									<button type="button" class="btn btn-default" name="cust-search-button" id="cust-search-button" onclick="customerSearch()">Search</button>
+									<button type="button" class="btn btn-default" name="cust-search-button" id="cust-search-button" onclick="customerSearch(event)">Search</button>
 								</span>
 							</div>
 							<div id="customer_search_results"></div>
@@ -274,6 +274,7 @@
 					<p id="lightbox-services-error" class="lightbox_error_msgs error_msg">Note: You did not enter any services</p>
 					<p id="lightbox-time-error" class="lightbox_error_msgs error_msg">Note: Entered start time is greater than end time</p>
 					<p id="lightbox-time-past-error" class="lightbox_error_msgs error_msg">Note: Entered start time is beyond business hours</p>
+					<p id="lightbox-services-unavailable" class="lightbox_error_msgs error_msg">Sorry, the services are currently unavailable</p>
 				</div>
 
 			</div>

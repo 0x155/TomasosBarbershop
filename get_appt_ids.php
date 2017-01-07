@@ -11,9 +11,9 @@
 	require_once("Employee.php");
 	require_once("Customer.php");
 
-	$customerName = $_POST['customerName'];
-	$employeeName = $_POST['employeeName'];
-	$service = $_POST['service'];
+	$customerName = $_GET['customerName'];
+	$employeeName = $_GET['employeeName'];
+	$service = $_GET['service'];
 
 	$res = array();
 	$error_string = "";
@@ -54,10 +54,6 @@
 		//$numCustIDs = count($custID_RS);
 
 		if(strlen($custID) >= 1){
-			//append customer.id to res
-			//unshift adds the element to the begining of the array
-			//array_push appends the element to the end
-			//array_unshift($res, "CustID" => $custID);
 			$res["CustID"] = $custID;
 		}
 		else{

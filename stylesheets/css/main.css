@@ -209,6 +209,8 @@ html, body, div {
   margin-top: 1em; }
   .btn_default_cb:hover {
     background-color: #0444B3; }
+  .btn_default_cb:disabled {
+    background-color: #639afb; }
 
 #login_page {
   margin: 50px auto;

@@ -15,8 +15,8 @@
 
 	// Value is what the user entered in the search bar
 	// Type is the type of search they are doing (phone # or name)
-	$value = $_POST['value'];
-	$type = $_POST['type'];
+	$value = $_GET['value'];
+	$type = $_GET['type'];
 
 	try{
 

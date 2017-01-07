@@ -10,11 +10,11 @@
 
 	$connection = connect();
 
-	$customerName = $_POST['customer_name'];
+	$customerName = $_GET['customer_name'];
 	//note, need to convert these to ints
 	//Everything passed over HTTP is a string
-	$startRow = (int)$_POST['start_row'];
-	$numRows = (int)$_POST['num_rows'];
+	$startRow = (int)$_GET['start_row'];
+	$numRows = (int)$_GET['num_rows'];
 
 	try{
 		//getFullCustomerHistory returns an array with 2 elements (the assoc. array of visits, and total_rows returned)
