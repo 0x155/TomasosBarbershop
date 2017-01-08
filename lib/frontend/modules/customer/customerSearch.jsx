@@ -46,7 +46,7 @@ var CustomerSearch = React.createClass({
         });
     },
 
-    customerSearch: function() {
+    customerSearch: function(event) {
         var state = this.state,
             content = state.content,
             newContent = content,
@@ -60,9 +60,6 @@ var CustomerSearch = React.createClass({
             });
         }
         else {
-            // TODO - Disable Search button until search returns
-            // Set this.state.results here, based on search results
-
             /*
             Result possibilities are the following:
             1.) User enters no text -> Return no customer found
@@ -70,7 +67,7 @@ var CustomerSearch = React.createClass({
             3.) Multiple results returned -> Show modal window of results
             4.) Match -> Show customer profile
             */
-            AjaxUtil.customerSearch(content, filter, function(res){
+            AjaxUtil.customerSearch(event, content, filter, function(res){
                 // If results came back with a customer,
                 // set state.content to the name so the text box will
                 // populate with the returned customer name

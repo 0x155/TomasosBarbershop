@@ -11,9 +11,9 @@
 	require_once("Employee.php");
 	require_once("Customer.php");
 
-	$customerName = $_POST['customerName'];
-	$employeeName = $_POST['employeeName'];
-	$service = $_POST['service'];
+	$customerName = $_GET['customerName'];
+	$employeeName = $_GET['employeeName'];
+	$service = $_GET['service'];
 
 	$res = array();
 	$error_string = "";

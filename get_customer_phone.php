@@ -6,7 +6,7 @@
 	require_once("Customer.php");
 	require_once("Util.php");
 
-	$customerID = $_POST['cust_ID'];
+	$customerID = $_GET['cust_ID'];
 
 	$cellPhoneNumber = Customer::getCustomerCellPhoneNumber($customerID);
 	if(strlen($cellPhoneNumber) >= 1){

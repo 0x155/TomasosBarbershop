@@ -259,6 +259,7 @@
 					<p id="lightbox-services-error" class="lightbox_error_msgs error_msg">Note: You did not enter any services</p>
 					<p id="lightbox-time-error" class="lightbox_error_msgs error_msg">Note: Entered start time is greater than end time</p>
 					<p id="lightbox-time-past-error" class="lightbox_error_msgs error_msg">Note: Entered start time is beyond business hours</p>
+					<p id="lightbox-services-unavailable" class="lightbox_error_msgs error_msg">Sorry, the services are currently unavailable</p>
 				</div>
 
 			</div>
